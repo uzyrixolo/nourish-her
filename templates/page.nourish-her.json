@@ -1,4 +1,6 @@
 {
+  "wrapper": "page",
+  "layout": "nourish-her",
   "sections": {
     "nh-announcement-bar": {
       "type": "nh-announcement-bar",

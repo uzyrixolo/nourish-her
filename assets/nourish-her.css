@@ -4,9 +4,37 @@
 ============================================= */
 
 /* =============================================
+   RESET & BASE (Scoped to layout)
+============================================= */
+html.nh-root, html.nh-root body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif !important;
+  background: #fff;
+  color: #1a1a1a;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+html.nh-root *, html.nh-root *::before, html.nh-root *::after {
+  box-sizing: border-box;
+}
+
+html.nh-root img {
+  max-width: 100%;
+  display: block;
+}
+
+html.nh-root a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =============================================
    BRAND TOKENS
 ============================================= */
-.nh-root {
+html.nh-root {
   --nh-red: #cc0019;
   --nh-red-dark: #a30014;
   --nh-vanilla: #fffbd5;
