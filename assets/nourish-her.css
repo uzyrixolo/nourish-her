@@ -6,7 +6,7 @@
 /* =============================================
    RESET & BASE (Scoped to layout)
 ============================================= */
-html.nh-root, html.nh-root body {
+.nh-section-wrapper {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -17,16 +17,16 @@ html.nh-root, html.nh-root body {
   scroll-behavior: smooth;
 }
 
-html.nh-root *, html.nh-root *::before, html.nh-root *::after {
+.nh-section-wrapper *, .nh-section-wrapper *::before, .nh-section-wrapper *::after {
   box-sizing: border-box;
 }
 
-html.nh-root img {
+.nh-section-wrapper img {
   max-width: 100%;
   display: block;
 }
 
-html.nh-root a {
+.nh-section-wrapper a {
   text-decoration: none;
   color: inherit;
 }
@@ -34,7 +34,7 @@ html.nh-root a {
 /* =============================================
    BRAND TOKENS
 ============================================= */
-html.nh-root {
+:root {
   --nh-red: #cc0019;
   --nh-red-dark: #a30014;
   --nh-vanilla: #fffbd5;
