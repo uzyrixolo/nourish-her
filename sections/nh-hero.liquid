@@ -1,0 +1,192 @@
+{% comment %}
+  Nourish Her - Hero Section
+  Two-column hero with text content and product image
+{% endcomment %}
+
+{{ 'nourish-her.css' | asset_url | stylesheet_tag }}
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<nav class="nh-sticky-nav" id="nhStickyNav">
+  {% if section.settings.logo != blank %}
+    <img src="{{ section.settings.logo | image_url }}" alt="{{ shop.name }}" width="{{ section.settings.logo.width }}" height="{{ section.settings.logo.height }}" />
+  {% else %}
+    <span class="nh-logo-text" style="font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.5rem; color: var(--nh-red);">Nourish Her™</span>
+  {% endif %}
+  <button class="nh-sticky-cta-btn" id="nhNavCta" onclick="document.getElementById('nh-offer').scrollIntoView({behavior:'smooth'})">
+    {{ section.settings.cta_text }}
+  </button>
+</nav>
+
+<section class="nh-hero" id="nh-hero">
+  <div class="nh-hero-text">
+    {% if section.settings.eyebrow != blank %}
+      <div class="nh-hero-eyebrow">{{ section.settings.eyebrow }}</div>
+    {% endif %}
+    
+    {% if section.settings.heading != blank %}
+      <h1>{{ section.settings.heading }}</h1>
+    {% endif %}
+    
+    {% if section.settings.subheading != blank %}
+      <p class="nh-hero-sub">{{ section.settings.subheading }}</p>
+    {% endif %}
+    
+    {% if section.blocks.size > 0 %}
+      <div class="nh-hero-benefits">
+        {% for block in section.blocks %}
+          <span class="nh-hero-benefit-pill">{{ block.settings.text }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+    
+    <div class="nh-hero-cta-group">
+      <a href="#nh-offer" class="nh-btn-primary">{{ section.settings.cta_button_text }}</a>
+    </div>
+    
+    <div class="nh-hero-trust">
+      <div class="nh-trust-item">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#cc0019"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        {{ section.settings.trust_1 }}
+      </div>
+      <div class="nh-trust-item">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#cc0019"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        {{ section.settings.trust_2 }}
+      </div>
+    </div>
+  </div>
+  
+  <div class="nh-hero-image-wrap" id="nhHeroImageWrap">
+    {% if section.settings.hero_image != blank %}
+      {{ section.settings.hero_image | image_url: width: 800 | image_tag: alt: section.settings.hero_image.alt, loading: 'eager', width: section.settings.hero_image.width, height: section.settings.hero_image.height }}
+    {% else %}
+      {{ 'lifestyle-1' | placeholder_svg_tag: 'nh-hero-placeholder' }}
+    {% endif %}
+    <div class="nh-hero-organ-label">{{ section.settings.image_label }}</div>
+  </div>
+</section>
+
+<script>
+  // Sticky nav CTA visibility
+  const nhHeroImageWrap = document.getElementById('nhHeroImageWrap');
+  const nhNavCta = document.getElementById('nhNavCta');
+  
+  if (nhHeroImageWrap && nhNavCta) {
+    const nhObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          nhNavCta.classList.add('visible');
+        } else {
+          nhNavCta.classList.remove('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    nhObserver.observe(nhHeroImageWrap);
+  }
+</script>
+
+{% schema %}
+{
+  "name": "NH - Hero",
+  "tag": "section",
+  "class": "nh-section-wrapper",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "Whole-Food Nutrition for Women"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Why Beef Organ Superfoods Are the Secret to <em>Healthy Hormones & Energy</em></p>"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Nourish Her™ is a clean, 100% grass-fed beef organ supplement specifically formulated for women — delivering the ancestral nutrition your body recognises, absorbs, and thrives on."
+    },
+    {
+      "type": "text",
+      "id": "cta_button_text",
+      "label": "CTA Button Text",
+      "default": "Start Your Journey"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Sticky Nav CTA Text",
+      "default": "Shop Now — from £34.99"
+    },
+    {
+      "type": "text",
+      "id": "trust_1",
+      "label": "Trust Badge 1",
+      "default": "30-Day Money-Back Guarantee"
+    },
+    {
+      "type": "text",
+      "id": "trust_2",
+      "label": "Trust Badge 2",
+      "default": "Third-Party Lab Tested"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "text",
+      "id": "image_label",
+      "label": "Image Label",
+      "default": "6 Whole-Food Beef Organs in Every Serving"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit_pill",
+      "name": "Benefit Pill",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Hormone Support"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NH - Hero",
+      "blocks": {
+        "pill_1": {
+          "type": "benefit_pill",
+          "settings": { "text": "Hormone Support" }
+        },
+        "pill_2": {
+          "type": "benefit_pill",
+          "settings": { "text": "Sustained Energy" }
+        },
+        "pill_3": {
+          "type": "benefit_pill",
+          "settings": { "text": "Skin & Hair Health" }
+        },
+        "pill_4": {
+          "type": "benefit_pill",
+          "settings": { "text": "Mental Clarity" }
+        }
+      },
+      "block_order": ["pill_1", "pill_2", "pill_3", "pill_4"]
+    }
+  ]
+}
+{% endschema %}

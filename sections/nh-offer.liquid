@@ -1,0 +1,343 @@
+{% comment %}
+  Nourish Her - Offer/Buy Section
+  Product gallery with pricing options
+{% endcomment %}
+
+{{ 'nourish-her.css' | asset_url | stylesheet_tag }}
+
+<section class="nh-section nh-offer-section" id="nh-offer">
+  <div class="nh-section-inner">
+    {% if section.settings.label != blank %}
+      <p class="nh-section-label">{{ section.settings.label }}</p>
+    {% endif %}
+    
+    {% if section.settings.heading != blank %}
+      <h2 class="nh-section-title">{{ section.settings.heading }}</h2>
+    {% endif %}
+    
+    <div class="nh-divider"></div>
+    
+    <div class="nh-offer-grid">
+      <div class="nh-offer-image">
+        <div class="nh-offer-gallery" id="nhOfferGallery">
+          <div class="nh-offer-gallery-track" id="nhOfferGalleryTrack">
+            {% for block in section.blocks %}
+              {% if block.type == 'gallery_image' %}
+                <div class="nh-offer-gallery-slide" {{ block.shopify_attributes }}>
+                  {% if block.settings.image != blank %}
+                    {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.image.alt, loading: 'lazy', width: block.settings.image.width, height: block.settings.image.height }}
+                  {% else %}
+                    {{ 'product-' | append: forloop.index | placeholder_svg_tag: 'nh-gallery-slide' }}
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <button class="nh-offer-gallery-arrow nh-prev" onclick="nhGalleryPrev()" aria-label="Previous">&#8249;</button>
+          <button class="nh-offer-gallery-arrow nh-next" onclick="nhGalleryNext()" aria-label="Next">&#8250;</button>
+        </div>
+        <div class="nh-offer-gallery-dots" id="nhOfferGalleryDots">
+          {% assign gallery_count = 0 %}
+          {% for block in section.blocks %}
+            {% if block.type == 'gallery_image' %}
+              <button class="nh-offer-gallery-dot{% if forloop.first %} active{% endif %}" onclick="nhGalleryGoTo({{ gallery_count }})"></button>
+              {% assign gallery_count = gallery_count | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      
+      <div class="nh-offer-content">
+        <h2>{{ section.settings.product_title }}</h2>
+        <p class="nh-tagline">{{ section.settings.product_tagline }}</p>
+        
+        <div class="nh-pricing-options">
+          {% for block in section.blocks %}
+            {% if block.type == 'pricing_option' %}
+              <div class="nh-pricing-card{% if block.settings.selected %} nh-selected{% endif %}" 
+                   id="nhPricingCard{{ forloop.index }}"
+                   onclick="nhSelectPlan('{{ block.settings.plan_id }}', {{ block.settings.price | json }}, {{ block.settings.subscription | json }})"
+                   {{ block.shopify_attributes }}>
+                {% if block.settings.badge != blank %}
+                  <div class="nh-best-value-badge">{{ block.settings.badge }}</div>
+                {% endif %}
+                <div class="nh-pricing-card-header">
+                  <div class="nh-pricing-card-label">{{ block.settings.label }}</div>
+                  <div class="nh-pricing-card-price">{{ block.settings.price_display }}</div>
+                </div>
+                <div class="nh-pricing-card-sub">{{ block.settings.subtext }}</div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+        
+        <div class="nh-offer-includes">
+          {% for block in section.blocks %}
+            {% if block.type == 'include_item' %}
+              <div class="nh-offer-include-item" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+            {% endif %}
+          {% endfor %}
+        </div>
+        
+        <button class="nh-btn-primary nh-offer-cta" id="nhOfferCta" onclick="window.location.href='{{ section.settings.cta_link }}'">
+          {{ section.settings.cta_text }}
+        </button>
+        
+        <p class="nh-money-back">🛡️ <strong>{{ section.settings.guarantee_title }}.</strong> {{ section.settings.guarantee_text }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% render 'nh-sticky-cta' %}
+
+<script>
+  // Offer image gallery
+  let nhGalleryIndex = 0;
+  const nhGalleryTrack = document.getElementById('nhOfferGalleryTrack');
+  const nhGalleryDots = document.querySelectorAll('.nh-offer-gallery-dot');
+  const nhGallerySlides = document.querySelectorAll('.nh-offer-gallery-slide');
+
+  function nhGalleryGoTo(index) {
+    nhGalleryIndex = index;
+    if (nhGalleryTrack) {
+      nhGalleryTrack.style.transform = `translateX(-${nhGalleryIndex * 100}%)`;
+    }
+    nhGalleryDots.forEach((d, i) => d.classList.toggle('active', i === nhGalleryIndex));
+  }
+  
+  function nhGalleryNext() {
+    nhGalleryGoTo((nhGalleryIndex + 1) % nhGallerySlides.length);
+  }
+  
+  function nhGalleryPrev() {
+    nhGalleryGoTo((nhGalleryIndex - 1 + nhGallerySlides.length) % nhGallerySlides.length);
+  }
+
+  // Touch swipe for gallery
+  (function() {
+    const el = document.getElementById('nhOfferGallery');
+    if (!el) return;
+    let startX = 0;
+    el.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
+    el.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) dx < 0 ? nhGalleryNext() : nhGalleryPrev();
+    }, {passive:true});
+  })();
+
+  // Pricing plan selection
+  function nhSelectPlan(planId, price, isSubscription) {
+    const cards = document.querySelectorAll('.nh-pricing-card');
+    cards.forEach(card => card.classList.remove('nh-selected'));
+    event.currentTarget.classList.add('nh-selected');
+    
+    const cta = document.getElementById('nhOfferCta');
+    if (cta) {
+      cta.textContent = isSubscription ? `Add to Cart — ${price}/mo` : `Add to Cart — ${price}`;
+    }
+  }
+</script>
+
+{% schema %}
+{
+  "name": "NH - Offer Section",
+  "tag": "section",
+  "class": "nh-section-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section Label",
+      "default": "Get Started Today"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Choose Your <em>Nourishment Plan</em></p>"
+    },
+    {
+      "type": "text",
+      "id": "product_title",
+      "label": "Product Title",
+      "default": "Nourish Her™"
+    },
+    {
+      "type": "text",
+      "id": "product_tagline",
+      "label": "Product Tagline",
+      "default": "100% Grass-Fed Beef Organs — Whole-Food Nutrition for Women"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Button Text",
+      "default": "Add to Cart — £34.99/mo"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA Link"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_title",
+      "label": "Guarantee Title",
+      "default": "30-Day Money-Back Guarantee"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_text",
+      "label": "Guarantee Text",
+      "default": "If you're not completely satisfied, we'll refund you in full — no questions asked."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "gallery_image",
+      "name": "Gallery Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    },
+    {
+      "type": "pricing_option",
+      "name": "Pricing Option",
+      "settings": [
+        {
+          "type": "text",
+          "id": "plan_id",
+          "label": "Plan ID",
+          "default": "subscription"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Subscribe & Save"
+        },
+        {
+          "type": "text",
+          "id": "price_display",
+          "label": "Price Display",
+          "default": "£34.99/mo"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price (for JS)",
+          "default": "£34.99"
+        },
+        {
+          "type": "checkbox",
+          "id": "subscription",
+          "label": "Is Subscription",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "subtext",
+          "label": "Subtext",
+          "default": "Save £10 per month · Cancel anytime · Free delivery"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge (optional)",
+          "default": "Best Value"
+        },
+        {
+          "type": "checkbox",
+          "id": "selected",
+          "label": "Selected by default",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "include_item",
+      "name": "Include Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "90 capsules (30-day supply)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NH - Offer Section",
+      "blocks": {
+        "image_1": {
+          "type": "gallery_image"
+        },
+        "image_2": {
+          "type": "gallery_image"
+        },
+        "image_3": {
+          "type": "gallery_image"
+        },
+        "pricing_sub": {
+          "type": "pricing_option",
+          "settings": {
+            "plan_id": "subscription",
+            "label": "Subscribe & Save",
+            "price_display": "£34.99/mo",
+            "price": "£34.99",
+            "subscription": true,
+            "subtext": "Save £10 per month · Cancel anytime · Free delivery",
+            "badge": "Best Value",
+            "selected": true
+          }
+        },
+        "pricing_once": {
+          "type": "pricing_option",
+          "settings": {
+            "plan_id": "onetime",
+            "label": "One-Time Purchase",
+            "price_display": "£44.99",
+            "price": "£44.99",
+            "subscription": false,
+            "subtext": "90 capsules · 30-day supply",
+            "badge": "",
+            "selected": false
+          }
+        },
+        "include_1": {
+          "type": "include_item",
+          "settings": { "text": "90 capsules (30-day supply)" }
+        },
+        "include_2": {
+          "type": "include_item",
+          "settings": { "text": "6 whole-food beef organs per serving" }
+        },
+        "include_3": {
+          "type": "include_item",
+          "settings": { "text": "100% grass-fed & pasture-raised" }
+        },
+        "include_4": {
+          "type": "include_item",
+          "settings": { "text": "Third-party lab tested for purity" }
+        },
+        "include_5": {
+          "type": "include_item",
+          "settings": { "text": "Free UK delivery on subscription" }
+        },
+        "include_6": {
+          "type": "include_item",
+          "settings": { "text": "30-day money-back guarantee" }
+        }
+      },
+      "block_order": ["image_1", "image_2", "image_3", "pricing_sub", "pricing_once", "include_1", "include_2", "include_3", "include_4", "include_5", "include_6"]
+    }
+  ]
+}
+{% endschema %}

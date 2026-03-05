@@ -1,0 +1,178 @@
+{% comment %}
+  Nourish Her - Comparison Table Section
+  Whole-food organs vs traditional multivitamins
+{% endcomment %}
+
+{{ 'nourish-her.css' | asset_url | stylesheet_tag }}
+
+<section class="nh-section nh-comparison-section" id="nh-comparison">
+  <div class="nh-section-inner">
+    {% if section.settings.label != blank %}
+      <p class="nh-section-label">{{ section.settings.label }}</p>
+    {% endif %}
+    
+    {% if section.settings.heading != blank %}
+      <h2 class="nh-section-title">{{ section.settings.heading }}</h2>
+    {% endif %}
+    
+    <div class="nh-divider"></div>
+    
+    <div style="overflow-x:auto;">
+      <table class="nh-comparison-table">
+        <thead>
+          <tr>
+            <th>
+              <div class="nh-comparison-th-img nh-nourish-img">
+                {% if section.settings.product_image != blank %}
+                  {{ section.settings.product_image | image_url: width: 400 | image_tag: alt: section.settings.product_image.alt, loading: 'lazy', width: section.settings.product_image.width, height: section.settings.product_image.height }}
+                {% else %}
+                  {{ 'product-1' | placeholder_svg_tag: 'nh-comparison-product' }}
+                {% endif %}
+              </div>
+              {{ section.settings.column_1_title }}
+            </th>
+            <th>
+              <div class="nh-comparison-th-img nh-multi-img">
+                {% if section.settings.comparison_image != blank %}
+                  {{ section.settings.comparison_image | image_url: width: 400 | image_tag: alt: section.settings.comparison_image.alt, loading: 'lazy', width: section.settings.comparison_image.width, height: section.settings.comparison_image.height }}
+                {% else %}
+                  {{ 'product-2' | placeholder_svg_tag: 'nh-comparison-generic' }}
+                {% endif %}
+              </div>
+              {{ section.settings.column_2_title }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for block in section.blocks %}
+            <tr {{ block.shopify_attributes }}>
+              <td>{{ block.settings.product_point }}</td>
+              <td>{{ block.settings.comparison_point }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NH - Comparison",
+  "tag": "section",
+  "class": "nh-section-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section Label",
+      "default": "Why Nourish Her™?"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Whole-Food Organs vs. <em>Traditional Multivitamins</em></p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Product Image"
+    },
+    {
+      "type": "text",
+      "id": "column_1_title",
+      "label": "Column 1 Title",
+      "default": "Nourish Her™ Beef Organ Supplement"
+    },
+    {
+      "type": "image_picker",
+      "id": "comparison_image",
+      "label": "Comparison Image"
+    },
+    {
+      "type": "text",
+      "id": "column_2_title",
+      "label": "Column 2 Title",
+      "default": "Traditional Multivitamin"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "comparison_row",
+      "name": "Comparison Row",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "product_point",
+          "label": "Product Point",
+          "default": "Delivers nutrients in their naturally occurring food form, alongside the cofactors the body uses to absorb and utilise them effectively."
+        },
+        {
+          "type": "textarea",
+          "id": "comparison_point",
+          "label": "Comparison Point",
+          "default": "Provides isolated nutrients that are often stripped from their natural context, which can reduce absorption and tolerance for some people."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NH - Comparison",
+      "blocks": {
+        "row_1": {
+          "type": "comparison_row",
+          "settings": {
+            "product_point": "Delivers nutrients in their naturally occurring food form, alongside the cofactors the body uses to absorb and utilise them effectively.",
+            "comparison_point": "Provides isolated nutrients that are often stripped from their natural context, which can reduce absorption and tolerance for some people."
+          }
+        },
+        "row_2": {
+          "type": "comparison_row",
+          "settings": {
+            "product_point": "Supplies iron, B vitamins, fat-soluble nutrients, and trace minerals together, reflecting how nutrients naturally work in synergy.",
+            "comparison_point": "Typically separates nutrients into single compounds that may compete for absorption when taken together."
+          }
+        },
+        "row_3": {
+          "type": "comparison_row",
+          "settings": {
+            "product_point": "Generally gentler on digestion because the body recognises them as concentrated food rather than synthetic compounds.",
+            "comparison_point": "Can cause nausea, stomach upset, or discomfort due to harsh forms or high doses of isolated nutrients."
+          }
+        },
+        "row_4": {
+          "type": "comparison_row",
+          "settings": {
+            "product_point": "Focuses on foundational nourishment by replenishing multiple nutrient systems at once rather than targeting one symptom.",
+            "comparison_point": "Often aims to correct a single issue (e.g. iron, energy, beauty), leading to fragmented supplementation routines."
+          }
+        },
+        "row_5": {
+          "type": "comparison_row",
+          "settings": {
+            "product_point": "Minimally processed and gently freeze-dried to preserve naturally occurring nutrients without altering their structure.",
+            "comparison_point": "Manufactured through chemical synthesis and often contains fillers, binders, and stabilisers."
+          }
+        },
+        "row_6": {
+          "type": "comparison_row",
+          "settings": {
+            "product_point": "Aligns with ancestral dietary patterns that prioritised nutrient-dense whole foods for resilience and vitality.",
+            "comparison_point": "Reflects modern, reductionist nutrition approaches that rely on lab-engineered shortcuts."
+          }
+        },
+        "row_7": {
+          "type": "comparison_row",
+          "settings": {
+            "product_point": "Offers broad nutritional coverage in one thoughtfully formulated daily serving.",
+            "comparison_point": "Often requires taking multiple separate products to cover similar nutritional ground."
+          }
+        }
+      },
+      "block_order": ["row_1", "row_2", "row_3", "row_4", "row_5", "row_6", "row_7"]
+    }
+  ]
+}
+{% endschema %}

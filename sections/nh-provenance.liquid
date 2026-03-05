@@ -1,0 +1,138 @@
+{% comment %}
+  Nourish Her - Provenance Section
+  Sourcing standards and quality badges
+{% endcomment %}
+
+{{ 'nourish-her.css' | asset_url | stylesheet_tag }}
+
+<section class="nh-section nh-provenance-section" id="nh-provenance">
+  <div class="nh-section-inner">
+    {% if section.settings.label != blank %}
+      <p class="nh-section-label">{{ section.settings.label }}</p>
+    {% endif %}
+    
+    {% if section.settings.heading != blank %}
+      <h2 class="nh-section-title">{{ section.settings.heading }}</h2>
+    {% endif %}
+    
+    <div class="nh-divider"></div>
+    
+    {% if section.settings.description != blank %}
+      <p class="nh-section-body">{{ section.settings.description }}</p>
+    {% endif %}
+    
+    {% if section.blocks.size > 0 %}
+      <div class="nh-provenance-grid">
+        {% for block in section.blocks %}
+          <div class="nh-provenance-card" {{ block.shopify_attributes }}>
+            <div class="nh-provenance-icon">{{ block.settings.icon }}</div>
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.description }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NH - Provenance",
+  "tag": "section",
+  "class": "nh-section-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section Label",
+      "default": "Our Standards"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Sourced with <em>Integrity</em></p>"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Every organ in Nourish Her™ is sourced from 100% grass-fed, pasture-raised cattle in New Zealand — one of the world's most pristine agricultural environments, free from hormones and antibiotics."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "provenance_item",
+      "name": "Provenance Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (emoji)",
+          "default": "🇳🇿"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "New Zealand Sourced"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Cattle raised on the lush, clean pastures of New Zealand — renowned globally for the highest standards in grass-fed farming."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NH - Provenance",
+      "blocks": {
+        "nz": {
+          "type": "provenance_item",
+          "settings": {
+            "icon": "🇳🇿",
+            "title": "New Zealand Sourced",
+            "description": "Cattle raised on the lush, clean pastures of New Zealand — renowned globally for the highest standards in grass-fed farming."
+          }
+        },
+        "grass_fed": {
+          "type": "provenance_item",
+          "settings": {
+            "icon": "🌿",
+            "title": "100% Grass-Fed",
+            "description": "Our cattle graze freely on natural pasture year-round, producing organs with superior nutrient density compared to grain-fed alternatives."
+          }
+        },
+        "no_hormones": {
+          "type": "provenance_item",
+          "settings": {
+            "icon": "🚫",
+            "title": "No Hormones or Antibiotics",
+            "description": "Raised without the use of synthetic hormones or routine antibiotics — clean nutrition, exactly as nature intended."
+          }
+        },
+        "freeze_dried": {
+          "type": "provenance_item",
+          "settings": {
+            "icon": "❄️",
+            "title": "Freeze-Dried",
+            "description": "Gently freeze-dried at low temperatures to preserve the full spectrum of naturally occurring nutrients without heat damage."
+          }
+        },
+        "lab_tested": {
+          "type": "provenance_item",
+          "settings": {
+            "icon": "🔬",
+            "title": "Third-Party Lab Tested",
+            "description": "Every batch is independently tested for purity, potency, and safety — so you know exactly what you're putting in your body."
+          }
+        }
+      },
+      "block_order": ["nz", "grass_fed", "no_hormones", "freeze_dried", "lab_tested"]
+    }
+  ]
+}
+{% endschema %}

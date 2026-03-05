@@ -1,0 +1,139 @@
+{% comment %}
+  Nourish Her - Timeline Section
+  Journey of benefits over months
+{% endcomment %}
+
+{{ 'nourish-her.css' | asset_url | stylesheet_tag }}
+
+<section class="nh-section nh-timeline-section" id="nh-timeline">
+  <div class="nh-section-inner">
+    {% if section.settings.label != blank %}
+      <p class="nh-section-label">{{ section.settings.label }}</p>
+    {% endif %}
+    
+    {% if section.settings.heading != blank %}
+      <h2 class="nh-section-title">{{ section.settings.heading }}</h2>
+    {% endif %}
+    
+    {% if section.settings.disclaimer != blank %}
+      <p class="nh-timeline-disclaimer">{{ section.settings.disclaimer }}</p>
+    {% endif %}
+    
+    {% if section.blocks.size > 0 %}
+      <div class="nh-timeline">
+        {% for block in section.blocks %}
+          <div class="nh-timeline-item" {{ block.shopify_attributes }}>
+            <div class="nh-timeline-month">{{ block.settings.month }}</div>
+            <div class="nh-timeline-dot"></div>
+            <div class="nh-timeline-content">
+              <h3>{{ block.settings.title }}</h3>
+              <p>{{ block.settings.description }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NH - Timeline",
+  "tag": "section",
+  "class": "nh-section-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section Label",
+      "default": "Your Journey"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>What to Expect When Taking <em>Nourish Her™</em></p>"
+    },
+    {
+      "type": "text",
+      "id": "disclaimer",
+      "label": "Disclaimer",
+      "default": "Results may vary. Individual outcomes depend on diet, lifestyle, and starting nutrient status."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "timeline_item",
+      "name": "Timeline Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "month",
+          "label": "Month Label",
+          "default": "Month<br/>1"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Steadier Daily Energy"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Many women notice steadier daily energy and less afternoon fatigue as bioavailable haem iron, B12, and B-vitamins begin supporting normal energy-yielding metabolism."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NH - Timeline",
+      "blocks": {
+        "month_1": {
+          "type": "timeline_item",
+          "settings": {
+            "month": "Month<br/>1",
+            "title": "Steadier Daily Energy",
+            "description": "Many women notice steadier daily energy and less afternoon fatigue as bioavailable haem iron, B12, and B-vitamins begin supporting normal energy-yielding metabolism."
+          }
+        },
+        "month_2": {
+          "type": "timeline_item",
+          "settings": {
+            "month": "Month<br/>2",
+            "title": "Sharper Mental Clarity",
+            "description": "Improved mental clarity and resilience are often reported as iron, B12, and copper continue to support red blood cell formation and oxygen delivery to the brain."
+          }
+        },
+        "month_3": {
+          "type": "timeline_item",
+          "settings": {
+            "month": "Month<br/>3",
+            "title": "Skin & Hair Changes",
+            "description": "Early changes in skin and hair quality may become noticeable, linked to vitamin A, zinc, and copper supporting normal skin cell turnover and connective tissue health."
+          }
+        },
+        "month_6": {
+          "type": "timeline_item",
+          "settings": {
+            "month": "Month<br/>6",
+            "title": "Greater Vitality & Balance",
+            "description": "A greater sense of overall vitality and balance is common, as consistent intake of whole-food micronutrients helps replenish nutrient stores and support normal hormonal and metabolic function."
+          }
+        },
+        "month_12": {
+          "type": "timeline_item",
+          "settings": {
+            "month": "Month<br/>12",
+            "title": "Long-Term Nourishment",
+            "description": "Many women describe feeling more robust and nourished long-term, with sustained energy and fewer fluctuations — reflecting the cumulative benefits of ongoing whole-food, ancestral nutrition."
+          }
+        }
+      },
+      "block_order": ["month_1", "month_2", "month_3", "month_6", "month_12"]
+    }
+  ]
+}
+{% endschema %}

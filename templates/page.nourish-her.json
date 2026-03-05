@@ -1,0 +1,90 @@
+{
+  "sections": {
+    "nh-announcement-bar": {
+      "type": "nh-announcement-bar",
+      "settings": {
+      }
+    },
+    "nh-hero": {
+      "type": "nh-hero",
+      "settings": {
+      }
+    },
+    "nh-benefits": {
+      "type": "nh-benefits",
+      "settings": {
+      }
+    },
+    "nh-reviews": {
+      "type": "nh-reviews",
+      "settings": {
+      }
+    },
+    "nh-founder": {
+      "type": "nh-founder",
+      "settings": {
+      }
+    },
+    "nh-timeline": {
+      "type": "nh-timeline",
+      "settings": {
+      }
+    },
+    "nh-ingredients": {
+      "type": "nh-ingredients",
+      "settings": {
+      }
+    },
+    "nh-comparison": {
+      "type": "nh-comparison",
+      "settings": {
+      }
+    },
+    "nh-provenance": {
+      "type": "nh-provenance",
+      "settings": {
+      }
+    },
+    "nh-trust-signals": {
+      "type": "nh-trust-signals",
+      "settings": {
+      }
+    },
+    "nh-offer": {
+      "type": "nh-offer",
+      "settings": {
+      }
+    },
+    "nh-lab-tested": {
+      "type": "nh-lab-tested",
+      "settings": {
+      }
+    },
+    "nh-faq": {
+      "type": "nh-faq",
+      "settings": {
+      }
+    },
+    "nh-footer": {
+      "type": "nh-footer",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "nh-announcement-bar",
+    "nh-hero",
+    "nh-benefits",
+    "nh-reviews",
+    "nh-founder",
+    "nh-timeline",
+    "nh-ingredients",
+    "nh-comparison",
+    "nh-provenance",
+    "nh-trust-signals",
+    "nh-offer",
+    "nh-lab-tested",
+    "nh-faq",
+    "nh-footer"
+  ]
+}

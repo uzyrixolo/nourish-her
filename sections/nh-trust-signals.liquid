@@ -1,0 +1,102 @@
+{% comment %}
+  Nourish Her - Trust Signals Bar
+  Horizontal trust badges bar
+{% endcomment %}
+
+{{ 'nourish-her.css' | asset_url | stylesheet_tag }}
+
+<section class="nh-trust-section" id="nh-trust-signals">
+  <div class="nh-trust-inner">
+    {% for block in section.blocks %}
+      <div class="nh-trust-badge" {{ block.shopify_attributes }}>
+        <div class="nh-trust-badge-icon">{{ block.settings.icon }}</div>
+        <div class="nh-trust-badge-label">{{ block.settings.label }}</div>
+      </div>
+    {% endfor %}
+    {% comment %} Duplicate for mobile carousel {% endcomment %}
+    {% for block in section.blocks %}
+      <div class="nh-trust-badge">
+        <div class="nh-trust-badge-icon">{{ block.settings.icon }}</div>
+        <div class="nh-trust-badge-label">{{ block.settings.label }}</div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NH - Trust Signals",
+  "tag": "section",
+  "class": "nh-section-wrapper",
+  "blocks": [
+    {
+      "type": "trust_badge",
+      "name": "Trust Badge",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (emoji)",
+          "default": "🛡️"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "30-Day Money-Back Guarantee"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NH - Trust Signals",
+      "blocks": {
+        "badge_1": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🛡️",
+            "label": "30-Day Money-Back Guarantee"
+          }
+        },
+        "badge_2": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🌿",
+            "label": "Non-GMO"
+          }
+        },
+        "badge_3": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🐄",
+            "label": "100% Grass-Fed"
+          }
+        },
+        "badge_4": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🌾",
+            "label": "Gluten-Free"
+          }
+        },
+        "badge_5": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🔬",
+            "label": "Lab Tested"
+          }
+        },
+        "badge_6": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🇳🇿",
+            "label": "New Zealand Sourced"
+          }
+        }
+      },
+      "block_order": ["badge_1", "badge_2", "badge_3", "badge_4", "badge_5", "badge_6"]
+    }
+  ]
+}
+{% endschema %}

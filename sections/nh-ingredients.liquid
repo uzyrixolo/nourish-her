@@ -1,0 +1,161 @@
+{% comment %}
+  Nourish Her - Ingredients Section
+  Six organ ingredient cards on red background
+{% endcomment %}
+
+{{ 'nourish-her.css' | asset_url | stylesheet_tag }}
+
+<section class="nh-section nh-ingredients-section" id="nh-ingredients">
+  <div class="nh-section-inner">
+    {% if section.settings.label != blank %}
+      <p class="nh-section-label">{{ section.settings.label }}</p>
+    {% endif %}
+    
+    {% if section.settings.heading != blank %}
+      <h2 class="nh-section-title">{{ section.settings.heading }}</h2>
+    {% endif %}
+    
+    <div class="nh-divider"></div>
+    
+    {% if section.settings.description != blank %}
+      <p class="nh-section-body">{{ section.settings.description }}</p>
+    {% endif %}
+    
+    {% if section.blocks.size > 0 %}
+      <div class="nh-ingredients-grid">
+        {% for block in section.blocks %}
+          <div class="nh-ingredient-card" {{ block.shopify_attributes }}>
+            <div class="nh-ingredient-name">
+              <span class="nh-organ-emoji">{{ block.settings.emoji }}</span>
+              {{ block.settings.name }}
+            </div>
+            <div class="nh-ingredient-stat">{{ block.settings.stat }}</div>
+            <p>{{ block.settings.description }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NH - Ingredients",
+  "tag": "section",
+  "class": "nh-section-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section Label",
+      "default": "The Formula"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>What's Inside <em>Exactly?</em></p>"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Six carefully selected grass-fed beef organs, each chosen for their unique nutritional profile and specific relevance to female health."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        {
+          "type": "text",
+          "id": "emoji",
+          "label": "Emoji",
+          "default": "🫀"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Beef Liver"
+        },
+        {
+          "type": "text",
+          "id": "stat",
+          "label": "Stat/Highlight",
+          "default": "Richer in Vitamin A than carrots"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Naturally higher in vitamin B12 than eggs or dairy. The most nutrient-dense food on the planet — a cornerstone of ancestral diets worldwide."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NH - Ingredients",
+      "blocks": {
+        "liver": {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "🫀",
+            "name": "Beef Liver",
+            "stat": "Richer in Vitamin A than carrots",
+            "description": "Naturally higher in vitamin B12 than eggs or dairy. The most nutrient-dense food on the planet — a cornerstone of ancestral diets worldwide."
+          }
+        },
+        "spleen": {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "🩸",
+            "name": "Beef Spleen",
+            "stat": "Richer in haem iron than spinach",
+            "description": "Provides iron in its most bioavailable, food-based form — the form your body recognises and absorbs most efficiently, without the stomach upset of synthetic iron."
+          }
+        },
+        "kidney": {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "🫘",
+            "name": "Beef Kidney",
+            "stat": "Richer in selenium than tuna or chicken",
+            "description": "A well-known dietary source of this essential trace mineral, which plays a key role in thyroid function and antioxidant defence."
+          }
+        },
+        "heart": {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "❤️",
+            "name": "Beef Heart",
+            "stat": "Richer in CoQ10 than most cuts of steak",
+            "description": "Also provides B vitamins that support cellular energy production — making it a powerful ally for women who need sustained stamina throughout the day."
+          }
+        },
+        "uterus": {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "🌸",
+            "name": "Beef Uterus",
+            "stat": "Rich in connective-tissue proteins",
+            "description": "Naturally rich in connective-tissue proteins — similar to bone broth. Contains structural proteins and minerals valued in traditional diets for female reproductive health."
+          }
+        },
+        "ovaries": {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "🌺",
+            "name": "Beef Ovaries",
+            "stat": "Provides phospholipids like egg yolks",
+            "description": "Supplies lipid-based compounds involved in nutrient transport and cellular structure — a uniquely female-focused ingredient found in very few supplements."
+          }
+        }
+      },
+      "block_order": ["liver", "spleen", "kidney", "heart", "uterus", "ovaries"]
+    }
+  ]
+}
+{% endschema %}

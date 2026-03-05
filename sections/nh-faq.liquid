@@ -1,0 +1,151 @@
+{% comment %}
+  Nourish Her - FAQ Section
+  Accordion-style frequently asked questions
+{% endcomment %}
+
+{{ 'nourish-her.css' | asset_url | stylesheet_tag }}
+
+<section class="nh-section nh-faq-section" id="nh-faq">
+  <div class="nh-section-inner">
+    {% if section.settings.label != blank %}
+      <p class="nh-section-label">{{ section.settings.label }}</p>
+    {% endif %}
+    
+    {% if section.settings.heading != blank %}
+      <h2 class="nh-section-title">{{ section.settings.heading }}</h2>
+    {% endif %}
+    
+    <div class="nh-divider"></div>
+    
+    {% if section.blocks.size > 0 %}
+      <div class="nh-faq-list">
+        {% for block in section.blocks %}
+          <div class="nh-faq-item" {{ block.shopify_attributes }}>
+            <button class="nh-faq-question" onclick="nhToggleFaq(this)">
+              {{ block.settings.question }}
+              <div class="nh-faq-icon">+</div>
+            </button>
+            <div class="nh-faq-answer">
+              <p>{{ block.settings.answer }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<script>
+  function nhToggleFaq(btn) {
+    const item = btn.closest('.nh-faq-item');
+    const isOpen = item.classList.contains('nh-open');
+    document.querySelectorAll('.nh-faq-item.nh-open').forEach(el => el.classList.remove('nh-open'));
+    if (!isOpen) item.classList.add('nh-open');
+  }
+</script>
+
+{% schema %}
+{
+  "name": "NH - FAQ",
+  "tag": "section",
+  "class": "nh-section-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section Label",
+      "default": "Got Questions?"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Frequently Asked <em>Questions</em></p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "What exactly is in Nourish Her™?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "Nourish Her™ contains six 100% grass-fed beef organs: liver, spleen, kidney, heart, uterus, and ovaries. Each organ is sourced from pasture-raised cattle in New Zealand, gently freeze-dried to preserve nutrients, and encapsulated with no fillers, binders, or synthetic additives."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NH - FAQ",
+      "blocks": {
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What exactly is in Nourish Her™?",
+            "answer": "Nourish Her™ contains six 100% grass-fed beef organs: liver, spleen, kidney, heart, uterus, and ovaries. Each organ is sourced from pasture-raised cattle in New Zealand, gently freeze-dried to preserve nutrients, and encapsulated with no fillers, binders, or synthetic additives."
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How many capsules do I take per day?",
+            "answer": "We recommend taking 3 capsules per day with food. Each pouch contains 90 capsules — a full 30-day supply at the recommended serving size."
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will I taste or smell the organs?",
+            "answer": "No. The organs are gently freeze-dried and encapsulated, which neutralises any taste or odour entirely. This is one of the key reasons we created Nourish Her™ — to make organ nutrition accessible without having to eat raw or cooked organs."
+          }
+        },
+        "faq_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is Nourish Her™ suitable for pregnant or breastfeeding women?",
+            "answer": "Beef liver is very high in vitamin A (retinol). While this is a benefit for most women, high doses of preformed vitamin A are not recommended during pregnancy. We advise pregnant or breastfeeding women to consult their healthcare provider before taking Nourish Her™."
+          }
+        },
+        "faq_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long before I notice results?",
+            "answer": "Most women report noticing steadier energy levels within the first 2–4 weeks. More significant changes — such as improved skin, hair, and hormonal balance — are typically observed after 2–3 months of consistent daily use. Results vary depending on your individual nutrient status and lifestyle."
+          }
+        },
+        "faq_6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I cancel my subscription at any time?",
+            "answer": "Yes, absolutely. You can cancel, pause, or modify your subscription at any time through your account portal — no fees, no awkward phone calls. We want you to stay because you love the product, not because you're locked in."
+          }
+        },
+        "faq_7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your returns policy?",
+            "answer": "We offer a 30-day money-back guarantee. If you're not satisfied for any reason within 30 days of purchase, simply contact us and we'll issue a full refund — no questions asked."
+          }
+        },
+        "faq_8": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is Nourish Her™ gluten-free and non-GMO?",
+            "answer": "Yes. Nourish Her™ is 100% gluten-free, non-GMO, and free from artificial additives, fillers, and binders. It is a pure, whole-food supplement with nothing unnecessary added."
+          }
+        }
+      },
+      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5", "faq_6", "faq_7", "faq_8"]
+    }
+  ]
+}
+{% endschema %}

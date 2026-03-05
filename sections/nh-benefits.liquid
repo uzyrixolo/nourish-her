@@ -1,0 +1,120 @@
+{% comment %}
+  Nourish Her - Benefits Section
+  Four pillars of female vitality
+{% endcomment %}
+
+{{ 'nourish-her.css' | asset_url | stylesheet_tag }}
+
+<section class="nh-section nh-benefits-section" id="nh-benefits">
+  <div class="nh-section-inner">
+    {% if section.settings.label != blank %}
+      <p class="nh-section-label">{{ section.settings.label }}</p>
+    {% endif %}
+    
+    {% if section.settings.heading != blank %}
+      <h2 class="nh-section-title">{{ section.settings.heading }}</h2>
+    {% endif %}
+    
+    <div class="nh-divider"></div>
+    
+    {% if section.blocks.size > 0 %}
+      <div class="nh-benefits-grid">
+        {% for block in section.blocks %}
+          <div class="nh-benefit-card" {{ block.shopify_attributes }}>
+            <div class="nh-benefit-icon">{{ block.settings.icon }}</div>
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.description }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NH - Benefits",
+  "tag": "section",
+  "class": "nh-section-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section Label",
+      "default": "What You'll Feel"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Four Pillars of <em>Female Vitality</em></p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (emoji)",
+          "default": "⚡"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Sustained Energy"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Bioavailable haem iron, B12, and B-vitamins support normal energy-yielding metabolism — no crashes, no stimulants."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NH - Benefits",
+      "blocks": {
+        "benefit_1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "⚡",
+            "title": "Sustained Energy",
+            "description": "Bioavailable haem iron, B12, and B-vitamins support normal energy-yielding metabolism — no crashes, no stimulants."
+          }
+        },
+        "benefit_2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "🌸",
+            "title": "Hormone Support",
+            "description": "Whole-food micronutrients help replenish nutrient stores and support normal hormonal and metabolic function over time."
+          }
+        },
+        "benefit_3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "✨",
+            "title": "Skin & Hair Health",
+            "description": "Vitamin A, zinc, and copper support normal skin cell turnover, connective tissue health, and hair vitality."
+          }
+        },
+        "benefit_4": {
+          "type": "benefit",
+          "settings": {
+            "icon": "🧠",
+            "title": "Mental Clarity",
+            "description": "Iron, B12, and copper support red blood cell formation and oxygen delivery — helping to lift the fog and sharpen focus."
+          }
+        }
+      },
+      "block_order": ["benefit_1", "benefit_2", "benefit_3", "benefit_4"]
+    }
+  ]
+}
+{% endschema %}

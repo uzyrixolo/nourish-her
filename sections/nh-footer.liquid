@@ -1,0 +1,90 @@
+{% comment %}
+  Nourish Her - Footer Section
+  Simple branded footer
+{% endcomment %}
+
+{{ 'nourish-her.css' | asset_url | stylesheet_tag }}
+
+<footer class="nh-footer" id="nh-footer">
+  <div class="nh-footer-inner">
+    {% if section.settings.logo != blank %}
+      {{ section.settings.logo | image_url: width: 150 | image_tag: alt: shop.name, loading: 'lazy', width: section.settings.logo.width, height: section.settings.logo.height }}
+    {% else %}
+      <span style="font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.5rem; color: rgba(255,255,255,0.8);">Nourish Her™</span>
+    {% endif %}
+    
+    {% if section.blocks.size > 0 %}
+      <div class="nh-footer-links">
+        {% for block in section.blocks %}
+          <a href="{{ block.settings.link }}" {{ block.shopify_attributes }}>{{ block.settings.label }}</a>
+        {% endfor %}
+      </div>
+    {% endif %}
+    
+    <p class="nh-footer-copy">&copy; {{ 'now' | date: '%Y' }} {{ section.settings.company_name | default: 'Nourish Her™' }}. All rights reserved.</p>
+    
+    {% if section.settings.disclaimer != blank %}
+      <p class="nh-footer-disclaimer">{{ section.settings.disclaimer }}</p>
+    {% endif %}
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "NH - Footer",
+  "tag": "section",
+  "class": "nh-section-wrapper",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "text",
+      "id": "company_name",
+      "label": "Company Name",
+      "default": "Nourish Her™"
+    },
+    {
+      "type": "textarea",
+      "id": "disclaimer",
+      "label": "Disclaimer",
+      "default": "*These statements have not been evaluated by the Food Standards Agency. This product is not intended to diagnose, treat, cure, or prevent any disease. Results may vary. Always consult your healthcare provider before starting any new supplement, especially if you are pregnant, breastfeeding, or taking medication."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Privacy Policy"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NH - Footer",
+      "blocks": {
+        "link_1": { "type": "link", "settings": { "label": "Privacy Policy" } },
+        "link_2": { "type": "link", "settings": { "label": "Terms of Service" } },
+        "link_3": { "type": "link", "settings": { "label": "Shipping Policy" } },
+        "link_4": { "type": "link", "settings": { "label": "Refund Policy" } },
+        "link_5": { "type": "link", "settings": { "label": "Contact Us" } },
+        "link_6": { "type": "link", "settings": { "label": "FAQ" } }
+      },
+      "block_order": ["link_1", "link_2", "link_3", "link_4", "link_5", "link_6"]
+    }
+  ]
+}
+{% endschema %}

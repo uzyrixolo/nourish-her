@@ -1,0 +1,168 @@
+{% comment %}
+  Nourish Her - Reviews Carousel
+  Infinite scrolling social proof
+{% endcomment %}
+
+{{ 'nourish-her.css' | asset_url | stylesheet_tag }}
+
+<section class="nh-section nh-reviews-section" id="nh-reviews">
+  <div class="nh-section-inner">
+    {% if section.settings.label != blank %}
+      <p class="nh-section-label">{{ section.settings.label }}</p>
+    {% endif %}
+    
+    {% if section.settings.heading != blank %}
+      <h2 class="nh-section-title">{{ section.settings.heading }}</h2>
+    {% endif %}
+    
+    <div class="nh-divider"></div>
+  </div>
+  
+  {% if section.blocks.size > 0 %}
+    <div class="nh-reviews-track-wrap">
+      <div class="nh-reviews-track" id="nhReviewsTrack">
+        {% for block in section.blocks %}
+          <div class="nh-review-card" {{ block.shopify_attributes }}>
+            <div class="nh-review-stars">{{ block.settings.stars }}</div>
+            <p class="nh-review-text">"{{ block.settings.review }}"</p>
+            <div class="nh-reviewer">
+              <div class="nh-reviewer-avatar">{{ block.settings.name | slice: 0 }}</div>
+              <div>
+                <div class="nh-reviewer-name">{{ block.settings.name }}</div>
+                <div class="nh-reviewer-tag">{{ block.settings.tag }}</div>
+                {% if block.settings.verified %}
+                  <div class="nh-verified-badge">✓ Verified</div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        {% comment %} Duplicate for seamless loop {% endcomment %}
+        {% for block in section.blocks %}
+          <div class="nh-review-card">
+            <div class="nh-review-stars">{{ block.settings.stars }}</div>
+            <p class="nh-review-text">"{{ block.settings.review }}"</p>
+            <div class="nh-reviewer">
+              <div class="nh-reviewer-avatar">{{ block.settings.name | slice: 0 }}</div>
+              <div>
+                <div class="nh-reviewer-name">{{ block.settings.name }}</div>
+                <div class="nh-reviewer-tag">{{ block.settings.tag }}</div>
+                {% if block.settings.verified %}
+                  <div class="nh-verified-badge">✓ Verified</div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "NH - Reviews",
+  "tag": "section",
+  "class": "nh-section-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section Label",
+      "default": "Real Women, Real Results"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>What Our Community <em>Is Saying</em></p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "text",
+          "id": "stars",
+          "label": "Stars",
+          "default": "★★★★★"
+        },
+        {
+          "type": "textarea",
+          "id": "review",
+          "label": "Review Text",
+          "default": "I've tried so many supplements and nothing has come close. Within the first few weeks I noticed my energy was steadier — no more 3pm crash. My skin has genuinely never looked better."
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Reviewer Name",
+          "default": "Sarah M."
+        },
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Reviewer Tag",
+          "default": "Verified Customer"
+        },
+        {
+          "type": "checkbox",
+          "id": "verified",
+          "label": "Show Verified Badge",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NH - Reviews",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "stars": "★★★★★",
+            "review": "I've tried so many supplements and nothing has come close. Within the first few weeks I noticed my energy was steadier — no more 3pm crash. My skin has genuinely never looked better.",
+            "name": "Sarah M.",
+            "tag": "Verified Customer",
+            "verified": true
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "stars": "★★★★★",
+            "review": "As a nurse working 12-hour shifts, I was constantly running on empty. After two months on Nourish Her, I genuinely feel like myself again. My iron levels improved and my focus is back.",
+            "name": "Emma L.",
+            "tag": "Verified Customer",
+            "verified": true
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "stars": "★★★★★",
+            "review": "I was sceptical about organ supplements but the science behind this is undeniable. Three months in and my hair is thicker, my hormones feel balanced, and I've ditched my old multivitamin for good.",
+            "name": "Rachel T.",
+            "tag": "Verified Customer",
+            "verified": true
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "stars": "★★★★★",
+            "review": "Finally a supplement that was made with women in mind. The fact that it includes uterus and ovaries is something no other brand does. I feel more balanced and less fatigued during my cycle.",
+            "name": "Amara K.",
+            "tag": "Verified Customer",
+            "verified": true
+          }
+        }
+      },
+      "block_order": ["review_1", "review_2", "review_3", "review_4"]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,125 @@
+{% comment %}
+  Nourish Her - Lab Tested Section
+  Transparency and trust messaging
+{% endcomment %}
+
+{{ 'nourish-her.css' | asset_url | stylesheet_tag }}
+
+<section class="nh-section nh-lab-section" id="nh-lab-tested">
+  <div class="nh-section-inner">
+    {% if section.settings.label != blank %}
+      <p class="nh-section-label">{{ section.settings.label }}</p>
+    {% endif %}
+    
+    {% if section.settings.heading != blank %}
+      <h2 class="nh-section-title">{{ section.settings.heading }}</h2>
+    {% endif %}
+    
+    <div class="nh-divider"></div>
+    
+    <div class="nh-lab-grid">
+      <div class="nh-lab-text">
+        {% if section.settings.paragraph_1 != blank %}
+          <p>{{ section.settings.paragraph_1 }}</p>
+        {% endif %}
+        
+        {% if section.settings.paragraph_2 != blank %}
+          <p>{{ section.settings.paragraph_2 }}</p>
+        {% endif %}
+        
+        {% if section.settings.paragraph_3 != blank %}
+          <p>{{ section.settings.paragraph_3 }}</p>
+        {% endif %}
+        
+        {% if section.blocks.size > 0 %}
+          <div class="nh-lab-badges">
+            {% for block in section.blocks %}
+              <span class="nh-lab-badge" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+      
+      <div class="nh-lab-image">
+        {% if section.settings.image != blank %}
+          {{ section.settings.image | image_url: width: 600 | image_tag: alt: section.settings.image.alt, loading: 'lazy', width: section.settings.image.width, height: section.settings.image.height }}
+        {% else %}
+          {{ 'lifestyle-1' | placeholder_svg_tag: 'nh-lab-image' }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NH - Lab Tested",
+  "tag": "section",
+  "class": "nh-section-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section Label",
+      "default": "Transparency & Trust"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Third-Party <em>Lab Tested</em></p>"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_1",
+      "label": "Paragraph 1",
+      "default": "We believe you should know exactly what you're putting into your body. That's why every single batch of Nourish Her™ is independently tested by a certified third-party laboratory for purity, potency, and the absence of heavy metals, contaminants, and pathogens."
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_2",
+      "label": "Paragraph 2",
+      "default": "Our test results are available on request — because transparency isn't a marketing claim, it's a standard we hold ourselves to."
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_3",
+      "label": "Paragraph 3",
+      "default": "When you choose Nourish Her™, you're choosing a supplement brand that prioritises your health over shortcuts."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "badge",
+      "name": "Badge",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Badge Text",
+          "default": "Non-GMO"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NH - Lab Tested",
+      "blocks": {
+        "badge_1": { "type": "badge", "settings": { "text": "Non-GMO" } },
+        "badge_2": { "type": "badge", "settings": { "text": "Gluten-Free" } },
+        "badge_3": { "type": "badge", "settings": { "text": "No Fillers" } },
+        "badge_4": { "type": "badge", "settings": { "text": "No Binders" } },
+        "badge_5": { "type": "badge", "settings": { "text": "Freeze-Dried" } },
+        "badge_6": { "type": "badge", "settings": { "text": "Heavy Metal Tested" } }
+      },
+      "block_order": ["badge_1", "badge_2", "badge_3", "badge_4", "badge_5", "badge_6"]
+    }
+  ]
+}
+{% endschema %}
