@@ -9,6 +9,8 @@
   <div class="nh-footer-inner">
     {% if section.settings.logo != blank %}
       {{ section.settings.logo | image_url: width: 150 | image_tag: alt: shop.name, loading: 'lazy', width: section.settings.logo.width, height: section.settings.logo.height }}
+    {% elsif section.settings.logo_url != blank %}
+      <img src="{{ section.settings.logo_url }}" alt="{{ shop.name }}" width="150" height="55" style="width: 150px; height: auto;" />
     {% else %}
       <span style="font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.5rem; color: rgba(255,255,255,0.8);">Nourish Her™</span>
     {% endif %}
@@ -39,6 +41,11 @@
       "type": "image_picker",
       "id": "logo",
       "label": "Logo"
+    },
+    {
+      "type": "url",
+      "id": "logo_url",
+      "label": "Logo URL (external)"
     },
     {
       "type": "text",

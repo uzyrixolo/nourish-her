@@ -25,6 +25,8 @@
               <div class="nh-comparison-th-img nh-nourish-img">
                 {% if section.settings.product_image != blank %}
                   {{ section.settings.product_image | image_url: width: 400 | image_tag: alt: section.settings.product_image.alt, loading: 'lazy', width: section.settings.product_image.width, height: section.settings.product_image.height }}
+                {% elsif section.settings.product_image_url != blank %}
+                  <img src="{{ section.settings.product_image_url }}" alt="Nourish Her Beef Organ Supplement" width="400" height="400" style="width: 100%; height: auto; border-radius: 12px;" />
                 {% else %}
                   {{ 'product-1' | placeholder_svg_tag: 'nh-comparison-product' }}
                 {% endif %}
@@ -35,6 +37,8 @@
               <div class="nh-comparison-th-img nh-multi-img">
                 {% if section.settings.comparison_image != blank %}
                   {{ section.settings.comparison_image | image_url: width: 400 | image_tag: alt: section.settings.comparison_image.alt, loading: 'lazy', width: section.settings.comparison_image.width, height: section.settings.comparison_image.height }}
+                {% elsif section.settings.comparison_image_url != blank %}
+                  <img src="{{ section.settings.comparison_image_url }}" alt="Traditional Multivitamin" width="400" height="400" style="width: 100%; height: auto; border-radius: 12px;" />
                 {% else %}
                   {{ 'product-2' | placeholder_svg_tag: 'nh-comparison-generic' }}
                 {% endif %}
@@ -80,6 +84,11 @@
       "label": "Product Image"
     },
     {
+      "type": "url",
+      "id": "product_image_url",
+      "label": "Product Image URL (external)"
+    },
+    {
       "type": "text",
       "id": "column_1_title",
       "label": "Column 1 Title",
@@ -89,6 +98,11 @@
       "type": "image_picker",
       "id": "comparison_image",
       "label": "Comparison Image"
+    },
+    {
+      "type": "url",
+      "id": "comparison_image_url",
+      "label": "Comparison Image URL (external)"
     },
     {
       "type": "text",

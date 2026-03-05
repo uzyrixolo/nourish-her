@@ -6,19 +6,6 @@
 {{ 'nourish-her.css' | asset_url | stylesheet_tag }}
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<nav class="nh-sticky-nav" id="nhStickyNav">
-  {% if section.settings.logo != blank %}
-    <img src="{{ section.settings.logo | image_url }}" alt="{{ shop.name }}" width="{{ section.settings.logo.width }}" height="{{ section.settings.logo.height }}" />
-  {% elsif section.settings.logo_url != blank %}
-    <img src="{{ section.settings.logo_url }}" alt="Nourish Her" width="120" height="44" style="height: 44px; width: auto;" />
-  {% else %}
-    <span class="nh-logo-text" style="font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.5rem; color: var(--nh-red);">Nourish Her™</span>
-  {% endif %}
-  <button class="nh-sticky-cta-btn" id="nhNavCta" onclick="document.getElementById('nh-offer').scrollIntoView({behavior:'smooth'})">
-    {{ section.settings.cta_text }}
-  </button>
-</nav>
-
 <section class="nh-hero" id="nh-hero">
   <div class="nh-hero-text">
     {% if section.settings.eyebrow != blank %}
