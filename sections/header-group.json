@@ -11,6 +11,42 @@
   "type": "header",
   "name": "Header",
   "sections": {
+    "nh-announcement-bar": {
+      "type": "nh-announcement-bar",
+      "blocks": {
+        "announcement_1": {
+          "type": "announcement",
+          "settings": {
+            "text": "🌿 100% Grass-Fed & Pasture Raised"
+          }
+        },
+        "announcement_2": {
+          "type": "announcement",
+          "settings": {
+            "text": "✦ Free UK Shipping on Orders Over £50"
+          }
+        },
+        "announcement_3": {
+          "type": "announcement",
+          "settings": {
+            "text": "🔬 Third-Party Lab Tested"
+          }
+        },
+        "announcement_4": {
+          "type": "announcement",
+          "settings": {
+            "text": "💊 Whole-Food Nutrition for Women"
+          }
+        }
+      },
+      "block_order": [
+        "announcement_1",
+        "announcement_2",
+        "announcement_3",
+        "announcement_4"
+      ],
+      "settings": {}
+    },
     "header_section": {
       "type": "header",
       "blocks": {
@@ -53,6 +89,7 @@
         "logo_position": "left",
         "menu_position": "left",
         "menu_row": "top",
+        "customer_account_menu": "customer-account-main-menu",
         "show_search": true,
         "search_position": "right",
         "search_row": "top",
@@ -69,6 +106,10 @@
         "divider_width": 0,
         "divider_size": "page-width",
         "border_width": 0,
+        "actions_display_style": "icon",
+        "actions_font_size": "0.875rem",
+        "actions_font": "body",
+        "actions_text_case": "none",
         "color_scheme_top": "scheme-1",
         "color_scheme_bottom": "",
         "color_scheme_transparent": "scheme-6",
@@ -79,42 +120,6 @@
         "enable_transparent_header_collection": false,
         "collection_color_scheme": "default"
       }
-    },
-    "nh-announcement-bar": {
-      "type": "nh-announcement-bar",
-      "blocks": {
-        "announcement_1": {
-          "type": "announcement",
-          "settings": {
-            "text": "\ud83c\udf3f 100% Grass-Fed & Pasture Raised"
-          }
-        },
-        "announcement_2": {
-          "type": "announcement",
-          "settings": {
-            "text": "\u2726 Free UK Shipping on Orders Over \u00a350"
-          }
-        },
-        "announcement_3": {
-          "type": "announcement",
-          "settings": {
-            "text": "\ud83d\udd2c Third-Party Lab Tested"
-          }
-        },
-        "announcement_4": {
-          "type": "announcement",
-          "settings": {
-            "text": "\ud83d\udc8a Whole-Food Nutrition for Women"
-          }
-        }
-      },
-      "block_order": [
-        "announcement_1",
-        "announcement_2",
-        "announcement_3",
-        "announcement_4"
-      ],
-      "settings": {}
     }
   },
   "order": [
