@@ -407,6 +407,7 @@
 .nh-reviews-section {
   background: var(--nh-vanilla);
   overflow: hidden;
+  padding:0;
 }
 
 .nh-reviews-track-wrap {
