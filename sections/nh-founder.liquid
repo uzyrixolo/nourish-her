@@ -35,12 +35,16 @@
       <div class="nh-founder-images">
         {% if section.settings.image_1 != blank %}
           {{ section.settings.image_1 | image_url: width: 600 | image_tag: alt: section.settings.image_1.alt, loading: 'lazy', width: section.settings.image_1.width, height: section.settings.image_1.height }}
+        {% elsif section.settings.image_1_url != blank %}
+          <img src="{{ section.settings.image_1_url }}" alt="Founder story image 1" width="600" height="600" style="border-radius: 20px; width: 100%; object-fit: cover; box-shadow: 0 8px 32px rgba(0,0,0,0.1);" />
         {% else %}
           {{ 'lifestyle-2' | placeholder_svg_tag: 'nh-founder-image-1' }}
         {% endif %}
         
         {% if section.settings.image_2 != blank %}
           {{ section.settings.image_2 | image_url: width: 600 | image_tag: alt: section.settings.image_2.alt, loading: 'lazy', width: section.settings.image_2.width, height: section.settings.image_2.height }}
+        {% elsif section.settings.image_2_url != blank %}
+          <img src="{{ section.settings.image_2_url }}" alt="Founder story image 2" width="600" height="600" style="border-radius: 20px; width: 100%; object-fit: cover; box-shadow: 0 8px 32px rgba(0,0,0,0.1);" />
         {% else %}
           {{ 'lifestyle-1' | placeholder_svg_tag: 'nh-founder-image-2' }}
         {% endif %}
@@ -91,9 +95,19 @@
       "label": "Image 1"
     },
     {
+      "type": "url",
+      "id": "image_1_url",
+      "label": "Image 1 URL (external)"
+    },
+    {
       "type": "image_picker",
       "id": "image_2",
       "label": "Image 2"
+    },
+    {
+      "type": "url",
+      "id": "image_2_url",
+      "label": "Image 2 URL (external)"
     }
   ],
   "presets": [

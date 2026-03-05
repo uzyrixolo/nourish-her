@@ -26,6 +26,8 @@
                 <div class="nh-offer-gallery-slide" {{ block.shopify_attributes }}>
                   {% if block.settings.image != blank %}
                     {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.image.alt, loading: 'lazy', width: block.settings.image.width, height: block.settings.image.height }}
+                  {% elsif block.settings.image_url != blank %}
+                    <img src="{{ block.settings.image_url }}" alt="Product image {{ forloop.index }}" width="600" height="600" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;" />
                   {% else %}
                     {{ 'product-' | append: forloop.index | placeholder_svg_tag: 'nh-gallery-slide' }}
                   {% endif %}
@@ -202,6 +204,11 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "image_url",
+          "label": "Image URL (external)"
         }
       ]
     },

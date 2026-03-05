@@ -9,6 +9,8 @@
 <nav class="nh-sticky-nav" id="nhStickyNav">
   {% if section.settings.logo != blank %}
     <img src="{{ section.settings.logo | image_url }}" alt="{{ shop.name }}" width="{{ section.settings.logo.width }}" height="{{ section.settings.logo.height }}" />
+  {% elsif section.settings.logo_url != blank %}
+    <img src="{{ section.settings.logo_url }}" alt="Nourish Her" width="120" height="44" style="height: 44px; width: auto;" />
   {% else %}
     <span class="nh-logo-text" style="font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.5rem; color: var(--nh-red);">Nourish Her™</span>
   {% endif %}
@@ -58,6 +60,8 @@
   <div class="nh-hero-image-wrap" id="nhHeroImageWrap">
     {% if section.settings.hero_image != blank %}
       {{ section.settings.hero_image | image_url: width: 800 | image_tag: alt: section.settings.hero_image.alt, loading: 'eager', width: section.settings.hero_image.width, height: section.settings.hero_image.height }}
+    {% elsif section.settings.hero_image_url != blank %}
+      <img src="{{ section.settings.hero_image_url }}" alt="Nourish Her supplement pouch" width="800" height="800" style="width: 100%; height: 100%; min-height: 520px; border-radius: 24px; object-fit: cover; object-position: center;" />
     {% else %}
       {{ 'lifestyle-1' | placeholder_svg_tag: 'nh-hero-placeholder' }}
     {% endif %}
@@ -95,6 +99,13 @@
       "type": "image_picker",
       "id": "logo",
       "label": "Logo"
+    },
+    {
+      "type": "url",
+      "id": "logo_url",
+      "label": "Logo URL (external)",
+      "default": "https://cdn.shopify.com/s/files/1/0966/6838/5604/files/Red_PrimaryLogo_Digital.webp?v=1772731188",
+      "info": "Use this if logo is hosted externally"
     },
     {
       "type": "text",
@@ -142,6 +153,12 @@
       "type": "image_picker",
       "id": "hero_image",
       "label": "Hero Image"
+    },
+    {
+      "type": "url",
+      "id": "hero_image_url",
+      "label": "Hero Image URL (external)",
+      "info": "Use this if hero image is hosted externally"
     },
     {
       "type": "text",
