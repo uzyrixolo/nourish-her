@@ -408,6 +408,7 @@
   background: var(--nh-vanilla);
   overflow: hidden;
   padding:0;
+  padding-block:80px;
 }
 
 .nh-reviews-track-wrap {
