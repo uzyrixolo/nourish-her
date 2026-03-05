@@ -11,6 +11,67 @@
   "type": "footer",
   "name": "Footer",
   "sections": {
+    "nh_footer_VAHkfG": {
+      "type": "nh-footer",
+      "blocks": {
+        "link_ezHQeJ": {
+          "type": "link",
+          "settings": {
+            "label": "Privacy Policy",
+            "link": ""
+          }
+        },
+        "link_nmrgwD": {
+          "type": "link",
+          "settings": {
+            "label": "Terms of Service",
+            "link": ""
+          }
+        },
+        "link_wNWEf4": {
+          "type": "link",
+          "settings": {
+            "label": "Shipping Policy",
+            "link": ""
+          }
+        },
+        "link_X9a7jN": {
+          "type": "link",
+          "settings": {
+            "label": "Refund Policy",
+            "link": ""
+          }
+        },
+        "link_efWiDQ": {
+          "type": "link",
+          "settings": {
+            "label": "Contact Us",
+            "link": ""
+          }
+        },
+        "link_L7kHFR": {
+          "type": "link",
+          "settings": {
+            "label": "FAQ",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "link_ezHQeJ",
+        "link_nmrgwD",
+        "link_wNWEf4",
+        "link_X9a7jN",
+        "link_efWiDQ",
+        "link_L7kHFR"
+      ],
+      "name": "NH - Footer",
+      "settings": {
+        "logo_url": "",
+        "company_name": "Nourish Her™",
+        "disclaimer": "*These statements have not been evaluated by the Food Standards Agency. This product is not intended to diagnose, treat, cure, or prevent any disease. Results may vary. Always consult your healthcare provider before starting any new supplement, especially if you are pregnant, breastfeeding, or taking medication."
+      }
+    },
     "footer_m9NzUG": {
       "type": "footer",
       "blocks": {
@@ -141,6 +202,7 @@
         "group_H6VpwJ",
         "email_signup_crihX7"
       ],
+      "disabled": true,
       "name": "t:names.footer",
       "settings": {
         "section_width": "page-width",
@@ -207,6 +269,7 @@
     }
   },
   "order": [
+    "nh_footer_VAHkfG",
     "footer_m9NzUG",
     "footer_utilities_jLGE8U"
   ]
