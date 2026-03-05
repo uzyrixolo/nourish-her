@@ -9,10 +9,6 @@
  */
 {
   "sections": {
-    "nh-announcement-bar": {
-      "type": "nh-announcement-bar",
-      "settings": {}
-    },
     "nh-hero": {
       "type": "nh-hero",
       "settings": {}
@@ -67,7 +63,6 @@
     }
   },
   "order": [
-    "nh-announcement-bar",
     "nh-hero",
     "nh-benefits",
     "nh-reviews",
