@@ -11,15 +11,135 @@
   "sections": {
     "nh-hero": {
       "type": "nh-hero",
-      "settings": {}
+      "settings": {},
+      "blocks": {
+        "pill_1": {
+          "type": "benefit_pill",
+          "settings": {
+            "text": "Hormone Support"
+          }
+        },
+        "pill_2": {
+          "type": "benefit_pill",
+          "settings": {
+            "text": "Sustained Energy"
+          }
+        },
+        "pill_3": {
+          "type": "benefit_pill",
+          "settings": {
+            "text": "Skin & Hair Health"
+          }
+        },
+        "pill_4": {
+          "type": "benefit_pill",
+          "settings": {
+            "text": "Mental Clarity"
+          }
+        }
+      },
+      "block_order": [
+        "pill_1",
+        "pill_2",
+        "pill_3",
+        "pill_4"
+      ]
     },
     "nh-benefits": {
       "type": "nh-benefits",
-      "settings": {}
+      "settings": {},
+      "blocks": {
+        "benefit_1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "\u26a1",
+            "title": "Sustained Energy",
+            "description": "Bioavailable haem iron, B12, and B-vitamins support normal energy-yielding metabolism \u2014 no crashes, no stimulants."
+          }
+        },
+        "benefit_2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "\ud83c\udf38",
+            "title": "Hormone Support",
+            "description": "Whole-food micronutrients help replenish nutrient stores and support normal hormonal and metabolic function over time."
+          }
+        },
+        "benefit_3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "\u2728",
+            "title": "Skin & Hair Health",
+            "description": "Vitamin A, zinc, and copper support normal skin cell turnover, connective tissue health, and hair vitality."
+          }
+        },
+        "benefit_4": {
+          "type": "benefit",
+          "settings": {
+            "icon": "\ud83e\udde0",
+            "title": "Mental Clarity",
+            "description": "Iron, B12, and copper support red blood cell formation and oxygen delivery \u2014 helping to lift the fog and sharpen focus."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_1",
+        "benefit_2",
+        "benefit_3",
+        "benefit_4"
+      ]
     },
     "nh-reviews": {
       "type": "nh-reviews",
-      "settings": {}
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "stars": "\u2605\u2605\u2605\u2605\u2605",
+            "review": "I've tried so many supplements and nothing has come close. Within the first few weeks I noticed my energy was steadier \u2014 no more 3pm crash. My skin has genuinely never looked better.",
+            "name": "Sarah M.",
+            "tag": "Verified Customer",
+            "verified": true
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "stars": "\u2605\u2605\u2605\u2605\u2605",
+            "review": "As a nurse working 12-hour shifts, I was constantly running on empty. After two months on Nourish Her, I genuinely feel like myself again. My iron levels improved and my focus is back.",
+            "name": "Emma L.",
+            "tag": "Verified Customer",
+            "verified": true
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "stars": "\u2605\u2605\u2605\u2605\u2605",
+            "review": "I was sceptical about organ supplements but the science behind this is undeniable. Three months in and my hair is thicker, my hormones feel balanced, and I've ditched my old multivitamin for good.",
+            "name": "Rachel T.",
+            "tag": "Verified Customer",
+            "verified": true
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "stars": "\u2605\u2605\u2605\u2605\u2605",
+            "review": "Finally a supplement that was made with women in mind. The fact that it includes uterus and ovaries is something no other brand does. I feel more balanced and less fatigued during my cycle.",
+            "name": "Amara K.",
+            "tag": "Verified Customer",
+            "verified": true
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3",
+        "review_4"
+      ]
     },
     "nh-founder": {
       "type": "nh-founder",
@@ -27,39 +147,559 @@
     },
     "nh-timeline": {
       "type": "nh-timeline",
-      "settings": {}
+      "settings": {},
+      "blocks": {
+        "month_1": {
+          "type": "timeline_item",
+          "settings": {
+            "month": "Month<br/>1",
+            "title": "Steadier Daily Energy",
+            "description": "Many women notice steadier daily energy and less afternoon fatigue as bioavailable haem iron, B12, and B-vitamins begin supporting normal energy-yielding metabolism."
+          }
+        },
+        "month_2": {
+          "type": "timeline_item",
+          "settings": {
+            "month": "Month<br/>2",
+            "title": "Sharper Mental Clarity",
+            "description": "Improved mental clarity and resilience are often reported as iron, B12, and copper continue to support red blood cell formation and oxygen delivery to the brain."
+          }
+        },
+        "month_3": {
+          "type": "timeline_item",
+          "settings": {
+            "month": "Month<br/>3",
+            "title": "Skin & Hair Changes",
+            "description": "Early changes in skin and hair quality may become noticeable, linked to vitamin A, zinc, and copper supporting normal skin cell turnover and connective tissue health."
+          }
+        },
+        "month_6": {
+          "type": "timeline_item",
+          "settings": {
+            "month": "Month<br/>6",
+            "title": "Greater Vitality & Balance",
+            "description": "A greater sense of overall vitality and balance is common, as consistent intake of whole-food micronutrients helps replenish nutrient stores and support normal hormonal and metabolic function."
+          }
+        },
+        "month_12": {
+          "type": "timeline_item",
+          "settings": {
+            "month": "Month<br/>12",
+            "title": "Long-Term Nourishment",
+            "description": "Many women describe feeling more robust and nourished long-term, with sustained energy and fewer fluctuations \u2014 reflecting the cumulative benefits of ongoing whole-food, ancestral nutrition."
+          }
+        }
+      },
+      "block_order": [
+        "month_1",
+        "month_2",
+        "month_3",
+        "month_6",
+        "month_12"
+      ]
     },
     "nh-ingredients": {
       "type": "nh-ingredients",
-      "settings": {}
+      "settings": {},
+      "blocks": {
+        "liver": {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "\ud83e\udec0",
+            "name": "Beef Liver",
+            "stat": "Richer in Vitamin A than carrots",
+            "description": "Naturally higher in vitamin B12 than eggs or dairy. The most nutrient-dense food on the planet \u2014 a cornerstone of ancestral diets worldwide."
+          }
+        },
+        "spleen": {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "\ud83e\ude78",
+            "name": "Beef Spleen",
+            "stat": "Richer in haem iron than spinach",
+            "description": "Provides iron in its most bioavailable, food-based form \u2014 the form your body recognises and absorbs most efficiently, without the stomach upset of synthetic iron."
+          }
+        },
+        "kidney": {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "\ud83e\uded8",
+            "name": "Beef Kidney",
+            "stat": "Richer in selenium than tuna or chicken",
+            "description": "A well-known dietary source of this essential trace mineral, which plays a key role in thyroid function and antioxidant defence."
+          }
+        },
+        "heart": {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "\u2764\ufe0f",
+            "name": "Beef Heart",
+            "stat": "Richer in CoQ10 than most cuts of steak",
+            "description": "Also provides B vitamins that support cellular energy production \u2014 making it a powerful ally for women who need sustained stamina throughout the day."
+          }
+        },
+        "uterus": {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "\ud83c\udf38",
+            "name": "Beef Uterus",
+            "stat": "Rich in connective-tissue proteins",
+            "description": "Naturally rich in connective-tissue proteins \u2014 similar to bone broth. Contains structural proteins and minerals valued in traditional diets for female reproductive health."
+          }
+        },
+        "ovaries": {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "\ud83c\udf3a",
+            "name": "Beef Ovaries",
+            "stat": "Provides phospholipids like egg yolks",
+            "description": "Supplies lipid-based compounds involved in nutrient transport and cellular structure \u2014 a uniquely female-focused ingredient found in very few supplements."
+          }
+        }
+      },
+      "block_order": [
+        "liver",
+        "spleen",
+        "kidney",
+        "heart",
+        "uterus",
+        "ovaries"
+      ]
     },
     "nh-comparison": {
       "type": "nh-comparison",
-      "settings": {}
+      "settings": {},
+      "blocks": {
+        "row_1": {
+          "type": "comparison_row",
+          "settings": {
+            "product_point": "Delivers nutrients in their naturally occurring food form, alongside the cofactors the body uses to absorb and utilise them effectively.",
+            "comparison_point": "Provides isolated nutrients that are often stripped from their natural context, which can reduce absorption and tolerance for some people."
+          }
+        },
+        "row_2": {
+          "type": "comparison_row",
+          "settings": {
+            "product_point": "Supplies iron, B vitamins, fat-soluble nutrients, and trace minerals together, reflecting how nutrients naturally work in synergy.",
+            "comparison_point": "Typically separates nutrients into single compounds that may compete for absorption when taken together."
+          }
+        },
+        "row_3": {
+          "type": "comparison_row",
+          "settings": {
+            "product_point": "Generally gentler on digestion because the body recognises them as concentrated food rather than synthetic compounds.",
+            "comparison_point": "Can cause nausea, stomach upset, or discomfort due to harsh forms or high doses of isolated nutrients."
+          }
+        },
+        "row_4": {
+          "type": "comparison_row",
+          "settings": {
+            "product_point": "Focuses on foundational nourishment by replenishing multiple nutrient systems at once rather than targeting one symptom.",
+            "comparison_point": "Often aims to correct a single issue (e.g. iron, energy, beauty), leading to fragmented supplementation routines."
+          }
+        },
+        "row_5": {
+          "type": "comparison_row",
+          "settings": {
+            "product_point": "Minimally processed and gently freeze-dried to preserve naturally occurring nutrients without altering their structure.",
+            "comparison_point": "Manufactured through chemical synthesis and often contains fillers, binders, and stabilisers."
+          }
+        },
+        "row_6": {
+          "type": "comparison_row",
+          "settings": {
+            "product_point": "Aligns with ancestral dietary patterns that prioritised nutrient-dense whole foods for resilience and vitality.",
+            "comparison_point": "Reflects modern, reductionist nutrition approaches that rely on lab-engineered shortcuts."
+          }
+        },
+        "row_7": {
+          "type": "comparison_row",
+          "settings": {
+            "product_point": "Offers broad nutritional coverage in one thoughtfully formulated daily serving.",
+            "comparison_point": "Often requires taking multiple separate products to cover similar nutritional ground."
+          }
+        }
+      },
+      "block_order": [
+        "row_1",
+        "row_2",
+        "row_3",
+        "row_4",
+        "row_5",
+        "row_6",
+        "row_7"
+      ]
     },
     "nh-provenance": {
       "type": "nh-provenance",
-      "settings": {}
+      "settings": {},
+      "blocks": {
+        "nz": {
+          "type": "provenance_item",
+          "settings": {
+            "icon": "\ud83c\uddf3\ud83c\uddff",
+            "title": "New Zealand Sourced",
+            "description": "Cattle raised on the lush, clean pastures of New Zealand \u2014 renowned globally for the highest standards in grass-fed farming."
+          }
+        },
+        "grass_fed": {
+          "type": "provenance_item",
+          "settings": {
+            "icon": "\ud83c\udf3f",
+            "title": "100% Grass-Fed",
+            "description": "Our cattle graze freely on natural pasture year-round, producing organs with superior nutrient density compared to grain-fed alternatives."
+          }
+        },
+        "no_hormones": {
+          "type": "provenance_item",
+          "settings": {
+            "icon": "\ud83d\udeab",
+            "title": "No Hormones or Antibiotics",
+            "description": "Raised without the use of synthetic hormones or routine antibiotics \u2014 clean nutrition, exactly as nature intended."
+          }
+        },
+        "freeze_dried": {
+          "type": "provenance_item",
+          "settings": {
+            "icon": "\u2744\ufe0f",
+            "title": "Freeze-Dried",
+            "description": "Gently freeze-dried at low temperatures to preserve the full spectrum of naturally occurring nutrients without heat damage."
+          }
+        },
+        "lab_tested": {
+          "type": "provenance_item",
+          "settings": {
+            "icon": "\ud83d\udd2c",
+            "title": "Third-Party Lab Tested",
+            "description": "Every batch is independently tested for purity, potency, and safety \u2014 so you know exactly what you're putting in your body."
+          }
+        }
+      },
+      "block_order": [
+        "nz",
+        "grass_fed",
+        "no_hormones",
+        "freeze_dried",
+        "lab_tested"
+      ]
     },
     "nh-trust-signals": {
       "type": "nh-trust-signals",
-      "settings": {}
+      "settings": {},
+      "blocks": {
+        "badge_1": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "\ud83d\udee1\ufe0f",
+            "label": "30-Day Money-Back Guarantee"
+          }
+        },
+        "badge_2": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "\ud83c\udf3f",
+            "label": "Non-GMO"
+          }
+        },
+        "badge_3": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "\ud83d\udc04",
+            "label": "100% Grass-Fed"
+          }
+        },
+        "badge_4": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "\ud83c\udf3e",
+            "label": "Gluten-Free"
+          }
+        },
+        "badge_5": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "\ud83d\udd2c",
+            "label": "Lab Tested"
+          }
+        },
+        "badge_6": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "\ud83c\uddf3\ud83c\uddff",
+            "label": "New Zealand Sourced"
+          }
+        }
+      },
+      "block_order": [
+        "badge_1",
+        "badge_2",
+        "badge_3",
+        "badge_4",
+        "badge_5",
+        "badge_6"
+      ]
     },
     "nh-offer": {
       "type": "nh-offer",
-      "settings": {}
+      "settings": {},
+      "blocks": {
+        "image_1": {
+          "type": "gallery_image"
+        },
+        "image_2": {
+          "type": "gallery_image"
+        },
+        "image_3": {
+          "type": "gallery_image"
+        },
+        "pricing_sub": {
+          "type": "pricing_option",
+          "settings": {
+            "plan_id": "subscription",
+            "label": "Subscribe & Save",
+            "price_display": "\u00a334.99/mo",
+            "price": "\u00a334.99",
+            "subscription": true,
+            "subtext": "Save \u00a310 per month \u00b7 Cancel anytime \u00b7 Free delivery",
+            "badge": "Best Value",
+            "selected": true
+          }
+        },
+        "pricing_once": {
+          "type": "pricing_option",
+          "settings": {
+            "plan_id": "onetime",
+            "label": "One-Time Purchase",
+            "price_display": "\u00a344.99",
+            "price": "\u00a344.99",
+            "subscription": false,
+            "subtext": "90 capsules \u00b7 30-day supply",
+            "badge": "",
+            "selected": false
+          }
+        },
+        "include_1": {
+          "type": "include_item",
+          "settings": {
+            "text": "90 capsules (30-day supply)"
+          }
+        },
+        "include_2": {
+          "type": "include_item",
+          "settings": {
+            "text": "6 whole-food beef organs per serving"
+          }
+        },
+        "include_3": {
+          "type": "include_item",
+          "settings": {
+            "text": "100% grass-fed & pasture-raised"
+          }
+        },
+        "include_4": {
+          "type": "include_item",
+          "settings": {
+            "text": "Third-party lab tested for purity"
+          }
+        },
+        "include_5": {
+          "type": "include_item",
+          "settings": {
+            "text": "Free UK delivery on subscription"
+          }
+        },
+        "include_6": {
+          "type": "include_item",
+          "settings": {
+            "text": "30-day money-back guarantee"
+          }
+        }
+      },
+      "block_order": [
+        "image_1",
+        "image_2",
+        "image_3",
+        "pricing_sub",
+        "pricing_once",
+        "include_1",
+        "include_2",
+        "include_3",
+        "include_4",
+        "include_5",
+        "include_6"
+      ]
     },
     "nh-lab-tested": {
       "type": "nh-lab-tested",
-      "settings": {}
+      "settings": {},
+      "blocks": {
+        "badge_1": {
+          "type": "badge",
+          "settings": {
+            "text": "Non-GMO"
+          }
+        },
+        "badge_2": {
+          "type": "badge",
+          "settings": {
+            "text": "Gluten-Free"
+          }
+        },
+        "badge_3": {
+          "type": "badge",
+          "settings": {
+            "text": "No Fillers"
+          }
+        },
+        "badge_4": {
+          "type": "badge",
+          "settings": {
+            "text": "No Binders"
+          }
+        },
+        "badge_5": {
+          "type": "badge",
+          "settings": {
+            "text": "Freeze-Dried"
+          }
+        },
+        "badge_6": {
+          "type": "badge",
+          "settings": {
+            "text": "Heavy Metal Tested"
+          }
+        }
+      },
+      "block_order": [
+        "badge_1",
+        "badge_2",
+        "badge_3",
+        "badge_4",
+        "badge_5",
+        "badge_6"
+      ]
     },
     "nh-faq": {
       "type": "nh-faq",
-      "settings": {}
+      "settings": {},
+      "blocks": {
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What exactly is in Nourish Her\u2122?",
+            "answer": "Nourish Her\u2122 contains six 100% grass-fed beef organs: liver, spleen, kidney, heart, uterus, and ovaries. Each organ is sourced from pasture-raised cattle in New Zealand, gently freeze-dried to preserve nutrients, and encapsulated with no fillers, binders, or synthetic additives."
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How many capsules do I take per day?",
+            "answer": "We recommend taking 3 capsules per day with food. Each pouch contains 90 capsules \u2014 a full 30-day supply at the recommended serving size."
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will I taste or smell the organs?",
+            "answer": "No. The organs are gently freeze-dried and encapsulated, which neutralises any taste or odour entirely. This is one of the key reasons we created Nourish Her\u2122 \u2014 to make organ nutrition accessible without having to eat raw or cooked organs."
+          }
+        },
+        "faq_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is Nourish Her\u2122 suitable for pregnant or breastfeeding women?",
+            "answer": "Beef liver is very high in vitamin A (retinol). While this is a benefit for most women, high doses of preformed vitamin A are not recommended during pregnancy. We advise pregnant or breastfeeding women to consult their healthcare provider before taking Nourish Her\u2122."
+          }
+        },
+        "faq_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long before I notice results?",
+            "answer": "Most women report noticing steadier energy levels within the first 2\u20134 weeks. More significant changes \u2014 such as improved skin, hair, and hormonal balance \u2014 are typically observed after 2\u20133 months of consistent daily use. Results vary depending on your individual nutrient status and lifestyle."
+          }
+        },
+        "faq_6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I cancel my subscription at any time?",
+            "answer": "Yes, absolutely. You can cancel, pause, or modify your subscription at any time through your account portal \u2014 no fees, no awkward phone calls. We want you to stay because you love the product, not because you're locked in."
+          }
+        },
+        "faq_7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your returns policy?",
+            "answer": "We offer a 30-day money-back guarantee. If you're not satisfied for any reason within 30 days of purchase, simply contact us and we'll issue a full refund \u2014 no questions asked."
+          }
+        },
+        "faq_8": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is Nourish Her\u2122 gluten-free and non-GMO?",
+            "answer": "Yes. Nourish Her\u2122 is 100% gluten-free, non-GMO, and free from artificial additives, fillers, and binders. It is a pure, whole-food supplement with nothing unnecessary added."
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5",
+        "faq_6",
+        "faq_7",
+        "faq_8"
+      ]
     },
     "nh-footer": {
       "type": "nh-footer",
-      "settings": {}
+      "settings": {},
+      "blocks": {
+        "link_1": {
+          "type": "link",
+          "settings": {
+            "label": "Privacy Policy"
+          }
+        },
+        "link_2": {
+          "type": "link",
+          "settings": {
+            "label": "Terms of Service"
+          }
+        },
+        "link_3": {
+          "type": "link",
+          "settings": {
+            "label": "Shipping Policy"
+          }
+        },
+        "link_4": {
+          "type": "link",
+          "settings": {
+            "label": "Refund Policy"
+          }
+        },
+        "link_5": {
+          "type": "link",
+          "settings": {
+            "label": "Contact Us"
+          }
+        },
+        "link_6": {
+          "type": "link",
+          "settings": {
+            "label": "FAQ"
+          }
+        }
+      },
+      "block_order": [
+        "link_1",
+        "link_2",
+        "link_3",
+        "link_4",
+        "link_5",
+        "link_6"
+      ]
     }
   },
   "order": [
