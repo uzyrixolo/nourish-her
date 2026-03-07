@@ -5,7 +5,7 @@
 
 {{ 'nourish-her.css' | asset_url | stylesheet_tag }}
 
-<section class="nh-section nh-comparison-section" id="nh-comparison">
+<section class="nh-section nh-comparison-section" id="nh-comparison" style="{% if section.settings.bg_color != blank and section.settings.bg_color != "transparent" %}background: {{ section.settings.bg_color }};{% endif %}">
   <div class="nh-section-inner">
     {% if section.settings.label != blank %}
       <p class="nh-section-label">{{ section.settings.label }}</p>
@@ -66,6 +66,12 @@
   "tag": "section",
   "class": "nh-section-wrapper",
   "settings": [
+    {
+      "type": "color_background",
+      "id": "bg_color",
+      "label": "Section Background",
+      "default": "transparent"
+    },
     {
       "type": "text",
       "id": "label",

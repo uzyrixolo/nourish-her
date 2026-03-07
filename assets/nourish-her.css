@@ -10,14 +10,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif !important;
+  font-family: var(--font-paragraph--family, 'Inter', sans-serif) !important;
   background: #fff;
   color: #1a1a1a;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
-.nh-section-wrapper *, .nh-section-wrapper *::before, .nh-section-wrapper *::after {
+.nh-section-wrapper *,
+.nh-section-wrapper *::before,
+.nh-section-wrapper *::after {
   box-sizing: border-box;
 }
 
@@ -73,8 +75,13 @@
 }
 
 @keyframes nh-marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* =============================================
@@ -90,7 +97,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 12px 5%;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
 .nh-sticky-nav img {
@@ -153,7 +160,7 @@
 }
 
 .nh-hero h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-h2--family, 'Playfair Display', serif);
   font-size: clamp(2.2rem, 4.5vw, 3.6rem);
   font-weight: 900;
   line-height: 1.1;
@@ -283,17 +290,17 @@
   bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(204,0,25,0.92);
+  background: rgba(204, 0, 25, 0.92);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   color: var(--nh-vanilla);
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-h2--family, 'Playfair Display', serif);
   font-size: 1rem;
   font-weight: 700;
   padding: 12px 24px;
   border-radius: 50px;
   white-space: nowrap;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
   letter-spacing: 0.02em;
 }
 
@@ -319,7 +326,7 @@
 }
 
 .nh-section-title {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-h2--family, 'Playfair Display', serif);
   font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   font-weight: 900;
   line-height: 1.15;
@@ -372,7 +379,7 @@
 
 .nh-benefit-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(204,0,25,0.1);
+  box-shadow: 0 12px 32px rgba(204, 0, 25, 0.1);
 }
 
 .nh-benefit-icon {
@@ -388,7 +395,7 @@
 }
 
 .nh-benefit-card h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-h2--family, 'Playfair Display', serif);
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--nh-dark);
@@ -407,8 +414,8 @@
 .nh-reviews-section {
   background: var(--nh-vanilla);
   overflow: hidden;
-  padding:0;
-  padding-block:80px;
+  padding: 0;
+  padding-block: 80px;
 }
 
 .nh-reviews-track-wrap {
@@ -428,8 +435,13 @@
 }
 
 @keyframes nh-scrollReviews {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .nh-review-card {
@@ -439,7 +451,7 @@
   width: 320px;
   flex-shrink: 0;
   border: 1.5px solid var(--nh-light-pink);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
 .nh-review-stars {
@@ -533,7 +545,7 @@
   background: var(--nh-vanilla);
   border-radius: 0 12px 12px 0;
   margin: 28px 0;
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-h2--family, 'Playfair Display', serif);
   font-size: 1.15rem;
   font-style: italic;
   color: var(--nh-dark);
@@ -550,11 +562,11 @@
   border-radius: 20px;
   width: 100%;
   object-fit: cover;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .nh-founder-sig {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-h2--family, 'Playfair Display', serif);
   font-size: 1.3rem;
   font-style: italic;
   color: var(--nh-red);
@@ -606,7 +618,7 @@
   width: 80px;
   flex-shrink: 0;
   text-align: right;
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-h2--family, 'Playfair Display', serif);
   font-weight: 900;
   font-size: 0.85rem;
   color: var(--nh-red);
@@ -639,7 +651,7 @@
 }
 
 .nh-timeline-content h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-h2--family, 'Playfair Display', serif);
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--nh-dark);
@@ -674,7 +686,7 @@
 }
 
 .nh-ingredients-section .nh-section-body {
-  color: rgba(255,251,213,0.8);
+  color: rgba(255, 251, 213, 0.8);
 }
 
 .nh-ingredients-grid {
@@ -685,20 +697,20 @@
 }
 
 .nh-ingredient-card {
-  background: rgba(255,255,255,0.1);
-  border: 1.5px solid rgba(255,251,213,0.25);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1.5px solid rgba(255, 251, 213, 0.25);
   border-radius: 20px;
   padding: 32px 28px;
   transition: background 0.2s, transform 0.2s;
 }
 
 .nh-ingredient-card:hover {
-  background: rgba(255,255,255,0.18);
+  background: rgba(255, 255, 255, 0.18);
   transform: translateY(-3px);
 }
 
 .nh-ingredient-name {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-h2--family, 'Playfair Display', serif);
   font-size: 1.4rem;
   font-weight: 900;
   color: var(--nh-vanilla);
@@ -710,6 +722,15 @@
 
 .nh-ingredient-name .nh-organ-emoji {
   font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nh-ingredient-custom-img {
+  width: 28px;
+  height: auto;
+  object-fit: contain;
 }
 
 .nh-ingredient-stat {
@@ -725,7 +746,7 @@
 
 .nh-ingredient-card p {
   font-size: 0.9rem;
-  color: rgba(255,251,213,0.8);
+  color: rgba(255, 251, 213, 0.8);
   line-height: 1.65;
   margin-top: 12px;
 }
@@ -743,12 +764,12 @@
   margin-top: 48px;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
 }
 
 .nh-comparison-table thead tr th {
   padding: 0 0 20px;
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-h2--family, 'Playfair Display', serif);
   font-size: 1.1rem;
   font-weight: 700;
   text-align: left;
@@ -782,7 +803,7 @@
 }
 
 .nh-comparison-th-img.nh-nourish-img img {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 0;
 }
 
@@ -855,7 +876,7 @@
 }
 
 .nh-provenance-card h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-h2--family, 'Playfair Display', serif);
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--nh-dark);
@@ -896,6 +917,15 @@
 .nh-trust-badge-icon {
   font-size: 1.4rem;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nh-trust-custom-img {
+  width: 24px;
+  height: auto;
+  object-fit: contain;
 }
 
 .nh-trust-badge-label {
@@ -931,7 +961,7 @@
   aspect-ratio: 1 / 1;
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
   touch-action: pan-y;
 }
 
@@ -982,7 +1012,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255,255,255,0.85);
+  background: rgba(255, 255, 255, 0.85);
   border: none;
   border-radius: 50%;
   width: 36px;
@@ -994,7 +1024,7 @@
   z-index: 10;
   font-size: 1rem;
   color: var(--nh-dark);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   transition: background 0.2s;
 }
 
@@ -1011,7 +1041,7 @@
 }
 
 .nh-offer-content h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-h2--family, 'Playfair Display', serif);
   font-size: clamp(1.8rem, 3vw, 2.4rem);
   font-weight: 900;
   color: var(--nh-dark);
@@ -1043,7 +1073,7 @@
 
 .nh-pricing-card.nh-selected {
   border-color: var(--nh-red);
-  box-shadow: 0 0 0 3px rgba(204,0,25,0.12);
+  box-shadow: 0 0 0 3px rgba(204, 0, 25, 0.12);
 }
 
 .nh-pricing-card-header {
@@ -1059,7 +1089,7 @@
 }
 
 .nh-pricing-card-price {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-h2--family, 'Playfair Display', serif);
   font-size: 1.4rem;
   font-weight: 900;
   color: var(--nh-red);
@@ -1167,7 +1197,7 @@
 .nh-lab-image img {
   border-radius: 20px;
   width: 100%;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 /* =============================================
@@ -1197,7 +1227,7 @@
   border: none;
   padding: 22px 28px;
   text-align: left;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-paragraph--family, 'Inter', sans-serif);
   font-size: 1rem;
   font-weight: 600;
   color: var(--nh-dark);
@@ -1253,7 +1283,7 @@
 ============================================= */
 .nh-footer {
   background: var(--nh-dark);
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
   padding: 48px 5% 32px;
 }
 
@@ -1282,7 +1312,7 @@
 
 .nh-footer-links a {
   font-size: 0.82rem;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255, 255, 255, 0.5);
   transition: color 0.2s;
   text-decoration: none;
 }
@@ -1293,12 +1323,12 @@
 
 .nh-footer-copy {
   font-size: 0.78rem;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255, 255, 255, 0.35);
 }
 
 .nh-footer-disclaimer {
   font-size: 0.72rem;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255, 255, 255, 0.3);
   max-width: 700px;
   line-height: 1.6;
 }
@@ -1319,7 +1349,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
   transform: translateY(100%);
   transition: transform 0.4s ease;
 }
@@ -1377,26 +1407,26 @@
     min-height: auto;
     padding: 40px 5% 60px;
   }
-  
+
   .nh-hero-image-wrap {
     order: -1;
   }
-  
+
   .nh-hero-image-wrap img {
     min-height: 320px;
   }
-  
+
   .nh-founder-grid,
   .nh-offer-grid,
   .nh-lab-grid {
     grid-template-columns: 1fr;
     gap: 36px;
   }
-  
+
   .nh-timeline::before {
     display: none;
   }
-  
+
   .nh-timeline-item {
     flex-direction: column;
     gap: 8px;
@@ -1405,7 +1435,7 @@
     padding-left: 20px;
     margin-left: 8px;
   }
-  
+
   .nh-timeline-month {
     width: auto;
     text-align: left;
@@ -1416,43 +1446,43 @@
     font-weight: 900;
     letter-spacing: 0.1em;
   }
-  
+
   .nh-timeline-dot {
     display: none;
   }
-  
+
   .nh-timeline-content {
     margin-left: 0;
   }
-  
+
   .nh-comparison-table {
     font-size: 0.78rem;
   }
-  
+
   .nh-comparison-table thead tr th,
   .nh-comparison-table tbody tr td {
     padding: 12px 14px;
   }
-  
+
   .nh-comparison-th-img img {
     height: 120px;
   }
-  
+
   .nh-sticky-bottom-cta {
     flex-direction: row;
     gap: 10px;
   }
-  
+
   .nh-sticky-bottom-btn {
     flex: 1;
   }
-  
+
   /* Trust badges mobile carousel */
   .nh-trust-section {
     padding: 16px 0;
     overflow: hidden;
   }
-  
+
   .nh-trust-inner {
     flex-wrap: nowrap;
     gap: 0;
@@ -1460,7 +1490,7 @@
     width: max-content;
     justify-content: flex-start;
   }
-  
+
   .nh-trust-badge {
     padding: 0 20px;
     flex-shrink: 0;
@@ -1468,23 +1498,28 @@
 }
 
 @keyframes nh-trustScroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @media (max-width: 480px) {
   .nh-hero h1 {
     font-size: 2rem;
   }
-  
+
   .nh-section {
     padding: 60px 5%;
   }
-  
+
   .nh-sticky-bottom-cta {
     flex-direction: column;
   }
-  
+
   .nh-sticky-bottom-btn {
     width: 100%;
   }

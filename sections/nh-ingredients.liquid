@@ -5,7 +5,7 @@
 
 {{ 'nourish-her.css' | asset_url | stylesheet_tag }}
 
-<section class="nh-section nh-ingredients-section" id="nh-ingredients">
+<section class="nh-section nh-ingredients-section" id="nh-ingredients" style="{% if section.settings.bg_color != blank and section.settings.bg_color != "transparent" %}background: {{ section.settings.bg_color }};{% endif %}">
   <div class="nh-section-inner">
     {% if section.settings.label != blank %}
       <p class="nh-section-label">{{ section.settings.label }}</p>
@@ -26,7 +26,13 @@
         {% for block in section.blocks %}
           <div class="nh-ingredient-card" {{ block.shopify_attributes }}>
             <div class="nh-ingredient-name">
-              <span class="nh-organ-emoji">{{ block.settings.emoji }}</span>
+              <span class="nh-organ-emoji">
+                {% if block.settings.custom_image != blank %}
+                  {{ block.settings.custom_image | image_url: width: 32 | image_tag: alt: block.settings.name, loading: 'lazy', class: 'nh-ingredient-custom-img' }}
+                {% else %}
+                  {{ block.settings.emoji }}
+                {% endif %}
+              </span>
               {{ block.settings.name }}
             </div>
             <div class="nh-ingredient-stat">{{ block.settings.stat }}</div>
@@ -44,6 +50,12 @@
   "tag": "section",
   "class": "nh-section-wrapper",
   "settings": [
+    {
+      "type": "color_background",
+      "id": "bg_color",
+      "label": "Section Background",
+      "default": "transparent"
+    },
     {
       "type": "text",
       "id": "label",
@@ -68,6 +80,12 @@
       "type": "ingredient",
       "name": "Ingredient",
       "settings": [
+        {
+          "type": "image_picker",
+          "id": "custom_image",
+          "label": "Custom Image (SVG/PNG)",
+          "info": "Overrides the emoji if selected"
+        },
         {
           "type": "text",
           "id": "emoji",

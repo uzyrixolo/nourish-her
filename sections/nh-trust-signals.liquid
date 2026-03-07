@@ -9,14 +9,26 @@
   <div class="nh-trust-inner">
     {% for block in section.blocks %}
       <div class="nh-trust-badge" {{ block.shopify_attributes }}>
-        <div class="nh-trust-badge-icon">{{ block.settings.icon }}</div>
+        <div class="nh-trust-badge-icon">
+          {% if block.settings.custom_image != blank %}
+            {{ block.settings.custom_image | image_url: width: 40 | image_tag: alt: block.settings.label, loading: 'lazy', class: 'nh-trust-custom-img' }}
+          {% else %}
+            {{ block.settings.icon }}
+          {% endif %}
+        </div>
         <div class="nh-trust-badge-label">{{ block.settings.label }}</div>
       </div>
     {% endfor %}
     {% comment %} Duplicate for mobile carousel {% endcomment %}
     {% for block in section.blocks %}
       <div class="nh-trust-badge">
-        <div class="nh-trust-badge-icon">{{ block.settings.icon }}</div>
+        <div class="nh-trust-badge-icon">
+          {% if block.settings.custom_image != blank %}
+            {{ block.settings.custom_image | image_url: width: 40 | image_tag: alt: block.settings.label, loading: 'lazy', class: 'nh-trust-custom-img' }}
+          {% else %}
+            {{ block.settings.icon }}
+          {% endif %}
+        </div>
         <div class="nh-trust-badge-label">{{ block.settings.label }}</div>
       </div>
     {% endfor %}
@@ -33,6 +45,18 @@
       "type": "trust_badge",
       "name": "Trust Badge",
       "settings": [
+    {
+      "type": "color_background",
+      "id": "bg_color",
+      "label": "Section Background",
+      "default": "transparent"
+    },
+        {
+          "type": "image_picker",
+          "id": "custom_image",
+          "label": "Custom Image (SVG/PNG)",
+          "info": "Overrides the emoji if selected"
+        },
         {
           "type": "text",
           "id": "icon",

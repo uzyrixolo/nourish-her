@@ -1,11 +1,11 @@
 {% comment %}
   Nourish Her - Founder Story Section
-  Doctor's journey narrative with images
+  Doctor's journey narrative with draggable text and image blocks
 {% endcomment %}
 
 {{ 'nourish-her.css' | asset_url | stylesheet_tag }}
 
-<section class="nh-section nh-founder-section" id="nh-founder">
+<section class="nh-section nh-founder-section" id="nh-founder" style="{% if section.settings.bg_color != blank and section.settings.bg_color != "transparent" %}background: {{ section.settings.bg_color }};{% endif %}">
   <div class="nh-section-inner">
     {% if section.settings.label != blank %}
       <p class="nh-section-label">{{ section.settings.label }}</p>
@@ -19,39 +19,72 @@
     
     <div class="nh-founder-grid">
       <div class="nh-founder-text">
-        {% if section.settings.story != blank %}
-          {{ section.settings.story }}
-        {% endif %}
-        
-        {% if section.settings.quote != blank %}
-          <div class="nh-founder-quote">{{ section.settings.quote }}</div>
-        {% endif %}
-        
-        {% if section.settings.signature != blank %}
-          <div class="nh-founder-sig">{{ section.settings.signature }}</div>
-        {% endif %}
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'text' %}
+              <div class="nh-founder-block-text" {{ block.shopify_attributes }}>
+                {{ block.settings.content }}
+              </div>
+            {% when 'quote' %}
+              <div class="nh-founder-quote" {{ block.shopify_attributes }}>
+                {{ block.settings.quote }}
+              </div>
+            {% when 'signature' %}
+              <div class="nh-founder-sig" {{ block.shopify_attributes }}>
+                {{ block.settings.signature }}
+              </div>
+            {% when 'image' %}
+              <div class="nh-founder-block-image" {{ block.shopify_attributes }} style="margin-bottom: 20px;">
+                {% if block.settings.image != blank %}
+                  {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.image.alt, loading: 'lazy', width: block.settings.image.width, height: block.settings.image.height }}
+                {% elsif block.settings.image_url != blank %}
+                  <img src="{{ block.settings.image_url }}" alt="Founder story inline image" width="600" height="600" style="border-radius: 20px; width: 100%; object-fit: cover; box-shadow: 0 8px 32px rgba(0,0,0,0.1);" />
+                {% else %}
+                  {{ 'lifestyle-2' | placeholder_svg_tag: 'nh-founder-placeholder' }}
+                {% endif %}
+              </div>
+          {% endcase %}
+        {% endfor %}
       </div>
       
-      <div class="nh-founder-images">
-        {% if section.settings.image_1 != blank %}
-          {{ section.settings.image_1 | image_url: width: 600 | image_tag: alt: section.settings.image_1.alt, loading: 'lazy', width: section.settings.image_1.width, height: section.settings.image_1.height }}
-        {% elsif section.settings.image_1_url != blank %}
-          <img src="{{ section.settings.image_1_url }}" alt="Founder story image 1" width="600" height="600" style="border-radius: 20px; width: 100%; object-fit: cover; box-shadow: 0 8px 32px rgba(0,0,0,0.1);" />
-        {% else %}
-          {{ 'lifestyle-2' | placeholder_svg_tag: 'nh-founder-image-1' }}
-        {% endif %}
-        
-        {% if section.settings.image_2 != blank %}
-          {{ section.settings.image_2 | image_url: width: 600 | image_tag: alt: section.settings.image_2.alt, loading: 'lazy', width: section.settings.image_2.width, height: section.settings.image_2.height }}
-        {% elsif section.settings.image_2_url != blank %}
-          <img src="{{ section.settings.image_2_url }}" alt="Founder story image 2" width="600" height="600" style="border-radius: 20px; width: 100%; object-fit: cover; box-shadow: 0 8px 32px rgba(0,0,0,0.1);" />
-        {% else %}
-          {{ 'lifestyle-1' | placeholder_svg_tag: 'nh-founder-image-2' }}
-        {% endif %}
-      </div>
+      {% if section.settings.show_right_column %}
+        <div class="nh-founder-images">
+          {% if section.settings.image_1 != blank %}
+            {{ section.settings.image_1 | image_url: width: 600 | image_tag: alt: section.settings.image_1.alt, loading: 'lazy', width: section.settings.image_1.width, height: section.settings.image_1.height }}
+          {% elsif section.settings.image_1_url != blank %}
+            <img src="{{ section.settings.image_1_url }}" alt="Founder story image 1" width="600" height="600" style="border-radius: 20px; width: 100%; object-fit: cover; box-shadow: 0 8px 32px rgba(0,0,0,0.1);" />
+          {% else %}
+            {% if section.settings.show_placeholders %}
+              {{ 'lifestyle-2' | placeholder_svg_tag: 'nh-founder-image-1' }}
+            {% endif %}
+          {% endif %}
+          
+          {% if section.settings.image_2 != blank %}
+            {{ section.settings.image_2 | image_url: width: 600 | image_tag: alt: section.settings.image_2.alt, loading: 'lazy', width: section.settings.image_2.width, height: section.settings.image_2.height }}
+          {% elsif section.settings.image_2_url != blank %}
+            <img src="{{ section.settings.image_2_url }}" alt="Founder story image 2" width="600" height="600" style="border-radius: 20px; width: 100%; object-fit: cover; box-shadow: 0 8px 32px rgba(0,0,0,0.1);" />
+          {% else %}
+            {% if section.settings.show_placeholders %}
+              {{ 'lifestyle-1' | placeholder_svg_tag: 'nh-founder-image-2' }}
+            {% endif %}
+          {% endif %}
+        </div>
+      {% endif %}
     </div>
   </div>
 </section>
+
+<style>
+  .nh-founder-block-image img {
+    border-radius: 20px;
+    width: 100%;
+    object-fit: cover;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  }
+  .nh-founder-images:empty {
+    display: none;
+  }
+</style>
 
 {% schema %}
 {
@@ -59,6 +92,12 @@
   "tag": "section",
   "class": "nh-section-wrapper",
   "settings": [
+    {
+      "type": "color_background",
+      "id": "bg_color",
+      "label": "Section Background",
+      "default": "transparent"
+    },
     {
       "type": "text",
       "id": "label",
@@ -72,47 +111,126 @@
       "default": "<p>A Doctor's Journey Back to <em>Real Nourishment</em></p>"
     },
     {
-      "type": "richtext",
-      "id": "story",
-      "label": "Story Content",
-      "default": "<p>I didn't set out to start a supplement brand. <strong>I was simply trying to feel like myself again.</strong></p><p>As a doctor working long, demanding shifts, I lived in a constant state of exhaustion. My energy was low, my focus was slipping, and no matter how much I slept, I never felt restored.</p><p>That's when I started looking backwards — not forwards. For generations, women were nourished with whole, nutrient-dense foods that supported energy, resilience, and vitality at the root.</p><p>That's when I decided to create <strong>Nourish Her™</strong> — a clean, beef organ supplement to make it easier to get the essential nutrients my body needed.</p>"
+      "type": "header",
+      "content": "Side Column Images"
     },
     {
-      "type": "textarea",
-      "id": "quote",
-      "label": "Quote",
-      "default": "For the first time in a long while, it felt like my body was finally getting what it had been quietly asking for — the nutrients it could actually recognise and use."
+      "type": "checkbox",
+      "id": "show_right_column",
+      "label": "Show Right Image Column",
+      "default": false,
+      "info": "Turn off if you prefer to use inline image blocks on the left"
     },
     {
-      "type": "text",
-      "id": "signature",
-      "label": "Signature",
-      "default": "— Dr. [Founder Name], Founder of Nourish Her™"
+      "type": "checkbox",
+      "id": "show_placeholders",
+      "label": "Show Image Placeholders",
+      "default": true
     },
     {
       "type": "image_picker",
       "id": "image_1",
-      "label": "Image 1"
+      "label": "Side Image 1"
     },
     {
       "type": "url",
       "id": "image_1_url",
-      "label": "Image 1 URL (external)"
+      "label": "Side Image 1 URL (external)"
     },
     {
       "type": "image_picker",
       "id": "image_2",
-      "label": "Image 2"
+      "label": "Side Image 2"
     },
     {
       "type": "url",
       "id": "image_2_url",
-      "label": "Image 2 URL (external)"
+      "label": "Side Image 2 URL (external)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text Content",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Text",
+          "default": "<p>Add paragraph text here.</p>"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Inline Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "image_url",
+          "label": "Image URL (external)"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "name": "Quote Block",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "This is a highlighted quote."
+        }
+      ]
+    },
+    {
+      "type": "signature",
+      "name": "Signature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "signature",
+          "label": "Signature Text",
+          "default": "— Dr. [Founder Name], Founder of Nourish Her™"
+        }
+      ]
     }
   ],
   "presets": [
     {
-      "name": "NH - Founder Story"
+      "name": "NH - Founder Story",
+      "blocks": [
+        {
+          "type": "text",
+          "settings": {
+            "content": "<p>I didn't set out to start a supplement brand. <strong>I was simply trying to feel like myself again.</strong></p><p>As a doctor working long, demanding shifts, I lived in a constant state of exhaustion. My energy was low, my focus was slipping, and no matter how much I slept, I never felt restored.</p>"
+          }
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "text",
+          "settings": {
+            "content": "<p>That's when I started looking backwards — not forwards. For generations, women were nourished with whole, nutrient-dense foods that supported energy, resilience, and vitality at the root.</p><p>That's when I decided to create <strong>Nourish Her™</strong> — a clean, beef organ supplement to make it easier to get the essential nutrients my body needed.</p>"
+          }
+        },
+        {
+          "type": "quote",
+          "settings": {
+            "quote": "For the first time in a long while, it felt like my body was finally getting what it had been quietly asking for — the nutrients it could actually recognise and use."
+          }
+        },
+        {
+          "type": "signature"
+        }
+      ]
     }
   ]
 }

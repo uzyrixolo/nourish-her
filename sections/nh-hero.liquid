@@ -8,7 +8,7 @@
 
 
 
-<section class="nh-hero" id="nh-hero">
+<section class="nh-hero" id="nh-hero" style="{% if section.settings.bg_color != blank and section.settings.bg_color != "transparent" %}background: {{ section.settings.bg_color }};{% endif %}">
   <div class="nh-hero-text">
     {% if section.settings.eyebrow != blank %}
       <div class="nh-hero-eyebrow">{{ section.settings.eyebrow }}</div>
@@ -46,13 +46,15 @@
     </div>
   </div>
   
-  <div class="nh-hero-image-wrap" id="nhHeroImageWrap">
+  <div class="nh-hero-image-wrap" id="nhHeroImageWrap" style="--img-desktop: {{ section.settings.image_width_desktop }}%; --img-mobile: {{ section.settings.image_width_mobile }}%;">
     {% if section.settings.hero_image != blank %}
       {{ section.settings.hero_image | image_url: width: 800 | image_tag: alt: section.settings.hero_image.alt, loading: 'eager', width: section.settings.hero_image.width, height: section.settings.hero_image.height }}
     {% else %}
       {{ 'lifestyle-1' | placeholder_svg_tag: 'nh-hero-placeholder' }}
     {% endif %}
-    <div class="nh-hero-organ-label">{{ section.settings.image_label }}</div>
+    {% if section.settings.image_label != blank %}
+      <div class="nh-hero-organ-label">{{ section.settings.image_label }}</div>
+    {% endif %}
   </div>
 </section>
 
@@ -82,6 +84,12 @@
   "tag": "section",
   "class": "nh-section-wrapper",
   "settings": [
+    {
+      "type": "color_background",
+      "id": "bg_color",
+      "label": "Section Background",
+      "default": "transparent"
+    },
     {
       "type": "image_picker",
       "id": "logo",
@@ -133,6 +141,26 @@
       "type": "image_picker",
       "id": "hero_image",
       "label": "Hero Image"
+    },
+    {
+      "type": "range",
+      "id": "image_width_desktop",
+      "min": 40,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Image Width (Desktop)",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "image_width_mobile",
+      "min": 40,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Image Width (Mobile)",
+      "default": 100
     },
     {
       "type": "text",

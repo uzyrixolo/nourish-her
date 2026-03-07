@@ -5,7 +5,7 @@
 
 {{ 'nourish-her.css' | asset_url | stylesheet_tag }}
 
-<section class="nh-section nh-offer-section" id="nh-offer">
+<section class="nh-section nh-offer-section" id="nh-offer" style="{% if section.settings.bg_color != blank and section.settings.bg_color != "transparent" %}background: {{ section.settings.bg_color }};{% endif %}">
   <div class="nh-section-inner">
     {% if section.settings.label != blank %}
       <p class="nh-section-label">{{ section.settings.label }}</p>
@@ -54,36 +54,44 @@
         <p class="nh-tagline">{{ section.settings.product_tagline }}</p>
         
         <div class="nh-pricing-options">
-          {% for block in section.blocks %}
-            {% if block.type == 'pricing_option' %}
-              <div class="nh-pricing-card{% if block.settings.selected %} nh-selected{% endif %}" 
-                   id="nhPricingCard{{ forloop.index }}"
-                   onclick="nhSelectPlan('{{ block.settings.plan_id }}', {{ block.settings.price | json }}, {{ block.settings.subscription | json }})"
-                   {{ block.shopify_attributes }}>
-                {% if block.settings.badge != blank %}
-                  <div class="nh-best-value-badge">{{ block.settings.badge }}</div>
-                {% endif %}
+          {% assign product = all_products[section.settings.featured_product] %}
+          {% if product != blank %}
+            {% form 'product', product, id: 'nhOfferForm', class: 'nh-offer-form' %}
+              <input type="hidden" name="id" id="nhOfferVariantId" value="{{ product.selected_or_first_available_variant.id }}">
+              <div class="nh-pricing-card nh-selected" 
+                   onclick="nhSelectPlan('onetime', {{ product.price | money | json }})"
+                   style="margin-bottom: 20px;">
                 <div class="nh-pricing-card-header">
-                  <div class="nh-pricing-card-label">{{ block.settings.label }}</div>
-                  <div class="nh-pricing-card-price">{{ block.settings.price_display }}</div>
+                  <div class="nh-pricing-card-label">One-Time Purchase</div>
+                  <div class="nh-pricing-card-price">{{ product.price | money }}</div>
                 </div>
-                <div class="nh-pricing-card-sub">{{ block.settings.subtext }}</div>
+                <div class="nh-pricing-card-sub">Standard Delivery</div>
               </div>
-            {% endif %}
-          {% endfor %}
+              
+              <button type="submit" class="nh-btn-primary nh-offer-cta" id="nhOfferCta">
+                Add to Cart — {{ product.price | money }}
+              </button>
+            {% endform %}
+          {% else %}
+            <!-- Placeholder if no product is selected -->
+            <div class="nh-pricing-card nh-selected" style="margin-bottom: 20px;">
+              <div class="nh-pricing-card-header">
+                <div class="nh-pricing-card-label">One-Time Purchase</div>
+                <div class="nh-pricing-card-price">{{ section.settings.fallback_price }}</div>
+              </div>
+              <div class="nh-pricing-card-sub">Select a product in theme settings to activate purchasing.</div>
+            </div>
+            <button class="nh-btn-primary nh-offer-cta">Add to Cart</button>
+          {% endif %}
         </div>
         
-        <div class="nh-offer-includes">
+        <div class="nh-offer-includes" style="margin-top: 24px;">
           {% for block in section.blocks %}
             {% if block.type == 'include_item' %}
               <div class="nh-offer-include-item" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
             {% endif %}
           {% endfor %}
         </div>
-        
-        <button class="nh-btn-primary nh-offer-cta" id="nhOfferCta" onclick="window.location.href='{{ section.settings.cta_link }}'">
-          {{ section.settings.cta_text }}
-        </button>
         
         <p class="nh-money-back">🛡️ <strong>{{ section.settings.guarantee_title }}.</strong> {{ section.settings.guarantee_text }}</p>
       </div>
@@ -109,10 +117,12 @@
   }
   
   function nhGalleryNext() {
+    if(nhGallerySlides.length === 0) return;
     nhGalleryGoTo((nhGalleryIndex + 1) % nhGallerySlides.length);
   }
   
   function nhGalleryPrev() {
+    if(nhGallerySlides.length === 0) return;
     nhGalleryGoTo((nhGalleryIndex - 1 + nhGallerySlides.length) % nhGallerySlides.length);
   }
 
@@ -128,25 +138,18 @@
     }, {passive:true});
   })();
 
-  // Pricing plan selection
-  function nhSelectPlan(planId, price, isSubscription) {
-    const cards = document.querySelectorAll('.nh-pricing-card');
-    cards.forEach(card => card.classList.remove('nh-selected'));
-    event.currentTarget.classList.add('nh-selected');
-    
-    const cta = document.getElementById('nhOfferCta');
-    if (cta) {
-      cta.textContent = isSubscription ? `Add to Cart — ${price}/mo` : `Add to Cart — ${price}`;
-    }
-  }
-</script>
-
 {% schema %}
 {
   "name": "NH - Offer Section",
   "tag": "section",
   "class": "nh-section-wrapper",
   "settings": [
+    {
+      "type": "color_background",
+      "id": "bg_color",
+      "label": "Section Background",
+      "default": "transparent"
+    },
     {
       "type": "text",
       "id": "label",
@@ -172,15 +175,15 @@
       "default": "100% Grass-Fed Beef Organs — Whole-Food Nutrition for Women"
     },
     {
-      "type": "text",
-      "id": "cta_text",
-      "label": "CTA Button Text",
-      "default": "Add to Cart — £34.99/mo"
+      "type": "product",
+      "id": "featured_product",
+      "label": "Featured Product"
     },
     {
-      "type": "url",
-      "id": "cta_link",
-      "label": "CTA Link"
+      "type": "text",
+      "id": "fallback_price",
+      "label": "Fallback Price (If no product selected)",
+      "default": "£34.99"
     },
     {
       "type": "text",
