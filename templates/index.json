@@ -44,6 +44,7 @@
         "pill_4"
       ],
       "settings": {
+        "bg_color": "transparent",
         "eyebrow": "Whole-Food Nutrition for Women",
         "heading": "<p>Why Beef Organ Superfoods Are the Secret to <em>Healthy Hormones & Energy</em></p>",
         "subheading": "Nourish Her™ is a clean, 100% grass-fed beef organ supplement specifically formulated for women — delivering the ancestral nutrition your body recognises, absorbs, and thrives on.",
@@ -52,6 +53,8 @@
         "trust_1": "30-Day Money-Back Guarantee",
         "trust_2": "Third-Party Lab Tested",
         "hero_image": "shopify://shop_images/Nourishherpouchinpalm.webp",
+        "image_width_desktop": 100,
+        "image_width_mobile": 100,
         "image_label": "6 Whole-Food Beef Organs in Every Serving"
       }
     },
@@ -98,6 +101,7 @@
         "benefit_4"
       ],
       "settings": {
+        "bg_color": "transparent",
         "label": "What You'll Feel",
         "heading": "<p>Four Pillars of <em>Female Vitality</em></p>"
       }
@@ -159,12 +163,44 @@
     },
     "nh-founder": {
       "type": "nh-founder",
+      "blocks": {
+        "signature_iH7mNi": {
+          "type": "signature",
+          "settings": {
+            "signature": "— Dr. [Founder Name], Founder of Nourish Her™"
+          }
+        },
+        "quote_3qJ9Hd": {
+          "type": "quote",
+          "settings": {
+            "quote": "This is a highlighted quote."
+          }
+        },
+        "image_CCyiAY": {
+          "type": "image",
+          "settings": {
+            "image_url": ""
+          }
+        },
+        "text_9qiKdg": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Add paragraph text here.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "signature_iH7mNi",
+        "quote_3qJ9Hd",
+        "image_CCyiAY",
+        "text_9qiKdg"
+      ],
       "settings": {
+        "bg_color": "transparent",
         "label": "Our Story",
         "heading": "<p>A Doctor's Journey Back to <em>Real Nourishment</em></p>",
-        "story": "<p>I didn't set out to start a supplement brand. <strong>I was simply trying to feel like myself again.</strong></p><p>As a doctor working long, demanding shifts, I lived in a constant state of exhaustion. My energy was low, my focus was slipping, and no matter how much I slept, I never felt restored.</p><p>That's when I started looking backwards — not forwards. For generations, women were nourished with whole, nutrient-dense foods that supported energy, resilience, and vitality at the root.</p><p>That's when I decided to create <strong>Nourish Her™</strong> — a clean, beef organ supplement to make it easier to get the essential nutrients my body needed.</p><p><br/>For the first time in a long while, it felt like my body was finally getting what it had been quietly asking for — the nutrients it could actually recognise and use.</p>",
-        "quote": "",
-        "signature": "— Dr. [Founder Name], Founder of Nourish Her™",
+        "show_right_column": false,
+        "show_placeholders": true,
         "image_1": "shopify://shop_images/Nourishherhilllifestyle.webp",
         "image_1_url": "",
         "image_2": "shopify://shop_images/NourishHerpouchlineup.webp",
@@ -223,6 +259,7 @@
         "month_12"
       ],
       "settings": {
+        "bg_color": "transparent",
         "label": "Your Journey",
         "heading": "<p>What to Expect When Taking <em>Nourish Her™</em></p>",
         "disclaimer": "Results may vary. Individual outcomes depend on diet, lifestyle, and starting nutrient status."
@@ -295,6 +332,7 @@
         "ovaries"
       ],
       "settings": {
+        "bg_color": "transparent",
         "label": "The Formula",
         "heading": "<p>What's Inside <em>Exactly?</em></p>",
         "description": "Six carefully selected grass-fed beef organs, each chosen for their unique nutritional profile and specific relevance to female health."
@@ -363,6 +401,7 @@
         "row_7"
       ],
       "settings": {
+        "bg_color": "transparent",
         "label": "Why Nourish Her™?",
         "heading": "<p>Whole-Food Organs vs. <em>Traditional Multivitamins</em></p>",
         "product_image_url": "",
@@ -423,6 +462,7 @@
         "lab_tested"
       ],
       "settings": {
+        "bg_color": "transparent",
         "label": "Our Standards",
         "heading": "<p>Sourced with <em>Integrity</em></p>",
         "description": "Every organ in Nourish Her™ is sourced from 100% grass-fed, pasture-raised cattle in New Zealand — one of the world's most pristine agricultural environments, free from hormones and antibiotics."
@@ -434,6 +474,7 @@
         "badge_1": {
           "type": "trust_badge",
           "settings": {
+            "bg_color": "transparent",
             "icon": "🛡️",
             "label": "30-Day Money-Back Guarantee"
           }
@@ -441,6 +482,7 @@
         "badge_2": {
           "type": "trust_badge",
           "settings": {
+            "bg_color": "transparent",
             "icon": "🌿",
             "label": "Non-GMO"
           }
@@ -448,6 +490,7 @@
         "badge_3": {
           "type": "trust_badge",
           "settings": {
+            "bg_color": "transparent",
             "icon": "🐄",
             "label": "100% Grass-Fed"
           }
@@ -455,6 +498,7 @@
         "badge_4": {
           "type": "trust_badge",
           "settings": {
+            "bg_color": "transparent",
             "icon": "🌾",
             "label": "Gluten-Free"
           }
@@ -462,6 +506,7 @@
         "badge_5": {
           "type": "trust_badge",
           "settings": {
+            "bg_color": "transparent",
             "icon": "🔬",
             "label": "Lab Tested"
           }
@@ -469,6 +514,7 @@
         "badge_6": {
           "type": "trust_badge",
           "settings": {
+            "bg_color": "transparent",
             "icon": "🇳🇿",
             "label": "New Zealand Sourced"
           }
@@ -583,12 +629,13 @@
         "include_6"
       ],
       "settings": {
+        "bg_color": "transparent",
         "label": "Get Started Today",
         "heading": "<p>Choose Your <em>Nourishment Plan</em></p>",
         "product_title": "Nourish Her™",
         "product_tagline": "100% Grass-Fed Beef Organs — Whole-Food Nutrition for Women",
-        "cta_text": "Add to Cart — £34.99/mo",
-        "cta_link": "",
+        "featured_product": "",
+        "fallback_price": "£34.99",
         "guarantee_title": "30-Day Money-Back Guarantee",
         "guarantee_text": "If you're not completely satisfied, we'll refund you in full — no questions asked."
       }
@@ -649,6 +696,7 @@
         "badge_6"
       ],
       "settings": {
+        "bg_color": "transparent",
         "label": "Transparency & Trust",
         "heading": "<p>Third-Party <em>Lab Tested</em></p>",
         "paragraph_1": "We believe you should know exactly what you're putting into your body. That's why every single batch of Nourish Her™ is independently tested by a certified third-party laboratory for purity, potency, and the absence of heavy metals, contaminants, and pathogens.",
@@ -728,6 +776,7 @@
         "faq_8"
       ],
       "settings": {
+        "bg_color": "transparent",
         "label": "Got Questions?",
         "heading": "<p>Frequently Asked <em>Questions</em></p>"
       }
