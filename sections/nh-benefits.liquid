@@ -21,7 +21,13 @@
       <div class="nh-benefits-grid">
         {% for block in section.blocks %}
           <div class="nh-benefit-card" {{ block.shopify_attributes }}>
-            <div class="nh-benefit-icon">{{ block.settings.icon }}</div>
+            <div class="nh-benefit-icon">
+              {% if block.settings.custom_image != blank %}
+                {{ block.settings.custom_image | image_url: width: 64 | image_tag: alt: block.settings.title, loading: 'lazy', class: 'nh-benefit-custom-img' }}
+              {% else %}
+                {{ block.settings.icon }}
+              {% endif %}
+            </div>
             <h3>{{ block.settings.title }}</h3>
             <p>{{ block.settings.description }}</p>
           </div>
@@ -61,6 +67,12 @@
       "type": "benefit",
       "name": "Benefit Card",
       "settings": [
+        {
+          "type": "image_picker",
+          "id": "custom_image",
+          "label": "Custom Image (SVG/PNG)",
+          "info": "Overrides the emoji if selected"
+        },
         {
           "type": "text",
           "id": "icon",

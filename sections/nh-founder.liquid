@@ -1,6 +1,6 @@
 {% comment %}
   Nourish Her - Founder Story Section
-  Doctor's journey narrative with draggable text and image blocks
+  Doctor's journey narrative with dual columns and draggable content blocks inside them.
 {% endcomment %}
 
 {{ 'nourish-her.css' | asset_url | stylesheet_tag }}
@@ -18,58 +18,67 @@
     <div class="nh-divider"></div>
     
     <div class="nh-founder-grid">
-      <div class="nh-founder-text">
+      <div class="nh-founder-column nh-founder-text">
         {% for block in section.blocks %}
-          {% case block.type %}
-            {% when 'text' %}
-              <div class="nh-founder-block-text" {{ block.shopify_attributes }}>
-                {{ block.settings.content }}
-              </div>
-            {% when 'quote' %}
-              <div class="nh-founder-quote" {{ block.shopify_attributes }}>
-                {{ block.settings.quote }}
-              </div>
-            {% when 'signature' %}
-              <div class="nh-founder-sig" {{ block.shopify_attributes }}>
-                {{ block.settings.signature }}
-              </div>
-            {% when 'image' %}
-              <div class="nh-founder-block-image" {{ block.shopify_attributes }} style="margin-bottom: 20px;">
-                {% if block.settings.image != blank %}
-                  {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.image.alt, loading: 'lazy', width: block.settings.image.width, height: block.settings.image.height }}
-                {% elsif block.settings.image_url != blank %}
-                  <img src="{{ block.settings.image_url }}" alt="Founder story inline image" width="600" height="600" style="border-radius: 20px; width: 100%; object-fit: cover; box-shadow: 0 8px 32px rgba(0,0,0,0.1);" />
-                {% else %}
-                  {{ 'lifestyle-2' | placeholder_svg_tag: 'nh-founder-placeholder' }}
-                {% endif %}
-              </div>
-          {% endcase %}
+          {% if block.settings.column == 'left' %}
+            {% case block.type %}
+              {% when 'text' %}
+                <div class="nh-founder-block-text" {{ block.shopify_attributes }}>
+                  {{ block.settings.content }}
+                </div>
+              {% when 'quote' %}
+                <div class="nh-founder-quote" {{ block.shopify_attributes }}>
+                  {{ block.settings.quote }}
+                </div>
+              {% when 'signature' %}
+                <div class="nh-founder-sig" {{ block.shopify_attributes }}>
+                  {{ block.settings.signature }}
+                </div>
+              {% when 'image' %}
+                <div class="nh-founder-block-image" {{ block.shopify_attributes }} style="margin-bottom: 20px;">
+                  {% if block.settings.image != blank %}
+                    {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.image.alt, loading: 'lazy', width: block.settings.image.width, height: block.settings.image.height }}
+                  {% elsif block.settings.image_url != blank %}
+                    <img src="{{ block.settings.image_url }}" alt="Founder story inline image" width="600" height="600" style="border-radius: 20px; width: 100%; object-fit: cover; box-shadow: 0 8px 32px rgba(0,0,0,0.1);" />
+                  {% else %}
+                    {{ 'lifestyle-2' | placeholder_svg_tag: 'nh-founder-placeholder' }}
+                  {% endif %}
+                </div>
+            {% endcase %}
+          {% endif %}
         {% endfor %}
       </div>
       
-      {% if section.settings.show_right_column %}
-        <div class="nh-founder-images">
-          {% if section.settings.image_1 != blank %}
-            {{ section.settings.image_1 | image_url: width: 600 | image_tag: alt: section.settings.image_1.alt, loading: 'lazy', width: section.settings.image_1.width, height: section.settings.image_1.height }}
-          {% elsif section.settings.image_1_url != blank %}
-            <img src="{{ section.settings.image_1_url }}" alt="Founder story image 1" width="600" height="600" style="border-radius: 20px; width: 100%; object-fit: cover; box-shadow: 0 8px 32px rgba(0,0,0,0.1);" />
-          {% else %}
-            {% if section.settings.show_placeholders %}
-              {{ 'lifestyle-2' | placeholder_svg_tag: 'nh-founder-image-1' }}
-            {% endif %}
+      <div class="nh-founder-column nh-founder-images">
+        {% for block in section.blocks %}
+          {% if block.settings.column == 'right' %}
+            {% case block.type %}
+              {% when 'text' %}
+                <div class="nh-founder-block-text" {{ block.shopify_attributes }}>
+                  {{ block.settings.content }}
+                </div>
+              {% when 'quote' %}
+                <div class="nh-founder-quote" {{ block.shopify_attributes }}>
+                  {{ block.settings.quote }}
+                </div>
+              {% when 'signature' %}
+                <div class="nh-founder-sig" {{ block.shopify_attributes }}>
+                  {{ block.settings.signature }}
+                </div>
+              {% when 'image' %}
+                <div class="nh-founder-block-image" {{ block.shopify_attributes }} style="margin-bottom: 20px;">
+                  {% if block.settings.image != blank %}
+                    {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.image.alt, loading: 'lazy', width: block.settings.image.width, height: block.settings.image.height }}
+                  {% elsif block.settings.image_url != blank %}
+                    <img src="{{ block.settings.image_url }}" alt="Founder story inline image" width="600" height="600" style="border-radius: 20px; width: 100%; object-fit: cover; box-shadow: 0 8px 32px rgba(0,0,0,0.1);" />
+                  {% else %}
+                    {{ 'lifestyle-1' | placeholder_svg_tag: 'nh-founder-placeholder' }}
+                  {% endif %}
+                </div>
+            {% endcase %}
           {% endif %}
-          
-          {% if section.settings.image_2 != blank %}
-            {{ section.settings.image_2 | image_url: width: 600 | image_tag: alt: section.settings.image_2.alt, loading: 'lazy', width: section.settings.image_2.width, height: section.settings.image_2.height }}
-          {% elsif section.settings.image_2_url != blank %}
-            <img src="{{ section.settings.image_2_url }}" alt="Founder story image 2" width="600" height="600" style="border-radius: 20px; width: 100%; object-fit: cover; box-shadow: 0 8px 32px rgba(0,0,0,0.1);" />
-          {% else %}
-            {% if section.settings.show_placeholders %}
-              {{ 'lifestyle-1' | placeholder_svg_tag: 'nh-founder-image-2' }}
-            {% endif %}
-          {% endif %}
-        </div>
-      {% endif %}
+        {% endfor %}
+      </div>
     </div>
   </div>
 </section>
@@ -81,7 +90,7 @@
     object-fit: cover;
     box-shadow: 0 8px 32px rgba(0,0,0,0.1);
   }
-  .nh-founder-images:empty {
+  .nh-founder-column:empty {
     display: none;
   }
 </style>
@@ -109,43 +118,6 @@
       "id": "heading",
       "label": "Heading",
       "default": "<p>A Doctor's Journey Back to <em>Real Nourishment</em></p>"
-    },
-    {
-      "type": "header",
-      "content": "Side Column Images"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_right_column",
-      "label": "Show Right Image Column",
-      "default": false,
-      "info": "Turn off if you prefer to use inline image blocks on the left"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_placeholders",
-      "label": "Show Image Placeholders",
-      "default": true
-    },
-    {
-      "type": "image_picker",
-      "id": "image_1",
-      "label": "Side Image 1"
-    },
-    {
-      "type": "url",
-      "id": "image_1_url",
-      "label": "Side Image 1 URL (external)"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_2",
-      "label": "Side Image 2"
-    },
-    {
-      "type": "url",
-      "id": "image_2_url",
-      "label": "Side Image 2 URL (external)"
     }
   ],
   "blocks": [
@@ -153,6 +125,16 @@
       "type": "text",
       "name": "Text Content",
       "settings": [
+        {
+          "type": "select",
+          "id": "column",
+          "label": "Position",
+          "options": [
+            { "value": "left", "label": "Left Column" },
+            { "value": "right", "label": "Right Column" }
+          ],
+          "default": "left"
+        },
         {
           "type": "richtext",
           "id": "content",
@@ -163,8 +145,18 @@
     },
     {
       "type": "image",
-      "name": "Inline Image",
+      "name": "Image Block",
       "settings": [
+        {
+          "type": "select",
+          "id": "column",
+          "label": "Position",
+          "options": [
+            { "value": "left", "label": "Left Column" },
+            { "value": "right", "label": "Right Column" }
+          ],
+          "default": "right"
+        },
         {
           "type": "image_picker",
           "id": "image",
@@ -182,6 +174,16 @@
       "name": "Quote Block",
       "settings": [
         {
+          "type": "select",
+          "id": "column",
+          "label": "Position",
+          "options": [
+            { "value": "left", "label": "Left Column" },
+            { "value": "right", "label": "Right Column" }
+          ],
+          "default": "left"
+        },
+        {
           "type": "textarea",
           "id": "quote",
           "label": "Quote",
@@ -193,6 +195,16 @@
       "type": "signature",
       "name": "Signature",
       "settings": [
+        {
+          "type": "select",
+          "id": "column",
+          "label": "Position",
+          "options": [
+            { "value": "left", "label": "Left Column" },
+            { "value": "right", "label": "Right Column" }
+          ],
+          "default": "left"
+        },
         {
           "type": "text",
           "id": "signature",
@@ -209,26 +221,41 @@
         {
           "type": "text",
           "settings": {
+            "column": "left",
             "content": "<p>I didn't set out to start a supplement brand. <strong>I was simply trying to feel like myself again.</strong></p><p>As a doctor working long, demanding shifts, I lived in a constant state of exhaustion. My energy was low, my focus was slipping, and no matter how much I slept, I never felt restored.</p>"
           }
         },
         {
-          "type": "image"
-        },
-        {
           "type": "text",
           "settings": {
+            "column": "left",
             "content": "<p>That's when I started looking backwards — not forwards. For generations, women were nourished with whole, nutrient-dense foods that supported energy, resilience, and vitality at the root.</p><p>That's when I decided to create <strong>Nourish Her™</strong> — a clean, beef organ supplement to make it easier to get the essential nutrients my body needed.</p>"
           }
         },
         {
           "type": "quote",
           "settings": {
+            "column": "left",
             "quote": "For the first time in a long while, it felt like my body was finally getting what it had been quietly asking for — the nutrients it could actually recognise and use."
           }
         },
         {
-          "type": "signature"
+          "type": "signature",
+          "settings": {
+            "column": "left"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "column": "right"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "column": "right"
+          }
         }
       ]
     }
