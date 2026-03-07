@@ -167,24 +167,28 @@
         "signature_iH7mNi": {
           "type": "signature",
           "settings": {
+            "column": "left",
             "signature": "— Dr. [Founder Name], Founder of Nourish Her™"
           }
         },
         "quote_3qJ9Hd": {
           "type": "quote",
           "settings": {
+            "column": "left",
             "quote": "This is a highlighted quote."
           }
         },
         "image_CCyiAY": {
           "type": "image",
           "settings": {
+            "column": "right",
             "image_url": ""
           }
         },
         "text_9qiKdg": {
           "type": "text",
           "settings": {
+            "column": "left",
             "content": "<p>Add paragraph text here.</p>"
           }
         }
@@ -198,13 +202,7 @@
       "settings": {
         "bg_color": "transparent",
         "label": "Our Story",
-        "heading": "<p>A Doctor's Journey Back to <em>Real Nourishment</em></p>",
-        "show_right_column": false,
-        "show_placeholders": true,
-        "image_1": "shopify://shop_images/Nourishherhilllifestyle.webp",
-        "image_1_url": "",
-        "image_2": "shopify://shop_images/NourishHerpouchlineup.webp",
-        "image_2_url": ""
+        "heading": "<p>A Doctor's Journey Back to <em>Real Nourishment</em></p>"
       }
     },
     "nh-timeline": {
