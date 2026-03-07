@@ -61,7 +61,7 @@
               {% for block in section.blocks %}
                 {% if block.type == 'pricing_option' %}
                   <div class="nh-pricing-card{% if block.settings.selected %} nh-selected{% endif %}" 
-                       onclick="nhSelectPlan('{{ block.settings.plan_id }}', {{ block.settings.price | json }})"
+                       onclick="nhSelectPlan('{{ block.settings.plan_id | escape }}', '{{ block.settings.price | escape }}')"
                        style="margin-bottom: 20px;" {{ block.shopify_attributes }}>
                     <div class="nh-pricing-card-header">
                       <div class="nh-pricing-card-label">
