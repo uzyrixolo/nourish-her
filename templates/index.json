@@ -162,8 +162,8 @@
       "settings": {
         "label": "Our Story",
         "heading": "<p>A Doctor's Journey Back to <em>Real Nourishment</em></p>",
-        "story": "<p>I didn't set out to start a supplement brand. <strong>I was simply trying to feel like myself again.</strong></p><p>As a doctor working long, demanding shifts, I lived in a constant state of exhaustion. My energy was low, my focus was slipping, and no matter how much I slept, I never felt restored.</p><p>That's when I started looking backwards — not forwards. For generations, women were nourished with whole, nutrient-dense foods that supported energy, resilience, and vitality at the root.</p><p>That's when I decided to create <strong>Nourish Her™</strong> — a clean, beef organ supplement to make it easier to get the essential nutrients my body needed.</p>",
-        "quote": "For the first time in a long while, it felt like my body was finally getting what it had been quietly asking for — the nutrients it could actually recognise and use.",
+        "story": "<p>I didn't set out to start a supplement brand. <strong>I was simply trying to feel like myself again.</strong></p><p>As a doctor working long, demanding shifts, I lived in a constant state of exhaustion. My energy was low, my focus was slipping, and no matter how much I slept, I never felt restored.</p><p>That's when I started looking backwards — not forwards. For generations, women were nourished with whole, nutrient-dense foods that supported energy, resilience, and vitality at the root.</p><p>That's when I decided to create <strong>Nourish Her™</strong> — a clean, beef organ supplement to make it easier to get the essential nutrients my body needed.</p><p><br/>For the first time in a long while, it felt like my body was finally getting what it had been quietly asking for — the nutrients it could actually recognise and use.</p>",
+        "quote": "",
         "signature": "— Dr. [Founder Name], Founder of Nourish Her™",
         "image_1": "shopify://shop_images/Nourishherhilllifestyle.webp",
         "image_1_url": "",
@@ -177,7 +177,7 @@
         "month_1": {
           "type": "timeline_item",
           "settings": {
-            "month": "Month<br>1",
+            "month": "Month1",
             "title": "Steadier Daily Energy",
             "description": "Many women notice steadier daily energy and less afternoon fatigue as bioavailable haem iron, B12, and B-vitamins begin supporting normal energy-yielding metabolism."
           }
@@ -482,6 +482,7 @@
         "badge_5",
         "badge_6"
       ],
+      "custom_css": [],
       "settings": {}
     },
     "nh-offer": {
@@ -564,7 +565,7 @@
         "include_6": {
           "type": "include_item",
           "settings": {
-            "text": "30-day money-back guarantee"
+            "text": "Halal certified beef"
           }
         }
       },
@@ -613,6 +614,12 @@
             "text": "No Fillers"
           }
         },
+        "badge_qqV6ci": {
+          "type": "badge",
+          "settings": {
+            "text": "Non-GMO"
+          }
+        },
         "badge_4": {
           "type": "badge",
           "settings": {
@@ -636,6 +643,7 @@
         "badge_1",
         "badge_2",
         "badge_3",
+        "badge_qqV6ci",
         "badge_4",
         "badge_5",
         "badge_6"
