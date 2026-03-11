@@ -8,7 +8,7 @@
 
 
 
-<section class="nh-hero" id="nh-hero" style="{% if section.settings.bg_color != blank and section.settings.bg_color != "transparent" %}background: {{ section.settings.bg_color }};{% endif %}">
+<section class="nh-hero" id="nh-hero" style="{% if section.settings.bg_color != blank and section.settings.bg_color != "transparent" %}background: {{ section.settings.bg_color }};{% endif %}{% if section.settings.reverse_mobile %} --nh-hero-image-order: 1;{% else %} --nh-hero-image-order: -1;{% endif %}">
   <div class="nh-hero-text">
     {% if section.settings.eyebrow != blank %}
       <div class="nh-hero-eyebrow">{{ section.settings.eyebrow }}</div>
@@ -167,6 +167,13 @@
       "id": "image_label",
       "label": "Image Label",
       "default": "6 Whole-Food Beef Organs in Every Serving"
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse_mobile",
+      "label": "Reverse column order on mobile",
+      "default": false,
+      "info": "When enabled, text appears above the image on mobile. Default shows image on top."
     }
   ],
   "blocks": [

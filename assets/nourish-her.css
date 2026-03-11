@@ -1416,7 +1416,7 @@
   }
 
   .nh-hero-image-wrap {
-    order: -1;
+    order: var(--nh-hero-image-order, -1);
   }
 
   .nh-hero-image-wrap img {
