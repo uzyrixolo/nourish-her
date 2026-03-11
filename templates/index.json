@@ -55,7 +55,8 @@
         "hero_image": "shopify://shop_images/Nourishherpouchinpalm.webp",
         "image_width_desktop": 100,
         "image_width_mobile": 100,
-        "image_label": "6 Whole-Food Beef Organs in Every Serving"
+        "image_label": "6 Whole-Food Beef Organs in Every Serving",
+        "reverse_mobile": true
       }
     },
     "nh-benefits": {
