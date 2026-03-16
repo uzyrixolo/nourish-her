@@ -5,10 +5,17 @@
 
 {{ 'nourish-her.css' | asset_url | stylesheet_tag }}
 
-<div class="nh-announcement-bar" aria-label="Announcement">
+{% style %}
+  #nh-section-{{ section.id }} {
+    background: {{ section.settings.bg_color }};
+    color: {{ section.settings.text_color }};
+  }
+{% endstyle %}
+
+<div class="nh-announcement-bar" id="nh-section-{{ section.id }}" aria-label="Announcement">
   <div class="nh-marquee-inner">
     {% for block in section.blocks %}
-      <span>{{ block.settings.text }}</span>
+      <span {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
     {% endfor %}
     {% comment %} Duplicate for seamless loop {% endcomment %}
     {% for block in section.blocks %}
@@ -22,6 +29,20 @@
   "name": "NH - Announcement Bar",
   "tag": "section",
   "class": "nh-section-wrapper",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#cc0019"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#fffbd5"
+    }
+  ],
   "enabled_on": {
     "groups": ["header"]
   },

@@ -5,14 +5,27 @@
 
 {{ 'nourish-her.css' | asset_url | stylesheet_tag }}
 
-<footer class="nh-footer" id="nh-footer">
+{% style %}
+  #nh-section-{{ section.id }} {
+    background: {{ section.settings.bg_color }};
+    color: {{ section.settings.text_color }};
+  }
+  #nh-section-{{ section.id }} .nh-footer-inner span,
+  #nh-section-{{ section.id }} .nh-footer-links a,
+  #nh-section-{{ section.id }} .nh-footer-copy,
+  #nh-section-{{ section.id }} .nh-footer-disclaimer {
+    color: {{ section.settings.text_color }};
+  }
+{% endstyle %}
+
+<footer class="nh-footer" id="nh-section-{{ section.id }}">
   <div class="nh-footer-inner">
     {% if section.settings.logo != blank %}
       {{ section.settings.logo | image_url: width: 150 | image_tag: alt: shop.name, loading: 'lazy', width: section.settings.logo.width, height: section.settings.logo.height }}
     {% elsif section.settings.logo_url != blank %}
       <img src="{{ section.settings.logo_url }}" alt="{{ shop.name }}" width="150" height="55" style="width: 150px; height: auto;" />
     {% else %}
-      <span style="font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.5rem; color: rgba(255,255,255,0.8);">Nourish Her™</span>
+      <span style="font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.5rem;">Nourish Her™</span>
     {% endif %}
     
     {% if section.blocks.size > 0 %}
@@ -37,6 +50,22 @@
   "tag": "section",
   "class": "nh-section-wrapper",
   "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Footer Content"
+    },
     {
       "type": "image_picker",
       "id": "logo",

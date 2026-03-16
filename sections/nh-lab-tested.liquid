@@ -5,7 +5,51 @@
 
 {{ 'nourish-her.css' | asset_url | stylesheet_tag }}
 
-<section class="nh-section nh-lab-section" id="nh-lab-tested" style="{% if section.settings.bg_color != blank and section.settings.bg_color != "transparent" %}background: {{ section.settings.bg_color }};{% endif %}">
+{% style %}
+  #nh-section-{{ section.id }} {
+    {% if section.settings.bg_color != blank %}background: {{ section.settings.bg_color }};{% endif %}
+  }
+  #nh-section-{{ section.id }} .nh-section-title {
+    color: {{ section.settings.heading_color }};
+  }
+  #nh-section-{{ section.id }} .nh-section-label {
+    color: {{ section.settings.accent_color }};
+  }
+  #nh-section-{{ section.id }} .nh-divider {
+    background: {{ section.settings.accent_color }};
+  }
+  #nh-section-{{ section.id }} .nh-lab-text p {
+    color: {{ section.settings.text_color }};
+  }
+  #nh-section-{{ section.id }} .nh-lab-badge {
+    background: {{ section.settings.accent_color | color_modify: 'alpha', 0.1 }};
+    color: {{ section.settings.accent_color }};
+  }
+  #nh-section-{{ section.id }} .nh-lab-download {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    margin-top: 32px;
+    border-top: 1.5px solid {{ section.settings.text_color | color_modify: 'alpha', 0.2 }};
+    border-bottom: 1.5px solid {{ section.settings.text_color | color_modify: 'alpha', 0.2 }};
+    text-decoration: none;
+    color: {{ section.settings.heading_color }};
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: opacity 0.2s;
+  }
+  #nh-section-{{ section.id }} .nh-lab-download:hover {
+    opacity: 0.7;
+  }
+  #nh-section-{{ section.id }} .nh-lab-download svg {
+    color: {{ section.settings.heading_color }};
+  }
+{% endstyle %}
+
+<section class="nh-section nh-lab-section" id="nh-section-{{ section.id }}">
   <div class="nh-section-inner">
     {% if section.settings.label != blank %}
       <p class="nh-section-label">{{ section.settings.label }}</p>
@@ -38,6 +82,17 @@
             {% endfor %}
           </div>
         {% endif %}
+
+        {% if section.settings.download_url != blank %}
+          <a href="{{ section.settings.download_url }}" class="nh-lab-download" target="_blank">
+            <span>{{ section.settings.download_text }}</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+          </a>
+        {% endif %}
       </div>
       
       <div class="nh-lab-image">
@@ -60,10 +115,36 @@
   "class": "nh-section-wrapper",
   "settings": [
     {
+      "type": "header",
+      "content": "Section Colors"
+    },
+    {
       "type": "color_background",
       "id": "bg_color",
       "label": "Section Background",
       "default": "transparent"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#444444"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color",
+      "default": "#cc0019"
+    },
+    {
+      "type": "header",
+      "content": "Content"
     },
     {
       "type": "text",
@@ -104,6 +185,21 @@
       "type": "url",
       "id": "image_url",
       "label": "Image URL (external)"
+    },
+    {
+      "type": "header",
+      "content": "Download Box"
+    },
+    {
+      "type": "text",
+      "id": "download_text",
+      "label": "Download Text",
+      "default": "DOWNLOAD THE LAB TEST RESULTS"
+    },
+    {
+      "type": "url",
+      "id": "download_url",
+      "label": "PDF Download Link"
     }
   ],
   "blocks": [

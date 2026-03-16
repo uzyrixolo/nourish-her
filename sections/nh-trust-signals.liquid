@@ -5,7 +5,17 @@
 
 {{ 'nourish-her.css' | asset_url | stylesheet_tag }}
 
-<section class="nh-trust-section" id="nh-trust-signals">
+{% style %}
+  #nh-section-{{ section.id }} {
+    {% if section.settings.bg_color != blank %}background: {{ section.settings.bg_color }};{% endif %}
+    color: {{ section.settings.text_color }};
+  }
+  #nh-section-{{ section.id }} .nh-trust-badge-label {
+    color: {{ section.settings.text_color }};
+  }
+{% endstyle %}
+
+<section class="nh-trust-section" id="nh-section-{{ section.id }}">
   <div class="nh-trust-inner">
     {% for block in section.blocks %}
       <div class="nh-trust-badge" {{ block.shopify_attributes }}>
@@ -40,17 +50,25 @@
   "name": "NH - Trust Signals",
   "tag": "section",
   "class": "nh-section-wrapper",
-  "blocks": [
-    {
-      "type": "trust_badge",
-      "name": "Trust Badge",
-      "settings": [
+  "settings": [
     {
       "type": "color_background",
       "id": "bg_color",
       "label": "Section Background",
       "default": "transparent"
     },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#444444"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "trust_badge",
+      "name": "Trust Badge",
+      "settings": [
         {
           "type": "image_picker",
           "id": "custom_image",

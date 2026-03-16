@@ -8,7 +8,38 @@
 
 
 
-<section class="nh-hero" id="nh-hero" style="{% if section.settings.bg_color != blank and section.settings.bg_color != "transparent" %}background: {{ section.settings.bg_color }};{% endif %}{% if section.settings.reverse_mobile %} --nh-hero-image-order: 1;{% else %} --nh-hero-image-order: -1;{% endif %}">
+{% style %}
+  #nh-section-{{ section.id }} {
+    {% if section.settings.bg_color != blank %}background: {{ section.settings.bg_color }};{% endif %}
+    {% if section.settings.reverse_mobile %} --nh-hero-image-order: 1;{% else %} --nh-hero-image-order: -1;{% endif %}
+  }
+  #nh-section-{{ section.id }} h1 {
+    color: {{ section.settings.heading_color }};
+  }
+  #nh-section-{{ section.id }} .nh-hero-sub, 
+  #nh-section-{{ section.id }} .nh-trust-item {
+    color: {{ section.settings.text_color }};
+  }
+  #nh-section-{{ section.id }} .nh-hero-eyebrow {
+    color: {{ section.settings.accent_color }};
+    background: {{ section.settings.accent_color | color_modify: 'alpha', 0.1 }};
+  }
+  #nh-section-{{ section.id }} .nh-btn-primary {
+    background: {{ section.settings.accent_color }};
+  }
+  #nh-section-{{ section.id }} .nh-hero-benefit-pill {
+    border-color: {{ section.settings.accent_color }};
+    color: {{ section.settings.accent_color }};
+  }
+  #nh-section-{{ section.id }} .nh-hero-organ-label {
+    background: {{ section.settings.accent_color | color_modify: 'alpha', 0.92 }};
+  }
+  #nh-section-{{ section.id }} svg circle {
+    fill: {{ section.settings.accent_color }};
+  }
+{% endstyle %}
+
+<section class="nh-hero" id="nh-section-{{ section.id }}">
   <div class="nh-hero-text">
     {% if section.settings.eyebrow != blank %}
       <div class="nh-hero-eyebrow">{{ section.settings.eyebrow }}</div>
@@ -25,28 +56,28 @@
     {% if section.blocks.size > 0 %}
       <div class="nh-hero-benefits">
         {% for block in section.blocks %}
-          <span class="nh-hero-benefit-pill">{{ block.settings.text }}</span>
+          <span class="nh-hero-benefit-pill" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
         {% endfor %}
       </div>
     {% endif %}
     
     <div class="nh-hero-cta-group">
-      <a href="#nh-offer" class="nh-btn-primary">{{ section.settings.cta_button_text }}</a>
+      <a href="#nh-offer" class="nh-btn-primary" style="color: #fff;">{{ section.settings.cta_button_text }}</a>
     </div>
     
     <div class="nh-hero-trust">
       <div class="nh-trust-item">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#cc0019"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         {{ section.settings.trust_1 }}
       </div>
       <div class="nh-trust-item">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#cc0019"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         {{ section.settings.trust_2 }}
       </div>
     </div>
   </div>
   
-  <div class="nh-hero-image-wrap" id="nhHeroImageWrap" style="--img-desktop: {{ section.settings.image_width_desktop }}%; --img-mobile: {{ section.settings.image_width_mobile }}%;">
+  <div class="nh-hero-image-wrap" id="nhHeroImageWrap-{{ section.id }}" style="--img-desktop: {{ section.settings.image_width_desktop }}%; --img-mobile: {{ section.settings.image_width_mobile }}%;">
     {% if section.settings.hero_image != blank %}
       {{ section.settings.hero_image | image_url: width: 800 | image_tag: alt: section.settings.hero_image.alt, loading: 'eager', width: section.settings.hero_image.width, height: section.settings.hero_image.height }}
     {% else %}
@@ -59,23 +90,25 @@
 </section>
 
 <script>
-  // Sticky nav CTA visibility
-  const nhHeroImageWrap = document.getElementById('nhHeroImageWrap');
-  const nhNavCta = document.getElementById('nhNavCta');
-  
-  if (nhHeroImageWrap && nhNavCta) {
-    const nhObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-          nhNavCta.classList.add('visible');
-        } else {
-          nhNavCta.classList.remove('visible');
-        }
-      });
-    }, { threshold: 0.1 });
+  // Sticky nav CTA visibility - Scope to this section
+  (function() {
+    const nhHeroImageWrap = document.getElementById('nhHeroImageWrap-{{ section.id }}');
+    const nhNavCta = document.getElementById('nhNavCta');
     
-    nhObserver.observe(nhHeroImageWrap);
-  }
+    if (nhHeroImageWrap && nhNavCta) {
+      const nhObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) {
+            nhNavCta.classList.add('visible');
+          } else {
+            nhNavCta.classList.remove('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      nhObserver.observe(nhHeroImageWrap);
+    }
+  })();
 </script>
 
 {% schema %}
@@ -85,10 +118,36 @@
   "class": "nh-section-wrapper",
   "settings": [
     {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
       "type": "color_background",
       "id": "bg_color",
       "label": "Section Background",
-      "default": "transparent"
+      "default": "linear-gradient(135deg, #fffbd5 0%, #fff 100%)"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#444444"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color",
+      "default": "#cc0019"
+    },
+    {
+      "type": "header",
+      "content": "Content"
     },
     {
       "type": "image_picker",

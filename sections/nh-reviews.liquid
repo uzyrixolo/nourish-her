@@ -5,7 +5,40 @@
 
 {{ 'nourish-her.css' | asset_url | stylesheet_tag }}
 
-<section class="nh-section nh-reviews-section" id="nh-reviews">
+{% style %}
+  #nh-section-{{ section.id }} {
+    {% if section.settings.bg_color != blank %}background: {{ section.settings.bg_color }};{% endif %}
+  }
+  #nh-section-{{ section.id }} .nh-section-title {
+    color: {{ section.settings.heading_color }};
+  }
+  #nh-section-{{ section.id }} .nh-section-label {
+    color: {{ section.settings.accent_color }};
+  }
+  #nh-section-{{ section.id }} .nh-divider {
+    background: {{ section.settings.accent_color }};
+  }
+  #nh-section-{{ section.id }} .nh-review-card {
+    background: {{ section.settings.card_bg }};
+    border-color: {{ section.settings.card_border }};
+    color: {{ section.settings.card_text }};
+  }
+  #nh-section-{{ section.id }} .nh-review-stars {
+    color: {{ section.settings.star_color }};
+  }
+  #nh-section-{{ section.id }} .nh-review-text {
+    color: {{ section.settings.card_text }};
+  }
+  #nh-section-{{ section.id }} .nh-reviewer-name {
+    color: {{ section.settings.card_text }};
+  }
+  #nh-section-{{ section.id }} .nh-reviewer-avatar {
+    background: {{ section.settings.accent_color | color_modify: 'alpha', 0.1 }};
+    color: {{ section.settings.accent_color }};
+  }
+{% endstyle %}
+
+<section class="nh-section nh-reviews-section" id="nh-section-{{ section.id }}">
   <div class="nh-section-inner">
     {% if section.settings.label != blank %}
       <p class="nh-section-label">{{ section.settings.label }}</p>
@@ -20,7 +53,7 @@
   
   {% if section.blocks.size > 0 %}
     <div class="nh-reviews-track-wrap">
-      <div class="nh-reviews-track" id="nhReviewsTrack">
+      <div class="nh-reviews-track" id="nhReviewsTrack-{{ section.id }}">
         {% for block in section.blocks %}
           <div class="nh-review-card" {{ block.shopify_attributes }}>
             <div class="nh-review-stars">{{ block.settings.stars }}</div>
@@ -65,6 +98,60 @@
   "tag": "section",
   "class": "nh-section-wrapper",
   "settings": [
+    {
+      "type": "header",
+      "content": "Section Colors"
+    },
+    {
+      "type": "color_background",
+      "id": "bg_color",
+      "label": "Section Background",
+      "default": "#fffbd5"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color",
+      "default": "#fe3c93"
+    },
+    {
+      "type": "header",
+      "content": "Card Colors"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Card Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_border",
+      "label": "Card Border",
+      "default": "#ffd4e2"
+    },
+    {
+      "type": "color",
+      "id": "card_text",
+      "label": "Card Text Color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "star_color",
+      "label": "Star Color",
+      "default": "#ff591b"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
     {
       "type": "text",
       "id": "label",
