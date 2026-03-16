@@ -360,7 +360,7 @@
         "ovaries"
       ],
       "settings": {
-        "bg_color": "transparent",
+        "bg_color": "grey",
         "heading_color": "#fffbd5",
         "text_color": "#fffbd5",
         "accent_color": "#fffbd5",
@@ -760,7 +760,7 @@
         "paragraph_3": "When you choose Nourish Her™, you're choosing a supplement brand that prioritises your health over shortcuts.",
         "image_url": "",
         "download_text": "DOWNLOAD THE LAB TEST RESULTS",
-        "download_url": ""
+        "download_url": "shopify://pages/contact"
       }
     },
     "nh-faq": {
