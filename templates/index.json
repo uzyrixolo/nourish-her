@@ -44,7 +44,10 @@
         "pill_4"
       ],
       "settings": {
-        "bg_color": "transparent",
+        "bg_color": "orange",
+        "heading_color": "#1a1a1a",
+        "text_color": "#444444",
+        "accent_color": "#cc0019",
         "eyebrow": "Whole-Food Nutrition for Women",
         "heading": "<p>Why Beef Organ Superfoods Are the Secret to <em>Healthy Hormones & Energy</em></p>",
         "subheading": "Nourish Her™ is a clean, 100% grass-fed beef organ supplement specifically formulated for women — delivering the ancestral nutrition your body recognises, absorbs, and thrives on.",
@@ -103,6 +106,13 @@
       ],
       "settings": {
         "bg_color": "transparent",
+        "heading_color": "#1a1a1a",
+        "accent_color": "#fe3c93",
+        "card_bg": "#ffffff",
+        "card_border": "#ffd4e2",
+        "card_text_title": "#1a1a1a",
+        "card_text_body": "#444444",
+        "card_icon_bg": "#fdf8f0",
         "label": "What You'll Feel",
         "heading": "<p>Four Pillars of <em>Female Vitality</em></p>"
       }
@@ -158,6 +168,13 @@
         "review_4"
       ],
       "settings": {
+        "bg_color": "#fffbd5",
+        "heading_color": "#1a1a1a",
+        "accent_color": "#fe3c93",
+        "card_bg": "#ffffff",
+        "card_border": "#ffd4e2",
+        "card_text": "#1a1a1a",
+        "star_color": "#ff591b",
         "label": "Real Women, Real Results",
         "heading": "<p>What Our Community <em>Is Saying</em></p>"
       }
@@ -202,6 +219,11 @@
       ],
       "settings": {
         "bg_color": "transparent",
+        "heading_color": "#1a1a1a",
+        "text_color": "#444444",
+        "accent_color": "#cc0019",
+        "quote_bg": "#fffbd5",
+        "quote_text": "#1a1a1a",
         "label": "Our Story",
         "heading": "<p>A Doctor's Journey Back to <em>Real Nourishment</em></p>"
       }
@@ -259,6 +281,13 @@
       ],
       "settings": {
         "bg_color": "transparent",
+        "heading_color": "#1a1a1a",
+        "text_color": "#444444",
+        "accent_color": "#cc0019",
+        "card_bg": "#ffffff",
+        "card_border": "#ffd4e2",
+        "card_text_title": "#1a1a1a",
+        "card_text_body": "#444444",
         "label": "Your Journey",
         "heading": "<p>What to Expect When Taking <em>Nourish Her™</em></p>",
         "disclaimer": "Results may vary. Individual outcomes depend on diet, lifestyle, and starting nutrient status."
@@ -332,6 +361,15 @@
       ],
       "settings": {
         "bg_color": "transparent",
+        "heading_color": "#fffbd5",
+        "text_color": "#fffbd5",
+        "accent_color": "#fffbd5",
+        "card_bg": "#ffffff1a",
+        "card_border": "#fffbd540",
+        "card_text_title": "#fffbd5",
+        "card_text_body": "#fffbd5",
+        "card_accent": "#fffbd5",
+        "card_accent_text": "#cc0019",
         "label": "The Formula",
         "heading": "<p>What's Inside <em>Exactly?</em></p>",
         "description": "Six carefully selected grass-fed beef organs, each chosen for their unique nutritional profile and specific relevance to female health."
@@ -401,8 +439,14 @@
       ],
       "settings": {
         "bg_color": "transparent",
-        "label": "Why Nourish Her™?",
-        "heading": "<p>Whole-Food Organs vs. <em>Traditional Multivitamins</em></p>",
+        "heading_color": "#1a1a1a",
+        "accent_color": "#cc0019",
+        "th_text_color": "#fffbd5",
+        "th_secondary_bg": "#f1f1f1",
+        "th_secondary_text": "#444444",
+        "td_text_color": "#444444",
+        "tr_odd_bg": "#ffffff",
+        "tr_even_bg": "#fcfcfc",
         "product_image_url": "",
         "column_1_title": "Nourish Her™ Beef Organ Supplement",
         "comparison_image_url": "",
@@ -462,6 +506,13 @@
       ],
       "settings": {
         "bg_color": "transparent",
+        "heading_color": "#1a1a1a",
+        "text_color": "#444444",
+        "accent_color": "#cc0019",
+        "card_bg": "#ffffff",
+        "card_border": "#ffd4e2",
+        "card_text_title": "#1a1a1a",
+        "card_text_body": "#444444",
         "label": "Our Standards",
         "heading": "<p>Sourced with <em>Integrity</em></p>",
         "description": "Every organ in Nourish Her™ is sourced from 100% grass-fed, pasture-raised cattle in New Zealand — one of the world's most pristine agricultural environments, free from hormones and antibiotics."
@@ -473,7 +524,6 @@
         "badge_1": {
           "type": "trust_badge",
           "settings": {
-            "bg_color": "transparent",
             "icon": "🛡️",
             "label": "30-Day Money-Back Guarantee"
           }
@@ -481,7 +531,6 @@
         "badge_2": {
           "type": "trust_badge",
           "settings": {
-            "bg_color": "transparent",
             "icon": "🌿",
             "label": "Non-GMO"
           }
@@ -489,7 +538,6 @@
         "badge_3": {
           "type": "trust_badge",
           "settings": {
-            "bg_color": "transparent",
             "icon": "🐄",
             "label": "100% Grass-Fed"
           }
@@ -497,7 +545,6 @@
         "badge_4": {
           "type": "trust_badge",
           "settings": {
-            "bg_color": "transparent",
             "icon": "🌾",
             "label": "Gluten-Free"
           }
@@ -505,7 +552,6 @@
         "badge_5": {
           "type": "trust_badge",
           "settings": {
-            "bg_color": "transparent",
             "icon": "🔬",
             "label": "Lab Tested"
           }
@@ -513,7 +559,6 @@
         "badge_6": {
           "type": "trust_badge",
           "settings": {
-            "bg_color": "transparent",
             "icon": "🇳🇿",
             "label": "New Zealand Sourced"
           }
@@ -528,7 +573,10 @@
         "badge_6"
       ],
       "custom_css": [],
-      "settings": {}
+      "settings": {
+        "bg_color": "transparent",
+        "text_color": "#444444"
+      }
     },
     "nh-offer": {
       "type": "nh-offer",
@@ -629,6 +677,12 @@
       ],
       "settings": {
         "bg_color": "transparent",
+        "heading_color": "#1a1a1a",
+        "text_color": "#444444",
+        "accent_color": "#cc0019",
+        "card_bg": "#ffffff",
+        "card_border": "#eeeeee",
+        "card_text": "#1a1a1a",
         "label": "Get Started Today",
         "heading": "<p>Choose Your <em>Nourishment Plan</em></p>",
         "product_title": "Nourish Her™",
@@ -696,12 +750,17 @@
       ],
       "settings": {
         "bg_color": "transparent",
+        "heading_color": "#1a1a1a",
+        "text_color": "#444444",
+        "accent_color": "#cc0019",
         "label": "Transparency & Trust",
         "heading": "<p>Third-Party <em>Lab Tested</em></p>",
         "paragraph_1": "We believe you should know exactly what you're putting into your body. That's why every single batch of Nourish Her™ is independently tested by a certified third-party laboratory for purity, potency, and the absence of heavy metals, contaminants, and pathogens.",
         "paragraph_2": "Our test results are available on request — because transparency isn't a marketing claim, it's a standard we hold ourselves to.",
         "paragraph_3": "When you choose Nourish Her™, you're choosing a supplement brand that prioritises your health over shortcuts.",
-        "image_url": ""
+        "image_url": "",
+        "download_text": "DOWNLOAD THE LAB TEST RESULTS",
+        "download_url": ""
       }
     },
     "nh-faq": {
@@ -776,6 +835,12 @@
       ],
       "settings": {
         "bg_color": "transparent",
+        "heading_color": "#1a1a1a",
+        "accent_color": "#cc0019",
+        "item_bg": "rgba(0,0,0,0)",
+        "item_border": "#eeeeee",
+        "question_color": "#1a1a1a",
+        "answer_color": "#444444",
         "label": "Got Questions?",
         "heading": "<p>Frequently Asked <em>Questions</em></p>"
       }
@@ -836,6 +901,8 @@
       ],
       "disabled": true,
       "settings": {
+        "bg_color": "#1a1a1a",
+        "text_color": "#ffffff",
         "logo_url": "",
         "company_name": "Nourish Her™",
         "disclaimer": "*These statements have not been evaluated by the Food Standards Agency. This product is not intended to diagnose, treat, cure, or prevent any disease. Results may vary. Always consult your healthcare provider before starting any new supplement, especially if you are pregnant, breastfeeding, or taking medication."
