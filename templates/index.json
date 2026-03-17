@@ -44,7 +44,7 @@
         "pill_4"
       ],
       "settings": {
-        "bg_color": "orange",
+        "bg_color": "#fffbd5",
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
         "accent_color": "#cc0019",
@@ -105,7 +105,7 @@
         "benefit_4"
       ],
       "settings": {
-        "bg_color": "transparent",
+        "bg_color": "#fdf8f0",
         "heading_color": "#1a1a1a",
         "accent_color": "#fe3c93",
         "card_bg": "#ffffff",
@@ -218,7 +218,7 @@
         "text_9qiKdg"
       ],
       "settings": {
-        "bg_color": "transparent",
+        "bg_color": "#ffffff",
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
         "accent_color": "#cc0019",
@@ -280,7 +280,7 @@
         "month_12"
       ],
       "settings": {
-        "bg_color": "transparent",
+        "bg_color": "#fdf8f0",
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
         "accent_color": "#cc0019",
@@ -360,7 +360,7 @@
         "ovaries"
       ],
       "settings": {
-        "bg_color": "grey",
+        "bg_color": "#cc0019",
         "heading_color": "#fffbd5",
         "text_color": "#fffbd5",
         "accent_color": "#fffbd5",
@@ -438,7 +438,7 @@
         "row_7"
       ],
       "settings": {
-        "bg_color": "transparent",
+        "bg_color": "#ffffff",
         "heading_color": "#1a1a1a",
         "accent_color": "#cc0019",
         "th_text_color": "#fffbd5",
@@ -505,7 +505,7 @@
         "lab_tested"
       ],
       "settings": {
-        "bg_color": "transparent",
+        "bg_color": "#fffbd5",
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
         "accent_color": "#cc0019",
@@ -574,7 +574,7 @@
       ],
       "custom_css": [],
       "settings": {
-        "bg_color": "transparent",
+        "bg_color": "#cc0019",
         "text_color": "#444444"
       }
     },
@@ -676,7 +676,7 @@
         "include_6"
       ],
       "settings": {
-        "bg_color": "transparent",
+        "bg_color": "#fdf8f0",
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
         "accent_color": "#cc0019",
@@ -749,7 +749,7 @@
         "badge_6"
       ],
       "settings": {
-        "bg_color": "transparent",
+        "bg_color": "#ffffff",
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
         "accent_color": "#cc0019",
@@ -834,7 +834,7 @@
         "faq_8"
       ],
       "settings": {
-        "bg_color": "transparent",
+        "bg_color": "#ffffff",
         "heading_color": "#1a1a1a",
         "accent_color": "#cc0019",
         "item_bg": "rgba(0,0,0,0)",
