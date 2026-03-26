@@ -36,6 +36,18 @@
     background: {{ section.settings.accent_color | color_modify: 'alpha', 0.1 }};
     color: {{ section.settings.accent_color }};
   }
+  #nh-section-{{ section.id }} .nh-reviewer-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  #nh-section-{{ section.id }} .nh-reviewer-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
 {% endstyle %}
 
 <section class="nh-section nh-reviews-section" id="nh-section-{{ section.id }}">
@@ -59,7 +71,11 @@
             <div class="nh-review-stars">{{ block.settings.stars }}</div>
             <p class="nh-review-text">"{{ block.settings.review }}"</p>
             <div class="nh-reviewer">
-              <div class="nh-reviewer-avatar">{{ block.settings.name | slice: 0 }}</div>
+              {% if block.settings.reviewer_image != blank %}
+                <div class="nh-reviewer-avatar">{{ block.settings.reviewer_image | image_url: width: 100 | image_tag: alt: block.settings.name, loading: 'lazy' }}</div>
+              {% else %}
+                <div class="nh-reviewer-avatar">{{ block.settings.name | slice: 0 }}</div>
+              {% endif %}
               <div>
                 <div class="nh-reviewer-name">{{ block.settings.name }}</div>
                 <div class="nh-reviewer-tag">{{ block.settings.tag }}</div>
@@ -76,7 +92,11 @@
             <div class="nh-review-stars">{{ block.settings.stars }}</div>
             <p class="nh-review-text">"{{ block.settings.review }}"</p>
             <div class="nh-reviewer">
-              <div class="nh-reviewer-avatar">{{ block.settings.name | slice: 0 }}</div>
+              {% if block.settings.reviewer_image != blank %}
+                <div class="nh-reviewer-avatar">{{ block.settings.reviewer_image | image_url: width: 100 | image_tag: alt: block.settings.name, loading: 'lazy' }}</div>
+              {% else %}
+                <div class="nh-reviewer-avatar">{{ block.settings.name | slice: 0 }}</div>
+              {% endif %}
               <div>
                 <div class="nh-reviewer-name">{{ block.settings.name }}</div>
                 <div class="nh-reviewer-tag">{{ block.settings.tag }}</div>
@@ -199,6 +219,11 @@
           "id": "verified",
           "label": "Show Verified Badge",
           "default": true
+        },
+        {
+          "type": "image_picker",
+          "id": "reviewer_image",
+          "label": "Reviewer Photo"
         }
       ]
     }
