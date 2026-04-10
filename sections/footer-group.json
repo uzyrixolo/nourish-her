@@ -67,6 +67,8 @@
       ],
       "name": "NH - Footer",
       "settings": {
+        "bg_color": "#1a1a1a",
+        "text_color": "#ffffff",
         "logo_url": "",
         "company_name": "Nourish Her™",
         "disclaimer": "*These statements have not been evaluated by the Food Standards Agency. This product is not intended to diagnose, treat, cure, or prevent any disease. Results may vary. Always consult your healthcare provider before starting any new supplement, especially if you are pregnant, breastfeeding, or taking medication."
