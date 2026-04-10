@@ -1,7 +1,8 @@
 {% comment %}
   Nourish Her - Hero Section
-  Two-column hero with text content and product image
-  Blocks now support: image, subheading, benefit_pill — all draggable in editor
+  FULLY BLOCK-DRIVEN — every element is a draggable block.
+  Block types: eyebrow | heading | subheading | image | benefit_pill | cta_button | trust_item
+  Each block has a "Column" setting: Left or Right.
 {% endcomment %}
 
 {{ 'nourish-her.css' | asset_url | stylesheet_tag }}
@@ -10,22 +11,16 @@
 {% style %}
   #nh-section-{{ section.id }} {
     {% if section.settings.bg_color != blank %}background: {{ section.settings.bg_color }};{% endif %}
-    {% if section.settings.reverse_mobile %} --nh-hero-image-order: 1;{% else %} --nh-hero-image-order: -1;{% endif %}
+    {% if section.settings.reverse_mobile %}--nh-hero-image-order: 1;{% else %}--nh-hero-image-order: -1;{% endif %}
   }
-  #nh-section-{{ section.id }} h1 {
-    color: {{ section.settings.heading_color }};
-  }
+  #nh-section-{{ section.id }} h1 { color: {{ section.settings.heading_color }}; }
   #nh-section-{{ section.id }} .nh-hero-sub,
-  #nh-section-{{ section.id }} .nh-trust-item {
-    color: {{ section.settings.text_color }};
-  }
+  #nh-section-{{ section.id }} .nh-trust-item { color: {{ section.settings.text_color }}; }
   #nh-section-{{ section.id }} .nh-hero-eyebrow {
     color: {{ section.settings.accent_color }};
     background: {{ section.settings.accent_color | color_modify: 'alpha', 0.1 }};
   }
-  #nh-section-{{ section.id }} .nh-btn-primary {
-    background: {{ section.settings.accent_color }};
-  }
+  #nh-section-{{ section.id }} .nh-btn-primary { background: {{ section.settings.accent_color }}; }
   #nh-section-{{ section.id }} .nh-hero-benefit-pill {
     border-color: {{ section.settings.accent_color }};
     color: {{ section.settings.accent_color }};
@@ -33,121 +28,124 @@
   #nh-section-{{ section.id }} .nh-hero-organ-label {
     background: {{ section.settings.accent_color | color_modify: 'alpha', 0.92 }};
   }
-  #nh-section-{{ section.id }} svg circle {
-    fill: {{ section.settings.accent_color }};
-  }
-  #nh-section-{{ section.id }} .nh-hero-inline-image {
+  #nh-section-{{ section.id }} svg circle { fill: {{ section.settings.accent_color }}; }
+  #nh-section-{{ section.id }} .nh-hero-block-image {
     position: relative;
-    margin: 20px 0;
+    margin: 16px 0;
   }
-  #nh-section-{{ section.id }} .nh-hero-inline-image img {
+  #nh-section-{{ section.id }} .nh-hero-block-image img {
     border-radius: 16px;
+    width: 100%;
     display: block;
+    object-fit: cover;
+  }
+  #nh-section-{{ section.id }} .nh-hero-trust-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 8px;
   }
 {% endstyle %}
 
 <section class="nh-hero" id="nh-section-{{ section.id }}">
+
+  {%- comment -%}── LEFT COLUMN ──{%- endcomment -%}
   <div class="nh-hero-text">
-    {% if section.settings.eyebrow != blank %}
-      <div class="nh-hero-eyebrow">{{ section.settings.eyebrow }}</div>
-    {% endif %}
-
-    {% if section.settings.heading != blank %}
-      <h1>{{ section.settings.heading }}</h1>
-    {% endif %}
-
-    {% comment %}
-      Render all blocks in order — image/subheading/benefit_pill blocks sit between
-      headings exactly as dragged in the theme editor.
-    {% endcomment %}
-    {% assign has_subheading_block = false %}
-    {% assign has_benefit_block = false %}
-    {% for block in section.blocks %}
-      {% case block.type %}
-        {% when 'image' %}
-          <div class="nh-hero-inline-image" {{ block.shopify_attributes }}>
-            {% if block.settings.image != blank %}
-              {{ block.settings.image | image_url: width: 800 | image_tag: alt: block.settings.image.alt, loading: 'eager', style: 'width: 100%;' }}
-            {% elsif section.settings.hero_image != blank %}
-              {{ section.settings.hero_image | image_url: width: 800 | image_tag: alt: section.settings.hero_image.alt, loading: 'eager', style: 'width: 100%;' }}
-            {% else %}
-              {{ 'lifestyle-1' | placeholder_svg_tag: 'nh-hero-placeholder' }}
-            {% endif %}
-            {% if block.settings.label != blank %}
-              <div class="nh-hero-organ-label">{{ block.settings.label }}</div>
-            {% endif %}
-          </div>
-
-        {% when 'subheading' %}
-          {% assign has_subheading_block = true %}
-          {% if block.settings.text != blank %}
+    {%- assign pills_open = false -%}
+    {%- assign trust_open = false -%}
+    {%- for block in section.blocks -%}
+      {%- assign col = block.settings.column | default: 'left' -%}
+      {%- if col == 'left' -%}
+        {%- if pills_open and block.type != 'benefit_pill' -%}</div>{%- assign pills_open = false -%}{%- endif -%}
+        {%- if trust_open and block.type != 'trust_item' -%}</div>{%- assign trust_open = false -%}{%- endif -%}
+        {%- case block.type -%}
+          {%- when 'eyebrow' -%}
+            <div class="nh-hero-eyebrow" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+          {%- when 'heading' -%}
+            <h1 {{ block.shopify_attributes }}>{{ block.settings.text }}</h1>
+          {%- when 'subheading' -%}
             <p class="nh-hero-sub" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
-          {% endif %}
-
-        {% when 'benefit_pill' %}
-          {% unless has_benefit_block %}
-            {% assign has_benefit_block = true %}
-            <div class="nh-hero-benefits">
-          {% endunless %}
+          {%- when 'image' -%}
+            <div class="nh-hero-block-image" {{ block.shopify_attributes }}>
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 900 | image_tag: alt: block.settings.image.alt, loading: 'eager' }}
+              {%- else -%}{{ 'lifestyle-1' | placeholder_svg_tag: 'nh-hero-placeholder' }}{%- endif -%}
+              {%- if block.settings.label != blank -%}<div class="nh-hero-organ-label">{{ block.settings.label }}</div>{%- endif -%}
+            </div>
+          {%- when 'benefit_pill' -%}
+            {%- unless pills_open -%}<div class="nh-hero-benefits">{%- assign pills_open = true -%}{%- endunless -%}
             <span class="nh-hero-benefit-pill" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
-
-      {% endcase %}
-    {% endfor %}
-
-    {% comment %} Close benefits wrapper if it was opened {% endcomment %}
-    {% if has_benefit_block %}
-      </div>
-    {% endif %}
-
-    {% comment %} Fallback static subheading if no subheading block is used {% endcomment %}
-    {% unless has_subheading_block %}
-      {% if section.settings.subheading != blank %}
-        <p class="nh-hero-sub">{{ section.settings.subheading }}</p>
-      {% endif %}
-    {% endunless %}
-
-    <div class="nh-hero-cta-group">
-      <a href="#nh-offer" class="nh-btn-primary" style="color: #fff;">{{ section.settings.cta_button_text }}</a>
-    </div>
-
-    <div class="nh-hero-trust">
-      <div class="nh-trust-item">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        {{ section.settings.trust_1 }}
-      </div>
-      <div class="nh-trust-item">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        {{ section.settings.trust_2 }}
-      </div>
-    </div>
+          {%- when 'cta_button' -%}
+            <div class="nh-hero-cta-group" {{ block.shopify_attributes }}>
+              <a href="{{ block.settings.url | default: '#nh-offer' }}" class="nh-btn-primary" style="color:#fff;">{{ block.settings.text }}</a>
+            </div>
+          {%- when 'trust_item' -%}
+            {%- unless trust_open -%}<div class="nh-hero-trust-row">{%- assign trust_open = true -%}{%- endunless -%}
+            <div class="nh-trust-item" {{ block.shopify_attributes }}>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              {{ block.settings.text }}
+            </div>
+        {%- endcase -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if pills_open -%}</div>{%- endif -%}
+    {%- if trust_open -%}</div>{%- endif -%}
   </div>
 
-  {% comment %} Right-column image — hidden when an "image" block is present {% endcomment %}
-  {% assign has_image_block = false %}
-  {% for block in section.blocks %}{% if block.type == 'image' %}{% assign has_image_block = true %}{% endif %}{% endfor %}
-  {% unless has_image_block %}
-    <div class="nh-hero-image-wrap" id="nhHeroImageWrap-{{ section.id }}" style="--img-desktop: {{ section.settings.image_width_desktop }}%; --img-mobile: {{ section.settings.image_width_mobile }}%;">
-      {% if section.settings.hero_image != blank %}
-        {{ section.settings.hero_image | image_url: width: 800 | image_tag: alt: section.settings.hero_image.alt, loading: 'eager', width: section.settings.hero_image.width, height: section.settings.hero_image.height }}
-      {% else %}
-        {{ 'lifestyle-1' | placeholder_svg_tag: 'nh-hero-placeholder' }}
-      {% endif %}
-      {% if section.settings.image_label != blank %}
-        <div class="nh-hero-organ-label">{{ section.settings.image_label }}</div>
-      {% endif %}
-    </div>
-  {% endunless %}
+  {%- comment -%}── RIGHT COLUMN ──{%- endcomment -%}
+  <div class="nh-hero-image-wrap" id="nhHeroImageWrap-{{ section.id }}">
+    {%- assign pills_open = false -%}
+    {%- assign trust_open = false -%}
+    {%- assign right_has_content = false -%}
+    {%- for block in section.blocks -%}
+      {%- assign col = block.settings.column | default: 'left' -%}
+      {%- if col == 'right' -%}
+        {%- assign right_has_content = true -%}
+        {%- if pills_open and block.type != 'benefit_pill' -%}</div>{%- assign pills_open = false -%}{%- endif -%}
+        {%- if trust_open and block.type != 'trust_item' -%}</div>{%- assign trust_open = false -%}{%- endif -%}
+        {%- case block.type -%}
+          {%- when 'eyebrow' -%}
+            <div class="nh-hero-eyebrow" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+          {%- when 'heading' -%}
+            <h1 {{ block.shopify_attributes }}>{{ block.settings.text }}</h1>
+          {%- when 'subheading' -%}
+            <p class="nh-hero-sub" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
+          {%- when 'image' -%}
+            <div class="nh-hero-block-image" {{ block.shopify_attributes }}>
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 900 | image_tag: alt: block.settings.image.alt, loading: 'eager' }}
+              {%- else -%}{{ 'lifestyle-1' | placeholder_svg_tag: 'nh-hero-placeholder' }}{%- endif -%}
+              {%- if block.settings.label != blank -%}<div class="nh-hero-organ-label">{{ block.settings.label }}</div>{%- endif -%}
+            </div>
+          {%- when 'benefit_pill' -%}
+            {%- unless pills_open -%}<div class="nh-hero-benefits">{%- assign pills_open = true -%}{%- endunless -%}
+            <span class="nh-hero-benefit-pill" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+          {%- when 'cta_button' -%}
+            <div class="nh-hero-cta-group" {{ block.shopify_attributes }}>
+              <a href="{{ block.settings.url | default: '#nh-offer' }}" class="nh-btn-primary" style="color:#fff;">{{ block.settings.text }}</a>
+            </div>
+          {%- when 'trust_item' -%}
+            {%- unless trust_open -%}<div class="nh-hero-trust-row">{%- assign trust_open = true -%}{%- endunless -%}
+            <div class="nh-trust-item" {{ block.shopify_attributes }}>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              {{ block.settings.text }}
+            </div>
+        {%- endcase -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if pills_open -%}</div>{%- endif -%}
+    {%- if trust_open -%}</div>{%- endif -%}
+    {%- unless right_has_content -%}{{ 'lifestyle-1' | placeholder_svg_tag: 'nh-hero-placeholder' }}{%- endunless -%}
+  </div>
+
 </section>
 
 <script>
-  // Sticky cart + nav CTA visibility — fires when hero scrolls out of view
   (function() {
     const heroSection = document.getElementById('nh-section-{{ section.id }}');
     const nhNavCta = document.getElementById('nhNavCta');
     const nhStickyBottomCta = document.getElementById('nhStickyBottomCta');
-
     if (!heroSection) return;
-
     const nhObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const gone = !entry.isIntersecting;
@@ -155,7 +153,6 @@
         if (nhStickyBottomCta) gone ? nhStickyBottomCta.classList.add('nh-visible') : nhStickyBottomCta.classList.remove('nh-visible');
       });
     }, { threshold: 0.1 });
-
     nhObserver.observe(heroSection);
   })();
 </script>
@@ -166,164 +163,64 @@
   "tag": "section",
   "class": "nh-section-wrapper",
   "settings": [
-    {
-      "type": "header",
-      "content": "Colors"
-    },
-    {
-      "type": "color_background",
-      "id": "bg_color",
-      "label": "Section Background",
-      "default": "linear-gradient(135deg, #fffbd5 0%, #fff 100%)"
-    },
-    {
-      "type": "color",
-      "id": "heading_color",
-      "label": "Heading Color",
-      "default": "#1a1a1a"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text Color",
-      "default": "#444444"
-    },
-    {
-      "type": "color",
-      "id": "accent_color",
-      "label": "Accent Color",
-      "default": "#cc0019"
-    },
-    {
-      "type": "header",
-      "content": "Content"
-    },
-    {
-      "type": "image_picker",
-      "id": "logo",
-      "label": "Logo"
-    },
-    {
-      "type": "text",
-      "id": "eyebrow",
-      "label": "Eyebrow Text",
-      "default": "Whole-Food Nutrition for Women"
-    },
-    {
-      "type": "richtext",
-      "id": "heading",
-      "label": "Heading",
-      "default": "<p>Why Beef Organ Superfoods Are the Secret to <em>Healthy Hormones & Energy</em></p>"
-    },
-    {
-      "type": "textarea",
-      "id": "subheading",
-      "label": "Subheading (fallback — use Subheading block for inline positioning)",
-      "default": "Nourish Her™ is a clean, 100% grass-fed beef organ supplement specifically formulated for women — delivering the ancestral nutrition your body recognises, absorbs, and thrives on."
-    },
-    {
-      "type": "text",
-      "id": "cta_button_text",
-      "label": "CTA Button Text",
-      "default": "Start Your Journey"
-    },
-    {
-      "type": "text",
-      "id": "cta_text",
-      "label": "Sticky Nav CTA Text",
-      "default": "Shop Now — from £34.99"
-    },
-    {
-      "type": "text",
-      "id": "trust_1",
-      "label": "Trust Badge 1",
-      "default": "30-Day Money-Back Guarantee"
-    },
-    {
-      "type": "text",
-      "id": "trust_2",
-      "label": "Trust Badge 2",
-      "default": "Third-Party Lab Tested"
-    },
-    {
-      "type": "image_picker",
-      "id": "hero_image",
-      "label": "Hero Image (Right Column — hidden when Image block is used)"
-    },
-    {
-      "type": "range",
-      "id": "image_width_desktop",
-      "min": 40,
-      "max": 100,
-      "step": 5,
-      "unit": "%",
-      "label": "Right Column Image Width (Desktop)",
-      "default": 100
-    },
-    {
-      "type": "range",
-      "id": "image_width_mobile",
-      "min": 40,
-      "max": 100,
-      "step": 5,
-      "unit": "%",
-      "label": "Right Column Image Width (Mobile)",
-      "default": 100
-    },
-    {
-      "type": "text",
-      "id": "image_label",
-      "label": "Right Column Image Label",
-      "default": "6 Whole-Food Beef Organs in Every Serving"
-    },
-    {
-      "type": "checkbox",
-      "id": "reverse_mobile",
-      "label": "Reverse column order on mobile",
-      "default": false,
-      "info": "When enabled, text appears above the image on mobile."
-    }
+    { "type": "header", "content": "Colors" },
+    { "type": "color_background", "id": "bg_color", "label": "Section Background", "default": "linear-gradient(135deg, #fffbd5 0%, #fff 100%)" },
+    { "type": "color", "id": "heading_color", "label": "Heading Color", "default": "#1a1a1a" },
+    { "type": "color", "id": "text_color", "label": "Text Color", "default": "#444444" },
+    { "type": "color", "id": "accent_color", "label": "Accent Color", "default": "#cc0019" },
+    { "type": "header", "content": "Layout" },
+    { "type": "checkbox", "id": "reverse_mobile", "label": "Show right column first on mobile", "default": false }
   ],
   "blocks": [
     {
-      "type": "image",
-      "name": "Image",
+      "type": "eyebrow", "name": "Eyebrow Label",
       "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image (leave blank to use Hero Image setting)"
-        },
-        {
-          "type": "text",
-          "id": "label",
-          "label": "Image Label (overlay)",
-          "default": ""
-        }
+        { "type": "text", "id": "text", "label": "Text", "default": "Whole-Food Nutrition for Women" },
+        { "type": "select", "id": "column", "label": "Column", "options": [{ "value": "left", "label": "Left" }, { "value": "right", "label": "Right" }], "default": "left" }
       ]
     },
     {
-      "type": "subheading",
-      "name": "Subheading",
+      "type": "heading", "name": "Heading",
       "settings": [
-        {
-          "type": "textarea",
-          "id": "text",
-          "label": "Subheading Text",
-          "default": "Add your subheading here."
-        }
+        { "type": "richtext", "id": "text", "label": "Heading", "default": "<p>Why Beef Organ Superfoods Are the Secret to <em>Healthy Hormones & Energy</em></p>" },
+        { "type": "select", "id": "column", "label": "Column", "options": [{ "value": "left", "label": "Left" }, { "value": "right", "label": "Right" }], "default": "left" }
       ]
     },
     {
-      "type": "benefit_pill",
-      "name": "Benefit Pill",
+      "type": "subheading", "name": "Subheading",
       "settings": [
-        {
-          "type": "text",
-          "id": "text",
-          "label": "Text",
-          "default": "Hormone Support"
-        }
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Nourish Her\u2122 is a clean, 100% grass-fed beef organ supplement specifically formulated for women." },
+        { "type": "select", "id": "column", "label": "Column", "options": [{ "value": "left", "label": "Left" }, { "value": "right", "label": "Right" }], "default": "left" }
+      ]
+    },
+    {
+      "type": "image", "name": "Image",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "label", "label": "Overlay Label", "default": "" },
+        { "type": "select", "id": "column", "label": "Column", "options": [{ "value": "left", "label": "Left" }, { "value": "right", "label": "Right" }], "default": "right" }
+      ]
+    },
+    {
+      "type": "benefit_pill", "name": "Benefit Pill",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "Hormone Support" },
+        { "type": "select", "id": "column", "label": "Column", "options": [{ "value": "left", "label": "Left" }, { "value": "right", "label": "Right" }], "default": "left" }
+      ]
+    },
+    {
+      "type": "cta_button", "name": "CTA Button",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Button Text", "default": "Start Your Journey" },
+        { "type": "url", "id": "url", "label": "Button URL (default scrolls to offer)" },
+        { "type": "select", "id": "column", "label": "Column", "options": [{ "value": "left", "label": "Left" }, { "value": "right", "label": "Right" }], "default": "left" }
+      ]
+    },
+    {
+      "type": "trust_item", "name": "Trust Badge",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "30-Day Money-Back Guarantee" },
+        { "type": "select", "id": "column", "label": "Column", "options": [{ "value": "left", "label": "Left" }, { "value": "right", "label": "Right" }], "default": "left" }
       ]
     }
   ],
@@ -331,11 +228,17 @@
     {
       "name": "NH - Hero",
       "blocks": [
-        { "type": "subheading", "settings": { "text": "Nourish Her™ is a clean, 100% grass-fed beef organ supplement specifically formulated for women — delivering the ancestral nutrition your body recognises, absorbs, and thrives on." } },
-        { "type": "benefit_pill", "settings": { "text": "Hormone Support" } },
-        { "type": "benefit_pill", "settings": { "text": "Sustained Energy" } },
-        { "type": "benefit_pill", "settings": { "text": "Skin & Hair Health" } },
-        { "type": "benefit_pill", "settings": { "text": "Mental Clarity" } }
+        { "type": "eyebrow",      "settings": { "column": "left",  "text": "Whole-Food Nutrition for Women" } },
+        { "type": "heading",      "settings": { "column": "left",  "text": "<p>Why Beef Organ Superfoods Are the Secret to <em>Healthy Hormones & Energy</em></p>" } },
+        { "type": "subheading",   "settings": { "column": "left",  "text": "Nourish Her\u2122 is a clean, 100% grass-fed beef organ supplement specifically formulated for women \u2014 delivering the ancestral nutrition your body recognises, absorbs, and thrives on." } },
+        { "type": "benefit_pill", "settings": { "column": "left",  "text": "Hormone Support" } },
+        { "type": "benefit_pill", "settings": { "column": "left",  "text": "Sustained Energy" } },
+        { "type": "benefit_pill", "settings": { "column": "left",  "text": "Skin & Hair Health" } },
+        { "type": "benefit_pill", "settings": { "column": "left",  "text": "Mental Clarity" } },
+        { "type": "cta_button",   "settings": { "column": "left",  "text": "Start Your Journey" } },
+        { "type": "trust_item",   "settings": { "column": "left",  "text": "30-Day Money-Back Guarantee" } },
+        { "type": "trust_item",   "settings": { "column": "left",  "text": "Third-Party Lab Tested" } },
+        { "type": "image",        "settings": { "column": "right", "label": "6 Whole-Food Beef Organs in Every Serving" } }
       ]
     }
   ]
