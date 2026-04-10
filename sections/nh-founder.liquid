@@ -44,10 +44,14 @@
     
     <div class="nh-divider"></div>
     
+    {% comment %}
+      Blocks render in drag order — no column filter.
+      Image blocks now appear exactly where placed in the editor.
+    {% endcomment %}
     <div class="nh-founder-grid">
       <div class="nh-founder-column nh-founder-text">
         {% for block in section.blocks %}
-          {% if block.settings.column == 'left' %}
+          {% if block.settings.column == 'left' or block.settings.column == blank %}
             {% case block.type %}
               {% when 'text' %}
                 <div class="nh-founder-block-text" {{ block.shopify_attributes }}>
@@ -75,7 +79,7 @@
           {% endif %}
         {% endfor %}
       </div>
-      
+
       <div class="nh-founder-column nh-founder-images">
         {% for block in section.blocks %}
           {% if block.settings.column == 'right' %}

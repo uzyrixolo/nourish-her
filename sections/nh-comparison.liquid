@@ -42,11 +42,11 @@
     {% if section.settings.label != blank %}
       <p class="nh-section-label">{{ section.settings.label }}</p>
     {% endif %}
-    
+
     {% if section.settings.heading != blank %}
       <h2 class="nh-section-title">{{ section.settings.heading }}</h2>
     {% endif %}
-    
+
     <div class="nh-divider"></div>
     
     <div style="overflow-x:auto;">
@@ -163,6 +163,18 @@
     {
       "type": "header",
       "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section Label",
+      "default": "The Comparison"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Why <em>Whole-Food Organs</em> Beat Multivitamins</p>"
     },
     {
       "type": "image_picker",

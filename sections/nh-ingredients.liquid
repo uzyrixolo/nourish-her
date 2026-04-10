@@ -24,8 +24,12 @@
     color: {{ section.settings.text_color }};
   }
   #nh-section-{{ section.id }} .nh-ingredient-card {
-    background: {{ section.settings.card_bg }};
+    background: {{ section.settings.card_bg }} !important;
     border-color: {{ section.settings.card_border }};
+  }
+  #nh-section-{{ section.id }} .nh-ingredient-card:hover {
+    background: {{ section.settings.card_bg }} !important;
+    filter: brightness(1.08);
   }
   #nh-section-{{ section.id }} .nh-ingredient-name {
     color: {{ section.settings.card_text_title }};
@@ -117,16 +121,17 @@
       "content": "Card Colors"
     },
     {
-      "type": "color",
+      "type": "color_background",
       "id": "card_bg",
       "label": "Card Background",
-      "default": "rgba(255, 255, 255, 0.1)"
+      "default": "rgba(255,255,255,0.1)",
+      "info": "Supports solid colours, gradients and opacity"
     },
     {
       "type": "color",
       "id": "card_border",
       "label": "Card Border",
-      "default": "rgba(255, 251, 213, 0.25)"
+      "default": "#fffbd5"
     },
     {
       "type": "color",

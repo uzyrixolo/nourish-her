@@ -97,9 +97,9 @@
       
       <div class="nh-lab-image">
         {% if section.settings.image != blank %}
-          {{ section.settings.image | image_url: width: 600 | image_tag: alt: section.settings.image.alt, loading: 'lazy', width: section.settings.image.width, height: section.settings.image.height }}
+          {{ section.settings.image | image_url: width: 600 | image_tag: alt: section.settings.image.alt, loading: 'lazy', width: section.settings.image.width, height: section.settings.image.height, style: 'object-position: ' | append: section.settings.image_position | append: ';' }}
         {% elsif section.settings.image_url != blank %}
-          <img src="{{ section.settings.image_url }}" alt="Lab Tested" width="600" height="600" style="width: 100%; height: auto; border-radius: 20px;" />
+          <img src="{{ section.settings.image_url }}" alt="Lab Tested" width="600" height="600" style="width: 100%; height: auto; border-radius: 20px; object-position: {{ section.settings.image_position }};" />
         {% else %}
           {{ 'lifestyle-1' | placeholder_svg_tag: 'nh-lab-image' }}
         {% endif %}
@@ -185,6 +185,19 @@
       "type": "url",
       "id": "image_url",
       "label": "Image URL (external)"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image Focal Point",
+      "default": "center",
+      "options": [
+        { "value": "top", "label": "Top" },
+        { "value": "center", "label": "Center" },
+        { "value": "bottom", "label": "Bottom" },
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ]
     },
     {
       "type": "header",
