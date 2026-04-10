@@ -183,6 +183,35 @@
     "nh-founder": {
       "type": "nh-founder",
       "blocks": {
+        "text_9qiKdg": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "content": "<p>As a doctor working long, demanding shifts, I lived in a constant state of exhaustion. My energy was low, my focus was slipping, and no matter how much I slept, I never felt restored. Blood tests came back “normal,” yet my ferritin sat on the low side — and I felt it every day. Iron tablets upset my stomach, and multivitamins felt synthetic and disconnected from real nourishment. </p><p>That’s when I started looking backwards — not forwards.</p>"
+          }
+        },
+        "image_CCyiAY": {
+          "type": "image",
+          "settings": {
+            "column": "right",
+            "image": "shopify://shop_images/CD839B03-9D20-4BF8-BD13-3CA84CCA3F6D.png",
+            "image_url": ""
+          }
+        },
+        "text_XhVcEB": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "content": "<p>For generations, women were nourished with whole, nutrient-dense foods that supported energy, resilience, and vitality at the root. Organs like liver and spleen weren’t trends — they were foundational nutrition. Rich in bioavailable iron and the cofactors the body actually uses. The problem was, I couldn’t bring myself to eat liver or organ meats consistently!</p>"
+          }
+        },
+        "text_UiDj3Y": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "content": "<p>That’s when I decided to create “<strong>Nourish Her”</strong>, a clean, beef organ supplement to make it easier to get the essential nutrients my body needed — without the foods I disliked.</p><p>Instead of everything changing overnight, the shift was gradual — but unmistakable. I stopped hitting that mid-afternoon wall where even thinking felt heavy. My energy became steadier, not forced, and I no longer felt like I was constantly running on empty. I could get through long days without relying on caffeine, and my focus felt clearer and more consistent. Even my recovery after demanding shifts improved — I didn’t feel as depleted the next day.</p><p>What stood out most was how <em>normal</em> it felt. Not wired. Not overstimulated. Just properly nourished. For the first time in a long while, it felt like my body was finally getting what it had been quietly asking for — the nutrients it could actually recognise and use.</p>"
+          }
+        },
         "signature_iH7mNi": {
           "type": "signature",
           "settings": {
@@ -192,31 +221,20 @@
         },
         "quote_3qJ9Hd": {
           "type": "quote",
+          "disabled": true,
           "settings": {
             "column": "left",
             "quote": "This is a highlighted quote."
           }
-        },
-        "image_CCyiAY": {
-          "type": "image",
-          "settings": {
-            "column": "right",
-            "image_url": ""
-          }
-        },
-        "text_9qiKdg": {
-          "type": "text",
-          "settings": {
-            "column": "left",
-            "content": "<p>Add paragraph text here.</p>"
-          }
         }
       },
       "block_order": [
-        "signature_iH7mNi",
-        "quote_3qJ9Hd",
+        "text_9qiKdg",
         "image_CCyiAY",
-        "text_9qiKdg"
+        "text_XhVcEB",
+        "text_UiDj3Y",
+        "signature_iH7mNi",
+        "quote_3qJ9Hd"
       ],
       "settings": {
         "bg_color": "#ffffff",
@@ -235,7 +253,7 @@
         "month_1": {
           "type": "timeline_item",
           "settings": {
-            "month": "Month1",
+            "month": "Month 1",
             "title": "Steadier Daily Energy",
             "description": "Many women notice steadier daily energy and less afternoon fatigue as bioavailable haem iron, B12, and B-vitamins begin supporting normal energy-yielding metabolism."
           }
@@ -243,7 +261,7 @@
         "month_2": {
           "type": "timeline_item",
           "settings": {
-            "month": "Month<br>2",
+            "month": "Month 2",
             "title": "Sharper Mental Clarity",
             "description": "Improved mental clarity and resilience are often reported as iron, B12, and copper continue to support red blood cell formation and oxygen delivery to the brain."
           }
@@ -251,7 +269,7 @@
         "month_3": {
           "type": "timeline_item",
           "settings": {
-            "month": "Month<br>3",
+            "month": "Month 3",
             "title": "Skin & Hair Changes",
             "description": "Early changes in skin and hair quality may become noticeable, linked to vitamin A, zinc, and copper supporting normal skin cell turnover and connective tissue health."
           }
@@ -259,7 +277,7 @@
         "month_6": {
           "type": "timeline_item",
           "settings": {
-            "month": "Month<br>6",
+            "month": "Month 6",
             "title": "Greater Vitality & Balance",
             "description": "A greater sense of overall vitality and balance is common, as consistent intake of whole-food micronutrients helps replenish nutrient stores and support normal hormonal and metabolic function."
           }
@@ -267,7 +285,7 @@
         "month_12": {
           "type": "timeline_item",
           "settings": {
-            "month": "Month12",
+            "month": "Month 12",
             "title": "Long-Term Nourishment",
             "description": "Many women describe feeling more robust and nourished long-term, with sustained energy and fewer fluctuations — reflecting the cumulative benefits of ongoing whole-food, ancestral nutrition."
           }
@@ -303,7 +321,7 @@
             "emoji": "🫀",
             "name": "Beef Liver",
             "stat": "Richer in Vitamin A than carrots",
-            "description": "Naturally higher in vitamin B12 than eggs or dairy. The most nutrient-dense food on the planet — a cornerstone of ancestral diets worldwide."
+            "description": "Supporting healthy skin, vision and sustained energy levels."
           }
         },
         "spleen": {
@@ -312,7 +330,7 @@
             "emoji": "🩸",
             "name": "Beef Spleen",
             "stat": "Richer in haem iron than spinach",
-            "description": "Provides iron in its most bioavailable, food-based form — the form your body recognises and absorbs most efficiently, without the stomach upset of synthetic iron."
+            "description": "Combating fatigue and supporting healthy, oxygenated blood."
           }
         },
         "kidney": {
@@ -320,8 +338,8 @@
           "settings": {
             "emoji": "🫘",
             "name": "Beef Kidney",
-            "stat": "Richer in selenium than tuna or chicken",
-            "description": "A well-known dietary source of this essential trace mineral, which plays a key role in thyroid function and antioxidant defence."
+            "stat": "Richer in selenium than tuna",
+            "description": "Supporting thyroid function and everyday hormonal balance."
           }
         },
         "heart": {
@@ -329,8 +347,8 @@
           "settings": {
             "emoji": "❤️",
             "name": "Beef Heart",
-            "stat": "Richer in CoQ10 than most cuts of steak",
-            "description": "Also provides B vitamins that support cellular energy production — making it a powerful ally for women who need sustained stamina throughout the day."
+            "stat": "Richer in CoQ10 than steak",
+            "description": "Supporting energy, endurance and reproductive health."
           }
         },
         "uterus": {
@@ -338,8 +356,8 @@
           "settings": {
             "emoji": "🌸",
             "name": "Beef Uterus",
-            "stat": "Rich in connective-tissue proteins",
-            "description": "Naturally rich in connective-tissue proteins — similar to bone broth. Contains structural proteins and minerals valued in traditional diets for female reproductive health."
+            "stat": "Contains bioactive peptides",
+            "description": "Supporting hormonal balance and reproductive wellbeing."
           }
         },
         "ovaries": {
@@ -348,7 +366,7 @@
             "emoji": "🌺",
             "name": "Beef Ovaries",
             "stat": "Provides phospholipids like egg yolks",
-            "description": "Supplies lipid-based compounds involved in nutrient transport and cellular structure — a uniquely female-focused ingredient found in very few supplements."
+            "description": "Supporting cycle balance and cellular health."
           }
         }
       },
@@ -373,7 +391,7 @@
         "card_accent_text": "#cc0019",
         "label": "The Formula",
         "heading": "<p>What's Inside <em>Exactly?</em></p>",
-        "description": "Six carefully selected grass-fed beef organs, each chosen for their unique nutritional profile and specific relevance to female health."
+        "description": "6 carefully selected grass-fed beef organs, each chosen for their unique nutritional profile and specific relevance to female health."
       }
     },
     "nh-comparison": {
