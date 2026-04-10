@@ -12,53 +12,103 @@
     "nh-hero": {
       "type": "nh-hero",
       "blocks": {
+        "eyebrow_1": {
+          "type": "eyebrow",
+          "settings": {
+            "column": "left",
+            "text": "Whole-Food Nutrition for Women"
+          }
+        },
+        "heading_1": {
+          "type": "heading",
+          "settings": {
+            "column": "left",
+            "text": "<p>Why Beef Organ Superfoods Are the Secret to <em>Healthy Hormones & Energy</em></p>"
+          }
+        },
+        "subheading_1": {
+          "type": "subheading",
+          "settings": {
+            "column": "left",
+            "text": "Nourish Her™ is a clean, 100% grass-fed beef organ supplement specifically formulated for women — delivering the ancestral nutrition your body recognises, absorbs, and thrives on."
+          }
+        },
         "pill_1": {
           "type": "benefit_pill",
           "settings": {
+            "column": "left",
             "text": "Hormone Support"
           }
         },
         "pill_2": {
           "type": "benefit_pill",
           "settings": {
+            "column": "left",
             "text": "Sustained Energy"
           }
         },
         "pill_3": {
           "type": "benefit_pill",
           "settings": {
+            "column": "left",
             "text": "Skin & Hair Health"
           }
         },
         "pill_4": {
           "type": "benefit_pill",
           "settings": {
+            "column": "left",
             "text": "Mental Clarity"
+          }
+        },
+        "cta_1": {
+          "type": "cta_button",
+          "settings": {
+            "column": "left",
+            "text": "Start Your Journey"
+          }
+        },
+        "trust_1": {
+          "type": "trust_item",
+          "settings": {
+            "column": "left",
+            "text": "30-Day Money-Back Guarantee"
+          }
+        },
+        "trust_2": {
+          "type": "trust_item",
+          "settings": {
+            "column": "left",
+            "text": "Third-Party Lab Tested"
+          }
+        },
+        "image_1": {
+          "type": "image",
+          "settings": {
+            "column": "right",
+            "image": "shopify://shop_images/Nourishherpouchinpalm.webp",
+            "label": "6 Whole-Food Beef Organs in Every Serving"
           }
         }
       },
       "block_order": [
+        "eyebrow_1",
+        "heading_1",
+        "subheading_1",
         "pill_1",
         "pill_2",
         "pill_3",
-        "pill_4"
+        "pill_4",
+        "cta_1",
+        "trust_1",
+        "trust_2",
+        "image_1"
       ],
       "settings": {
         "bg_color": "#fffbd5",
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
         "accent_color": "#cc0019",
-        "eyebrow": "Whole-Food Nutrition for Women",
-        "heading": "<p>Why Beef Organ Superfoods Are the Secret to <em>Healthy Hormones & Energy</em></p>",
-        "subheading": "Nourish Her™ is a clean, 100% grass-fed beef organ supplement specifically formulated for women — delivering the ancestral nutrition your body recognises, absorbs, and thrives on.",
-        "cta_button_text": "Start Your Journey",
-        "cta_text": "Shop Now — from £34.99",
-        "trust_1": "30-Day Money-Back Guarantee",
-        "trust_2": "Third-Party Lab Tested",
-        "hero_image": "shopify://shop_images/Nourishherpouchinpalm.webp",
-        "image_width_desktop": 100,
-        "image_width_mobile": 100,
-        "image_label": "6 Whole-Food Beef Organs in Every Serving",
         "reverse_mobile": true
       }
     },
