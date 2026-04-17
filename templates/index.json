@@ -35,13 +35,21 @@
           "settings": {
             "text": "Mental Clarity"
           }
+        },
+        "inline_image_VCwCbJ": {
+          "type": "inline_image",
+          "settings": {
+            "image": "shopify://shop_images/Nourishherpouchinpalm.webp",
+            "image_url": ""
+          }
         }
       },
       "block_order": [
         "pill_1",
         "pill_2",
         "pill_3",
-        "pill_4"
+        "pill_4",
+        "inline_image_VCwCbJ"
       ],
       "settings": {
         "bg_color": "#fffbd5",
@@ -302,7 +310,9 @@
             "emoji": "🫀",
             "name": "Beef Liver",
             "stat": "Richer in Vitamin A than carrots",
-            "description": "Naturally higher in vitamin B12 than eggs or dairy. The most nutrient-dense food on the planet — a cornerstone of ancestral diets worldwide."
+            "description": "Naturally higher in vitamin B12 than eggs or dairy. The most nutrient-dense food on the planet — a cornerstone of ancestral diets worldwide.",
+            "card_bg": "#ffffff1a",
+            "card_border": "#fffbd540"
           }
         },
         "spleen": {
@@ -311,7 +321,9 @@
             "emoji": "🩸",
             "name": "Beef Spleen",
             "stat": "Richer in haem iron than spinach",
-            "description": "Provides iron in its most bioavailable, food-based form — the form your body recognises and absorbs most efficiently, without the stomach upset of synthetic iron."
+            "description": "Provides iron in its most bioavailable, food-based form — the form your body recognises and absorbs most efficiently, without the stomach upset of synthetic iron.",
+            "card_bg": "#ffffff1a",
+            "card_border": "#fffbd540"
           }
         },
         "kidney": {
@@ -320,7 +332,9 @@
             "emoji": "🫘",
             "name": "Beef Kidney",
             "stat": "Richer in selenium than tuna or chicken",
-            "description": "A well-known dietary source of this essential trace mineral, which plays a key role in thyroid function and antioxidant defence."
+            "description": "A well-known dietary source of this essential trace mineral, which plays a key role in thyroid function and antioxidant defence.",
+            "card_bg": "#ffffff1a",
+            "card_border": "#fffbd540"
           }
         },
         "heart": {
@@ -329,7 +343,9 @@
             "emoji": "❤️",
             "name": "Beef Heart",
             "stat": "Richer in CoQ10 than most cuts of steak",
-            "description": "Also provides B vitamins that support cellular energy production — making it a powerful ally for women who need sustained stamina throughout the day."
+            "description": "Also provides B vitamins that support cellular energy production — making it a powerful ally for women who need sustained stamina throughout the day.",
+            "card_bg": "#ffffff1a",
+            "card_border": "#fffbd540"
           }
         },
         "uterus": {
@@ -338,7 +354,9 @@
             "emoji": "🌸",
             "name": "Beef Uterus",
             "stat": "Rich in connective-tissue proteins",
-            "description": "Naturally rich in connective-tissue proteins — similar to bone broth. Contains structural proteins and minerals valued in traditional diets for female reproductive health."
+            "description": "Naturally rich in connective-tissue proteins — similar to bone broth. Contains structural proteins and minerals valued in traditional diets for female reproductive health.",
+            "card_bg": "#ffffff1a",
+            "card_border": "#fffbd540"
           }
         },
         "ovaries": {
@@ -347,7 +365,9 @@
             "emoji": "🌺",
             "name": "Beef Ovaries",
             "stat": "Provides phospholipids like egg yolks",
-            "description": "Supplies lipid-based compounds involved in nutrient transport and cellular structure — a uniquely female-focused ingredient found in very few supplements."
+            "description": "Supplies lipid-based compounds involved in nutrient transport and cellular structure — a uniquely female-focused ingredient found in very few supplements.",
+            "card_bg": "#ffffff1a",
+            "card_border": "#fffbd540"
           }
         }
       },
@@ -753,6 +773,7 @@
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
         "accent_color": "#cc0019",
+        "image_position": "right",
         "label": "Transparency & Trust",
         "heading": "<p>Third-Party <em>Lab Tested</em></p>",
         "paragraph_1": "We believe you should know exactly what you're putting into your body. That's why every single batch of Nourish Her™ is independently tested by a certified third-party laboratory for purity, potency, and the absence of heavy metals, contaminants, and pathogens.",
