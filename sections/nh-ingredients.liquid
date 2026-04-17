@@ -24,12 +24,8 @@
     color: {{ section.settings.text_color }};
   }
   #nh-section-{{ section.id }} .nh-ingredient-card {
-    background: {{ section.settings.card_bg }} !important;
+    background: {{ section.settings.card_bg }};
     border-color: {{ section.settings.card_border }};
-  }
-  #nh-section-{{ section.id }} .nh-ingredient-card:hover {
-    background: {{ section.settings.card_bg }} !important;
-    filter: brightness(1.08);
   }
   #nh-section-{{ section.id }} .nh-ingredient-name {
     color: {{ section.settings.card_text_title }};
@@ -62,7 +58,7 @@
     {% if section.blocks.size > 0 %}
       <div class="nh-ingredients-grid">
         {% for block in section.blocks %}
-          <div class="nh-ingredient-card" {{ block.shopify_attributes }}>
+          <div class="nh-ingredient-card" {{ block.shopify_attributes }} style="{% if block.settings.card_bg != blank %}background: {{ block.settings.card_bg }};{% endif %}{% if block.settings.card_border != blank %}border-color: {{ block.settings.card_border }};{% endif %}">
             <div class="nh-ingredient-name">
               <span class="nh-organ-emoji">
                 {% if block.settings.custom_image != blank %}
@@ -121,17 +117,16 @@
       "content": "Card Colors"
     },
     {
-      "type": "color_background",
+      "type": "color",
       "id": "card_bg",
       "label": "Card Background",
-      "default": "rgba(255,255,255,0.1)",
-      "info": "Supports solid colours, gradients and opacity"
+      "default": "rgba(255, 255, 255, 0.1)"
     },
     {
       "type": "color",
       "id": "card_border",
       "label": "Card Border",
-      "default": "#fffbd5"
+      "default": "rgba(255, 251, 213, 0.25)"
     },
     {
       "type": "color",
@@ -214,6 +209,22 @@
           "id": "description",
           "label": "Description",
           "default": "Naturally higher in vitamin B12 than eggs or dairy. The most nutrient-dense food on the planet — a cornerstone of ancestral diets worldwide."
+        },
+        {
+          "type": "header",
+          "content": "Card Colors (Optional)"
+        },
+        {
+          "type": "color",
+          "id": "card_bg",
+          "label": "Card Background",
+          "default": "rgba(255, 255, 255, 0.1)"
+        },
+        {
+          "type": "color",
+          "id": "card_border",
+          "label": "Card Border",
+          "default": "rgba(255, 251, 213, 0.25)"
         }
       ]
     }

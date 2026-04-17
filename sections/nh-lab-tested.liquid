@@ -61,8 +61,8 @@
     
     <div class="nh-divider"></div>
     
-    <div class="nh-lab-grid">
-      <div class="nh-lab-text">
+    <div class="nh-lab-grid" style="{% if section.settings.image_position == 'left' %}direction: rtl;{% endif %}">
+      <div class="nh-lab-text" style="{% if section.settings.image_position == 'left' %}direction: ltr;{% endif %}">
         {% if section.settings.paragraph_1 != blank %}
           <p>{{ section.settings.paragraph_1 }}</p>
         {% endif %}
@@ -95,11 +95,11 @@
         {% endif %}
       </div>
       
-      <div class="nh-lab-image">
+      <div class="nh-lab-image" style="{% if section.settings.image_position == 'left' %}direction: ltr;{% endif %}">
         {% if section.settings.image != blank %}
-          {{ section.settings.image | image_url: width: 600 | image_tag: alt: section.settings.image.alt, loading: 'lazy', width: section.settings.image.width, height: section.settings.image.height, style: 'object-position: ' | append: section.settings.image_position | append: ';' }}
+          {{ section.settings.image | image_url: width: 600 | image_tag: alt: section.settings.image.alt, loading: 'lazy', width: section.settings.image.width, height: section.settings.image.height }}
         {% elsif section.settings.image_url != blank %}
-          <img src="{{ section.settings.image_url }}" alt="Lab Tested" width="600" height="600" style="width: 100%; height: auto; border-radius: 20px; object-position: {{ section.settings.image_position }};" />
+          <img src="{{ section.settings.image_url }}" alt="Lab Tested" width="600" height="600" style="width: 100%; height: auto; border-radius: 20px;" />
         {% else %}
           {{ 'lifestyle-1' | placeholder_svg_tag: 'nh-lab-image' }}
         {% endif %}
@@ -144,6 +144,20 @@
     },
     {
       "type": "header",
+      "content": "Image Position"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image Position",
+      "options": [
+        { "value": "right", "label": "Right (default)" },
+        { "value": "left", "label": "Left" }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "header",
       "content": "Content"
     },
     {
@@ -185,19 +199,6 @@
       "type": "url",
       "id": "image_url",
       "label": "Image URL (external)"
-    },
-    {
-      "type": "select",
-      "id": "image_position",
-      "label": "Image Focal Point",
-      "default": "center",
-      "options": [
-        { "value": "top", "label": "Top" },
-        { "value": "center", "label": "Center" },
-        { "value": "bottom", "label": "Bottom" },
-        { "value": "left", "label": "Left" },
-        { "value": "right", "label": "Right" }
-      ]
     },
     {
       "type": "header",

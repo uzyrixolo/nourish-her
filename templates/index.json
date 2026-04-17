@@ -12,103 +12,53 @@
     "nh-hero": {
       "type": "nh-hero",
       "blocks": {
-        "eyebrow_1": {
-          "type": "eyebrow",
-          "settings": {
-            "column": "left",
-            "text": "Whole-Food Nutrition for Women"
-          }
-        },
-        "heading_1": {
-          "type": "heading",
-          "settings": {
-            "column": "left",
-            "text": "<p>Why Beef Organ Superfoods Are the Secret to <em>Healthy Hormones & Energy</em></p>"
-          }
-        },
-        "subheading_1": {
-          "type": "subheading",
-          "settings": {
-            "column": "left",
-            "text": "Nourish Her™ is a clean, 100% grass-fed beef organ supplement specifically formulated for women — delivering the ancestral nutrition your body recognises, absorbs, and thrives on."
-          }
-        },
         "pill_1": {
           "type": "benefit_pill",
           "settings": {
-            "column": "left",
             "text": "Hormone Support"
           }
         },
         "pill_2": {
           "type": "benefit_pill",
           "settings": {
-            "column": "left",
             "text": "Sustained Energy"
           }
         },
         "pill_3": {
           "type": "benefit_pill",
           "settings": {
-            "column": "left",
             "text": "Skin & Hair Health"
           }
         },
         "pill_4": {
           "type": "benefit_pill",
           "settings": {
-            "column": "left",
             "text": "Mental Clarity"
-          }
-        },
-        "cta_1": {
-          "type": "cta_button",
-          "settings": {
-            "column": "left",
-            "text": "Start Your Journey"
-          }
-        },
-        "trust_1": {
-          "type": "trust_item",
-          "settings": {
-            "column": "left",
-            "text": "30-Day Money-Back Guarantee"
-          }
-        },
-        "trust_2": {
-          "type": "trust_item",
-          "settings": {
-            "column": "left",
-            "text": "Third-Party Lab Tested"
-          }
-        },
-        "image_1": {
-          "type": "image",
-          "settings": {
-            "column": "right",
-            "image": "shopify://shop_images/Nourishherpouchinpalm.webp",
-            "label": "6 Whole-Food Beef Organs in Every Serving"
           }
         }
       },
       "block_order": [
-        "eyebrow_1",
-        "heading_1",
-        "subheading_1",
         "pill_1",
         "pill_2",
         "pill_3",
-        "pill_4",
-        "cta_1",
-        "trust_1",
-        "trust_2",
-        "image_1"
+        "pill_4"
       ],
       "settings": {
         "bg_color": "#fffbd5",
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
         "accent_color": "#cc0019",
+        "eyebrow": "Whole-Food Nutrition for Women",
+        "heading": "<p>Why Beef Organ Superfoods Are the Secret to <em>Healthy Hormones & Energy</em></p>",
+        "subheading": "Nourish Her™ is a clean, 100% grass-fed beef organ supplement specifically formulated for women — delivering the ancestral nutrition your body recognises, absorbs, and thrives on.",
+        "cta_button_text": "Start Your Journey",
+        "cta_text": "Shop Now — from £34.99",
+        "trust_1": "30-Day Money-Back Guarantee",
+        "trust_2": "Third-Party Lab Tested",
+        "hero_image": "shopify://shop_images/Nourishherpouchinpalm.webp",
+        "image_width_desktop": 100,
+        "image_width_mobile": 100,
+        "image_label": "6 Whole-Food Beef Organs in Every Serving",
         "reverse_mobile": true
       }
     },
@@ -177,8 +127,7 @@
             "review": "I've tried so many supplements and nothing has come close. Within the first few weeks I noticed my energy was steadier — no more 3pm crash. My skin has genuinely never looked better.",
             "name": "Sarah M.",
             "tag": "Verified Customer",
-            "verified": true,
-            "reviewer_image": "shopify://shop_images/Nourishherhilllifestyle.webp"
+            "verified": true
           }
         },
         "review_2": {
@@ -233,35 +182,6 @@
     "nh-founder": {
       "type": "nh-founder",
       "blocks": {
-        "text_9qiKdg": {
-          "type": "text",
-          "settings": {
-            "column": "left",
-            "content": "<p>As a doctor working long, demanding shifts, I lived in a constant state of exhaustion. My energy was low, my focus was slipping, and no matter how much I slept, I never felt restored. Blood tests came back “normal,” yet my ferritin sat on the low side — and I felt it every day. Iron tablets upset my stomach, and multivitamins felt synthetic and disconnected from real nourishment. </p><p>That’s when I started looking backwards — not forwards.</p>"
-          }
-        },
-        "image_CCyiAY": {
-          "type": "image",
-          "settings": {
-            "column": "right",
-            "image": "shopify://shop_images/CD839B03-9D20-4BF8-BD13-3CA84CCA3F6D.png",
-            "image_url": ""
-          }
-        },
-        "text_XhVcEB": {
-          "type": "text",
-          "settings": {
-            "column": "left",
-            "content": "<p>For generations, women were nourished with whole, nutrient-dense foods that supported energy, resilience, and vitality at the root. Organs like liver and spleen weren’t trends — they were foundational nutrition. Rich in bioavailable iron and the cofactors the body actually uses. The problem was, I couldn’t bring myself to eat liver or organ meats consistently!</p>"
-          }
-        },
-        "text_UiDj3Y": {
-          "type": "text",
-          "settings": {
-            "column": "left",
-            "content": "<p>That’s when I decided to create “<strong>Nourish Her”</strong>, a clean, beef organ supplement to make it easier to get the essential nutrients my body needed — without the foods I disliked.</p><p>Instead of everything changing overnight, the shift was gradual — but unmistakable. I stopped hitting that mid-afternoon wall where even thinking felt heavy. My energy became steadier, not forced, and I no longer felt like I was constantly running on empty. I could get through long days without relying on caffeine, and my focus felt clearer and more consistent. Even my recovery after demanding shifts improved — I didn’t feel as depleted the next day.</p><p>What stood out most was how <em>normal</em> it felt. Not wired. Not overstimulated. Just properly nourished. For the first time in a long while, it felt like my body was finally getting what it had been quietly asking for — the nutrients it could actually recognise and use.</p>"
-          }
-        },
         "signature_iH7mNi": {
           "type": "signature",
           "settings": {
@@ -271,20 +191,31 @@
         },
         "quote_3qJ9Hd": {
           "type": "quote",
-          "disabled": true,
           "settings": {
             "column": "left",
             "quote": "This is a highlighted quote."
           }
+        },
+        "image_CCyiAY": {
+          "type": "image",
+          "settings": {
+            "column": "right",
+            "image_url": ""
+          }
+        },
+        "text_9qiKdg": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "content": "<p>Add paragraph text here.</p>"
+          }
         }
       },
       "block_order": [
-        "text_9qiKdg",
-        "image_CCyiAY",
-        "text_XhVcEB",
-        "text_UiDj3Y",
         "signature_iH7mNi",
-        "quote_3qJ9Hd"
+        "quote_3qJ9Hd",
+        "image_CCyiAY",
+        "text_9qiKdg"
       ],
       "settings": {
         "bg_color": "#ffffff",
@@ -303,7 +234,7 @@
         "month_1": {
           "type": "timeline_item",
           "settings": {
-            "month": "Month 1",
+            "month": "Month1",
             "title": "Steadier Daily Energy",
             "description": "Many women notice steadier daily energy and less afternoon fatigue as bioavailable haem iron, B12, and B-vitamins begin supporting normal energy-yielding metabolism."
           }
@@ -311,7 +242,7 @@
         "month_2": {
           "type": "timeline_item",
           "settings": {
-            "month": "Month 2",
+            "month": "Month<br>2",
             "title": "Sharper Mental Clarity",
             "description": "Improved mental clarity and resilience are often reported as iron, B12, and copper continue to support red blood cell formation and oxygen delivery to the brain."
           }
@@ -319,7 +250,7 @@
         "month_3": {
           "type": "timeline_item",
           "settings": {
-            "month": "Month 3",
+            "month": "Month<br>3",
             "title": "Skin & Hair Changes",
             "description": "Early changes in skin and hair quality may become noticeable, linked to vitamin A, zinc, and copper supporting normal skin cell turnover and connective tissue health."
           }
@@ -327,7 +258,7 @@
         "month_6": {
           "type": "timeline_item",
           "settings": {
-            "month": "Month 6",
+            "month": "Month<br>6",
             "title": "Greater Vitality & Balance",
             "description": "A greater sense of overall vitality and balance is common, as consistent intake of whole-food micronutrients helps replenish nutrient stores and support normal hormonal and metabolic function."
           }
@@ -335,7 +266,7 @@
         "month_12": {
           "type": "timeline_item",
           "settings": {
-            "month": "Month 12",
+            "month": "Month12",
             "title": "Long-Term Nourishment",
             "description": "Many women describe feeling more robust and nourished long-term, with sustained energy and fewer fluctuations — reflecting the cumulative benefits of ongoing whole-food, ancestral nutrition."
           }
@@ -371,7 +302,7 @@
             "emoji": "🫀",
             "name": "Beef Liver",
             "stat": "Richer in Vitamin A than carrots",
-            "description": "Supporting healthy skin, vision and sustained energy levels."
+            "description": "Naturally higher in vitamin B12 than eggs or dairy. The most nutrient-dense food on the planet — a cornerstone of ancestral diets worldwide."
           }
         },
         "spleen": {
@@ -380,7 +311,7 @@
             "emoji": "🩸",
             "name": "Beef Spleen",
             "stat": "Richer in haem iron than spinach",
-            "description": "Combating fatigue and supporting healthy, oxygenated blood."
+            "description": "Provides iron in its most bioavailable, food-based form — the form your body recognises and absorbs most efficiently, without the stomach upset of synthetic iron."
           }
         },
         "kidney": {
@@ -388,8 +319,8 @@
           "settings": {
             "emoji": "🫘",
             "name": "Beef Kidney",
-            "stat": "Richer in selenium than tuna",
-            "description": "Supporting thyroid function and everyday hormonal balance."
+            "stat": "Richer in selenium than tuna or chicken",
+            "description": "A well-known dietary source of this essential trace mineral, which plays a key role in thyroid function and antioxidant defence."
           }
         },
         "heart": {
@@ -397,8 +328,8 @@
           "settings": {
             "emoji": "❤️",
             "name": "Beef Heart",
-            "stat": "Richer in CoQ10 than steak",
-            "description": "Supporting energy, endurance and reproductive health."
+            "stat": "Richer in CoQ10 than most cuts of steak",
+            "description": "Also provides B vitamins that support cellular energy production — making it a powerful ally for women who need sustained stamina throughout the day."
           }
         },
         "uterus": {
@@ -406,8 +337,8 @@
           "settings": {
             "emoji": "🌸",
             "name": "Beef Uterus",
-            "stat": "Contains bioactive peptides",
-            "description": "Supporting hormonal balance and reproductive wellbeing."
+            "stat": "Rich in connective-tissue proteins",
+            "description": "Naturally rich in connective-tissue proteins — similar to bone broth. Contains structural proteins and minerals valued in traditional diets for female reproductive health."
           }
         },
         "ovaries": {
@@ -416,7 +347,7 @@
             "emoji": "🌺",
             "name": "Beef Ovaries",
             "stat": "Provides phospholipids like egg yolks",
-            "description": "Supporting cycle balance and cellular health."
+            "description": "Supplies lipid-based compounds involved in nutrient transport and cellular structure — a uniquely female-focused ingredient found in very few supplements."
           }
         }
       },
@@ -441,7 +372,7 @@
         "card_accent_text": "#cc0019",
         "label": "The Formula",
         "heading": "<p>What's Inside <em>Exactly?</em></p>",
-        "description": "6 carefully selected grass-fed beef organs, each chosen for their unique nutritional profile and specific relevance to female health."
+        "description": "Six carefully selected grass-fed beef organs, each chosen for their unique nutritional profile and specific relevance to female health."
       }
     },
     "nh-comparison": {
@@ -450,43 +381,50 @@
         "row_1": {
           "type": "comparison_row",
           "settings": {
-            "product_point": "Nutrients in their natural, easy-to-absorb form.",
-            "comparison_point": "Stripped-down nutrients that are harder to utilize."
+            "product_point": "Delivers nutrients in their naturally occurring food form, alongside the cofactors the body uses to absorb and utilise them effectively.",
+            "comparison_point": "Provides isolated nutrients that are often stripped from their natural context, which can reduce absorption and tolerance for some people."
           }
         },
         "row_2": {
           "type": "comparison_row",
           "settings": {
-            "product_point": "Vitamins and minerals that work together.",
-            "comparison_point": "Isolated minerals that compete for absorption."
+            "product_point": "Supplies iron, B vitamins, fat-soluble nutrients, and trace minerals together, reflecting how nutrients naturally work in synergy.",
+            "comparison_point": "Typically separates nutrients into single compounds that may compete for absorption when taken together."
           }
         },
         "row_3": {
           "type": "comparison_row",
           "settings": {
-            "product_point": "Recognized by the body as real food.",
-            "comparison_point": "Often cause upset stomach from harsh, synthetic forms."
+            "product_point": "Generally gentler on digestion because the body recognises them as concentrated food rather than synthetic compounds.",
+            "comparison_point": "Can cause nausea, stomach upset, or discomfort due to harsh forms or high doses of isolated nutrients."
           }
         },
         "row_4": {
           "type": "comparison_row",
           "settings": {
-            "product_point": "Wholistic replenishment of multiple systems at once.",
-            "comparison_point": "Focuses on single issues, leading to pill fatigue."
+            "product_point": "Focuses on foundational nourishment by replenishing multiple nutrient systems at once rather than targeting one symptom.",
+            "comparison_point": "Often aims to correct a single issue (e.g. iron, energy, beauty), leading to fragmented supplementation routines."
           }
         },
         "row_5": {
           "type": "comparison_row",
           "settings": {
-            "product_point": "Zero Fillers or Binders",
-            "comparison_point": "Often contain chemical glues and stabilizers."
+            "product_point": "Minimally processed and gently freeze-dried to preserve naturally occurring nutrients without altering their structure.",
+            "comparison_point": "Manufactured through chemical synthesis and often contains fillers, binders, and stabilisers."
           }
         },
         "row_6": {
           "type": "comparison_row",
           "settings": {
-            "product_point": "Aligned with human biology and vitality.",
-            "comparison_point": "Reductionist, modern-day shortcuts."
+            "product_point": "Aligns with ancestral dietary patterns that prioritised nutrient-dense whole foods for resilience and vitality.",
+            "comparison_point": "Reflects modern, reductionist nutrition approaches that rely on lab-engineered shortcuts."
+          }
+        },
+        "row_7": {
+          "type": "comparison_row",
+          "settings": {
+            "product_point": "Offers broad nutritional coverage in one thoughtfully formulated daily serving.",
+            "comparison_point": "Often requires taking multiple separate products to cover similar nutritional ground."
           }
         }
       },
@@ -496,7 +434,8 @@
         "row_3",
         "row_4",
         "row_5",
-        "row_6"
+        "row_6",
+        "row_7"
       ],
       "settings": {
         "bg_color": "#ffffff",
@@ -508,10 +447,8 @@
         "td_text_color": "#444444",
         "tr_odd_bg": "#ffffff",
         "tr_even_bg": "#fcfcfc",
-        "product_image": "shopify://shop_images/Nourish_Her_product_image.png",
         "product_image_url": "",
-        "column_1_title": "Nourish Her™ Beef Organs",
-        "comparison_image": "shopify://shop_images/generic-multivitamin.jpg",
+        "column_1_title": "Nourish Her™ Beef Organ Supplement",
         "comparison_image_url": "",
         "column_2_title": "Traditional Multivitamin"
       }
@@ -638,7 +575,7 @@
       "custom_css": [],
       "settings": {
         "bg_color": "#cc0019",
-        "text_color": "#ffffff"
+        "text_color": "#444444"
       }
     },
     "nh-offer": {
@@ -744,13 +681,13 @@
         "text_color": "#444444",
         "accent_color": "#cc0019",
         "card_bg": "#ffffff",
-        "card_border": "#ffd4e2",
+        "card_border": "#eeeeee",
         "card_text": "#1a1a1a",
         "label": "Get Started Today",
         "heading": "<p>Choose Your <em>Nourishment Plan</em></p>",
         "product_title": "Nourish Her™",
         "product_tagline": "100% Grass-Fed Beef Organs — Whole-Food Nutrition for Women",
-        "featured_product": "100-grass-fed-beef-organs",
+        "featured_product": "",
         "fallback_price": "£34.99",
         "guarantee_title": "30-Day Money-Back Guarantee",
         "guarantee_text": "If you're not completely satisfied, we'll refund you in full — no questions asked."
@@ -819,9 +756,8 @@
         "label": "Transparency & Trust",
         "heading": "<p>Third-Party <em>Lab Tested</em></p>",
         "paragraph_1": "We believe you should know exactly what you're putting into your body. That's why every single batch of Nourish Her™ is independently tested by a certified third-party laboratory for purity, potency, and the absence of heavy metals, contaminants, and pathogens.",
-        "paragraph_2": "",
-        "paragraph_3": "",
-        "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
+        "paragraph_2": "Our test results are available on request — because transparency isn't a marketing claim, it's a standard we hold ourselves to.",
+        "paragraph_3": "When you choose Nourish Her™, you're choosing a supplement brand that prioritises your health over shortcuts.",
         "image_url": "",
         "download_text": "DOWNLOAD THE LAB TEST RESULTS",
         "download_url": "shopify://pages/contact"

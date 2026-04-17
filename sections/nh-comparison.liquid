@@ -8,6 +8,10 @@
 {% style %}
   #nh-section-{{ section.id }} {
     {% if section.settings.bg_color != blank %}background: {{ section.settings.bg_color }};{% endif %}
+    --nh-comp-th-primary-bg: {{ section.settings.accent_color }};
+    --nh-comp-th-primary-text: {{ section.settings.th_text_color }};
+    --nh-comp-th-secondary-bg: {{ section.settings.th_secondary_bg }};
+    --nh-comp-th-secondary-text: {{ section.settings.th_secondary_text }};
   }
   #nh-section-{{ section.id }} .nh-section-title {
     color: {{ section.settings.heading_color }};
@@ -17,14 +21,6 @@
   }
   #nh-section-{{ section.id }} .nh-divider {
     background: {{ section.settings.accent_color }};
-  }
-  #nh-section-{{ section.id }} .nh-comparison-table thead tr th:first-child {
-    background: {{ section.settings.accent_color }};
-    color: {{ section.settings.th_text_color }};
-  }
-  #nh-section-{{ section.id }} .nh-comparison-table thead tr th:last-child {
-    background: {{ section.settings.th_secondary_bg }};
-    color: {{ section.settings.th_secondary_text }};
   }
   #nh-section-{{ section.id }} .nh-comparison-table tbody tr td {
     color: {{ section.settings.td_text_color }};
@@ -42,11 +38,11 @@
     {% if section.settings.label != blank %}
       <p class="nh-section-label">{{ section.settings.label }}</p>
     {% endif %}
-
+    
     {% if section.settings.heading != blank %}
       <h2 class="nh-section-title">{{ section.settings.heading }}</h2>
     {% endif %}
-
+    
     <div class="nh-divider"></div>
     
     <div style="overflow-x:auto;">
@@ -163,18 +159,6 @@
     {
       "type": "header",
       "content": "Content"
-    },
-    {
-      "type": "text",
-      "id": "label",
-      "label": "Section Label",
-      "default": "The Comparison"
-    },
-    {
-      "type": "richtext",
-      "id": "heading",
-      "label": "Heading",
-      "default": "<p>Why <em>Whole-Food Organs</em> Beat Multivitamins</p>"
     },
     {
       "type": "image_picker",

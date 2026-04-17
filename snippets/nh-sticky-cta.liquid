@@ -1,6 +1,6 @@
 {% comment %}
   Nourish Her - Sticky Bottom CTA
-  Fixed bottom bar — visibility is controlled by the Hero section's IntersectionObserver.
+  Fixed bottom bar that appears after scrolling past hero
 {% endcomment %}
 
 {{ 'nourish-her.css' | asset_url | stylesheet_tag }}
@@ -12,7 +12,31 @@
       Subscribe from <strong>{{ subscription_price | default: '£34.99/mo' }}</strong> · One-time <strong>{{ onetime_price | default: '£44.99' }}</strong>
     </div>
   </div>
-  <button class="nh-sticky-bottom-btn" onclick="document.getElementById('nh-offer') ? document.getElementById('nh-offer').scrollIntoView({behavior:'smooth'}) : window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})">
+  <button class="nh-sticky-bottom-btn" onclick="document.getElementById('nh-offer').scrollIntoView({behavior:'smooth'})">
     {{ cta_text | default: 'Shop Now' }}
   </button>
 </div>
+
+<script>
+  // Sticky bottom CTA visibility - tied to hero section
+  (function() {
+    const nhStickyBottomCta = document.getElementById('nhStickyBottomCta');
+    
+    // Find hero section by class since ID is dynamic
+    const nhHeroSection = document.querySelector('.nh-hero');
+    
+    if (nhHeroSection && nhStickyBottomCta) {
+      const nhBottomObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) {
+            nhStickyBottomCta.classList.add('nh-visible');
+          } else {
+            nhStickyBottomCta.classList.remove('nh-visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      nhBottomObserver.observe(nhHeroSection);
+    }
+  })();
+</script>

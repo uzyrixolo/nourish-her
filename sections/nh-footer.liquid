@@ -21,9 +21,9 @@
 <footer class="nh-footer" id="nh-section-{{ section.id }}">
   <div class="nh-footer-inner">
     {% if section.settings.logo != blank %}
-      {{ section.settings.logo | image_url: width: 300 | image_tag: alt: shop.name, loading: 'lazy', style: 'max-height: ' | append: section.settings.logo_height | append: 'px; width: auto; max-width: 200px; display: block;' }}
+      {{ section.settings.logo | image_url: width: 300 | image_tag: alt: shop.name, loading: 'lazy', class: 'nh-footer-logo-img' }}
     {% elsif section.settings.logo_url != blank %}
-      <img src="{{ section.settings.logo_url }}" alt="{{ shop.name }}" style="max-height: {{ section.settings.logo_height }}px; width: auto; max-width: 200px; display: block;" />
+      <img src="{{ section.settings.logo_url }}" alt="{{ shop.name }}" class="nh-footer-logo-img" />
     {% else %}
       <span style="font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.5rem;">Nourish Her™</span>
     {% endif %}
@@ -70,16 +70,6 @@
       "type": "image_picker",
       "id": "logo",
       "label": "Logo"
-    },
-    {
-      "type": "range",
-      "id": "logo_height",
-      "min": 20,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Logo Height",
-      "default": 44
     },
     {
       "type": "url",
