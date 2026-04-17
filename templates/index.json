@@ -12,6 +12,13 @@
     "nh-hero": {
       "type": "nh-hero",
       "blocks": {
+        "inline_image_VCwCbJ": {
+          "type": "inline_image",
+          "settings": {
+            "image": "shopify://shop_images/Nourishherpouchinpalm.webp",
+            "image_url": ""
+          }
+        },
         "pill_1": {
           "type": "benefit_pill",
           "settings": {
@@ -35,21 +42,14 @@
           "settings": {
             "text": "Mental Clarity"
           }
-        },
-        "inline_image_VCwCbJ": {
-          "type": "inline_image",
-          "settings": {
-            "image": "shopify://shop_images/Nourishherpouchinpalm.webp",
-            "image_url": ""
-          }
         }
       },
       "block_order": [
+        "inline_image_VCwCbJ",
         "pill_1",
         "pill_2",
         "pill_3",
-        "pill_4",
-        "inline_image_VCwCbJ"
+        "pill_4"
       ],
       "settings": {
         "bg_color": "#fffbd5",
