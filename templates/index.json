@@ -12,15 +12,40 @@
     "nh-hero": {
       "type": "nh-hero",
       "blocks": {
+        "eyebrow_WDUzpT": {
+          "type": "eyebrow",
+          "settings": {
+            "column": "left",
+            "text": "Whole-Food Nutrition for Women",
+            "text_color": "",
+            "bg_color": "#ffd4e2",
+            "font_size": 12,
+            "text_align": "left",
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        },
+        "image_zzqtbC": {
+          "type": "image",
+          "settings": {
+            "column": "right",
+            "image": "shopify://shop_images/CD839B03-9D20-4BF8-BD13-3CA84CCA3F6D.png",
+            "image_url": "",
+            "image_label": "",
+            "hide_mobile": false,
+            "hide_desktop": true
+          }
+        },
         "heading_e8QzGG": {
           "type": "heading",
           "settings": {
             "column": "left",
             "text": "<p>Why Beef Organ Superfoods Are the Secret to <em>Healthy Hormones & Energy</em></p>",
-            "font_size": 48,
             "heading_color": "#1a1a1a",
+            "font_size": 48,
             "text_align": "left",
-            "hide_mobile": false
+            "hide_mobile": false,
+            "hide_desktop": false
           }
         },
         "benefit_pills_UcjYxR": {
@@ -37,7 +62,8 @@
             "pill_text_color": "#cc0019",
             "pill_border_color": "#cc0019",
             "pill_alignment": "flex-start",
-            "hide_mobile": false
+            "hide_mobile": false,
+            "hide_desktop": false
           }
         },
         "text_jgKK7V": {
@@ -49,7 +75,8 @@
             "text_color": "#444444",
             "font_size": 16,
             "text_align": "left",
-            "hide_mobile": false
+            "hide_mobile": false,
+            "hide_desktop": false
           }
         },
         "trust_badges_hb7teW": {
@@ -58,7 +85,9 @@
             "column": "left",
             "badge_1": "30-Day Money-Back Guarantee",
             "badge_2": "Third-Party Lab Tested",
-            "hide_mobile": false
+            "text_color": "",
+            "hide_mobile": false,
+            "hide_desktop": false
           }
         },
         "image_TF7GbW": {
@@ -68,7 +97,8 @@
             "image": "shopify://shop_images/Nourishherhilllifestyle.webp",
             "image_url": "",
             "image_label": "",
-            "hide_mobile": false
+            "hide_mobile": true,
+            "hide_desktop": false
           }
         },
         "cta_FJMn8p": {
@@ -80,11 +110,14 @@
             "btn_bg_color": "#cc0019",
             "btn_text_color": "#ffffff",
             "btn_align": "left",
-            "hide_mobile": false
+            "hide_mobile": false,
+            "hide_desktop": false
           }
         }
       },
       "block_order": [
+        "eyebrow_WDUzpT",
+        "image_zzqtbC",
         "heading_e8QzGG",
         "benefit_pills_UcjYxR",
         "text_jgKK7V",
@@ -97,17 +130,9 @@
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
         "accent_color": "#cc0019",
-        "eyebrow": "Whole-Food Nutrition for Women",
-        "heading": "<p>Why Beef Organ Superfoods Are the Secret to <em>Healthy Hormones & Energy.</em></p>",
-        "subheading": "Nourish Her™ is a clean, 100% grass-fed beef organ supplement specifically formulated for women — delivering the ancestral nutrition your body recognises, absorbs, and thrives on.",
-        "cta_button_text": "Start Your Journey",
-        "cta_text": "Shop Now — from £34.99",
-        "trust_1": "30-Day Money-Back Guarantee",
-        "trust_2": "Third-Party Lab Tested",
-        "image_width_desktop": 100,
-        "image_width_mobile": 100,
         "image_label": "6 Whole-Food Beef Organs in Every Serving",
-        "reverse_mobile": true
+        "reverse_mobile": true,
+        "cta_text": "Shop Now — from £34.99"
       }
     },
     "nh-benefits": {
