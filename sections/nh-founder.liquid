@@ -48,21 +48,24 @@
       <div class="nh-founder-column nh-founder-text">
         {% for block in section.blocks %}
           {% if block.settings.column == 'left' %}
+            {% assign vis_class = '' %}
+            {% if block.settings.hide_mobile %}{% assign vis_class = vis_class | append: ' nh-hide-mobile' %}{% endif %}
+            {% if block.settings.hide_desktop %}{% assign vis_class = vis_class | append: ' nh-hide-desktop' %}{% endif %}
             {% case block.type %}
               {% when 'text' %}
-                <div class="nh-founder-block-text" {{ block.shopify_attributes }}>
+                <div class="nh-founder-block-text{{ vis_class }}" {{ block.shopify_attributes }}>
                   {{ block.settings.content }}
                 </div>
               {% when 'quote' %}
-                <div class="nh-founder-quote" {{ block.shopify_attributes }}>
+                <div class="nh-founder-quote{{ vis_class }}" {{ block.shopify_attributes }}>
                   {{ block.settings.quote }}
                 </div>
               {% when 'signature' %}
-                <div class="nh-founder-sig" {{ block.shopify_attributes }}>
+                <div class="nh-founder-sig{{ vis_class }}" {{ block.shopify_attributes }}>
                   {{ block.settings.signature }}
                 </div>
               {% when 'image' %}
-                <div class="nh-founder-block-image" {{ block.shopify_attributes }} style="margin-bottom: 20px;">
+                <div class="nh-founder-block-image{{ vis_class }}" {{ block.shopify_attributes }} style="margin-bottom: 20px;">
                   {% if block.settings.image != blank %}
                     {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.image.alt, loading: 'lazy', width: block.settings.image.width, height: block.settings.image.height }}
                   {% elsif block.settings.image_url != blank %}
@@ -79,21 +82,24 @@
       <div class="nh-founder-column nh-founder-images">
         {% for block in section.blocks %}
           {% if block.settings.column == 'right' %}
+            {% assign vis_class = '' %}
+            {% if block.settings.hide_mobile %}{% assign vis_class = vis_class | append: ' nh-hide-mobile' %}{% endif %}
+            {% if block.settings.hide_desktop %}{% assign vis_class = vis_class | append: ' nh-hide-desktop' %}{% endif %}
             {% case block.type %}
               {% when 'text' %}
-                <div class="nh-founder-block-text" {{ block.shopify_attributes }}>
+                <div class="nh-founder-block-text{{ vis_class }}" {{ block.shopify_attributes }}>
                   {{ block.settings.content }}
                 </div>
               {% when 'quote' %}
-                <div class="nh-founder-quote" {{ block.shopify_attributes }}>
+                <div class="nh-founder-quote{{ vis_class }}" {{ block.shopify_attributes }}>
                   {{ block.settings.quote }}
                 </div>
               {% when 'signature' %}
-                <div class="nh-founder-sig" {{ block.shopify_attributes }}>
+                <div class="nh-founder-sig{{ vis_class }}" {{ block.shopify_attributes }}>
                   {{ block.settings.signature }}
                 </div>
               {% when 'image' %}
-                <div class="nh-founder-block-image" {{ block.shopify_attributes }} style="margin-bottom: 20px;">
+                <div class="nh-founder-block-image{{ vis_class }}" {{ block.shopify_attributes }} style="margin-bottom: 20px;">
                   {% if block.settings.image != blank %}
                     {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.image.alt, loading: 'lazy', width: block.settings.image.width, height: block.settings.image.height }}
                   {% elsif block.settings.image_url != blank %}
@@ -197,6 +203,22 @@
           "id": "content",
           "label": "Text",
           "default": "<p>Add paragraph text here.</p>"
+        },
+        {
+          "type": "header",
+          "content": "Visibility"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_mobile",
+          "label": "Hide on mobile",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_desktop",
+          "label": "Hide on desktop",
+          "default": false
         }
       ]
     },
@@ -223,6 +245,22 @@
           "type": "url",
           "id": "image_url",
           "label": "Image URL (external)"
+        },
+        {
+          "type": "header",
+          "content": "Visibility"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_mobile",
+          "label": "Hide on mobile",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_desktop",
+          "label": "Hide on desktop",
+          "default": false
         }
       ]
     },
@@ -245,6 +283,22 @@
           "id": "quote",
           "label": "Quote",
           "default": "This is a highlighted quote."
+        },
+        {
+          "type": "header",
+          "content": "Visibility"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_mobile",
+          "label": "Hide on mobile",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_desktop",
+          "label": "Hide on desktop",
+          "default": false
         }
       ]
     },
@@ -267,6 +321,22 @@
           "id": "signature",
           "label": "Signature Text",
           "default": "— Dr. [Founder Name], Founder of Nourish Her™"
+        },
+        {
+          "type": "header",
+          "content": "Visibility"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_mobile",
+          "label": "Hide on mobile",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_desktop",
+          "label": "Hide on desktop",
+          "default": false
         }
       ]
     }
