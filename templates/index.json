@@ -398,7 +398,7 @@
             "name": "Beef Liver",
             "stat": "Richer in Vitamin A than carrots",
             "description": "Naturally higher in vitamin B12 than eggs or dairy. The most nutrient-dense food on the planet — a cornerstone of ancestral diets worldwide.",
-            "card_bg": "#ffffff1a",
+            "card_bg": "#333333",
             "card_border": "#fffbd540"
           }
         },
