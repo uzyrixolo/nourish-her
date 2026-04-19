@@ -12,13 +12,42 @@
     "nh-hero": {
       "type": "nh-hero",
       "blocks": {
+        "benefit_pills_UcjYxR": {
+          "type": "benefit_pills",
+          "settings": {
+            "column": "left",
+            "pill_1_text": "Hormone Support",
+            "pill_2_text": "Sustained Energy",
+            "pill_3_text": "Skin & Hair Health",
+            "pill_4_text": "Mental Clarity",
+            "pill_5_text": "",
+            "pill_font_size": 13,
+            "pill_bg_color": "#ffffff",
+            "pill_text_color": "#cc0019",
+            "pill_border_color": "#cc0019",
+            "pill_alignment": "flex-start",
+            "hide_mobile": false
+          }
+        },
         "image_TF7GbW": {
           "type": "image",
           "settings": {
             "column": "right",
             "image": "shopify://shop_images/Nourishherhilllifestyle.webp",
             "image_url": "",
-            "image_label": ""
+            "image_label": "",
+            "hide_mobile": false
+          }
+        },
+        "text_jgKK7V": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "content": "<p>Add your text content here.</p>",
+            "text_color": "#444444",
+            "font_size": 16,
+            "text_align": "left",
+            "hide_mobile": false
           }
         },
         "trust_badges_hb7teW": {
@@ -26,42 +55,8 @@
           "settings": {
             "column": "left",
             "badge_1": "30-Day Money-Back Guarantee",
-            "badge_2": "Third-Party Lab Tested"
-          }
-        },
-        "benefit_pill_xxRib7": {
-          "type": "benefit_pill",
-          "settings": {
-            "column": "left",
-            "text": "Hormone Support"
-          }
-        },
-        "pill_1": {
-          "type": "benefit_pill",
-          "settings": {
-            "column": "left",
-            "text": "Hormone Support"
-          }
-        },
-        "pill_2": {
-          "type": "benefit_pill",
-          "settings": {
-            "column": "left",
-            "text": "Sustained Energy"
-          }
-        },
-        "pill_3": {
-          "type": "benefit_pill",
-          "settings": {
-            "column": "left",
-            "text": "Skin & Hair Health"
-          }
-        },
-        "pill_4": {
-          "type": "benefit_pill",
-          "settings": {
-            "column": "left",
-            "text": "Mental Clarity"
+            "badge_2": "Third-Party Lab Tested",
+            "hide_mobile": false
           }
         },
         "cta_FJMn8p": {
@@ -69,18 +64,19 @@
           "settings": {
             "column": "left",
             "label": "Start Your Journey",
-            "link": ""
+            "link": "",
+            "btn_bg_color": "#cc0019",
+            "btn_text_color": "#ffffff",
+            "btn_align": "left",
+            "hide_mobile": false
           }
         }
       },
       "block_order": [
+        "benefit_pills_UcjYxR",
         "image_TF7GbW",
+        "text_jgKK7V",
         "trust_badges_hb7teW",
-        "benefit_pill_xxRib7",
-        "pill_1",
-        "pill_2",
-        "pill_3",
-        "pill_4",
         "cta_FJMn8p"
       ],
       "settings": {
@@ -89,7 +85,7 @@
         "text_color": "#444444",
         "accent_color": "#cc0019",
         "eyebrow": "Whole-Food Nutrition for Women",
-        "heading": "<p>Why Beef Organ Superfoods Are the Secret to <em>Healthy Hormones & Energy</em></p>",
+        "heading": "<p>Why Beef Organ Superfoods Are the Secret to <em>Healthy Hormones & Energy.</em></p>",
         "subheading": "Nourish Her™ is a clean, 100% grass-fed beef organ supplement specifically formulated for women — delivering the ancestral nutrition your body recognises, absorbs, and thrives on.",
         "cta_button_text": "Start Your Journey",
         "cta_text": "Shop Now — from £34.99",
