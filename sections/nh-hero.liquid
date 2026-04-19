@@ -51,45 +51,56 @@
         <h1>{{ section.settings.heading }}</h1>
       {% endif %}
       
+      {% comment %} Collect left column pills for inline display {% endcomment %}
+      {% assign left_pills = '' %}
+      {% for block in section.blocks %}
+        {% if block.settings.column == 'left' and block.type == 'benefit_pill' and block.settings.hide_mobile != true %}
+          {% capture left_pills %}{{ left_pills }}<span class="nh-hero-benefit-pill" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>{% endcapture %}
+        {% endif %}
+      {% endfor %}
+      {% if left_pills != '' %}
+        <div class="nh-hero-block-pills">{{ left_pills }}</div>
+      {% endif %}
+      
       {% for block in section.blocks %}
         {% if block.settings.column == 'left' %}
-          {% case block.type %}
-            {% when 'text' %}
-              <div class="nh-hero-block-text" {{ block.shopify_attributes }}>
-                {{ block.settings.content }}
-              </div>
-            {% when 'benefit_pill' %}
-              <div class="nh-hero-block-pills" {{ block.shopify_attributes }}>
-                <span class="nh-hero-benefit-pill">{{ block.settings.text }}</span>
-              </div>
-            {% when 'image' %}
-              <div class="nh-hero-block-image" {{ block.shopify_attributes }}>
-                {% if block.settings.image != blank %}
-                  {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.image.alt, loading: 'lazy' }}
-                {% elsif block.settings.image_url != blank %}
-                  <img src="{{ block.settings.image_url }}" alt="Hero image" width="600" height="400" />
-                {% endif %}
-              </div>
-            {% when 'cta' %}
-              <div class="nh-hero-block-cta" {{ block.shopify_attributes }}>
-                <a href="{{ block.settings.link | default: '#nh-offer' }}" class="nh-btn-primary" style="color: #fff;">{{ block.settings.label }}</a>
-              </div>
-            {% when 'trust_badges' %}
-              <div class="nh-hero-block-trust" {{ block.shopify_attributes }}>
-                {% if block.settings.badge_1 != blank %}
-                  <div class="nh-trust-item">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    {{ block.settings.badge_1 }}
-                  </div>
-                {% endif %}
-                {% if block.settings.badge_2 != blank %}
-                  <div class="nh-trust-item">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    {{ block.settings.badge_2 }}
-                  </div>
-                {% endif %}
-              </div>
-          {% endcase %}
+          {% unless block.type == 'benefit_pill' %}
+            {% assign hide_mobile_class = '' %}
+            {% if block.settings.hide_mobile %} {% assign hide_mobile_class = ' nh-hide-mobile' %}{% endif %}
+            {% case block.type %}
+              {% when 'text' %}
+                <div class="nh-hero-block-text{{ hide_mobile_class }}" {{ block.shopify_attributes }}>
+                  {{ block.settings.content }}
+                </div>
+              {% when 'image' %}
+                <div class="nh-hero-block-image{{ hide_mobile_class }}" {{ block.shopify_attributes }}>
+                  {% if block.settings.image != blank %}
+                    {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.image.alt, loading: 'lazy' }}
+                  {% elsif block.settings.image_url != blank %}
+                    <img src="{{ block.settings.image_url }}" alt="Hero image" width="600" height="400" />
+                  {% endif %}
+                </div>
+              {% when 'cta' %}
+                <div class="nh-hero-block-cta{{ hide_mobile_class }}" {{ block.shopify_attributes }}>
+                  <a href="{{ block.settings.link | default: '#nh-offer' }}" class="nh-btn-primary" style="color: #fff;">{{ block.settings.label }}</a>
+                </div>
+              {% when 'trust_badges' %}
+                <div class="nh-hero-block-trust{{ hide_mobile_class }}" {{ block.shopify_attributes }}>
+                  {% if block.settings.badge_1 != blank %}
+                    <div class="nh-trust-item">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      {{ block.settings.badge_1 }}
+                    </div>
+                  {% endif %}
+                  {% if block.settings.badge_2 != blank %}
+                    <div class="nh-trust-item">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      {{ block.settings.badge_2 }}
+                    </div>
+                  {% endif %}
+                </div>
+            {% endcase %}
+          {% endunless %}
         {% endif %}
       {% endfor %}
     </div>
@@ -98,9 +109,11 @@
     <div class="nh-hero-right">
       {% for block in section.blocks %}
         {% if block.settings.column == 'right' %}
+          {% assign hide_mobile_class = '' %}
+          {% if block.settings.hide_mobile %} {% assign hide_mobile_class = ' nh-hide-mobile' %}{% endif %}
           {% case block.type %}
             {% when 'image' %}
-              <div class="nh-hero-block-image" {{ block.shopify_attributes }}>
+              <div class="nh-hero-block-image{{ hide_mobile_class }}" {{ block.shopify_attributes }}>
                 {% if block.settings.image != blank %}
                   {{ block.settings.image | image_url: width: 800 | image_tag: alt: block.settings.image.alt, loading: 'eager' }}
                 {% elsif block.settings.image_url != blank %}
@@ -286,6 +299,12 @@
           "id": "content",
           "label": "Content",
           "default": "<p>Add your text content here.</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_mobile",
+          "label": "Hide on mobile",
+          "default": false
         }
       ]
     },
@@ -308,6 +327,12 @@
           "id": "text",
           "label": "Text",
           "default": "Hormone Support"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_mobile",
+          "label": "Hide on mobile",
+          "default": false
         }
       ]
     },
@@ -340,6 +365,12 @@
           "id": "image_label",
           "label": "Image Label (Right column only)",
           "info": "e.g. '6 Whole-Food Beef Organs in Every Serving'"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_mobile",
+          "label": "Hide on mobile",
+          "default": false
         }
       ]
     },
@@ -367,6 +398,12 @@
           "type": "url",
           "id": "link",
           "label": "Button Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_mobile",
+          "label": "Hide on mobile",
+          "default": false
         }
       ]
     },
@@ -395,6 +432,12 @@
           "id": "badge_2",
           "label": "Badge 2",
           "default": "Third-Party Lab Tested"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_mobile",
+          "label": "Hide on mobile",
+          "default": false
         }
       ]
     }

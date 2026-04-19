@@ -162,6 +162,9 @@
 
 .nh-hero-block-pills {
   margin: 8px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .nh-hero-block-image {
@@ -1486,6 +1489,10 @@
   .nh-hero-image-wrap img,
   .nh-hero-block-image img {
     min-height: 320px;
+  }
+
+  .nh-hide-mobile {
+    display: none !important;
   }
 
   .nh-founder-grid,
