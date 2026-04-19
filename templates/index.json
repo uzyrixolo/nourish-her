@@ -12,6 +12,30 @@
     "nh-hero": {
       "type": "nh-hero",
       "blocks": {
+        "image_TF7GbW": {
+          "type": "image",
+          "settings": {
+            "column": "right",
+            "image": "shopify://shop_images/Nourishherhilllifestyle.webp",
+            "image_url": "",
+            "image_label": ""
+          }
+        },
+        "trust_badges_hb7teW": {
+          "type": "trust_badges",
+          "settings": {
+            "column": "left",
+            "badge_1": "30-Day Money-Back Guarantee",
+            "badge_2": "Third-Party Lab Tested"
+          }
+        },
+        "benefit_pill_xxRib7": {
+          "type": "benefit_pill",
+          "settings": {
+            "column": "left",
+            "text": "Hormone Support"
+          }
+        },
         "pill_1": {
           "type": "benefit_pill",
           "settings": {
@@ -50,6 +74,9 @@
         }
       },
       "block_order": [
+        "image_TF7GbW",
+        "trust_badges_hb7teW",
+        "benefit_pill_xxRib7",
         "pill_1",
         "pill_2",
         "pill_3",
@@ -68,7 +95,6 @@
         "cta_text": "Shop Now — from £34.99",
         "trust_1": "30-Day Money-Back Guarantee",
         "trust_2": "Third-Party Lab Tested",
-        "hero_image": "shopify://shop_images/Nourishherpouchinpalm.webp",
         "image_width_desktop": 100,
         "image_width_mobile": 100,
         "image_label": "6 Whole-Food Beef Organs in Every Serving",
