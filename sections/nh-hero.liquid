@@ -51,22 +51,25 @@
         <h1>{{ section.settings.heading }}</h1>
       {% endif %}
       
-      {% comment %} Collect left column pills for inline display {% endcomment %}
-      {% assign left_pills = '' %}
-      {% for block in section.blocks %}
-        {% if block.settings.column == 'left' and block.type == 'benefit_pill' and block.settings.hide_mobile != true %}
-          {% capture left_pills %}{{ left_pills }}<span class="nh-hero-benefit-pill" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>{% endcapture %}
-        {% endif %}
-      {% endfor %}
-      {% if left_pills != '' %}
-        <div class="nh-hero-block-pills">{{ left_pills }}</div>
-      {% endif %}
-      
+      {% comment %} Render blocks in order, grouping consecutive pills {% endcomment %}
+      {% assign in_pill_group = false %}
       {% for block in section.blocks %}
         {% if block.settings.column == 'left' %}
-          {% unless block.type == 'benefit_pill' %}
-            {% assign hide_mobile_class = '' %}
-            {% if block.settings.hide_mobile %} {% assign hide_mobile_class = ' nh-hide-mobile' %}{% endif %}
+          {% assign hide_mobile_class = '' %}
+          {% if block.settings.hide_mobile %}{% assign hide_mobile_class = ' nh-hide-mobile' %}{% endif %}
+          
+          {% if block.type == 'benefit_pill' %}
+            {% unless in_pill_group %}
+              {% assign in_pill_group = true %}
+              <div class="nh-hero-block-pills">
+            {% endunless %}
+            <span class="nh-hero-benefit-pill{{ hide_mobile_class }}" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+          {% else %}
+            {% if in_pill_group %}
+              </div>
+              {% assign in_pill_group = false %}
+            {% endif %}
+            
             {% case block.type %}
               {% when 'text' %}
                 <div class="nh-hero-block-text{{ hide_mobile_class }}" {{ block.shopify_attributes }}>
@@ -100,9 +103,12 @@
                   {% endif %}
                 </div>
             {% endcase %}
-          {% endunless %}
+          {% endif %}
         {% endif %}
       {% endfor %}
+      {% if in_pill_group %}
+        </div>
+      {% endif %}
     </div>
     
     {% comment %} Right Column - Product Image {% endcomment %}
