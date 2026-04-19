@@ -12,44 +12,49 @@
     "nh-hero": {
       "type": "nh-hero",
       "blocks": {
-        "inline_image_VCwCbJ": {
-          "type": "inline_image",
-          "settings": {
-            "image": "shopify://shop_images/Nourishherpouchinpalm.webp",
-            "image_url": ""
-          }
-        },
         "pill_1": {
           "type": "benefit_pill",
           "settings": {
+            "column": "left",
             "text": "Hormone Support"
           }
         },
         "pill_2": {
           "type": "benefit_pill",
           "settings": {
+            "column": "left",
             "text": "Sustained Energy"
           }
         },
         "pill_3": {
           "type": "benefit_pill",
           "settings": {
+            "column": "left",
             "text": "Skin & Hair Health"
           }
         },
         "pill_4": {
           "type": "benefit_pill",
           "settings": {
+            "column": "left",
             "text": "Mental Clarity"
+          }
+        },
+        "cta_FJMn8p": {
+          "type": "cta",
+          "settings": {
+            "column": "left",
+            "label": "Start Your Journey",
+            "link": ""
           }
         }
       },
       "block_order": [
-        "inline_image_VCwCbJ",
         "pill_1",
         "pill_2",
         "pill_3",
-        "pill_4"
+        "pill_4",
+        "cta_FJMn8p"
       ],
       "settings": {
         "bg_color": "#fffbd5",
