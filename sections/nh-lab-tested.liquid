@@ -78,9 +78,29 @@
         {% if section.blocks.size > 0 %}
           <div class="nh-lab-badges">
             {% for block in section.blocks %}
-              <span class="nh-lab-badge" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+              {% if block.type == 'badge' %}
+                {% assign vis_class = '' %}
+                {% if block.settings.hide_mobile %}{% assign vis_class = vis_class | append: ' nh-hide-mobile' %}{% endif %}
+                {% if block.settings.hide_desktop %}{% assign vis_class = vis_class | append: ' nh-hide-desktop' %}{% endif %}
+                <span class="nh-lab-badge{{ vis_class }}" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+              {% endif %}
             {% endfor %}
           </div>
+
+          {% for block in section.blocks %}
+            {% if block.type == 'image' %}
+              {% assign vis_class = '' %}
+              {% if block.settings.hide_mobile %}{% assign vis_class = vis_class | append: ' nh-hide-mobile' %}{% endif %}
+              {% if block.settings.hide_desktop %}{% assign vis_class = vis_class | append: ' nh-hide-desktop' %}{% endif %}
+              <div class="nh-lab-block-image{{ vis_class }}" {{ block.shopify_attributes }} style="margin-top: 24px;">
+                {% if block.settings.image != blank %}
+                  {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.image.alt, loading: 'lazy' }}
+                {% elsif block.settings.image_url != blank %}
+                  <img src="{{ block.settings.image_url }}" alt="Lab tested image" width="600" height="400" style="width: 100%; height: auto; border-radius: 20px; object-fit: cover;" />
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
         {% endif %}
 
         {% if section.settings.download_url != blank %}
@@ -226,6 +246,54 @@
           "id": "text",
           "label": "Badge Text",
           "default": "Non-GMO"
+        },
+        {
+          "type": "header",
+          "content": "Visibility"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_mobile",
+          "label": "Hide on mobile",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_desktop",
+          "label": "Hide on desktop",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "image_url",
+          "label": "Image URL (external)"
+        },
+        {
+          "type": "header",
+          "content": "Visibility"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_mobile",
+          "label": "Hide on mobile",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_desktop",
+          "label": "Hide on desktop",
+          "default": false
         }
       ]
     }
