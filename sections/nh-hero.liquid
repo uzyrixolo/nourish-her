@@ -40,14 +40,6 @@
   <div class="nh-hero-grid">
     {% comment %} Left Column - Text Content {% endcomment %}
     <div class="nh-hero-left">
-      {% if section.settings.eyebrow != blank %}
-        <div class="nh-hero-eyebrow">{{ section.settings.eyebrow }}</div>
-      {% endif %}
-      
-      {% if section.settings.heading != blank %}
-        <h1>{{ section.settings.heading }}</h1>
-      {% endif %}
-      
       {% comment %} Render left column blocks in order {% endcomment %}
       {% for block in section.blocks %}
         {% if block.settings.column == 'left' %}
@@ -55,6 +47,12 @@
           {% if block.settings.hide_mobile %}{% assign hide_mobile_class = ' nh-hide-mobile' %}{% endif %}
           
           {% case block.type %}
+            {% when 'eyebrow' %}
+              <div class="nh-hero-eyebrow{{ hide_mobile_class }}" {{ block.shopify_attributes }}
+                   style="{% if block.settings.text_color != blank %}color: {{ block.settings.text_color }};{% endif %}{% if block.settings.bg_color != blank %}background: {{ block.settings.bg_color }};{% endif %}{% if block.settings.font_size != blank %}font-size: {{ block.settings.font_size }}px;{% endif %}">{{ block.settings.text }}</div>
+            {% when 'heading' %}
+              <h1 class="nh-hero-heading{{ hide_mobile_class }}" {{ block.shopify_attributes }}
+                  style="{% if block.settings.heading_color != blank %}color: {{ block.settings.heading_color }};{% endif %}{% if block.settings.font_size != blank %}font-size: {{ block.settings.font_size }}px;{% endif %}{% if block.settings.text_align != blank %}text-align: {{ block.settings.text_align }};{% endif %}">{{ block.settings.text }}</h1>
             {% when 'text' %}
               <div class="nh-hero-block-text{{ hide_mobile_class }}" {{ block.shopify_attributes }}
                    style="{% if block.settings.text_color != blank %}color: {{ block.settings.text_color }};{% endif %}{% if block.settings.font_size != blank %}font-size: {{ block.settings.font_size }}px;{% endif %}{% if block.settings.text_align != blank %}text-align: {{ block.settings.text_align }};{% endif %}">
@@ -105,6 +103,25 @@
           {% endcase %}
         {% endif %}
       {% endfor %}
+      
+      {% comment %} Legacy fallback: Render section-level eyebrow/heading if no blocks exist {% endcomment %}
+      {% assign has_eyebrow_block = false %}
+      {% assign has_heading_block = false %}
+      {% for block in section.blocks %}
+        {% if block.type == 'eyebrow' %}{% assign has_eyebrow_block = true %}{% endif %}
+        {% if block.type == 'heading' %}{% assign has_heading_block = true %}{% endif %}
+      {% endfor %}
+      
+      {% unless has_eyebrow_block %}
+        {% if section.settings.eyebrow != blank %}
+          <div class="nh-hero-eyebrow">{{ section.settings.eyebrow }}</div>
+        {% endif %}
+      {% endunless %}
+      {% unless has_heading_block %}
+        {% if section.settings.heading != blank %}
+          <h1>{{ section.settings.heading }}</h1>
+        {% endif %}
+      {% endunless %}
     </div>
     
     {% comment %} Right Column - Product Image {% endcomment %}
@@ -322,6 +339,154 @@
     }
   ],
   "blocks": [
+    {
+      "type": "eyebrow",
+      "name": "Eyebrow",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "A small label/tag above the heading. Drag to position anywhere in the layout."
+        },
+        {
+          "type": "select",
+          "id": "column",
+          "label": "Position",
+          "options": [
+            { "value": "left", "label": "Left Column" },
+            { "value": "right", "label": "Right Column" }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Eyebrow Text",
+          "default": "Whole-Food Nutrition for Women"
+        },
+        {
+          "type": "header",
+          "content": "Typography"
+        },
+        {
+          "type": "range",
+          "id": "font_size",
+          "min": 10,
+          "max": 18,
+          "step": 1,
+          "unit": "px",
+          "label": "Font Size",
+          "default": 12
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "default": "#cc0019"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color",
+          "default": "#ffd4e2"
+        },
+        {
+          "type": "header",
+          "content": "Layout"
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "Alignment",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_mobile",
+          "label": "Hide on mobile",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "name": "Heading",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Main hero heading. Drag to position anywhere in the layout."
+        },
+        {
+          "type": "select",
+          "id": "column",
+          "label": "Position",
+          "options": [
+            { "value": "left", "label": "Left Column" },
+            { "value": "right", "label": "Right Column" }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Heading Text",
+          "default": "<p>Why Beef Organ Superfoods Are the Secret to <em>Healthy Hormones & Energy</em></p>"
+        },
+        {
+          "type": "header",
+          "content": "Typography"
+        },
+        {
+          "type": "range",
+          "id": "font_size",
+          "min": 24,
+          "max": 72,
+          "step": 2,
+          "unit": "px",
+          "label": "Font Size",
+          "default": 48
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": "Heading Color",
+          "default": "#1a1a1a"
+        },
+        {
+          "type": "header",
+          "content": "Layout"
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "Alignment",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_mobile",
+          "label": "Hide on mobile",
+          "default": false
+        }
+      ]
+    },
     {
       "type": "text",
       "name": "Text Block",
@@ -633,6 +798,20 @@
     {
       "name": "NH - Hero",
       "blocks": {
+        "eyebrow_block": {
+          "type": "eyebrow",
+          "settings": {
+            "column": "left",
+            "text": "Whole-Food Nutrition for Women"
+          }
+        },
+        "heading_block": {
+          "type": "heading",
+          "settings": {
+            "column": "left",
+            "text": "<p>Why Beef Organ Superfoods Are the Secret to <em>Healthy Hormones & Energy</em></p>"
+          }
+        },
         "pills_container": {
           "type": "benefit_pills",
           "settings": {
@@ -644,7 +823,7 @@
           }
         }
       },
-      "block_order": ["pills_container"]
+      "block_order": ["eyebrow_block", "heading_block", "pills_container"]
     }
   ]
 }
