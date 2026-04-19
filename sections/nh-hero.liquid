@@ -1,6 +1,8 @@
 {% comment %}
   Nourish Her - Hero Section
-  Two-column hero with text content and product image
+  Two-column hero with fully draggable blocks.
+  All block types can be placed in either column and reordered freely.
+  Blocks inherit section-level colors when their own color settings are left at defaults.
 {% endcomment %}
 
 {{ 'nourish-her.css' | asset_url | stylesheet_tag }}
@@ -9,166 +11,96 @@
 {% style %}
   #nh-section-{{ section.id }} {
     {% if section.settings.bg_color != blank %}background: {{ section.settings.bg_color }};{% endif %}
-  }
-  #nh-section-{{ section.id }} h1 {
-    color: {{ section.settings.heading_color }};
-  }
-  #nh-section-{{ section.id }} .nh-hero-sub, 
-  #nh-section-{{ section.id }} .nh-trust-item {
-    color: {{ section.settings.text_color }};
-  }
-  #nh-section-{{ section.id }} .nh-hero-eyebrow {
-    color: {{ section.settings.accent_color }};
-    background: {{ section.settings.accent_color | color_modify: 'alpha', 0.1 }};
-  }
-  #nh-section-{{ section.id }} .nh-btn-primary {
-    background: {{ section.settings.accent_color }};
-  }
-  #nh-section-{{ section.id }} .nh-hero-benefit-pill {
-    border-color: {{ section.settings.accent_color }};
-    color: {{ section.settings.accent_color }};
-  }
-  #nh-section-{{ section.id }} .nh-hero-organ-label {
-    background: {{ section.settings.accent_color | color_modify: 'alpha', 0.92 }};
+    {% if section.settings.reverse_mobile %}--nh-hero-right-order: 1;{% else %}--nh-hero-right-order: -1;{% endif %}
   }
   #nh-section-{{ section.id }} svg circle {
     fill: {{ section.settings.accent_color }};
   }
 {% endstyle %}
 
+{% comment %} ===== BLOCK RENDER SNIPPET (used for both columns) ===== {% endcomment %}
+{% capture _nh_block_render %}__NH_BLOCK_PLACEHOLDER__{% endcapture %}
+
 <section class="nh-hero" id="nh-section-{{ section.id }}">
   <div class="nh-hero-grid">
-    {% comment %} Left Column - Text Content {% endcomment %}
+
+    {% comment %} ========== LEFT COLUMN ========== {% endcomment %}
     <div class="nh-hero-left">
-      {% comment %} Render left column blocks in order {% endcomment %}
       {% for block in section.blocks %}
         {% if block.settings.column == 'left' %}
-          {% assign hide_mobile_class = '' %}
-          {% if block.settings.hide_mobile %}{% assign hide_mobile_class = ' nh-hide-mobile' %}{% endif %}
-          
+          {% assign vis_class = '' %}
+          {% if block.settings.hide_mobile %}{% assign vis_class = vis_class | append: ' nh-hide-mobile' %}{% endif %}
+          {% if block.settings.hide_desktop %}{% assign vis_class = vis_class | append: ' nh-hide-desktop' %}{% endif %}
+
           {% case block.type %}
+
             {% when 'eyebrow' %}
-              <div class="nh-hero-eyebrow{{ hide_mobile_class }}" {{ block.shopify_attributes }}
-                   style="{% if block.settings.text_color != blank %}color: {{ block.settings.text_color }};{% endif %}{% if block.settings.bg_color != blank %}background: {{ block.settings.bg_color }};{% endif %}{% if block.settings.font_size != blank %}font-size: {{ block.settings.font_size }}px;{% endif %}">{{ block.settings.text }}</div>
+              {% assign _color = block.settings.text_color | default: section.settings.accent_color %}
+              {% assign _bg = block.settings.bg_color %}
+              <div class="nh-hero-eyebrow{{ vis_class }}" {{ block.shopify_attributes }}
+                   style="color: {{ _color }};{% if _bg != blank %}background: {{ _bg }};{% endif %}{% if block.settings.font_size %}font-size: {{ block.settings.font_size }}px;{% endif %}{% if block.settings.text_align != 'left' %}text-align: {{ block.settings.text_align }};{% endif %}">
+                {{ block.settings.text }}
+              </div>
+
             {% when 'heading' %}
-              <h1 class="nh-hero-heading{{ hide_mobile_class }}" {{ block.shopify_attributes }}
-                  style="{% if block.settings.heading_color != blank %}color: {{ block.settings.heading_color }};{% endif %}{% if block.settings.font_size != blank %}font-size: {{ block.settings.font_size }}px;{% endif %}{% if block.settings.text_align != blank %}text-align: {{ block.settings.text_align }};{% endif %}">{{ block.settings.text }}</h1>
+              {% assign _color = block.settings.heading_color | default: section.settings.heading_color %}
+              <h1 class="nh-hero-heading{{ vis_class }}" {{ block.shopify_attributes }}
+                  style="color: {{ _color }};{% if block.settings.font_size %}font-size: {{ block.settings.font_size }}px;{% endif %}{% if block.settings.text_align != 'left' %}text-align: {{ block.settings.text_align }};{% endif %}">
+                {{ block.settings.text }}
+              </h1>
+
             {% when 'text' %}
-              <div class="nh-hero-block-text{{ hide_mobile_class }}" {{ block.shopify_attributes }}
-                   style="{% if block.settings.text_color != blank %}color: {{ block.settings.text_color }};{% endif %}{% if block.settings.font_size != blank %}font-size: {{ block.settings.font_size }}px;{% endif %}{% if block.settings.text_align != blank %}text-align: {{ block.settings.text_align }};{% endif %}">
+              {% assign _color = block.settings.text_color | default: section.settings.text_color %}
+              <div class="nh-hero-block-text{{ vis_class }}" {{ block.shopify_attributes }}
+                   style="color: {{ _color }};{% if block.settings.font_size %}font-size: {{ block.settings.font_size }}px;{% endif %}{% if block.settings.text_align != 'left' %}text-align: {{ block.settings.text_align }};{% endif %}">
                 {{ block.settings.content }}
               </div>
+
             {% when 'benefit_pills' %}
-              <div class="nh-hero-block-pills{{ hide_mobile_class }}" {{ block.shopify_attributes }}
-                   style="{% if block.settings.pill_alignment != blank %}justify-content: {{ block.settings.pill_alignment }};{% endif %}">
+              {% assign _pill_color = block.settings.pill_text_color | default: section.settings.accent_color %}
+              {% assign _pill_border = block.settings.pill_border_color | default: section.settings.accent_color %}
+              <div class="nh-hero-block-pills{{ vis_class }}" {{ block.shopify_attributes }}
+                   style="{% if block.settings.pill_alignment != 'flex-start' %}justify-content: {{ block.settings.pill_alignment }};{% endif %}">
                 {% for i in (1..5) %}
-                  {% capture pill_text_key %}pill_{{ i }}_text{% endcapture %}
-                  {% assign pill_text = block.settings[pill_text_key] %}
+                  {% capture pill_key %}pill_{{ i }}_text{% endcapture %}
+                  {% assign pill_text = block.settings[pill_key] %}
                   {% if pill_text != blank %}
-                    <span class="nh-hero-benefit-pill" 
-                          style="{% if block.settings.pill_bg_color != blank %}background: {{ block.settings.pill_bg_color }};{% endif %}{% if block.settings.pill_text_color != blank %}color: {{ block.settings.pill_text_color }};{% endif %}{% if block.settings.pill_border_color != blank %}border-color: {{ block.settings.pill_border_color }};{% endif %}{% if block.settings.pill_font_size != blank %}font-size: {{ block.settings.pill_font_size }}px;{% endif %}">{{ pill_text }}</span>
+                    <span class="nh-hero-benefit-pill"
+                          style="color: {{ _pill_color }}; border-color: {{ _pill_border }};{% if block.settings.pill_bg_color != blank %}background: {{ block.settings.pill_bg_color }};{% endif %}{% if block.settings.pill_font_size %}font-size: {{ block.settings.pill_font_size }}px;{% endif %}">
+                      {{ pill_text }}
+                    </span>
                   {% endif %}
                 {% endfor %}
               </div>
+
             {% when 'image' %}
-              <div class="nh-hero-block-image{{ hide_mobile_class }}" {{ block.shopify_attributes }}>
+              <div class="nh-hero-block-image{{ vis_class }}" {{ block.shopify_attributes }}>
                 {% if block.settings.image != blank %}
-                  {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.image.alt, loading: 'lazy' }}
+                  {{ block.settings.image | image_url: width: 800 | image_tag: alt: block.settings.image.alt, loading: 'lazy' }}
                 {% elsif block.settings.image_url != blank %}
-                  <img src="{{ block.settings.image_url }}" alt="Hero image" width="600" height="400" />
-                {% endif %}
-              </div>
-            {% when 'cta' %}
-              <div class="nh-hero-block-cta{{ hide_mobile_class }}" {{ block.shopify_attributes }}
-                   style="{% if block.settings.btn_align != blank %}text-align: {{ block.settings.btn_align }};{% endif %}">
-                <a href="{{ block.settings.link | default: '#nh-offer' }}" 
-                   class="nh-btn-primary" 
-                   style="{% if block.settings.btn_bg_color != blank %}background: {{ block.settings.btn_bg_color }};{% endif %}{% if block.settings.btn_text_color != blank %}color: {{ block.settings.btn_text_color }} !important;{% endif %}">{{ block.settings.label }}</a>
-              </div>
-            {% when 'trust_badges' %}
-              <div class="nh-hero-block-trust{{ hide_mobile_class }}" {{ block.shopify_attributes }}>
-                {% if block.settings.badge_1 != blank %}
-                  <div class="nh-trust-item">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    {{ block.settings.badge_1 }}
-                  </div>
-                {% endif %}
-                {% if block.settings.badge_2 != blank %}
-                  <div class="nh-trust-item">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    {{ block.settings.badge_2 }}
-                  </div>
-                {% endif %}
-              </div>
-          {% endcase %}
-        {% endif %}
-      {% endfor %}
-      
-      {% comment %} Legacy fallback: Render section-level eyebrow/heading if no blocks exist {% endcomment %}
-      {% assign has_eyebrow_block = false %}
-      {% assign has_heading_block = false %}
-      {% for block in section.blocks %}
-        {% if block.type == 'eyebrow' %}{% assign has_eyebrow_block = true %}{% endif %}
-        {% if block.type == 'heading' %}{% assign has_heading_block = true %}{% endif %}
-      {% endfor %}
-      
-      {% unless has_eyebrow_block %}
-        {% if section.settings.eyebrow != blank %}
-          <div class="nh-hero-eyebrow">{{ section.settings.eyebrow }}</div>
-        {% endif %}
-      {% endunless %}
-      {% unless has_heading_block %}
-        {% if section.settings.heading != blank %}
-          <h1>{{ section.settings.heading }}</h1>
-        {% endif %}
-      {% endunless %}
-    </div>
-    
-    {% comment %} Right Column - Product Image {% endcomment %}
-    <div class="nh-hero-right">
-      {% for block in section.blocks %}
-        {% if block.settings.column == 'right' %}
-          {% assign hide_mobile_class = '' %}
-          {% if block.settings.hide_mobile %}{% assign hide_mobile_class = ' nh-hide-mobile' %}{% endif %}
-          
-          {% case block.type %}
-            {% when 'image' %}
-              <div class="nh-hero-block-image{{ hide_mobile_class }}" {{ block.shopify_attributes }}>
-                {% if block.settings.image != blank %}
-                  {{ block.settings.image | image_url: width: 800 | image_tag: alt: block.settings.image.alt, loading: 'eager' }}
-                {% elsif block.settings.image_url != blank %}
-                  <img src="{{ block.settings.image_url }}" alt="Hero image" width="800" height="800" />
+                  <img src="{{ block.settings.image_url }}" alt="Hero image" width="800" height="600" loading="lazy" />
                 {% endif %}
                 {% if block.settings.image_label != blank %}
                   <div class="nh-hero-organ-label">{{ block.settings.image_label }}</div>
                 {% endif %}
               </div>
-            {% when 'text' %}
-              <div class="nh-hero-block-text{{ hide_mobile_class }}" {{ block.shopify_attributes }}
-                   style="{% if block.settings.text_color != blank %}color: {{ block.settings.text_color }};{% endif %}{% if block.settings.font_size != blank %}font-size: {{ block.settings.font_size }}px;{% endif %}{% if block.settings.text_align != blank %}text-align: {{ block.settings.text_align }};{% endif %}">
-                {{ block.settings.content }}
-              </div>
-            {% when 'benefit_pills' %}
-              <div class="nh-hero-block-pills{{ hide_mobile_class }}" {{ block.shopify_attributes }}
-                   style="{% if block.settings.pill_alignment != blank %}justify-content: {{ block.settings.pill_alignment }};{% endif %}">
-                {% for i in (1..5) %}
-                  {% capture pill_text_key %}pill_{{ i }}_text{% endcapture %}
-                  {% assign pill_text = block.settings[pill_text_key] %}
-                  {% if pill_text != blank %}
-                    <span class="nh-hero-benefit-pill" 
-                          style="{% if block.settings.pill_bg_color != blank %}background: {{ block.settings.pill_bg_color }};{% endif %}{% if block.settings.pill_text_color != blank %}color: {{ block.settings.pill_text_color }};{% endif %}{% if block.settings.pill_border_color != blank %}border-color: {{ block.settings.pill_border_color }};{% endif %}{% if block.settings.pill_font_size != blank %}font-size: {{ block.settings.pill_font_size }}px;{% endif %}">{{ pill_text }}</span>
-                  {% endif %}
-                {% endfor %}
-              </div>
+
             {% when 'cta' %}
-              <div class="nh-hero-block-cta{{ hide_mobile_class }}" {{ block.shopify_attributes }}
-                   style="{% if block.settings.btn_align != blank %}text-align: {{ block.settings.btn_align }};{% endif %}">
-                <a href="{{ block.settings.link | default: '#nh-offer' }}" 
-                   class="nh-btn-primary" 
-                   style="{% if block.settings.btn_bg_color != blank %}background: {{ block.settings.btn_bg_color }};{% endif %}{% if block.settings.btn_text_color != blank %}color: {{ block.settings.btn_text_color }} !important;{% endif %}">{{ block.settings.label }}</a>
+              {% assign _btn_bg = block.settings.btn_bg_color | default: section.settings.accent_color %}
+              {% assign _btn_text = block.settings.btn_text_color | default: '#ffffff' %}
+              <div class="nh-hero-block-cta{{ vis_class }}" {{ block.shopify_attributes }}
+                   style="{% if block.settings.btn_align != 'left' %}text-align: {{ block.settings.btn_align }};{% endif %}">
+                <a href="{{ block.settings.link | default: '#nh-offer' }}"
+                   class="nh-btn-primary"
+                   style="background: {{ _btn_bg }}; color: {{ _btn_text }} !important;">
+                  {{ block.settings.label }}
+                </a>
               </div>
+
             {% when 'trust_badges' %}
-              <div class="nh-hero-block-trust{{ hide_mobile_class }}" {{ block.shopify_attributes }}>
+              {% assign _badge_color = block.settings.text_color | default: section.settings.text_color %}
+              <div class="nh-hero-block-trust{{ vis_class }}" {{ block.shopify_attributes }}
+                   style="color: {{ _badge_color }};">
                 {% if block.settings.badge_1 != blank %}
                   <div class="nh-trust-item">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -182,37 +114,130 @@
                   </div>
                 {% endif %}
               </div>
+
           {% endcase %}
         {% endif %}
       {% endfor %}
-      
-      {% comment %} Default product image if no right column image blocks {% endcomment %}
+    </div>
+
+    {% comment %} ========== RIGHT COLUMN ========== {% endcomment %}
+    <div class="nh-hero-right">
+      {% for block in section.blocks %}
+        {% if block.settings.column == 'right' %}
+          {% assign vis_class = '' %}
+          {% if block.settings.hide_mobile %}{% assign vis_class = vis_class | append: ' nh-hide-mobile' %}{% endif %}
+          {% if block.settings.hide_desktop %}{% assign vis_class = vis_class | append: ' nh-hide-desktop' %}{% endif %}
+
+          {% case block.type %}
+
+            {% when 'eyebrow' %}
+              {% assign _color = block.settings.text_color | default: section.settings.accent_color %}
+              {% assign _bg = block.settings.bg_color %}
+              <div class="nh-hero-eyebrow{{ vis_class }}" {{ block.shopify_attributes }}
+                   style="color: {{ _color }};{% if _bg != blank %}background: {{ _bg }};{% endif %}{% if block.settings.font_size %}font-size: {{ block.settings.font_size }}px;{% endif %}{% if block.settings.text_align != 'left' %}text-align: {{ block.settings.text_align }};{% endif %}">
+                {{ block.settings.text }}
+              </div>
+
+            {% when 'heading' %}
+              {% assign _color = block.settings.heading_color | default: section.settings.heading_color %}
+              <h1 class="nh-hero-heading{{ vis_class }}" {{ block.shopify_attributes }}
+                  style="color: {{ _color }};{% if block.settings.font_size %}font-size: {{ block.settings.font_size }}px;{% endif %}{% if block.settings.text_align != 'left' %}text-align: {{ block.settings.text_align }};{% endif %}">
+                {{ block.settings.text }}
+              </h1>
+
+            {% when 'text' %}
+              {% assign _color = block.settings.text_color | default: section.settings.text_color %}
+              <div class="nh-hero-block-text{{ vis_class }}" {{ block.shopify_attributes }}
+                   style="color: {{ _color }};{% if block.settings.font_size %}font-size: {{ block.settings.font_size }}px;{% endif %}{% if block.settings.text_align != 'left' %}text-align: {{ block.settings.text_align }};{% endif %}">
+                {{ block.settings.content }}
+              </div>
+
+            {% when 'benefit_pills' %}
+              {% assign _pill_color = block.settings.pill_text_color | default: section.settings.accent_color %}
+              {% assign _pill_border = block.settings.pill_border_color | default: section.settings.accent_color %}
+              <div class="nh-hero-block-pills{{ vis_class }}" {{ block.shopify_attributes }}
+                   style="{% if block.settings.pill_alignment != 'flex-start' %}justify-content: {{ block.settings.pill_alignment }};{% endif %}">
+                {% for i in (1..5) %}
+                  {% capture pill_key %}pill_{{ i }}_text{% endcapture %}
+                  {% assign pill_text = block.settings[pill_key] %}
+                  {% if pill_text != blank %}
+                    <span class="nh-hero-benefit-pill"
+                          style="color: {{ _pill_color }}; border-color: {{ _pill_border }};{% if block.settings.pill_bg_color != blank %}background: {{ block.settings.pill_bg_color }};{% endif %}{% if block.settings.pill_font_size %}font-size: {{ block.settings.pill_font_size }}px;{% endif %}">
+                      {{ pill_text }}
+                    </span>
+                  {% endif %}
+                {% endfor %}
+              </div>
+
+            {% when 'image' %}
+              <div class="nh-hero-block-image{{ vis_class }}" {{ block.shopify_attributes }}>
+                {% if block.settings.image != blank %}
+                  {{ block.settings.image | image_url: width: 800 | image_tag: alt: block.settings.image.alt, loading: 'eager' }}
+                {% elsif block.settings.image_url != blank %}
+                  <img src="{{ block.settings.image_url }}" alt="Hero image" width="800" height="800" loading="eager" />
+                {% endif %}
+                {% if block.settings.image_label != blank %}
+                  <div class="nh-hero-organ-label">{{ block.settings.image_label }}</div>
+                {% endif %}
+              </div>
+
+            {% when 'cta' %}
+              {% assign _btn_bg = block.settings.btn_bg_color | default: section.settings.accent_color %}
+              {% assign _btn_text = block.settings.btn_text_color | default: '#ffffff' %}
+              <div class="nh-hero-block-cta{{ vis_class }}" {{ block.shopify_attributes }}
+                   style="{% if block.settings.btn_align != 'left' %}text-align: {{ block.settings.btn_align }};{% endif %}">
+                <a href="{{ block.settings.link | default: '#nh-offer' }}"
+                   class="nh-btn-primary"
+                   style="background: {{ _btn_bg }}; color: {{ _btn_text }} !important;">
+                  {{ block.settings.label }}
+                </a>
+              </div>
+
+            {% when 'trust_badges' %}
+              {% assign _badge_color = block.settings.text_color | default: section.settings.text_color %}
+              <div class="nh-hero-block-trust{{ vis_class }}" {{ block.shopify_attributes }}
+                   style="color: {{ _badge_color }};">
+                {% if block.settings.badge_1 != blank %}
+                  <div class="nh-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    {{ block.settings.badge_1 }}
+                  </div>
+                {% endif %}
+                {% if block.settings.badge_2 != blank %}
+                  <div class="nh-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    {{ block.settings.badge_2 }}
+                  </div>
+                {% endif %}
+              </div>
+
+          {% endcase %}
+        {% endif %}
+      {% endfor %}
+
+      {% comment %} Fallback: show section-level hero_image if no image blocks in right column {% endcomment %}
       {% assign has_right_image = false %}
       {% for block in section.blocks %}
         {% if block.settings.column == 'right' and block.type == 'image' %}
           {% assign has_right_image = true %}
         {% endif %}
       {% endfor %}
-      
       {% unless has_right_image %}
-        <div class="nh-hero-image-wrap" id="nhHeroImageWrap-{{ section.id }}">
-          {% if section.settings.hero_image != blank %}
+        {% if section.settings.hero_image != blank %}
+          <div class="nh-hero-image-wrap">
             {{ section.settings.hero_image | image_url: width: 800 | image_tag: alt: section.settings.hero_image.alt, loading: 'eager' }}
-          {% else %}
-            {{ 'lifestyle-1' | placeholder_svg_tag: 'nh-hero-placeholder' }}
-          {% endif %}
-          {% if section.settings.image_label != blank %}
-            <div class="nh-hero-organ-label">{{ section.settings.image_label }}</div>
-          {% endif %}
-        </div>
+            {% if section.settings.image_label != blank %}
+              <div class="nh-hero-organ-label">{{ section.settings.image_label }}</div>
+            {% endif %}
+          </div>
+        {% else %}
+          {{ 'lifestyle-1' | placeholder_svg_tag: 'nh-hero-placeholder' }}
+        {% endif %}
       {% endunless %}
     </div>
+
   </div>
 </section>
-
-<script>
-  // Sticky CTA is handled by nh-sticky-cta snippet in nh-offer section
-</script>
 
 {% schema %}
 {
@@ -222,7 +247,11 @@
   "settings": [
     {
       "type": "header",
-      "content": "Colors"
+      "content": "Section Colors (inherited by blocks)"
+    },
+    {
+      "type": "paragraph",
+      "content": "These colors are used as defaults by all blocks. Override them per-block if needed."
     },
     {
       "type": "color_background",
@@ -245,59 +274,16 @@
     {
       "type": "color",
       "id": "accent_color",
-      "label": "Accent Color",
+      "label": "Accent Color (Eyebrow, Pills, CTA, Badges)",
       "default": "#cc0019"
     },
     {
       "type": "header",
-      "content": "Content"
+      "content": "Fallback Image"
     },
     {
-      "type": "image_picker",
-      "id": "logo",
-      "label": "Logo"
-    },
-    {
-      "type": "text",
-      "id": "eyebrow",
-      "label": "Eyebrow Text",
-      "default": "Whole-Food Nutrition for Women"
-    },
-    {
-      "type": "richtext",
-      "id": "heading",
-      "label": "Heading",
-      "default": "<p>Why Beef Organ Superfoods Are the Secret to <em>Healthy Hormones & Energy</em></p>"
-    },
-    {
-      "type": "textarea",
-      "id": "subheading",
-      "label": "Subheading",
-      "default": "Nourish Her™ is a clean, 100% grass-fed beef organ supplement specifically formulated for women — delivering the ancestral nutrition your body recognises, absorbs, and thrives on."
-    },
-    {
-      "type": "text",
-      "id": "cta_button_text",
-      "label": "CTA Button Text",
-      "default": "Start Your Journey"
-    },
-    {
-      "type": "text",
-      "id": "cta_text",
-      "label": "Sticky Nav CTA Text",
-      "default": "Shop Now — from £34.99"
-    },
-    {
-      "type": "text",
-      "id": "trust_1",
-      "label": "Trust Badge 1",
-      "default": "30-Day Money-Back Guarantee"
-    },
-    {
-      "type": "text",
-      "id": "trust_2",
-      "label": "Trust Badge 2",
-      "default": "Third-Party Lab Tested"
+      "type": "paragraph",
+      "content": "Shown in the right column only if no Image block is placed there."
     },
     {
       "type": "image_picker",
@@ -305,55 +291,45 @@
       "label": "Hero Image"
     },
     {
-      "type": "range",
-      "id": "image_width_desktop",
-      "min": 40,
-      "max": 100,
-      "step": 5,
-      "unit": "%",
-      "label": "Image Width (Desktop)",
-      "default": 100
-    },
-    {
-      "type": "range",
-      "id": "image_width_mobile",
-      "min": 40,
-      "max": 100,
-      "step": 5,
-      "unit": "%",
-      "label": "Image Width (Mobile)",
-      "default": 100
-    },
-    {
       "type": "text",
       "id": "image_label",
-      "label": "Image Label",
+      "label": "Image Label Overlay",
       "default": "6 Whole-Food Beef Organs in Every Serving"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Layout"
     },
     {
       "type": "checkbox",
       "id": "reverse_mobile",
-      "label": "Reverse column order on mobile",
+      "label": "Show text above image on mobile",
       "default": false,
-      "info": "When enabled, text appears above the image on mobile. Default shows image on top."
+      "info": "When enabled, the left column (text) appears before the right column (image) on mobile. Default shows image on top."
+    },
+    {
+      "type": "header",
+      "content": "Sticky CTA (used by other sections)"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Sticky Nav CTA Text",
+      "default": "Shop Now — from £34.99"
     }
   ],
   "blocks": [
     {
       "type": "eyebrow",
-      "name": "Eyebrow",
+      "name": "Eyebrow Tag",
       "settings": [
-        {
-          "type": "paragraph",
-          "content": "A small label/tag above the heading. Drag to position anywhere in the layout."
-        },
         {
           "type": "select",
           "id": "column",
-          "label": "Position",
+          "label": "Column",
           "options": [
-            { "value": "left", "label": "Left Column" },
-            { "value": "right", "label": "Right Column" }
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" }
           ],
           "default": "left"
         },
@@ -365,7 +341,19 @@
         },
         {
           "type": "header",
-          "content": "Typography"
+          "content": "Style"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "info": "Leave blank to use section Accent Color"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color",
+          "default": "#ffd4e2"
         },
         {
           "type": "range",
@@ -378,26 +366,6 @@
           "default": 12
         },
         {
-          "type": "header",
-          "content": "Colors"
-        },
-        {
-          "type": "color",
-          "id": "text_color",
-          "label": "Text Color",
-          "default": "#cc0019"
-        },
-        {
-          "type": "color",
-          "id": "bg_color",
-          "label": "Background Color",
-          "default": "#ffd4e2"
-        },
-        {
-          "type": "header",
-          "content": "Layout"
-        },
-        {
           "type": "select",
           "id": "text_align",
           "label": "Alignment",
@@ -409,9 +377,19 @@
           "default": "left"
         },
         {
+          "type": "header",
+          "content": "Visibility"
+        },
+        {
           "type": "checkbox",
           "id": "hide_mobile",
           "label": "Hide on mobile",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_desktop",
+          "label": "Hide on desktop",
           "default": false
         }
       ]
@@ -421,16 +399,12 @@
       "name": "Heading",
       "settings": [
         {
-          "type": "paragraph",
-          "content": "Main hero heading. Drag to position anywhere in the layout."
-        },
-        {
           "type": "select",
           "id": "column",
-          "label": "Position",
+          "label": "Column",
           "options": [
-            { "value": "left", "label": "Left Column" },
-            { "value": "right", "label": "Right Column" }
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" }
           ],
           "default": "left"
         },
@@ -442,7 +416,13 @@
         },
         {
           "type": "header",
-          "content": "Typography"
+          "content": "Style"
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": "Heading Color",
+          "info": "Leave blank to use section Heading Color"
         },
         {
           "type": "range",
@@ -455,20 +435,6 @@
           "default": 48
         },
         {
-          "type": "header",
-          "content": "Colors"
-        },
-        {
-          "type": "color",
-          "id": "heading_color",
-          "label": "Heading Color",
-          "default": "#1a1a1a"
-        },
-        {
-          "type": "header",
-          "content": "Layout"
-        },
-        {
           "type": "select",
           "id": "text_align",
           "label": "Alignment",
@@ -480,9 +446,19 @@
           "default": "left"
         },
         {
+          "type": "header",
+          "content": "Visibility"
+        },
+        {
           "type": "checkbox",
           "id": "hide_mobile",
           "label": "Hide on mobile",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_desktop",
+          "label": "Hide on desktop",
           "default": false
         }
       ]
@@ -494,10 +470,10 @@
         {
           "type": "select",
           "id": "column",
-          "label": "Position",
+          "label": "Column",
           "options": [
-            { "value": "left", "label": "Left Column" },
-            { "value": "right", "label": "Right Column" }
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" }
           ],
           "default": "left"
         },
@@ -509,13 +485,13 @@
         },
         {
           "type": "header",
-          "content": "Styling"
+          "content": "Style"
         },
         {
           "type": "color",
           "id": "text_color",
           "label": "Text Color",
-          "default": "#444444"
+          "info": "Leave blank to use section Text Color"
         },
         {
           "type": "range",
@@ -530,7 +506,7 @@
         {
           "type": "select",
           "id": "text_align",
-          "label": "Text Alignment",
+          "label": "Alignment",
           "options": [
             { "value": "left", "label": "Left" },
             { "value": "center", "label": "Center" },
@@ -539,72 +515,78 @@
           "default": "left"
         },
         {
+          "type": "header",
+          "content": "Visibility"
+        },
+        {
           "type": "checkbox",
           "id": "hide_mobile",
           "label": "Hide on mobile",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_desktop",
+          "label": "Hide on desktop",
           "default": false
         }
       ]
     },
     {
       "type": "benefit_pills",
-      "name": "Benefit Pills Container",
+      "name": "Benefit Pills",
       "settings": [
-        {
-          "type": "paragraph",
-          "content": "Add up to 5 benefit pills in a single container. Each pill text is limited to 10 words maximum."
-        },
         {
           "type": "select",
           "id": "column",
-          "label": "Position",
+          "label": "Column",
           "options": [
-            { "value": "left", "label": "Left Column" },
-            { "value": "right", "label": "Right Column" }
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" }
           ],
           "default": "left"
         },
         {
           "type": "header",
-          "content": "Pill Texts (Max 10 words each)"
+          "content": "Pills (max 10 words each)"
         },
         {
           "type": "text",
           "id": "pill_1_text",
-          "label": "Pill 1 Text",
+          "label": "Pill 1",
           "default": "Hormone Support",
-          "info": "Maximum 10 words"
+          "info": "Max 10 words"
         },
         {
           "type": "text",
           "id": "pill_2_text",
-          "label": "Pill 2 Text",
+          "label": "Pill 2",
           "default": "Sustained Energy",
-          "info": "Maximum 10 words"
+          "info": "Max 10 words"
         },
         {
           "type": "text",
           "id": "pill_3_text",
-          "label": "Pill 3 Text",
+          "label": "Pill 3",
           "default": "Skin & Hair Health",
-          "info": "Maximum 10 words"
+          "info": "Max 10 words"
         },
         {
           "type": "text",
           "id": "pill_4_text",
-          "label": "Pill 4 Text",
+          "label": "Pill 4",
           "default": "Mental Clarity",
-          "info": "Maximum 10 words"
+          "info": "Max 10 words"
         },
         {
           "type": "text",
           "id": "pill_5_text",
-          "label": "Pill 5 Text",
-          "info": "Maximum 10 words"
+          "label": "Pill 5",
+          "info": "Max 10 words"
         },
         {
           "type": "header",
-          "content": "Typography (Matches Heading Style)"
+          "content": "Style"
         },
         {
           "type": "range",
@@ -613,39 +595,31 @@
           "max": 24,
           "step": 1,
           "unit": "px",
-          "label": "Pill Font Size",
+          "label": "Font Size",
           "default": 13
-        },
-        {
-          "type": "header",
-          "content": "Colors"
         },
         {
           "type": "color",
           "id": "pill_bg_color",
-          "label": "Pill Background Color",
+          "label": "Background",
           "default": "#ffffff"
         },
         {
           "type": "color",
           "id": "pill_text_color",
-          "label": "Pill Text Color",
-          "default": "#cc0019"
+          "label": "Text Color",
+          "info": "Leave blank to use section Accent Color"
         },
         {
           "type": "color",
           "id": "pill_border_color",
-          "label": "Pill Border Color",
-          "default": "#cc0019"
-        },
-        {
-          "type": "header",
-          "content": "Layout"
+          "label": "Border Color",
+          "info": "Leave blank to use section Accent Color"
         },
         {
           "type": "select",
           "id": "pill_alignment",
-          "label": "Pills Alignment",
+          "label": "Alignment",
           "options": [
             { "value": "flex-start", "label": "Left" },
             { "value": "center", "label": "Center" },
@@ -654,24 +628,34 @@
           "default": "flex-start"
         },
         {
+          "type": "header",
+          "content": "Visibility"
+        },
+        {
           "type": "checkbox",
           "id": "hide_mobile",
           "label": "Hide on mobile",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_desktop",
+          "label": "Hide on desktop",
           "default": false
         }
       ]
     },
     {
       "type": "image",
-      "name": "Image Block",
+      "name": "Image",
       "settings": [
         {
           "type": "select",
           "id": "column",
-          "label": "Position",
+          "label": "Column",
           "options": [
-            { "value": "left", "label": "Left Column" },
-            { "value": "right", "label": "Right Column" }
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" }
           ],
           "default": "right"
         },
@@ -683,18 +667,28 @@
         {
           "type": "url",
           "id": "image_url",
-          "label": "Image URL (external)"
+          "label": "External Image URL"
         },
         {
           "type": "text",
           "id": "image_label",
-          "label": "Image Label (Right column only)",
+          "label": "Overlay Label",
           "info": "e.g. '6 Whole-Food Beef Organs in Every Serving'"
+        },
+        {
+          "type": "header",
+          "content": "Visibility"
         },
         {
           "type": "checkbox",
           "id": "hide_mobile",
           "label": "Hide on mobile",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_desktop",
+          "label": "Hide on desktop",
           "default": false
         }
       ]
@@ -706,10 +700,10 @@
         {
           "type": "select",
           "id": "column",
-          "label": "Position",
+          "label": "Column",
           "options": [
-            { "value": "left", "label": "Left Column" },
-            { "value": "right", "label": "Right Column" }
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" }
           ],
           "default": "left"
         },
@@ -726,24 +720,24 @@
         },
         {
           "type": "header",
-          "content": "Button Styling"
+          "content": "Style"
         },
         {
           "type": "color",
           "id": "btn_bg_color",
-          "label": "Button Background Color",
-          "default": "#cc0019"
+          "label": "Background",
+          "info": "Leave blank to use section Accent Color"
         },
         {
           "type": "color",
           "id": "btn_text_color",
-          "label": "Button Text Color",
+          "label": "Text Color",
           "default": "#ffffff"
         },
         {
           "type": "select",
           "id": "btn_align",
-          "label": "Button Alignment",
+          "label": "Alignment",
           "options": [
             { "value": "left", "label": "Left" },
             { "value": "center", "label": "Center" },
@@ -752,9 +746,19 @@
           "default": "left"
         },
         {
+          "type": "header",
+          "content": "Visibility"
+        },
+        {
           "type": "checkbox",
           "id": "hide_mobile",
           "label": "Hide on mobile",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_desktop",
+          "label": "Hide on desktop",
           "default": false
         }
       ]
@@ -766,10 +770,10 @@
         {
           "type": "select",
           "id": "column",
-          "label": "Position",
+          "label": "Column",
           "options": [
-            { "value": "left", "label": "Left Column" },
-            { "value": "right", "label": "Right Column" }
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" }
           ],
           "default": "left"
         },
@@ -786,9 +790,29 @@
           "default": "Third-Party Lab Tested"
         },
         {
+          "type": "header",
+          "content": "Style"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "info": "Leave blank to use section Text Color"
+        },
+        {
+          "type": "header",
+          "content": "Visibility"
+        },
+        {
           "type": "checkbox",
           "id": "hide_mobile",
           "label": "Hide on mobile",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_desktop",
+          "label": "Hide on desktop",
           "default": false
         }
       ]
@@ -798,21 +822,21 @@
     {
       "name": "NH - Hero",
       "blocks": {
-        "eyebrow_block": {
+        "eyebrow_1": {
           "type": "eyebrow",
           "settings": {
             "column": "left",
             "text": "Whole-Food Nutrition for Women"
           }
         },
-        "heading_block": {
+        "heading_1": {
           "type": "heading",
           "settings": {
             "column": "left",
             "text": "<p>Why Beef Organ Superfoods Are the Secret to <em>Healthy Hormones & Energy</em></p>"
           }
         },
-        "pills_container": {
+        "pills_1": {
           "type": "benefit_pills",
           "settings": {
             "column": "left",
@@ -821,9 +845,31 @@
             "pill_3_text": "Skin & Hair Health",
             "pill_4_text": "Mental Clarity"
           }
+        },
+        "text_1": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "content": "<p>Nourish Her™ is a clean, 100% grass-fed beef organ supplement specifically formulated for women — delivering the ancestral nutrition your body recognises, absorbs, and thrives on.</p>"
+          }
+        },
+        "cta_1": {
+          "type": "cta",
+          "settings": {
+            "column": "left",
+            "label": "Start Your Journey"
+          }
+        },
+        "trust_1": {
+          "type": "trust_badges",
+          "settings": {
+            "column": "left",
+            "badge_1": "30-Day Money-Back Guarantee",
+            "badge_2": "Third-Party Lab Tested"
+          }
         }
       },
-      "block_order": ["eyebrow_block", "heading_block", "pills_container"]
+      "block_order": ["eyebrow_1", "heading_1", "pills_1", "text_1", "cta_1", "trust_1"]
     }
   ]
 }
