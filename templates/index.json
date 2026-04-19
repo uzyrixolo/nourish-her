@@ -262,34 +262,52 @@
         "image_CCyiAY": {
           "type": "image",
           "settings": {
-            "column": "left",
-            "image_url": ""
+            "column": "right",
+            "image_url": "",
+            "hide_mobile": true,
+            "hide_desktop": false
+          }
+        },
+        "image_ytYJUB": {
+          "type": "image",
+          "settings": {
+            "column": "right",
+            "image_url": "",
+            "hide_mobile": false,
+            "hide_desktop": true
           }
         },
         "signature_iH7mNi": {
           "type": "signature",
           "settings": {
             "column": "left",
-            "signature": "— Dr. [Founder Name], Founder of Nourish Her™"
+            "signature": "— Dr. [Founder Name], Founder of Nourish Her™",
+            "hide_mobile": false,
+            "hide_desktop": false
           }
         },
         "quote_3qJ9Hd": {
           "type": "quote",
           "settings": {
             "column": "left",
-            "quote": "This is a highlighted quote."
+            "quote": "This is a highlighted quote.",
+            "hide_mobile": false,
+            "hide_desktop": false
           }
         },
         "text_9qiKdg": {
           "type": "text",
           "settings": {
             "column": "left",
-            "content": "<p>Add paragraph text here.</p>"
+            "content": "<p>Add paragraph text here.</p>",
+            "hide_mobile": false,
+            "hide_desktop": false
           }
         }
       },
       "block_order": [
         "image_CCyiAY",
+        "image_ytYJUB",
         "signature_iH7mNi",
         "quote_3qJ9Hd",
         "text_9qiKdg"
