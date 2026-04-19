@@ -34,133 +34,162 @@
   #nh-section-{{ section.id }} svg circle {
     fill: {{ section.settings.accent_color }};
   }
-  
-  /* Mobile ordering based on block position */
-  @media (max-width: 768px) {
-    {% for block in section.blocks %}
-      #nh-section-{{ section.id }} .nh-hero-block[data-block-id="{{ block.id }}"] {
-        order: {{ forloop.index }};
-      }
-    {% endfor %}
-  }
 {% endstyle %}
 
 <section class="nh-hero" id="nh-section-{{ section.id }}">
   <div class="nh-hero-grid">
-    {% comment %} Desktop: Two columns | Mobile: Single column with flex order {% endcomment %}
-    
-    {% comment %} Render blocks in their actual order - desktop will split into columns via CSS, mobile uses flex order {% endcomment %}
-    {% assign in_pill_group = false %}
-    {% assign pill_group_column = '' %}
-    
-    {% for block in section.blocks %}
-      {% assign hide_mobile_class = '' %}
-      {% if block.settings.hide_mobile %}{% assign hide_mobile_class = ' nh-hide-mobile' %}{% endif %}
-      {% assign block_column_class = ' nh-hero-col-' | append: block.settings.column %}
-      
-      {% if block.type == 'benefit_pill' %}
-        {% comment %} Group consecutive pills in the same column {% endcomment %}
-        {% if in_pill_group and pill_group_column == block.settings.column %}
-          <span class="nh-hero-benefit-pill{{ hide_mobile_class }}" {{ block.shopify_attributes }} data-block-id="{{ block.id }}">{{ block.settings.text }}</span>
-        {% else %}
-          {% if in_pill_group %}</div>{% endif %}
-          {% assign in_pill_group = true %}
-          {% assign pill_group_column = block.settings.column %}
-          <div class="nh-hero-block-pills{{ block_column_class }}{{ hide_mobile_class }}" {{ block.shopify_attributes }} data-block-id="{{ block.id }}">
-            <span class="nh-hero-benefit-pill" style="{% if block.settings.bg_color != blank %}background: {{ block.settings.bg_color }};{% endif %}{% if block.settings.text_color != blank %}color: {{ block.settings.text_color }};{% endif %}{% if block.settings.border_color != blank %}border-color: {{ block.settings.border_color }};{% endif %}">{{ block.settings.text }}</span>
-        {% endif %}
-      {% else %}
-        {% if in_pill_group %}</div>{% assign in_pill_group = false %}{% endif %}
-        
-        {% case block.type %}
-          {% when 'text' %}
-            <div class="nh-hero-block nh-hero-block-text{{ block_column_class }}{{ hide_mobile_class }}" 
-                 {{ block.shopify_attributes }} 
-                 data-block-id="{{ block.id }}"
-                 style="{% if block.settings.text_color != blank %}color: {{ block.settings.text_color }};{% endif %}{% if block.settings.font_size != blank %}font-size: {{ block.settings.font_size }}px;{% endif %}{% if block.settings.text_align != blank %}text-align: {{ block.settings.text_align }};{% endif %}">
-              {{ block.settings.content }}
-            </div>
-          {% when 'image' %}
-            <div class="nh-hero-block nh-hero-block-image{{ block_column_class }}{{ hide_mobile_class }}" 
-                 {{ block.shopify_attributes }} 
-                 data-block-id="{{ block.id }}">
-              {% if block.settings.image != blank %}
-                {{ block.settings.image | image_url: width: 800 | image_tag: alt: block.settings.image.alt, loading: 'lazy' }}
-              {% elsif block.settings.image_url != blank %}
-                <img src="{{ block.settings.image_url }}" alt="Hero image" width="800" height="600" />
-              {% endif %}
-              {% if block.settings.image_label != blank %}
-                <div class="nh-hero-organ-label">{{ block.settings.image_label }}</div>
-              {% endif %}
-            </div>
-          {% when 'cta' %}
-            <div class="nh-hero-block nh-hero-block-cta{{ block_column_class }}{{ hide_mobile_class }}" 
-                 {{ block.shopify_attributes }} 
-                 data-block-id="{{ block.id }}"
-                 style="{% if block.settings.btn_align != blank %}text-align: {{ block.settings.btn_align }};{% endif %}">
-              <a href="{{ block.settings.link | default: '#nh-offer' }}" 
-                 class="nh-btn-primary" 
-                 style="{% if block.settings.btn_bg_color != blank %}background: {{ block.settings.btn_bg_color }};{% endif %}{% if block.settings.btn_text_color != blank %}color: {{ block.settings.btn_text_color }} !important;{% endif %}">{{ block.settings.label }}</a>
-            </div>
-          {% when 'trust_badges' %}
-            <div class="nh-hero-block nh-hero-block-trust{{ block_column_class }}{{ hide_mobile_class }}" 
-                 {{ block.shopify_attributes }} 
-                 data-block-id="{{ block.id }}">
-              {% if block.settings.badge_1 != blank %}
-                <div class="nh-trust-item">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  {{ block.settings.badge_1 }}
-                </div>
-              {% endif %}
-              {% if block.settings.badge_2 != blank %}
-                <div class="nh-trust-item">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  {{ block.settings.badge_2 }}
-                </div>
-              {% endif %}
-            </div>
-        {% endcase %}
-      {% endif %}
-    {% endfor %}
-    {% if in_pill_group %}</div>{% endif %}
-    
-    {% comment %} Default product image if no image blocks exist {% endcomment %}
-    {% assign has_image_block = false %}
-    {% for block in section.blocks %}
-      {% if block.type == 'image' %}
-        {% assign has_image_block = true %}
-      {% endif %}
-    {% endfor %}
-    
-    {% unless has_image_block %}
-      <div class="nh-hero-block nh-hero-block-image nh-hero-col-right" id="nhHeroImageWrap-{{ section.id }}">
-        {% if section.settings.hero_image != blank %}
-          {{ section.settings.hero_image | image_url: width: 800 | image_tag: alt: section.settings.hero_image.alt, loading: 'eager' }}
-        {% else %}
-          {{ 'lifestyle-1' | placeholder_svg_tag: 'nh-hero-placeholder' }}
-        {% endif %}
-        {% if section.settings.image_label != blank %}
-          <div class="nh-hero-organ-label">{{ section.settings.image_label }}</div>
-        {% endif %}
-      </div>
-    {% endunless %}
-    
-    {% comment %} Legacy support: Render eyebrow/heading if no blocks of those types exist {% endcomment %}
-    {% assign has_text_block = false %}
-    {% for block in section.blocks %}
-      {% if block.type == 'text' %}
-        {% assign has_text_block = true %}
-      {% endif %}
-    {% endfor %}
-    
-    {% unless has_text_block %}
+    {% comment %} Left Column - Text Content {% endcomment %}
+    <div class="nh-hero-left">
       {% if section.settings.eyebrow != blank %}
-        <div class="nh-hero-eyebrow nh-hero-col-left">{{ section.settings.eyebrow }}</div>
+        <div class="nh-hero-eyebrow">{{ section.settings.eyebrow }}</div>
       {% endif %}
+      
       {% if section.settings.heading != blank %}
-        <h1 class="nh-hero-col-left">{{ section.settings.heading }}</h1>
+        <h1>{{ section.settings.heading }}</h1>
       {% endif %}
-    {% endunless %}
+      
+      {% comment %} Render left column blocks in order {% endcomment %}
+      {% for block in section.blocks %}
+        {% if block.settings.column == 'left' %}
+          {% assign hide_mobile_class = '' %}
+          {% if block.settings.hide_mobile %}{% assign hide_mobile_class = ' nh-hide-mobile' %}{% endif %}
+          
+          {% case block.type %}
+            {% when 'text' %}
+              <div class="nh-hero-block-text{{ hide_mobile_class }}" {{ block.shopify_attributes }}
+                   style="{% if block.settings.text_color != blank %}color: {{ block.settings.text_color }};{% endif %}{% if block.settings.font_size != blank %}font-size: {{ block.settings.font_size }}px;{% endif %}{% if block.settings.text_align != blank %}text-align: {{ block.settings.text_align }};{% endif %}">
+                {{ block.settings.content }}
+              </div>
+            {% when 'benefit_pills' %}
+              <div class="nh-hero-block-pills{{ hide_mobile_class }}" {{ block.shopify_attributes }}
+                   style="{% if block.settings.pill_alignment != blank %}justify-content: {{ block.settings.pill_alignment }};{% endif %}">
+                {% for i in (1..5) %}
+                  {% capture pill_text_key %}pill_{{ i }}_text{% endcapture %}
+                  {% assign pill_text = block.settings[pill_text_key] %}
+                  {% if pill_text != blank %}
+                    <span class="nh-hero-benefit-pill" 
+                          style="{% if block.settings.pill_bg_color != blank %}background: {{ block.settings.pill_bg_color }};{% endif %}{% if block.settings.pill_text_color != blank %}color: {{ block.settings.pill_text_color }};{% endif %}{% if block.settings.pill_border_color != blank %}border-color: {{ block.settings.pill_border_color }};{% endif %}{% if block.settings.pill_font_size != blank %}font-size: {{ block.settings.pill_font_size }}px;{% endif %}">{{ pill_text }}</span>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            {% when 'image' %}
+              <div class="nh-hero-block-image{{ hide_mobile_class }}" {{ block.shopify_attributes }}>
+                {% if block.settings.image != blank %}
+                  {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.image.alt, loading: 'lazy' }}
+                {% elsif block.settings.image_url != blank %}
+                  <img src="{{ block.settings.image_url }}" alt="Hero image" width="600" height="400" />
+                {% endif %}
+              </div>
+            {% when 'cta' %}
+              <div class="nh-hero-block-cta{{ hide_mobile_class }}" {{ block.shopify_attributes }}
+                   style="{% if block.settings.btn_align != blank %}text-align: {{ block.settings.btn_align }};{% endif %}">
+                <a href="{{ block.settings.link | default: '#nh-offer' }}" 
+                   class="nh-btn-primary" 
+                   style="{% if block.settings.btn_bg_color != blank %}background: {{ block.settings.btn_bg_color }};{% endif %}{% if block.settings.btn_text_color != blank %}color: {{ block.settings.btn_text_color }} !important;{% endif %}">{{ block.settings.label }}</a>
+              </div>
+            {% when 'trust_badges' %}
+              <div class="nh-hero-block-trust{{ hide_mobile_class }}" {{ block.shopify_attributes }}>
+                {% if block.settings.badge_1 != blank %}
+                  <div class="nh-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    {{ block.settings.badge_1 }}
+                  </div>
+                {% endif %}
+                {% if block.settings.badge_2 != blank %}
+                  <div class="nh-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    {{ block.settings.badge_2 }}
+                  </div>
+                {% endif %}
+              </div>
+          {% endcase %}
+        {% endif %}
+      {% endfor %}
+    </div>
+    
+    {% comment %} Right Column - Product Image {% endcomment %}
+    <div class="nh-hero-right">
+      {% for block in section.blocks %}
+        {% if block.settings.column == 'right' %}
+          {% assign hide_mobile_class = '' %}
+          {% if block.settings.hide_mobile %}{% assign hide_mobile_class = ' nh-hide-mobile' %}{% endif %}
+          
+          {% case block.type %}
+            {% when 'image' %}
+              <div class="nh-hero-block-image{{ hide_mobile_class }}" {{ block.shopify_attributes }}>
+                {% if block.settings.image != blank %}
+                  {{ block.settings.image | image_url: width: 800 | image_tag: alt: block.settings.image.alt, loading: 'eager' }}
+                {% elsif block.settings.image_url != blank %}
+                  <img src="{{ block.settings.image_url }}" alt="Hero image" width="800" height="800" />
+                {% endif %}
+                {% if block.settings.image_label != blank %}
+                  <div class="nh-hero-organ-label">{{ block.settings.image_label }}</div>
+                {% endif %}
+              </div>
+            {% when 'text' %}
+              <div class="nh-hero-block-text{{ hide_mobile_class }}" {{ block.shopify_attributes }}
+                   style="{% if block.settings.text_color != blank %}color: {{ block.settings.text_color }};{% endif %}{% if block.settings.font_size != blank %}font-size: {{ block.settings.font_size }}px;{% endif %}{% if block.settings.text_align != blank %}text-align: {{ block.settings.text_align }};{% endif %}">
+                {{ block.settings.content }}
+              </div>
+            {% when 'benefit_pills' %}
+              <div class="nh-hero-block-pills{{ hide_mobile_class }}" {{ block.shopify_attributes }}
+                   style="{% if block.settings.pill_alignment != blank %}justify-content: {{ block.settings.pill_alignment }};{% endif %}">
+                {% for i in (1..5) %}
+                  {% capture pill_text_key %}pill_{{ i }}_text{% endcapture %}
+                  {% assign pill_text = block.settings[pill_text_key] %}
+                  {% if pill_text != blank %}
+                    <span class="nh-hero-benefit-pill" 
+                          style="{% if block.settings.pill_bg_color != blank %}background: {{ block.settings.pill_bg_color }};{% endif %}{% if block.settings.pill_text_color != blank %}color: {{ block.settings.pill_text_color }};{% endif %}{% if block.settings.pill_border_color != blank %}border-color: {{ block.settings.pill_border_color }};{% endif %}{% if block.settings.pill_font_size != blank %}font-size: {{ block.settings.pill_font_size }}px;{% endif %}">{{ pill_text }}</span>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            {% when 'cta' %}
+              <div class="nh-hero-block-cta{{ hide_mobile_class }}" {{ block.shopify_attributes }}
+                   style="{% if block.settings.btn_align != blank %}text-align: {{ block.settings.btn_align }};{% endif %}">
+                <a href="{{ block.settings.link | default: '#nh-offer' }}" 
+                   class="nh-btn-primary" 
+                   style="{% if block.settings.btn_bg_color != blank %}background: {{ block.settings.btn_bg_color }};{% endif %}{% if block.settings.btn_text_color != blank %}color: {{ block.settings.btn_text_color }} !important;{% endif %}">{{ block.settings.label }}</a>
+              </div>
+            {% when 'trust_badges' %}
+              <div class="nh-hero-block-trust{{ hide_mobile_class }}" {{ block.shopify_attributes }}>
+                {% if block.settings.badge_1 != blank %}
+                  <div class="nh-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    {{ block.settings.badge_1 }}
+                  </div>
+                {% endif %}
+                {% if block.settings.badge_2 != blank %}
+                  <div class="nh-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    {{ block.settings.badge_2 }}
+                  </div>
+                {% endif %}
+              </div>
+          {% endcase %}
+        {% endif %}
+      {% endfor %}
+      
+      {% comment %} Default product image if no right column image blocks {% endcomment %}
+      {% assign has_right_image = false %}
+      {% for block in section.blocks %}
+        {% if block.settings.column == 'right' and block.type == 'image' %}
+          {% assign has_right_image = true %}
+        {% endif %}
+      {% endfor %}
+      
+      {% unless has_right_image %}
+        <div class="nh-hero-image-wrap" id="nhHeroImageWrap-{{ section.id }}">
+          {% if section.settings.hero_image != blank %}
+            {{ section.settings.hero_image | image_url: width: 800 | image_tag: alt: section.settings.hero_image.alt, loading: 'eager' }}
+          {% else %}
+            {{ 'lifestyle-1' | placeholder_svg_tag: 'nh-hero-placeholder' }}
+          {% endif %}
+          {% if section.settings.image_label != blank %}
+            <div class="nh-hero-organ-label">{{ section.settings.image_label }}</div>
+          {% endif %}
+        </div>
+      {% endunless %}
+    </div>
   </div>
 </section>
 
@@ -353,9 +382,13 @@
       ]
     },
     {
-      "type": "benefit_pill",
-      "name": "Benefit Pill",
+      "type": "benefit_pills",
+      "name": "Benefit Pills Container",
       "settings": [
+        {
+          "type": "paragraph",
+          "content": "Add up to 5 benefit pills in a single container. Each pill text is limited to 10 words maximum."
+        },
         {
           "type": "select",
           "id": "column",
@@ -367,32 +400,93 @@
           "default": "left"
         },
         {
+          "type": "header",
+          "content": "Pill Texts (Max 10 words each)"
+        },
+        {
           "type": "text",
-          "id": "text",
-          "label": "Text",
-          "default": "Hormone Support"
+          "id": "pill_1_text",
+          "label": "Pill 1 Text",
+          "default": "Hormone Support",
+          "info": "Maximum 10 words"
+        },
+        {
+          "type": "text",
+          "id": "pill_2_text",
+          "label": "Pill 2 Text",
+          "default": "Sustained Energy",
+          "info": "Maximum 10 words"
+        },
+        {
+          "type": "text",
+          "id": "pill_3_text",
+          "label": "Pill 3 Text",
+          "default": "Skin & Hair Health",
+          "info": "Maximum 10 words"
+        },
+        {
+          "type": "text",
+          "id": "pill_4_text",
+          "label": "Pill 4 Text",
+          "default": "Mental Clarity",
+          "info": "Maximum 10 words"
+        },
+        {
+          "type": "text",
+          "id": "pill_5_text",
+          "label": "Pill 5 Text",
+          "info": "Maximum 10 words"
         },
         {
           "type": "header",
-          "content": "Styling"
+          "content": "Typography (Matches Heading Style)"
+        },
+        {
+          "type": "range",
+          "id": "pill_font_size",
+          "min": 10,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "label": "Pill Font Size",
+          "default": 13
+        },
+        {
+          "type": "header",
+          "content": "Colors"
         },
         {
           "type": "color",
-          "id": "bg_color",
-          "label": "Background Color",
+          "id": "pill_bg_color",
+          "label": "Pill Background Color",
           "default": "#ffffff"
         },
         {
           "type": "color",
-          "id": "text_color",
-          "label": "Text Color",
+          "id": "pill_text_color",
+          "label": "Pill Text Color",
           "default": "#cc0019"
         },
         {
           "type": "color",
-          "id": "border_color",
-          "label": "Border Color",
+          "id": "pill_border_color",
+          "label": "Pill Border Color",
           "default": "#cc0019"
+        },
+        {
+          "type": "header",
+          "content": "Layout"
+        },
+        {
+          "type": "select",
+          "id": "pill_alignment",
+          "label": "Pills Alignment",
+          "options": [
+            { "value": "flex-start", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "flex-end", "label": "Right" }
+          ],
+          "default": "flex-start"
         },
         {
           "type": "checkbox",
@@ -539,24 +633,18 @@
     {
       "name": "NH - Hero",
       "blocks": {
-        "pill_1": {
-          "type": "benefit_pill",
-          "settings": { "text": "Hormone Support" }
-        },
-        "pill_2": {
-          "type": "benefit_pill",
-          "settings": { "text": "Sustained Energy" }
-        },
-        "pill_3": {
-          "type": "benefit_pill",
-          "settings": { "text": "Skin & Hair Health" }
-        },
-        "pill_4": {
-          "type": "benefit_pill",
-          "settings": { "text": "Mental Clarity" }
+        "pills_container": {
+          "type": "benefit_pills",
+          "settings": {
+            "column": "left",
+            "pill_1_text": "Hormone Support",
+            "pill_2_text": "Sustained Energy",
+            "pill_3_text": "Skin & Hair Health",
+            "pill_4_text": "Mental Clarity"
+          }
         }
       },
-      "block_order": ["pill_1", "pill_2", "pill_3", "pill_4"]
+      "block_order": ["pills_container"]
     }
   ]
 }

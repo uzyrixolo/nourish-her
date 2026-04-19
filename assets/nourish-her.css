@@ -141,24 +141,10 @@
 .nh-hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "left right";
-  align-items: start;
+  align-items: center;
   gap: 40px;
   max-width: 1400px;
   margin: 0 auto;
-}
-
-/* Desktop: Position blocks in their respective columns */
-.nh-hero-col-left {
-  grid-column: 1;
-}
-
-.nh-hero-col-right {
-  grid-column: 2;
-}
-
-.nh-hero-block {
-  margin-bottom: 20px;
 }
 
 .nh-hero-left,
@@ -1492,22 +1478,12 @@
   }
 
   .nh-hero-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
 
-  /* Reset grid column assignments for mobile */
-  .nh-hero-col-left,
-  .nh-hero-col-right {
-    grid-column: auto;
-    width: 100%;
-  }
-
-  /* Blocks will be ordered by their DOM position (which matches Shopify drag-and-drop order) */
-  .nh-hero-block,
-  .nh-hero-block-pills {
-    width: 100%;
+  .nh-hero-right {
+    order: -1;
   }
 
   .nh-hero-image-wrap img,
