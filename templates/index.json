@@ -12,6 +12,17 @@
     "nh-hero": {
       "type": "nh-hero",
       "blocks": {
+        "heading_e8QzGG": {
+          "type": "heading",
+          "settings": {
+            "column": "left",
+            "text": "<p>Why Beef Organ Superfoods Are the Secret to <em>Healthy Hormones & Energy</em></p>",
+            "font_size": 48,
+            "heading_color": "#1a1a1a",
+            "text_align": "left",
+            "hide_mobile": false
+          }
+        },
         "benefit_pills_UcjYxR": {
           "type": "benefit_pills",
           "settings": {
@@ -29,18 +40,9 @@
             "hide_mobile": false
           }
         },
-        "image_TF7GbW": {
-          "type": "image",
-          "settings": {
-            "column": "right",
-            "image": "shopify://shop_images/Nourishherhilllifestyle.webp",
-            "image_url": "",
-            "image_label": "",
-            "hide_mobile": false
-          }
-        },
         "text_jgKK7V": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "column": "left",
             "content": "<p>Add your text content here.</p>",
@@ -59,6 +61,16 @@
             "hide_mobile": false
           }
         },
+        "image_TF7GbW": {
+          "type": "image",
+          "settings": {
+            "column": "right",
+            "image": "shopify://shop_images/Nourishherhilllifestyle.webp",
+            "image_url": "",
+            "image_label": "",
+            "hide_mobile": false
+          }
+        },
         "cta_FJMn8p": {
           "type": "cta",
           "settings": {
@@ -73,10 +85,11 @@
         }
       },
       "block_order": [
+        "heading_e8QzGG",
         "benefit_pills_UcjYxR",
-        "image_TF7GbW",
         "text_jgKK7V",
         "trust_badges_hb7teW",
+        "image_TF7GbW",
         "cta_FJMn8p"
       ],
       "settings": {
