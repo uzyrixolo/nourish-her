@@ -154,6 +154,16 @@
   gap: 20px;
 }
 
+.nh-hero .nh-hero-eyebrow,
+.nh-hero .nh-hero-heading,
+.nh-hero .nh-hero-block-text {
+  font-size: var(--nh-fs);
+}
+
+.nh-hero .nh-hero-benefit-pill {
+  font-size: var(--nh-pill-fs, 13px);
+}
+
 .nh-hero-block-text {
   font-size: 1.1rem;
   color: var(--nh-mid);
@@ -1496,6 +1506,16 @@
   .nh-hero-image-wrap img,
   .nh-hero-block-image img {
     min-height: 320px;
+  }
+
+  .nh-hero .nh-hero-eyebrow,
+  .nh-hero .nh-hero-heading,
+  .nh-hero .nh-hero-block-text {
+    font-size: var(--nh-fs-m) !important;
+  }
+
+  .nh-hero .nh-hero-benefit-pill {
+    font-size: var(--nh-pill-fs-m) !important;
   }
 
   .nh-hide-mobile {

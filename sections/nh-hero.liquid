@@ -38,21 +38,21 @@
               {% assign _color = block.settings.text_color | default: section.settings.accent_color %}
               {% assign _bg = block.settings.bg_color %}
               <div class="nh-hero-eyebrow{{ vis_class }}" {{ block.shopify_attributes }}
-                   style="color: {{ _color }};{% if _bg != blank %}background: {{ _bg }};{% endif %}{% if block.settings.font_size %}font-size: {{ block.settings.font_size }}px;{% endif %}{% if block.settings.text_align != 'left' %}text-align: {{ block.settings.text_align }};{% endif %}">
+                   style="color: {{ _color }};{% if _bg != blank %}background: {{ _bg }};{% endif %}--nh-fs: {{ block.settings.font_size }}px; --nh-fs-m: {{ block.settings.font_size_mobile }}px;{% if block.settings.text_align != 'left' %}text-align: {{ block.settings.text_align }};{% endif %}">
                 {{ block.settings.text }}
               </div>
 
             {% when 'heading' %}
               {% assign _color = block.settings.heading_color | default: section.settings.heading_color %}
               <h1 class="nh-hero-heading{{ vis_class }}" {{ block.shopify_attributes }}
-                  style="color: {{ _color }};{% if block.settings.font_size %}font-size: {{ block.settings.font_size }}px;{% endif %}{% if block.settings.text_align != 'left' %}text-align: {{ block.settings.text_align }};{% endif %}">
+                  style="color: {{ _color }};--nh-fs: {{ block.settings.font_size }}px; --nh-fs-m: {{ block.settings.font_size_mobile }}px;{% if block.settings.text_align != 'left' %}text-align: {{ block.settings.text_align }};{% endif %}">
                 {{ block.settings.text }}
               </h1>
 
             {% when 'text' %}
               {% assign _color = block.settings.text_color | default: section.settings.text_color %}
               <div class="nh-hero-block-text{{ vis_class }}" {{ block.shopify_attributes }}
-                   style="color: {{ _color }};{% if block.settings.font_size %}font-size: {{ block.settings.font_size }}px;{% endif %}{% if block.settings.text_align != 'left' %}text-align: {{ block.settings.text_align }};{% endif %}">
+                   style="color: {{ _color }};--nh-fs: {{ block.settings.font_size }}px; --nh-fs-m: {{ block.settings.font_size_mobile }}px;{% if block.settings.text_align != 'left' %}text-align: {{ block.settings.text_align }};{% endif %}">
                 {{ block.settings.content }}
               </div>
 
@@ -60,13 +60,13 @@
               {% assign _pill_color = block.settings.pill_text_color | default: section.settings.accent_color %}
               {% assign _pill_border = block.settings.pill_border_color | default: section.settings.accent_color %}
               <div class="nh-hero-block-pills{{ vis_class }}" {{ block.shopify_attributes }}
-                   style="{% if block.settings.pill_alignment != 'flex-start' %}justify-content: {{ block.settings.pill_alignment }};{% endif %}">
+                   style="--nh-pill-fs: {{ block.settings.pill_font_size }}px; --nh-pill-fs-m: {{ block.settings.pill_font_size_mobile }}px;{% if block.settings.pill_alignment != 'flex-start' %}justify-content: {{ block.settings.pill_alignment }};{% endif %}">
                 {% for i in (1..5) %}
                   {% capture pill_key %}pill_{{ i }}_text{% endcapture %}
                   {% assign pill_text = block.settings[pill_key] %}
                   {% if pill_text != blank %}
                     <span class="nh-hero-benefit-pill"
-                          style="color: {{ _pill_color }}; border-color: {{ _pill_border }};{% if block.settings.pill_bg_color != blank %}background: {{ block.settings.pill_bg_color }};{% endif %}{% if block.settings.pill_font_size %}font-size: {{ block.settings.pill_font_size }}px;{% endif %}">
+                          style="color: {{ _pill_color }}; border-color: {{ _pill_border }};{% if block.settings.pill_bg_color != blank %}background: {{ block.settings.pill_bg_color }};{% endif %}">
                       {{ pill_text }}
                     </span>
                   {% endif %}
@@ -134,21 +134,21 @@
               {% assign _color = block.settings.text_color | default: section.settings.accent_color %}
               {% assign _bg = block.settings.bg_color %}
               <div class="nh-hero-eyebrow{{ vis_class }}" {{ block.shopify_attributes }}
-                   style="color: {{ _color }};{% if _bg != blank %}background: {{ _bg }};{% endif %}{% if block.settings.font_size %}font-size: {{ block.settings.font_size }}px;{% endif %}{% if block.settings.text_align != 'left' %}text-align: {{ block.settings.text_align }};{% endif %}">
+                   style="color: {{ _color }};{% if _bg != blank %}background: {{ _bg }};{% endif %}--nh-fs: {{ block.settings.font_size }}px; --nh-fs-m: {{ block.settings.font_size_mobile }}px;{% if block.settings.text_align != 'left' %}text-align: {{ block.settings.text_align }};{% endif %}">
                 {{ block.settings.text }}
               </div>
 
             {% when 'heading' %}
               {% assign _color = block.settings.heading_color | default: section.settings.heading_color %}
               <h1 class="nh-hero-heading{{ vis_class }}" {{ block.shopify_attributes }}
-                  style="color: {{ _color }};{% if block.settings.font_size %}font-size: {{ block.settings.font_size }}px;{% endif %}{% if block.settings.text_align != 'left' %}text-align: {{ block.settings.text_align }};{% endif %}">
+                  style="color: {{ _color }};--nh-fs: {{ block.settings.font_size }}px; --nh-fs-m: {{ block.settings.font_size_mobile }}px;{% if block.settings.text_align != 'left' %}text-align: {{ block.settings.text_align }};{% endif %}">
                 {{ block.settings.text }}
               </h1>
 
             {% when 'text' %}
               {% assign _color = block.settings.text_color | default: section.settings.text_color %}
               <div class="nh-hero-block-text{{ vis_class }}" {{ block.shopify_attributes }}
-                   style="color: {{ _color }};{% if block.settings.font_size %}font-size: {{ block.settings.font_size }}px;{% endif %}{% if block.settings.text_align != 'left' %}text-align: {{ block.settings.text_align }};{% endif %}">
+                   style="color: {{ _color }};--nh-fs: {{ block.settings.font_size }}px; --nh-fs-m: {{ block.settings.font_size_mobile }}px;{% if block.settings.text_align != 'left' %}text-align: {{ block.settings.text_align }};{% endif %}">
                 {{ block.settings.content }}
               </div>
 
@@ -156,13 +156,13 @@
               {% assign _pill_color = block.settings.pill_text_color | default: section.settings.accent_color %}
               {% assign _pill_border = block.settings.pill_border_color | default: section.settings.accent_color %}
               <div class="nh-hero-block-pills{{ vis_class }}" {{ block.shopify_attributes }}
-                   style="{% if block.settings.pill_alignment != 'flex-start' %}justify-content: {{ block.settings.pill_alignment }};{% endif %}">
+                   style="--nh-pill-fs: {{ block.settings.pill_font_size }}px; --nh-pill-fs-m: {{ block.settings.pill_font_size_mobile }}px;{% if block.settings.pill_alignment != 'flex-start' %}justify-content: {{ block.settings.pill_alignment }};{% endif %}">
                 {% for i in (1..5) %}
                   {% capture pill_key %}pill_{{ i }}_text{% endcapture %}
                   {% assign pill_text = block.settings[pill_key] %}
                   {% if pill_text != blank %}
                     <span class="nh-hero-benefit-pill"
-                          style="color: {{ _pill_color }}; border-color: {{ _pill_border }};{% if block.settings.pill_bg_color != blank %}background: {{ block.settings.pill_bg_color }};{% endif %}{% if block.settings.pill_font_size %}font-size: {{ block.settings.pill_font_size }}px;{% endif %}">
+                          style="color: {{ _pill_color }}; border-color: {{ _pill_border }};{% if block.settings.pill_bg_color != blank %}background: {{ block.settings.pill_bg_color }};{% endif %}">
                       {{ pill_text }}
                     </span>
                   {% endif %}
@@ -366,6 +366,16 @@
           "default": 12
         },
         {
+          "type": "range",
+          "id": "font_size_mobile",
+          "min": 8,
+          "max": 16,
+          "step": 1,
+          "unit": "px",
+          "label": "Font Size (Mobile)",
+          "default": 11
+        },
+        {
           "type": "select",
           "id": "text_align",
           "label": "Alignment",
@@ -435,6 +445,16 @@
           "default": 48
         },
         {
+          "type": "range",
+          "id": "font_size_mobile",
+          "min": 18,
+          "max": 48,
+          "step": 2,
+          "unit": "px",
+          "label": "Font Size (Mobile)",
+          "default": 28
+        },
+        {
           "type": "select",
           "id": "text_align",
           "label": "Alignment",
@@ -502,6 +522,16 @@
           "unit": "px",
           "label": "Font Size",
           "default": 16
+        },
+        {
+          "type": "range",
+          "id": "font_size_mobile",
+          "min": 10,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "label": "Font Size (Mobile)",
+          "default": 14
         },
         {
           "type": "select",
@@ -597,6 +627,16 @@
           "unit": "px",
           "label": "Font Size",
           "default": 13
+        },
+        {
+          "type": "range",
+          "id": "pill_font_size_mobile",
+          "min": 8,
+          "max": 20,
+          "step": 1,
+          "unit": "px",
+          "label": "Font Size (Mobile)",
+          "default": 11
         },
         {
           "type": "color",
