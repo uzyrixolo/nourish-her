@@ -20,6 +20,7 @@
             "text_color": "",
             "bg_color": "#ffd4e2",
             "font_size": 12,
+            "font_size_mobile": 11,
             "text_align": "left",
             "hide_mobile": false,
             "hide_desktop": false
@@ -32,6 +33,7 @@
             "text": "<p>Why Beef Organ Superfoods Are the Secret to <em>Healthy Hormones & Energy</em></p>",
             "heading_color": "#1a1a1a",
             "font_size": 48,
+            "font_size_mobile": 28,
             "text_align": "left",
             "hide_mobile": false,
             "hide_desktop": false
@@ -58,6 +60,7 @@
             "pill_4_text": "Mental Clarity",
             "pill_5_text": "",
             "pill_font_size": 13,
+            "pill_font_size_mobile": 11,
             "pill_bg_color": "#ffffff",
             "pill_text_color": "#cc0019",
             "pill_border_color": "#cc0019",
@@ -74,6 +77,7 @@
             "content": "<p>Add your text content here.</p>",
             "text_color": "#444444",
             "font_size": 16,
+            "font_size_mobile": 14,
             "text_align": "left",
             "hide_mobile": false,
             "hide_desktop": false
@@ -255,6 +259,13 @@
     "nh-founder": {
       "type": "nh-founder",
       "blocks": {
+        "image_CCyiAY": {
+          "type": "image",
+          "settings": {
+            "column": "left",
+            "image_url": ""
+          }
+        },
         "signature_iH7mNi": {
           "type": "signature",
           "settings": {
@@ -269,13 +280,6 @@
             "quote": "This is a highlighted quote."
           }
         },
-        "image_CCyiAY": {
-          "type": "image",
-          "settings": {
-            "column": "right",
-            "image_url": ""
-          }
-        },
         "text_9qiKdg": {
           "type": "text",
           "settings": {
@@ -285,9 +289,9 @@
         }
       },
       "block_order": [
+        "image_CCyiAY",
         "signature_iH7mNi",
         "quote_3qJ9Hd",
-        "image_CCyiAY",
         "text_9qiKdg"
       ],
       "settings": {
