@@ -88,7 +88,7 @@
           </div>
 
           {% for block in section.blocks %}
-            {% if block.type == 'image' %}
+            {% if block.type == 'image' and block.settings.column == 'left' %}
               {% assign vis_class = '' %}
               {% if block.settings.hide_mobile %}{% assign vis_class = vis_class | append: ' nh-hide-mobile' %}{% endif %}
               {% if block.settings.hide_desktop %}{% assign vis_class = vis_class | append: ' nh-hide-desktop' %}{% endif %}
@@ -123,6 +123,21 @@
         {% else %}
           {{ 'lifestyle-1' | placeholder_svg_tag: 'nh-lab-image' }}
         {% endif %}
+
+        {% for block in section.blocks %}
+          {% if block.type == 'image' and block.settings.column == 'right' %}
+            {% assign vis_class = '' %}
+            {% if block.settings.hide_mobile %}{% assign vis_class = vis_class | append: ' nh-hide-mobile' %}{% endif %}
+            {% if block.settings.hide_desktop %}{% assign vis_class = vis_class | append: ' nh-hide-desktop' %}{% endif %}
+            <div class="nh-lab-block-image{{ vis_class }}" {{ block.shopify_attributes }} style="margin-top: 24px;">
+              {% if block.settings.image != blank %}
+                {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.image.alt, loading: 'lazy' }}
+              {% elsif block.settings.image_url != blank %}
+                <img src="{{ block.settings.image_url }}" alt="Lab tested image" width="600" height="400" style="width: 100%; height: auto; border-radius: 20px; object-fit: cover;" />
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
       </div>
     </div>
   </div>
@@ -269,6 +284,16 @@
       "type": "image",
       "name": "Image Block",
       "settings": [
+        {
+          "type": "select",
+          "id": "column",
+          "label": "Column",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "right"
+        },
         {
           "type": "image_picker",
           "id": "image",
