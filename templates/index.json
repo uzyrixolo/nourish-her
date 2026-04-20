@@ -784,7 +784,7 @@
         "heading": "<p>Choose Your <em>Nourishment Plan</em></p>",
         "product_title": "Nourish Her™",
         "product_tagline": "100% Grass-Fed Beef Organs — Whole-Food Nutrition for Women",
-        "featured_product": "",
+        "featured_product": "100-grass-fed-beef-organs",
         "fallback_price": "£34.99",
         "guarantee_title": "30-Day Money-Back Guarantee",
         "guarantee_text": "If you're not completely satisfied, we'll refund you in full — no questions asked."
@@ -968,7 +968,7 @@
         "faq_8"
       ],
       "settings": {
-        "bg_color": "#ffffff",
+        "bg_color": "#fdf8f0",
         "heading_color": "#1a1a1a",
         "accent_color": "#cc0019",
         "item_bg": "rgba(0,0,0,0)",
