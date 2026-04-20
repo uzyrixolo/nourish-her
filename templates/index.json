@@ -490,50 +490,36 @@
         "row_1": {
           "type": "comparison_row",
           "settings": {
-            "product_point": "Delivers nutrients in their naturally occurring food form, alongside the cofactors the body uses to absorb and utilise them effectively.",
-            "comparison_point": "Provides isolated nutrients that are often stripped from their natural context, which can reduce absorption and tolerance for some people."
+            "product_point": "Nutrients in their natural, easy-to-absorb form.",
+            "comparison_point": "Stripped-down nutrients that are harder to utilize."
           }
         },
         "row_2": {
           "type": "comparison_row",
           "settings": {
-            "product_point": "Supplies iron, B vitamins, fat-soluble nutrients, and trace minerals together, reflecting how nutrients naturally work in synergy.",
-            "comparison_point": "Typically separates nutrients into single compounds that may compete for absorption when taken together."
+            "product_point": "Aligned with human biology and vitality.",
+            "comparison_point": "Often cause upset stomach from harsh, synthetic forms."
           }
         },
         "row_3": {
           "type": "comparison_row",
           "settings": {
-            "product_point": "Generally gentler on digestion because the body recognises them as concentrated food rather than synthetic compounds.",
-            "comparison_point": "Can cause nausea, stomach upset, or discomfort due to harsh forms or high doses of isolated nutrients."
+            "product_point": "Replenishes multiple systems at once.",
+            "comparison_point": "Focuses on single issues, leading to pill fatigue."
           }
         },
         "row_4": {
           "type": "comparison_row",
           "settings": {
-            "product_point": "Focuses on foundational nourishment by replenishing multiple nutrient systems at once rather than targeting one symptom.",
-            "comparison_point": "Often aims to correct a single issue (e.g. iron, energy, beauty), leading to fragmented supplementation routines."
+            "product_point": "Zero Fillers or Binders",
+            "comparison_point": "Often contain chemical glues and stabilizers."
           }
         },
-        "row_5": {
+        "comparison_row_TACVYU": {
           "type": "comparison_row",
           "settings": {
-            "product_point": "Minimally processed and gently freeze-dried to preserve naturally occurring nutrients without altering their structure.",
-            "comparison_point": "Manufactured through chemical synthesis and often contains fillers, binders, and stabilisers."
-          }
-        },
-        "row_6": {
-          "type": "comparison_row",
-          "settings": {
-            "product_point": "Aligns with ancestral dietary patterns that prioritised nutrient-dense whole foods for resilience and vitality.",
-            "comparison_point": "Reflects modern, reductionist nutrition approaches that rely on lab-engineered shortcuts."
-          }
-        },
-        "row_7": {
-          "type": "comparison_row",
-          "settings": {
-            "product_point": "Offers broad nutritional coverage in one thoughtfully formulated daily serving.",
-            "comparison_point": "Often requires taking multiple separate products to cover similar nutritional ground."
+            "product_point": "Vitamins and minerals that work together.",
+            "comparison_point": "Isolated minerals that compete for absorption."
           }
         }
       },
@@ -542,9 +528,7 @@
         "row_2",
         "row_3",
         "row_4",
-        "row_5",
-        "row_6",
-        "row_7"
+        "comparison_row_TACVYU"
       ],
       "settings": {
         "bg_color": "#ffffff",
@@ -556,12 +540,14 @@
         "td_text_color": "#444444",
         "tr_odd_bg": "#ffffff",
         "tr_even_bg": "#fcfcfc",
+        "product_image": "shopify://shop_images/Nourish_Her_product_image.png",
         "product_image_url": "",
         "column_1_title": "Nourish Her™ Beef Organ Supplement",
+        "comparison_image": "shopify://shop_images/generic-multivitamin.jpg",
         "comparison_image_url": "",
-        "column_2_title": "Traditional Multivitamin",
+        "column_2_title": "Synthetic Supplements",
         "label": "See The Difference",
-        "heading": "<p>How Nourish Her™ Compares to a <em>Traditional Multivitamin</em></p>"
+        "heading": "<p>How Beef Organs Compare to <em>Synthetic Supplements</em></p>"
       }
     },
     "nh-provenance": {
@@ -686,7 +672,7 @@
       "custom_css": [],
       "settings": {
         "bg_color": "#cc0019",
-        "text_color": "#444444"
+        "text_color": "#ffffff"
       }
     },
     "nh-offer": {
