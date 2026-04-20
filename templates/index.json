@@ -14,6 +14,7 @@
       "blocks": {
         "eyebrow_WDUzpT": {
           "type": "eyebrow",
+          "disabled": true,
           "settings": {
             "column": "left",
             "text": "Whole-Food Nutrition for Women",
@@ -39,11 +40,35 @@
             "hide_desktop": false
           }
         },
+        "text_jgKK7V": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "content": "<p>Nourish Her™ is a clean, 100% grass-fed beef organ supplement specifically formulated for women — delivering the ancestral nutrition your body recognises, absorbs, and thrives on.</p>",
+            "text_color": "#444444",
+            "font_size": 16,
+            "font_size_mobile": 14,
+            "text_align": "left",
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        },
+        "image_TF7GbW": {
+          "type": "image",
+          "settings": {
+            "column": "right",
+            "image": "shopify://shop_images/Nourishherhilllifestyle.webp",
+            "image_url": "",
+            "image_label": "",
+            "hide_mobile": true,
+            "hide_desktop": false
+          }
+        },
         "image_zzqtbC": {
           "type": "image",
           "settings": {
             "column": "left",
-            "image": "shopify://shop_images/Nourishherpouchinpalm.webp",
+            "image": "shopify://shop_images/Nourishherhilllifestyle.webp",
             "image_url": "",
             "image_label": "",
             "hide_mobile": false,
@@ -69,20 +94,6 @@
             "hide_desktop": false
           }
         },
-        "text_jgKK7V": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "column": "left",
-            "content": "<p>Add your text content here.</p>",
-            "text_color": "#444444",
-            "font_size": 16,
-            "font_size_mobile": 14,
-            "text_align": "left",
-            "hide_mobile": false,
-            "hide_desktop": false
-          }
-        },
         "trust_badges_hb7teW": {
           "type": "trust_badges",
           "settings": {
@@ -91,17 +102,6 @@
             "badge_2": "Third-Party Lab Tested",
             "text_color": "",
             "hide_mobile": false,
-            "hide_desktop": false
-          }
-        },
-        "image_TF7GbW": {
-          "type": "image",
-          "settings": {
-            "column": "right",
-            "image": "shopify://shop_images/Nourishherhilllifestyle.webp",
-            "image_url": "",
-            "image_label": "",
-            "hide_mobile": true,
             "hide_desktop": false
           }
         },
@@ -122,11 +122,11 @@
       "block_order": [
         "eyebrow_WDUzpT",
         "heading_e8QzGG",
+        "text_jgKK7V",
+        "image_TF7GbW",
         "image_zzqtbC",
         "benefit_pills_UcjYxR",
-        "text_jgKK7V",
         "trust_badges_hb7teW",
-        "image_TF7GbW",
         "cta_FJMn8p"
       ],
       "settings": {
