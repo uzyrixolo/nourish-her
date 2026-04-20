@@ -559,7 +559,9 @@
         "product_image_url": "",
         "column_1_title": "Nourish Her™ Beef Organ Supplement",
         "comparison_image_url": "",
-        "column_2_title": "Traditional Multivitamin"
+        "column_2_title": "Traditional Multivitamin",
+        "label": "See The Difference",
+        "heading": "<p>How Nourish Her™ Compares to a <em>Traditional Multivitamin</em></p>"
       }
     },
     "nh-provenance": {
@@ -808,6 +810,7 @@
         "image_CyXfTp": {
           "type": "image",
           "settings": {
+            "column": "left",
             "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
             "image_url": "",
             "hide_mobile": false,
@@ -817,6 +820,7 @@
         "image_ALWwjt": {
           "type": "image",
           "settings": {
+            "column": "right",
             "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
             "image_url": "",
             "hide_mobile": true,
