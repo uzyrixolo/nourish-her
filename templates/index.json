@@ -259,16 +259,6 @@
     "nh-founder": {
       "type": "nh-founder",
       "blocks": {
-        "image_ytYJUB": {
-          "type": "image",
-          "settings": {
-            "column": "right",
-            "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
-            "image_url": "",
-            "hide_mobile": false,
-            "hide_desktop": true
-          }
-        },
         "text_9qiKdg": {
           "type": "text",
           "settings": {
@@ -276,6 +266,16 @@
             "content": "<p>As a doctor working long, demanding shifts, I lived in a constant state of exhaustion. My energy was low, my focus was slipping, and no matter how much I slept, I never felt restored. Blood tests came back “normal,” yet my ferritin sat on the low side — and I felt it every day. Iron tablets upset my stomach, and multivitamins felt synthetic and disconnected from real nourishment. </p>",
             "hide_mobile": false,
             "hide_desktop": false
+          }
+        },
+        "image_ytYJUB": {
+          "type": "image",
+          "settings": {
+            "column": "left",
+            "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
+            "image_url": "",
+            "hide_mobile": false,
+            "hide_desktop": true
           }
         },
         "image_CCyiAY": {
@@ -308,8 +308,8 @@
         }
       },
       "block_order": [
-        "image_ytYJUB",
         "text_9qiKdg",
+        "image_ytYJUB",
         "image_CCyiAY",
         "signature_iH7mNi",
         "quote_3qJ9Hd"
