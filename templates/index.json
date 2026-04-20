@@ -805,6 +805,24 @@
     "nh-lab-tested": {
       "type": "nh-lab-tested",
       "blocks": {
+        "image_CyXfTp": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
+            "image_url": "",
+            "hide_mobile": false,
+            "hide_desktop": true
+          }
+        },
+        "image_ALWwjt": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
+            "image_url": "",
+            "hide_mobile": true,
+            "hide_desktop": false
+          }
+        },
         "badge_1": {
           "type": "badge",
           "settings": {
@@ -863,6 +881,8 @@
         }
       },
       "block_order": [
+        "image_CyXfTp",
+        "image_ALWwjt",
         "badge_1",
         "badge_2",
         "badge_3",
@@ -882,7 +902,6 @@
         "paragraph_1": "We believe you should know exactly what you're putting into your body. That's why every single batch of Nourish Her™ is independently tested by a certified third-party laboratory for purity, potency, and the absence of heavy metals, contaminants, and pathogens.",
         "paragraph_2": "Our test results are available on request — because transparency isn't a marketing claim, it's a standard we hold ourselves to.",
         "paragraph_3": "When you choose Nourish Her™, you're choosing a supplement brand that prioritises your health over shortcuts.",
-        "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
         "image_url": "",
         "download_text": "DOWNLOAD THE LAB TEST RESULTS",
         "download_url": "shopify://pages/contact"
