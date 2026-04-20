@@ -263,7 +263,16 @@
           "type": "text",
           "settings": {
             "column": "left",
-            "content": "<p>As a doctor working long, demanding shifts, I lived in a constant state of exhaustion. My energy was low, my focus was slipping, and no matter how much I slept, I never felt restored. Blood tests came back “normal,” yet my ferritin sat on the low side — and I felt it every day. Iron tablets upset my stomach, and multivitamins felt synthetic and disconnected from real nourishment. </p>",
+            "content": "<p>As a doctor working long, demanding shifts, I lived in a constant state of exhaustion. My energy was low, my focus was slipping, and no matter how much I slept, I never felt restored. Blood tests came back <strong>“normal,”</strong> yet my ferritin sat on the low side — and I felt it every day. Iron tablets upset my stomach, and multivitamins felt synthetic and disconnected from real nourishment. </p>",
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        },
+        "text_WxidcN": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "content": "<p>For generations, women were nourished with whole, nutrient-dense foods that supported energy, resilience, and vitality at the root. Organs like liver and spleen weren’t trends — they were foundational nutrition. Rich in bioavailable iron and the cofactors the body actually uses. The problem was, I couldn’t bring myself to eat liver or organ meats consistently!</p>",
             "hide_mobile": false,
             "hide_desktop": false
           }
@@ -276,6 +285,15 @@
             "image_url": "",
             "hide_mobile": false,
             "hide_desktop": true
+          }
+        },
+        "text_FMcjU4": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "content": "<p>I knew there was no organ supplement on the market designed around what women actually need — our hormonal demands, our iron losses, our biology. That’s when I decided to create “<strong>Nourish Her”</strong>, to make it easier to get the essential nutrients my body needed, without the foods I disliked. </p><p>Instead of everything changing overnight, the shift was gradual — but unmistakable. I stopped hitting that mid-afternoon wall where even thinking felt heavy. My energy became steadier, not forced, and I no longer felt like I was constantly running on empty. I could get through long days without relying on caffeine, and my focus felt clearer and more consistent. Even my recovery after demanding shifts improved — I didn’t feel as depleted the next day.</p><p>What stood out most was how <em>normal</em> it felt. Not wired. Not overstimulated. Just properly nourished. For the first time in a long while, it felt like my body was finally getting what it had been quietly asking for — the nutrients it could actually recognise and use.</p>",
+            "hide_mobile": false,
+            "hide_desktop": false
           }
         },
         "image_CCyiAY": {
@@ -309,7 +327,9 @@
       },
       "block_order": [
         "text_9qiKdg",
+        "text_WxidcN",
         "image_ytYJUB",
+        "text_FMcjU4",
         "image_CCyiAY",
         "signature_iH7mNi",
         "quote_3qJ9Hd"
