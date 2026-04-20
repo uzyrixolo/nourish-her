@@ -36,6 +36,9 @@
     color: {{ section.settings.card_text_body }};
   }
   #nh-section-{{ section.id }} .nh-timeline::before {
+    background: linear-gradient(to bottom, {{ section.settings.accent_color | color_modify: 'alpha', 0.15 }}, {{ section.settings.accent_color | color_modify: 'alpha', 0.08 }});
+  }
+  #nh-section-{{ section.id }} .nh-timeline::after {
     background: linear-gradient(to bottom, {{ section.settings.accent_color }}, {{ section.settings.accent_color | color_modify: 'alpha', 0.5 }});
   }
 {% endstyle %}
@@ -70,6 +73,47 @@
     {% endif %}
   </div>
 </section>
+
+<script>
+  (function() {
+    var section = document.getElementById('nh-section-{{ section.id }}');
+    if (!section) return;
+
+    var timeline = section.querySelector('.nh-timeline');
+    var items = section.querySelectorAll('.nh-timeline-item');
+    if (!timeline || !items.length) return;
+
+    function updateProgress() {
+      var lastVisible = null;
+      for (var i = 0; i < items.length; i++) {
+        if (items[i].classList.contains('nh-in-view')) lastVisible = items[i];
+      }
+      if (lastVisible && timeline) {
+        var tRect = timeline.getBoundingClientRect();
+        var iRect = lastVisible.getBoundingClientRect();
+        var dot = lastVisible.querySelector('.nh-timeline-dot');
+        var target = dot ? dot.getBoundingClientRect().top + dot.offsetHeight / 2 - tRect.top : iRect.top + 40 - tRect.top;
+        timeline.style.setProperty('--nh-tl-progress', Math.max(0, target) + 'px');
+      }
+    }
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('nh-in-view');
+          updateProgress();
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -60px 0px'
+    });
+
+    items.forEach(function(item) {
+      observer.observe(item);
+    });
+  })();
+</script>
 
 {% schema %}
 {
