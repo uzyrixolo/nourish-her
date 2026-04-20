@@ -120,8 +120,6 @@
           {{ section.settings.image | image_url: width: 600 | image_tag: alt: section.settings.image.alt, loading: 'lazy', width: section.settings.image.width, height: section.settings.image.height }}
         {% elsif section.settings.image_url != blank %}
           <img src="{{ section.settings.image_url }}" alt="Lab Tested" width="600" height="600" style="width: 100%; height: auto; border-radius: 20px;" />
-        {% else %}
-          {{ 'lifestyle-1' | placeholder_svg_tag: 'nh-lab-image' }}
         {% endif %}
 
         {% for block in section.blocks %}
