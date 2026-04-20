@@ -39,17 +39,6 @@
             "hide_desktop": false
           }
         },
-        "image_zzqtbC": {
-          "type": "image",
-          "settings": {
-            "column": "left",
-            "image": "shopify://shop_images/CD839B03-9D20-4BF8-BD13-3CA84CCA3F6D.png",
-            "image_url": "",
-            "image_label": "",
-            "hide_mobile": false,
-            "hide_desktop": true
-          }
-        },
         "benefit_pills_UcjYxR": {
           "type": "benefit_pills",
           "settings": {
@@ -67,6 +56,17 @@
             "pill_alignment": "flex-start",
             "hide_mobile": false,
             "hide_desktop": false
+          }
+        },
+        "image_zzqtbC": {
+          "type": "image",
+          "settings": {
+            "column": "left",
+            "image": "shopify://shop_images/CD839B03-9D20-4BF8-BD13-3CA84CCA3F6D.png",
+            "image_url": "",
+            "image_label": "",
+            "hide_mobile": false,
+            "hide_desktop": true
           }
         },
         "text_jgKK7V": {
@@ -122,8 +122,8 @@
       "block_order": [
         "eyebrow_WDUzpT",
         "heading_e8QzGG",
-        "image_zzqtbC",
         "benefit_pills_UcjYxR",
+        "image_zzqtbC",
         "text_jgKK7V",
         "trust_badges_hb7teW",
         "image_TF7GbW",
@@ -259,22 +259,33 @@
     "nh-founder": {
       "type": "nh-founder",
       "blocks": {
-        "image_CCyiAY": {
-          "type": "image",
-          "settings": {
-            "column": "right",
-            "image_url": "",
-            "hide_mobile": true,
-            "hide_desktop": false
-          }
-        },
         "image_ytYJUB": {
           "type": "image",
           "settings": {
             "column": "right",
+            "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
             "image_url": "",
             "hide_mobile": false,
             "hide_desktop": true
+          }
+        },
+        "text_9qiKdg": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "content": "<p>As a doctor working long, demanding shifts, I lived in a constant state of exhaustion. My energy was low, my focus was slipping, and no matter how much I slept, I never felt restored. Blood tests came back “normal,” yet my ferritin sat on the low side — and I felt it every day. Iron tablets upset my stomach, and multivitamins felt synthetic and disconnected from real nourishment. </p>",
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        },
+        "image_CCyiAY": {
+          "type": "image",
+          "settings": {
+            "column": "right",
+            "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
+            "image_url": "",
+            "hide_mobile": true,
+            "hide_desktop": false
           }
         },
         "signature_iH7mNi": {
@@ -294,23 +305,14 @@
             "hide_mobile": false,
             "hide_desktop": false
           }
-        },
-        "text_9qiKdg": {
-          "type": "text",
-          "settings": {
-            "column": "left",
-            "content": "<p>Add paragraph text here.</p>",
-            "hide_mobile": false,
-            "hide_desktop": false
-          }
         }
       },
       "block_order": [
-        "image_CCyiAY",
         "image_ytYJUB",
+        "text_9qiKdg",
+        "image_CCyiAY",
         "signature_iH7mNi",
-        "quote_3qJ9Hd",
-        "text_9qiKdg"
+        "quote_3qJ9Hd"
       ],
       "settings": {
         "bg_color": "#ffffff",
@@ -806,43 +808,57 @@
         "badge_1": {
           "type": "badge",
           "settings": {
-            "text": "Non-GMO"
+            "text": "Non-GMO",
+            "hide_mobile": false,
+            "hide_desktop": false
           }
         },
         "badge_2": {
           "type": "badge",
           "settings": {
-            "text": "Gluten-Free"
+            "text": "Gluten-Free",
+            "hide_mobile": false,
+            "hide_desktop": false
           }
         },
         "badge_3": {
           "type": "badge",
           "settings": {
-            "text": "No Fillers"
+            "text": "No Fillers",
+            "hide_mobile": false,
+            "hide_desktop": false
           }
         },
         "badge_qqV6ci": {
           "type": "badge",
           "settings": {
-            "text": "Non-GMO"
+            "text": "Non-GMO",
+            "hide_mobile": false,
+            "hide_desktop": false
           }
         },
         "badge_4": {
           "type": "badge",
           "settings": {
-            "text": "No Binders"
+            "text": "No Binders",
+            "hide_mobile": false,
+            "hide_desktop": false
           }
         },
         "badge_5": {
           "type": "badge",
           "settings": {
-            "text": "Freeze-Dried"
+            "text": "Freeze-Dried",
+            "hide_mobile": false,
+            "hide_desktop": false
           }
         },
         "badge_6": {
           "type": "badge",
           "settings": {
-            "text": "Heavy Metal Tested"
+            "text": "Heavy Metal Tested",
+            "hide_mobile": false,
+            "hide_desktop": false
           }
         }
       },
@@ -866,6 +882,7 @@
         "paragraph_1": "We believe you should know exactly what you're putting into your body. That's why every single batch of Nourish Her™ is independently tested by a certified third-party laboratory for purity, potency, and the absence of heavy metals, contaminants, and pathogens.",
         "paragraph_2": "Our test results are available on request — because transparency isn't a marketing claim, it's a standard we hold ourselves to.",
         "paragraph_3": "When you choose Nourish Her™, you're choosing a supplement brand that prioritises your health over shortcuts.",
+        "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
         "image_url": "",
         "download_text": "DOWNLOAD THE LAB TEST RESULTS",
         "download_url": "shopify://pages/contact"
