@@ -814,6 +814,15 @@
     "nh-lab-tested": {
       "type": "nh-lab-tested",
       "blocks": {
+        "text_QnHVfV": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "content": "<p>Add paragraph text here.</p>",
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        },
         "image_CyXfTp": {
           "type": "image",
           "settings": {
@@ -822,6 +831,20 @@
             "image_url": "",
             "hide_mobile": false,
             "hide_desktop": true
+          }
+        },
+        "badges_Fmex9L": {
+          "type": "badges",
+          "settings": {
+            "column": "left",
+            "badge_1": "Non-GMO",
+            "badge_2": "Gluten-Free",
+            "badge_3": "No Fillers",
+            "badge_4": "No Binders",
+            "badge_5": "Freeze-Dried",
+            "badge_6": "Heavy Metal Tested",
+            "hide_mobile": false,
+            "hide_desktop": false
           }
         },
         "image_ALWwjt": {
@@ -834,88 +857,31 @@
             "hide_desktop": false
           }
         },
-        "badge_1": {
-          "type": "badge",
+        "download_CnzKM6": {
+          "type": "download",
           "settings": {
-            "text": "Non-GMO",
-            "hide_mobile": false,
-            "hide_desktop": false
-          }
-        },
-        "badge_2": {
-          "type": "badge",
-          "settings": {
-            "text": "Gluten-Free",
-            "hide_mobile": false,
-            "hide_desktop": false
-          }
-        },
-        "badge_3": {
-          "type": "badge",
-          "settings": {
-            "text": "No Fillers",
-            "hide_mobile": false,
-            "hide_desktop": false
-          }
-        },
-        "badge_qqV6ci": {
-          "type": "badge",
-          "settings": {
-            "text": "Non-GMO",
-            "hide_mobile": false,
-            "hide_desktop": false
-          }
-        },
-        "badge_4": {
-          "type": "badge",
-          "settings": {
-            "text": "No Binders",
-            "hide_mobile": false,
-            "hide_desktop": false
-          }
-        },
-        "badge_5": {
-          "type": "badge",
-          "settings": {
-            "text": "Freeze-Dried",
-            "hide_mobile": false,
-            "hide_desktop": false
-          }
-        },
-        "badge_6": {
-          "type": "badge",
-          "settings": {
-            "text": "Heavy Metal Tested",
+            "column": "left",
+            "text": "DOWNLOAD THE LAB TEST RESULTS",
+            "link": "#",
             "hide_mobile": false,
             "hide_desktop": false
           }
         }
       },
       "block_order": [
+        "text_QnHVfV",
         "image_CyXfTp",
+        "badges_Fmex9L",
         "image_ALWwjt",
-        "badge_1",
-        "badge_2",
-        "badge_3",
-        "badge_qqV6ci",
-        "badge_4",
-        "badge_5",
-        "badge_6"
+        "download_CnzKM6"
       ],
       "settings": {
         "bg_color": "#ffffff",
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
         "accent_color": "#cc0019",
-        "image_position": "right",
         "label": "Transparency & Trust",
-        "heading": "<p>Third-Party <em>Lab Tested</em></p>",
-        "paragraph_1": "We believe you should know exactly what you're putting into your body. That's why every single batch of Nourish Her™ is independently tested by a certified third-party laboratory for purity, potency, and the absence of heavy metals, contaminants, and pathogens.",
-        "paragraph_2": "Our test results are available on request — because transparency isn't a marketing claim, it's a standard we hold ourselves to.",
-        "paragraph_3": "When you choose Nourish Her™, you're choosing a supplement brand that prioritises your health over shortcuts.",
-        "image_url": "",
-        "download_text": "DOWNLOAD THE LAB TEST RESULTS",
-        "download_url": "shopify://pages/contact"
+        "heading": "<p>Third-Party <em>Lab Tested</em></p>"
       }
     },
     "nh-faq": {
