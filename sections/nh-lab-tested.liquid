@@ -1,6 +1,7 @@
 {% comment %}
   Nourish Her - Lab Tested Section
-  Transparency and trust messaging
+  Transparency and trust messaging with draggable blocks.
+  All block types can be placed in either column and reordered freely.
 {% endcomment %}
 
 {{ 'nourish-her.css' | asset_url | stylesheet_tag }}
@@ -18,7 +19,8 @@
   #nh-section-{{ section.id }} .nh-divider {
     background: {{ section.settings.accent_color }};
   }
-  #nh-section-{{ section.id }} .nh-lab-text p {
+  #nh-section-{{ section.id }} .nh-lab-block-text,
+  #nh-section-{{ section.id }} .nh-lab-block-text p {
     color: {{ section.settings.text_color }};
   }
   #nh-section-{{ section.id }} .nh-lab-badge {
@@ -54,89 +56,119 @@
     {% if section.settings.label != blank %}
       <p class="nh-section-label">{{ section.settings.label }}</p>
     {% endif %}
-    
+
     {% if section.settings.heading != blank %}
       <h2 class="nh-section-title">{{ section.settings.heading }}</h2>
     {% endif %}
-    
+
     <div class="nh-divider"></div>
-    
-    <div class="nh-lab-grid" style="{% if section.settings.image_position == 'left' %}direction: rtl;{% endif %}">
-      <div class="nh-lab-text" style="{% if section.settings.image_position == 'left' %}direction: ltr;{% endif %}">
-        {% if section.settings.paragraph_1 != blank %}
-          <p>{{ section.settings.paragraph_1 }}</p>
-        {% endif %}
-        
-        {% if section.settings.paragraph_2 != blank %}
-          <p>{{ section.settings.paragraph_2 }}</p>
-        {% endif %}
-        
-        {% if section.settings.paragraph_3 != blank %}
-          <p>{{ section.settings.paragraph_3 }}</p>
-        {% endif %}
-        
-        {% if section.blocks.size > 0 %}
-          <div class="nh-lab-badges">
-            {% for block in section.blocks %}
-              {% if block.type == 'badge' %}
-                {% assign vis_class = '' %}
-                {% if block.settings.hide_mobile %}{% assign vis_class = vis_class | append: ' nh-hide-mobile' %}{% endif %}
-                {% if block.settings.hide_desktop %}{% assign vis_class = vis_class | append: ' nh-hide-desktop' %}{% endif %}
-                <span class="nh-lab-badge{{ vis_class }}" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
-              {% endif %}
-            {% endfor %}
-          </div>
 
-          {% for block in section.blocks %}
-            {% if block.type == 'image' and block.settings.column == 'left' %}
-              {% assign vis_class = '' %}
-              {% if block.settings.hide_mobile %}{% assign vis_class = vis_class | append: ' nh-hide-mobile' %}{% endif %}
-              {% if block.settings.hide_desktop %}{% assign vis_class = vis_class | append: ' nh-hide-desktop' %}{% endif %}
-              <div class="nh-lab-block-image{{ vis_class }}" {{ block.shopify_attributes }} style="margin-top: 24px;">
-                {% if block.settings.image != blank %}
-                  {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.image.alt, loading: 'lazy' }}
-                {% elsif block.settings.image_url != blank %}
-                  <img src="{{ block.settings.image_url }}" alt="Lab tested image" width="600" height="400" style="width: 100%; height: auto; border-radius: 20px; object-fit: cover;" />
-                {% endif %}
-              </div>
-            {% endif %}
-          {% endfor %}
-        {% endif %}
+    <div class="nh-lab-grid">
 
-        {% if section.settings.download_url != blank %}
-          <a href="{{ section.settings.download_url }}" class="nh-lab-download" target="_blank">
-            <span>{{ section.settings.download_text }}</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-          </a>
-        {% endif %}
-      </div>
-      
-      <div class="nh-lab-image" style="{% if section.settings.image_position == 'left' %}direction: ltr;{% endif %}">
-        {% if section.settings.image != blank %}
-          {{ section.settings.image | image_url: width: 600 | image_tag: alt: section.settings.image.alt, loading: 'lazy', width: section.settings.image.width, height: section.settings.image.height }}
-        {% elsif section.settings.image_url != blank %}
-          <img src="{{ section.settings.image_url }}" alt="Lab Tested" width="600" height="600" style="width: 100%; height: auto; border-radius: 20px;" />
-        {% endif %}
-
+      {% comment %} ========== LEFT COLUMN ========== {% endcomment %}
+      <div class="nh-lab-text">
         {% for block in section.blocks %}
-          {% if block.type == 'image' and block.settings.column == 'right' %}
+          {% if block.settings.column == 'left' %}
             {% assign vis_class = '' %}
             {% if block.settings.hide_mobile %}{% assign vis_class = vis_class | append: ' nh-hide-mobile' %}{% endif %}
             {% if block.settings.hide_desktop %}{% assign vis_class = vis_class | append: ' nh-hide-desktop' %}{% endif %}
-            <div class="nh-lab-block-image{{ vis_class }}" {{ block.shopify_attributes }} style="margin-top: 24px;">
-              {% if block.settings.image != blank %}
-                {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.image.alt, loading: 'lazy' }}
-              {% elsif block.settings.image_url != blank %}
-                <img src="{{ block.settings.image_url }}" alt="Lab tested image" width="600" height="400" style="width: 100%; height: auto; border-radius: 20px; object-fit: cover;" />
-              {% endif %}
-            </div>
+
+            {% case block.type %}
+
+              {% when 'text' %}
+                <div class="nh-lab-block-text{{ vis_class }}" {{ block.shopify_attributes }}>
+                  {{ block.settings.content }}
+                </div>
+
+              {% when 'image' %}
+                <div class="nh-lab-block-image{{ vis_class }}" {{ block.shopify_attributes }}>
+                  {% if block.settings.image != blank %}
+                    {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.image.alt, loading: 'lazy' }}
+                  {% elsif block.settings.image_url != blank %}
+                    <img src="{{ block.settings.image_url }}" alt="Lab tested image" width="600" height="400" style="width: 100%; height: auto; border-radius: 20px; object-fit: cover;" />
+                  {% endif %}
+                </div>
+
+              {% when 'badges' %}
+                <div class="nh-lab-badges{{ vis_class }}" {{ block.shopify_attributes }}>
+                  {% for i in (1..6) %}
+                    {% capture badge_key %}badge_{{ i }}{% endcapture %}
+                    {% assign badge_text = block.settings[badge_key] %}
+                    {% if badge_text != blank %}
+                      <span class="nh-lab-badge">{{ badge_text }}</span>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+
+              {% when 'download' %}
+                {% if block.settings.link != blank %}
+                  <a href="{{ block.settings.link }}" class="nh-lab-download{{ vis_class }}" {{ block.shopify_attributes }} target="_blank">
+                    <span>{{ block.settings.text }}</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="7 10 12 15 17 10"></polyline>
+                      <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                  </a>
+                {% endif %}
+
+            {% endcase %}
           {% endif %}
         {% endfor %}
       </div>
+
+      {% comment %} ========== RIGHT COLUMN ========== {% endcomment %}
+      <div class="nh-lab-image">
+        {% for block in section.blocks %}
+          {% if block.settings.column == 'right' %}
+            {% assign vis_class = '' %}
+            {% if block.settings.hide_mobile %}{% assign vis_class = vis_class | append: ' nh-hide-mobile' %}{% endif %}
+            {% if block.settings.hide_desktop %}{% assign vis_class = vis_class | append: ' nh-hide-desktop' %}{% endif %}
+
+            {% case block.type %}
+
+              {% when 'text' %}
+                <div class="nh-lab-block-text{{ vis_class }}" {{ block.shopify_attributes }}>
+                  {{ block.settings.content }}
+                </div>
+
+              {% when 'image' %}
+                <div class="nh-lab-block-image{{ vis_class }}" {{ block.shopify_attributes }}>
+                  {% if block.settings.image != blank %}
+                    {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.image.alt, loading: 'lazy' }}
+                  {% elsif block.settings.image_url != blank %}
+                    <img src="{{ block.settings.image_url }}" alt="Lab tested image" width="600" height="400" style="width: 100%; height: auto; border-radius: 20px; object-fit: cover;" />
+                  {% endif %}
+                </div>
+
+              {% when 'badges' %}
+                <div class="nh-lab-badges{{ vis_class }}" {{ block.shopify_attributes }}>
+                  {% for i in (1..6) %}
+                    {% capture badge_key %}badge_{{ i }}{% endcapture %}
+                    {% assign badge_text = block.settings[badge_key] %}
+                    {% if badge_text != blank %}
+                      <span class="nh-lab-badge">{{ badge_text }}</span>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+
+              {% when 'download' %}
+                {% if block.settings.link != blank %}
+                  <a href="{{ block.settings.link }}" class="nh-lab-download{{ vis_class }}" {{ block.shopify_attributes }} target="_blank">
+                    <span>{{ block.settings.text }}</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="7 10 12 15 17 10"></polyline>
+                      <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                  </a>
+                {% endif %}
+
+            {% endcase %}
+          {% endif %}
+        {% endfor %}
+      </div>
+
     </div>
   </div>
 </section>
@@ -177,20 +209,6 @@
     },
     {
       "type": "header",
-      "content": "Image Position"
-    },
-    {
-      "type": "select",
-      "id": "image_position",
-      "label": "Image Position",
-      "options": [
-        { "value": "right", "label": "Right (default)" },
-        { "value": "left", "label": "Left" }
-      ],
-      "default": "right"
-    },
-    {
-      "type": "header",
       "content": "Content"
     },
     {
@@ -204,61 +222,28 @@
       "id": "heading",
       "label": "Heading",
       "default": "<p>Third-Party <em>Lab Tested</em></p>"
-    },
-    {
-      "type": "textarea",
-      "id": "paragraph_1",
-      "label": "Paragraph 1",
-      "default": "We believe you should know exactly what you're putting into your body. That's why every single batch of Nourish Her™ is independently tested by a certified third-party laboratory for purity, potency, and the absence of heavy metals, contaminants, and pathogens."
-    },
-    {
-      "type": "textarea",
-      "id": "paragraph_2",
-      "label": "Paragraph 2",
-      "default": "Our test results are available on request — because transparency isn't a marketing claim, it's a standard we hold ourselves to."
-    },
-    {
-      "type": "textarea",
-      "id": "paragraph_3",
-      "label": "Paragraph 3",
-      "default": "When you choose Nourish Her™, you're choosing a supplement brand that prioritises your health over shortcuts."
-    },
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Image"
-    },
-    {
-      "type": "url",
-      "id": "image_url",
-      "label": "Image URL (external)"
-    },
-    {
-      "type": "header",
-      "content": "Download Box"
-    },
-    {
-      "type": "text",
-      "id": "download_text",
-      "label": "Download Text",
-      "default": "DOWNLOAD THE LAB TEST RESULTS"
-    },
-    {
-      "type": "url",
-      "id": "download_url",
-      "label": "PDF Download Link"
     }
   ],
   "blocks": [
     {
-      "type": "badge",
-      "name": "Badge",
+      "type": "text",
+      "name": "Text Block",
       "settings": [
         {
-          "type": "text",
-          "id": "text",
-          "label": "Badge Text",
-          "default": "Non-GMO"
+          "type": "select",
+          "id": "column",
+          "label": "Column",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>Add paragraph text here.</p>"
         },
         {
           "type": "header",
@@ -319,20 +304,175 @@
           "default": false
         }
       ]
+    },
+    {
+      "type": "badges",
+      "name": "Badges / Pills",
+      "settings": [
+        {
+          "type": "select",
+          "id": "column",
+          "label": "Column",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "header",
+          "content": "Badge Texts"
+        },
+        {
+          "type": "text",
+          "id": "badge_1",
+          "label": "Badge 1",
+          "default": "Non-GMO"
+        },
+        {
+          "type": "text",
+          "id": "badge_2",
+          "label": "Badge 2",
+          "default": "Gluten-Free"
+        },
+        {
+          "type": "text",
+          "id": "badge_3",
+          "label": "Badge 3",
+          "default": "No Fillers"
+        },
+        {
+          "type": "text",
+          "id": "badge_4",
+          "label": "Badge 4",
+          "default": "No Binders"
+        },
+        {
+          "type": "text",
+          "id": "badge_5",
+          "label": "Badge 5",
+          "default": "Freeze-Dried"
+        },
+        {
+          "type": "text",
+          "id": "badge_6",
+          "label": "Badge 6",
+          "default": "Heavy Metal Tested"
+        },
+        {
+          "type": "header",
+          "content": "Visibility"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_mobile",
+          "label": "Hide on mobile",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_desktop",
+          "label": "Hide on desktop",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "download",
+      "name": "Download Link",
+      "settings": [
+        {
+          "type": "select",
+          "id": "column",
+          "label": "Column",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Link Text",
+          "default": "DOWNLOAD THE LAB TEST RESULTS"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "PDF Download Link"
+        },
+        {
+          "type": "header",
+          "content": "Visibility"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_mobile",
+          "label": "Hide on mobile",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_desktop",
+          "label": "Hide on desktop",
+          "default": false
+        }
+      ]
     }
   ],
   "presets": [
     {
       "name": "NH - Lab Tested",
       "blocks": {
-        "badge_1": { "type": "badge", "settings": { "text": "Non-GMO" } },
-        "badge_2": { "type": "badge", "settings": { "text": "Gluten-Free" } },
-        "badge_3": { "type": "badge", "settings": { "text": "No Fillers" } },
-        "badge_4": { "type": "badge", "settings": { "text": "No Binders" } },
-        "badge_5": { "type": "badge", "settings": { "text": "Freeze-Dried" } },
-        "badge_6": { "type": "badge", "settings": { "text": "Heavy Metal Tested" } }
+        "text_1": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "content": "<p>We believe you should know exactly what you're putting into your body. That's why every single batch of Nourish Her™ is independently tested by a certified third-party laboratory for purity, potency, and the absence of heavy metals, contaminants, and pathogens.</p>"
+          }
+        },
+        "text_2": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "content": "<p>Our test results are available on request — because transparency isn't a marketing claim, it's a standard we hold ourselves to.</p>"
+          }
+        },
+        "text_3": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "content": "<p>When you choose Nourish Her™, you're choosing a supplement brand that prioritises your health over shortcuts.</p>"
+          }
+        },
+        "badges_1": {
+          "type": "badges",
+          "settings": {
+            "column": "left",
+            "badge_1": "Non-GMO",
+            "badge_2": "Gluten-Free",
+            "badge_3": "No Fillers",
+            "badge_4": "No Binders",
+            "badge_5": "Freeze-Dried",
+            "badge_6": "Heavy Metal Tested"
+          }
+        },
+        "download_1": {
+          "type": "download",
+          "settings": {
+            "column": "left",
+            "text": "DOWNLOAD THE LAB TEST RESULTS"
+          }
+        },
+        "image_1": {
+          "type": "image",
+          "settings": {
+            "column": "right"
+          }
+        }
       },
-      "block_order": ["badge_1", "badge_2", "badge_3", "badge_4", "badge_5", "badge_6"]
+      "block_order": ["text_1", "text_2", "text_3", "badges_1", "download_1", "image_1"]
     }
   ]
 }
