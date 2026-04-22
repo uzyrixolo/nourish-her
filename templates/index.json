@@ -110,7 +110,7 @@
           "settings": {
             "column": "left",
             "label": "Start Your Journey",
-            "link": "",
+            "link": "shopify://products/100-grass-fed-beef-organs",
             "btn_bg_color": "#cc0019",
             "btn_text_color": "#ffffff",
             "btn_align": "left",
@@ -814,15 +814,6 @@
     "nh-lab-tested": {
       "type": "nh-lab-tested",
       "blocks": {
-        "text_QnHVfV": {
-          "type": "text",
-          "settings": {
-            "column": "left",
-            "content": "<p>Add paragraph text here.</p>",
-            "hide_mobile": false,
-            "hide_desktop": false
-          }
-        },
         "image_CyXfTp": {
           "type": "image",
           "settings": {
@@ -831,6 +822,15 @@
             "image_url": "",
             "hide_mobile": false,
             "hide_desktop": true
+          }
+        },
+        "text_QnHVfV": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "content": "<p>Add paragraph text here.</p>",
+            "hide_mobile": false,
+            "hide_desktop": false
           }
         },
         "badges_Fmex9L": {
@@ -869,8 +869,8 @@
         }
       },
       "block_order": [
-        "text_QnHVfV",
         "image_CyXfTp",
+        "text_QnHVfV",
         "badges_Fmex9L",
         "image_ALWwjt",
         "download_CnzKM6"
