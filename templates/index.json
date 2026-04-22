@@ -110,7 +110,7 @@
           "settings": {
             "column": "left",
             "label": "Start Your Journey",
-            "link": "shopify://products/100-grass-fed-beef-organs",
+            "link": "",
             "btn_bg_color": "#cc0019",
             "btn_text_color": "#ffffff",
             "btn_align": "left",
