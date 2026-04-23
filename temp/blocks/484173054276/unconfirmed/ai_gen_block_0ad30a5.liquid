@@ -1,6 +1,519 @@
+{% doc %}
+  @prompt
+    Build a custom full-width, clickable CTA button with editable text and an optional image/icon that appears adjacently within the button, styled with customisable colours, padding, border radius, and typography; below it, add a row of 2 trust signals (each with an icon and text like “365-Day Money Back Guarantee” and “Free Shipping”), all fully editable in the theme editor (including icons, text, colours, spacing, and alignment), and ensure the layout is responsive (inline on desktop, stacked on mobile) with clean, modern styling and optional hover effects.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-cta-trust-container-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+  }
+
+  .ai-cta-button-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: {{ block.settings.icon_spacing }}px;
+    width: 100%;
+    padding: {{ block.settings.button_padding_vertical }}px {{ block.settings.button_padding_horizontal }}px;
+    background-color: {{ block.settings.button_bg_color }};
+    color: {{ block.settings.button_text_color }};
+    border: none;
+    border-radius: {{ block.settings.button_border_radius }}px;
+    font-size: {{ block.settings.button_font_size }}px;
+    font-weight: {{ block.settings.button_font_weight }};
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+
+  .ai-cta-button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_bg_color }};
+    color: {{ block.settings.button_hover_text_color }};
+    {% if block.settings.enable_hover_lift %}
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    {% endif %}
+  }
+
+  .ai-cta-button-icon-{{ ai_gen_id }} {
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    flex-shrink: 0;
+  }
+
+  .ai-cta-button-icon-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .ai-cta-button-icon-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-cta-button-icon-placeholder-{{ ai_gen_id }} svg {
+    width: 70%;
+    height: 70%;
+    opacity: 0.5;
+  }
+
+  .ai-trust-signals-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: {{ block.settings.trust_alignment }};
+    align-items: center;
+    gap: {{ block.settings.trust_spacing }}px;
+    margin-top: {{ block.settings.trust_margin_top }}px;
+    flex-wrap: wrap;
+  }
+
+  .ai-trust-signal-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: {{ block.settings.trust_icon_spacing }}px;
+  }
+
+  .ai-trust-signal-icon-{{ ai_gen_id }} {
+    width: {{ block.settings.trust_icon_size }}px;
+    height: {{ block.settings.trust_icon_size }}px;
+    flex-shrink: 0;
+  }
+
+  .ai-trust-signal-icon-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .ai-trust-signal-icon-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: {{ block.settings.trust_icon_placeholder_color }};
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-trust-signal-icon-placeholder-{{ ai_gen_id }} svg {
+    width: 60%;
+    height: 60%;
+  }
+
+  .ai-trust-signal-text-{{ ai_gen_id }} {
+    font-size: {{ block.settings.trust_font_size }}px;
+    color: {{ block.settings.trust_text_color }};
+    font-weight: {{ block.settings.trust_font_weight }};
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-cta-trust-container-{{ ai_gen_id }} {
+      width: 100%;
+    }
+
+    .ai-trust-signals-{{ ai_gen_id }} {
+      flex-direction: column;
+      align-items: {{ block.settings.trust_alignment }};
+      gap: {{ block.settings.trust_spacing | times: 0.75 }}px;
+    }
+
+    .ai-cta-button-{{ ai_gen_id }} {
+      font-size: {{ block.settings.button_font_size | times: 0.9 }}px;
+      padding: {{ block.settings.button_padding_vertical | times: 0.85 }}px {{ block.settings.button_padding_horizontal | times: 0.85 }}px;
+    }
+
+    .ai-trust-signal-text-{{ ai_gen_id }} {
+      font-size: {{ block.settings.trust_font_size | times: 0.9 }}px;
+    }
+  }
+{% endstyle %}
+
+<cta-trust-block-{{ ai_gen_id }} class="ai-cta-trust-container-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <a href="{{ block.settings.button_link }}" class="ai-cta-button-{{ ai_gen_id }}">
+    {% if block.settings.icon_position == 'left' and block.settings.show_icon %}
+      <div class="ai-cta-button-icon-{{ ai_gen_id }}">
+        {% if block.settings.button_icon %}
+          <img src="{{ block.settings.button_icon | image_url: width: 100 }}" alt="" loading="lazy">
+        {% else %}
+          <div class="ai-cta-button-icon-placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <span>{{ block.settings.button_text }}</span>
+
+    {% if block.settings.icon_position == 'right' and block.settings.show_icon %}
+      <div class="ai-cta-button-icon-{{ ai_gen_id }}">
+        {% if block.settings.button_icon %}
+          <img src="{{ block.settings.button_icon | image_url: width: 100 }}" alt="" loading="lazy">
+        {% else %}
+          <div class="ai-cta-button-icon-placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+  </a>
+
+  <div class="ai-trust-signals-{{ ai_gen_id }}">
+    {% if block.settings.show_trust_1 %}
+      <div class="ai-trust-signal-{{ ai_gen_id }}">
+        <div class="ai-trust-signal-icon-{{ ai_gen_id }}">
+          {% if block.settings.trust_icon_1 %}
+            <img src="{{ block.settings.trust_icon_1 | image_url: width: 100 }}" alt="" loading="lazy">
+          {% else %}
+            <div class="ai-trust-signal-icon-placeholder-{{ ai_gen_id }}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="M9 12l2 2 4-4"></path>
+              </svg>
+            </div>
+          {% endif %}
+        </div>
+        <span class="ai-trust-signal-text-{{ ai_gen_id }}">{{ block.settings.trust_text_1 }}</span>
+      </div>
+    {% endif %}
+
+    {% if block.settings.show_trust_2 %}
+      <div class="ai-trust-signal-{{ ai_gen_id }}">
+        <div class="ai-trust-signal-icon-{{ ai_gen_id }}">
+          {% if block.settings.trust_icon_2 %}
+            <img src="{{ block.settings.trust_icon_2 | image_url: width: 100 }}" alt="" loading="lazy">
+          {% else %}
+            <div class="ai-trust-signal-icon-placeholder-{{ ai_gen_id }}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+                <path d="M16 11l2 2 4-4"></path>
+              </svg>
+            </div>
+          {% endif %}
+        </div>
+        <span class="ai-trust-signal-text-{{ ai_gen_id }}">{{ block.settings.trust_text_2 }}</span>
+      </div>
+    {% endif %}
+  </div>
+</cta-trust-block-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class CtaTrustBlock{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.style.display = 'block';
+      }
+    }
+
+    customElements.define('cta-trust-block-{{ ai_gen_id }}', CtaTrustBlock{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "CTA with trust signals",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "label": "Font size",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "select",
+      "id": "button_font_weight",
+      "label": "Font weight",
+      "options": [
+        { "value": "400", "label": "Normal" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "range",
+      "id": "button_padding_vertical",
+      "label": "Vertical padding",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "button_padding_horizontal",
+      "label": "Horizontal padding",
+      "min": 16,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Background color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_bg_color",
+      "label": "Hover background color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Hover text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_hover_lift",
+      "label": "Enable hover lift effect",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Button icon"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_icon",
+      "label": "Show icon",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "button_icon",
+      "label": "Icon image"
+    },
+    {
+      "type": "select",
+      "id": "icon_position",
+      "label": "Icon position",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "icon_spacing",
+      "label": "Icon spacing",
+      "min": 4,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Trust signals"
+    },
+    {
+      "type": "select",
+      "id": "trust_alignment",
+      "label": "Alignment",
+      "options": [
+        { "value": "flex-start", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "trust_margin_top",
+      "label": "Top spacing",
+      "min": 8,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "trust_spacing",
+      "label": "Space between signals",
+      "min": 12,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "trust_icon_spacing",
+      "label": "Icon to text spacing",
+      "min": 4,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "trust_icon_size",
+      "label": "Icon size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "trust_font_size",
+      "label": "Font size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "select",
+      "id": "trust_font_weight",
+      "label": "Font weight",
+      "options": [
+        { "value": "400", "label": "Normal" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-bold" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "color",
+      "id": "trust_text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "trust_icon_placeholder_color",
+      "label": "Icon placeholder color",
+      "default": "#e6e6e6"
+    },
+    {
+      "type": "header",
+      "content": "Trust signal 1"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_trust_1",
+      "label": "Show trust signal 1",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "trust_icon_1",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "trust_text_1",
+      "label": "Text",
+      "default": "365-Day Money Back Guarantee"
+    },
+    {
+      "type": "header",
+      "content": "Trust signal 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_trust_2",
+      "label": "Show trust signal 2",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "trust_icon_2",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "trust_text_2",
+      "label": "Text",
+      "default": "Free Shipping"
+    }
+  ],
+  "presets": [
+    {
+      "name": "CTA with trust signals"
+    }
+  ]
+}
 {% endschema %}
