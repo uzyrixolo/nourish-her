@@ -260,11 +260,21 @@
     "nh-founder": {
       "type": "nh-founder",
       "blocks": {
+        "image_ytYJUB": {
+          "type": "image",
+          "settings": {
+            "column": "left",
+            "image": "shopify://shop_images/Gemini_Generated_Image_dy9pnmdy9pnmdy9p_1.png",
+            "image_url": "",
+            "hide_mobile": false,
+            "hide_desktop": true
+          }
+        },
         "text_9qiKdg": {
           "type": "text",
           "settings": {
             "column": "left",
-            "content": "<p>As a doctor working long, demanding shifts, I lived in a constant state of exhaustion. My energy was low, my focus was slipping, and no matter how much I slept, I never felt restored. Blood tests came back <strong>“normal,”</strong> yet my ferritin sat on the low side — and I felt it every day. Iron tablets upset my stomach, and multivitamins felt synthetic and disconnected from real nourishment. </p>",
+            "content": "<p>You've tried the <strong>multivitamins. The iron tablets and greens powders.</strong> You're doing everything you're supposed to do. So why does your <strong>body still feel like</strong> <strong>it's running on empty</strong>?</p>",
             "hide_mobile": false,
             "hide_desktop": false
           }
@@ -273,16 +283,16 @@
           "type": "text",
           "settings": {
             "column": "left",
-            "content": "<p>For generations, women were nourished with whole, nutrient-dense foods that supported energy, resilience, and vitality at the root. Organs like liver and spleen weren’t trends — they were foundational nutrition. Rich in bioavailable iron and the cofactors the body actually uses. The problem was, I couldn’t bring myself to eat liver or organ meats consistently!</p>",
+            "content": "<p>Because modern supplements  deliver nutrients<strong> </strong>in forms your<strong> body barely</strong> <strong>absorbs</strong>. Synthetic iron sits in your gut causing problems without raising your levels. Isolated vitamins without their natural cofactors pass straight through. You can be taking multiple supplements every day and still be depleted.</p>",
             "hide_mobile": false,
             "hide_desktop": false
           }
         },
-        "image_ytYJUB": {
+        "image_bbKeXW": {
           "type": "image",
           "settings": {
             "column": "left",
-            "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
+            "image": "shopify://shop_images/Gemini_Generated_Image_yqujqqyqujqqyquj_1.png",
             "image_url": "",
             "hide_mobile": false,
             "hide_desktop": true
@@ -292,7 +302,7 @@
           "type": "text",
           "settings": {
             "column": "left",
-            "content": "<p>I knew there was no organ supplement on the market designed around what women actually need — our hormonal demands, our iron losses, our biology. That’s when I decided to create “<strong>Nourish Her”</strong>, to make it easier to get the essential nutrients my body needed, without the foods I disliked. </p><p>Instead of everything changing overnight, the shift was gradual — but unmistakable. I stopped hitting that mid-afternoon wall where even thinking felt heavy. My energy became steadier, not forced, and I no longer felt like I was constantly running on empty. I could get through long days without relying on caffeine, and my focus felt clearer and more consistent. Even my recovery after demanding shifts improved — I didn’t feel as depleted the next day.</p><p>What stood out most was how <em>normal</em> it felt. Not wired. Not overstimulated. Just properly nourished. For the first time in a long while, it felt like my body was finally getting what it had been quietly asking for — the nutrients it could actually recognise and use.</p>",
+            "content": "<p><strong>For thousands of years women were nourished by nutrient-dense whole foods</strong> — liver, heart, spleen — delivering<strong> </strong>iron, B12 and CoQ10 in forms the body actually recognises. Modern diets have moved away from these completely.</p><p><strong>Your body isn't failing you. It's just been asking for something it hasn't been getting.</strong></p><p>That's exactly what Nourish Her was made for.</p>",
             "hide_mobile": false,
             "hide_desktop": false
           }
@@ -306,35 +316,17 @@
             "hide_mobile": true,
             "hide_desktop": false
           }
-        },
-        "signature_iH7mNi": {
-          "type": "signature",
-          "settings": {
-            "column": "left",
-            "signature": "— Dr. [Founder Name], Founder of Nourish Her™",
-            "hide_mobile": false,
-            "hide_desktop": false
-          }
-        },
-        "quote_3qJ9Hd": {
-          "type": "quote",
-          "settings": {
-            "column": "left",
-            "quote": "This is a highlighted quote.",
-            "hide_mobile": false,
-            "hide_desktop": false
-          }
         }
       },
       "block_order": [
+        "image_ytYJUB",
         "text_9qiKdg",
         "text_WxidcN",
-        "image_ytYJUB",
+        "image_bbKeXW",
         "text_FMcjU4",
-        "image_CCyiAY",
-        "signature_iH7mNi",
-        "quote_3qJ9Hd"
+        "image_CCyiAY"
       ],
+      "name": "NH - Problem Agitation",
       "settings": {
         "bg_color": "#ffffff",
         "heading_color": "#1a1a1a",
@@ -342,8 +334,79 @@
         "accent_color": "#cc0019",
         "quote_bg": "#fffbd5",
         "quote_text": "#1a1a1a",
-        "label": "Our Story",
-        "heading": "<p>A Doctor's Journey Back to <em>Real Nourishment</em></p>"
+        "label": "",
+        "heading": "<p><strong>Constantly Tired, Increasingly Foggy and Watching More Hair Fall Out Every Single Day?</strong></p>"
+      }
+    },
+    "nh_founder_r7PE9g": {
+      "type": "nh-founder",
+      "blocks": {
+        "image_wEjK8q": {
+          "type": "image",
+          "settings": {
+            "column": "left",
+            "image": "shopify://shop_images/hf_20260423_112937_28f43832-83f5-4eec-b927-a46f280a101a.png",
+            "image_url": "",
+            "hide_mobile": false,
+            "hide_desktop": true
+          }
+        },
+        "text_x9EVfU": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "content": "<p>For centuries, women were nourished by whole foods that delivered everything the body needed in exactly the form it recognised. Organ meats weren't a trend, <strong>they were simply the most nutrient-dense food on the planet</strong> — rich in haem iron, B12, CoQ10 and selenium, with all the natural cofactors that make absorption actually work.</p><p>Nourish Her brings that nourishment back — without asking you to eat raw liver.</p>",
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        },
+        "image_LAtVbD": {
+          "type": "image",
+          "settings": {
+            "column": "left",
+            "image": "shopify://shop_images/ChatGPT_Image_Apr_23_2026_12_58_24_PM.png",
+            "image_url": "",
+            "hide_mobile": false,
+            "hide_desktop": true
+          }
+        },
+        "text_ept6xX": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "content": "<p>Six whole-food grass-fed beef organs in one daily capsule, formulated specifically for women.</p><p>This isn't another supplement to add to the pile.<strong> It's the foundation everything else has been missing.</strong></p>",
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        },
+        "image_rJtiVr": {
+          "type": "image",
+          "settings": {
+            "column": "right",
+            "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
+            "image_url": "",
+            "hide_mobile": true,
+            "hide_desktop": false
+          }
+        }
+      },
+      "block_order": [
+        "image_wEjK8q",
+        "text_x9EVfU",
+        "image_LAtVbD",
+        "text_ept6xX",
+        "image_rJtiVr"
+      ],
+      "name": "NH - Solution reveal",
+      "settings": {
+        "bg_color": "#FFFBD5",
+        "heading_color": "#1a1a1a",
+        "text_color": "#444444",
+        "accent_color": "#cc0019",
+        "quote_bg": "#fffbd5",
+        "quote_text": "#1a1a1a",
+        "label": "",
+        "heading": "<p><strong>Why beef organs are a </strong>VITAL<strong> part of any female diet</strong></p>"
       }
     },
     "nh-timeline": {
@@ -503,6 +566,106 @@
         "label": "The Formula",
         "heading": "<p>What's Inside <em>Exactly?</em></p>",
         "description": "Six carefully selected grass-fed beef organs, each chosen for their unique nutritional profile and specific relevance to female health."
+      }
+    },
+    "nh_founder_XD8UMx": {
+      "type": "nh-founder",
+      "blocks": {
+        "text_bwAecx": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "content": "<p>Hi, my names Sabbah.</p>",
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        },
+        "image_Tddj4r": {
+          "type": "image",
+          "settings": {
+            "column": "left",
+            "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
+            "image_url": "",
+            "hide_mobile": false,
+            "hide_desktop": true
+          }
+        },
+        "text_czM7cz": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "content": "<p>As a doctor working long, demanding shifts, I lived in a constant state of exhaustion. My energy was low, my focus was slipping, and no matter how much I slept, I never felt restored. Iron tablets upset my stomach, and multivitamins felt synthetic and disconnected from real nourishment. </p><p>That’s when I began a deep dive into <strong>wholefood nutrition</strong>.</p>",
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        },
+        "text_rhk7wA": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "content": "<p>For generations, women were nourished with whole, nutrient-dense foods that supported energy, resilience, and vitality at the root. Organs like liver and spleen weren’t trends — they were foundational nutrition. The problem was, I couldn’t bring myself to eat liver or organ meats consistently!</p>",
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        },
+        "image_c3NjEY": {
+          "type": "image",
+          "settings": {
+            "column": "left",
+            "image": "shopify://shop_images/Holding_raw_liver.png",
+            "image_url": "",
+            "hide_mobile": false,
+            "hide_desktop": true
+          }
+        },
+        "image_mKrDbh": {
+          "type": "image",
+          "settings": {
+            "column": "right",
+            "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
+            "image_url": "",
+            "hide_mobile": true,
+            "hide_desktop": false
+          }
+        },
+        "signature_fGGGQ8": {
+          "type": "signature",
+          "settings": {
+            "column": "left",
+            "signature": "— Dr. [Founder Name], Founder of Nourish Her™",
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        },
+        "quote_FQb8Uw": {
+          "type": "quote",
+          "settings": {
+            "column": "left",
+            "quote": "This is a highlighted quote.",
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        }
+      },
+      "block_order": [
+        "text_bwAecx",
+        "image_Tddj4r",
+        "text_czM7cz",
+        "text_rhk7wA",
+        "image_c3NjEY",
+        "image_mKrDbh",
+        "signature_fGGGQ8",
+        "quote_FQb8Uw"
+      ],
+      "settings": {
+        "bg_color": "#ffffff",
+        "heading_color": "#1a1a1a",
+        "text_color": "#444444",
+        "accent_color": "#cc0019",
+        "quote_bg": "#fffbd5",
+        "quote_text": "#1a1a1a",
+        "label": "Our Story",
+        "heading": "<p>A Doctor's Journey Back to <em>Real Nourishment</em></p>"
       }
     },
     "nh-comparison": {
@@ -1035,8 +1198,10 @@
     "nh-benefits",
     "nh-reviews",
     "nh-founder",
+    "nh_founder_r7PE9g",
     "nh-timeline",
     "nh-ingredients",
+    "nh_founder_XD8UMx",
     "nh-comparison",
     "nh-provenance",
     "nh-trust-signals",
