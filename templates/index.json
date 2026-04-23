@@ -302,7 +302,7 @@
           "type": "text",
           "settings": {
             "column": "left",
-            "content": "<p><strong>For thousands of years women were nourished by nutrient-dense whole foods</strong> — liver, heart, spleen — delivering<strong> </strong>iron, B12 and CoQ10 in forms the body actually recognises. Modern diets have moved away from these completely.</p><p><strong>Your body isn't failing you. It's just been asking for something it hasn't been getting.</strong></p><p>That's exactly what Nourish Her was made for.</p>",
+            "content": "<p><strong>Your body isn't failing you. It's just been asking for something it hasn't been getting.</strong></p><p>That's exactly what Nourish Her was made for.</p>",
             "hide_mobile": false,
             "hide_desktop": false
           }
@@ -335,7 +335,7 @@
         "quote_bg": "#fffbd5",
         "quote_text": "#1a1a1a",
         "label": "",
-        "heading": "<p><strong>Constantly Tired, Increasingly Foggy and Watching More Hair Fall Out Every Single Day?</strong></p>"
+        "heading": "<p><strong>Constantly Tired, Foggy and Watching More Hair Fall Out Every Single Day?</strong></p>"
       }
     },
     "nh_founder_r7PE9g": {
@@ -483,9 +483,9 @@
             "emoji": "🫀",
             "name": "Beef Liver",
             "stat": "Richer in Vitamin A than carrots",
-            "description": "Naturally higher in vitamin B12 than eggs or dairy. The most nutrient-dense food on the planet — a cornerstone of ancestral diets worldwide.",
-            "card_bg": "#333333",
-            "card_border": "#fffbd540"
+            "description": "Supporting healthy skin, vision and sustained energy levels.",
+            "card_bg": "#fffbd5",
+            "card_border": "#ffd4e2"
           }
         },
         "spleen": {
@@ -494,9 +494,9 @@
             "emoji": "🩸",
             "name": "Beef Spleen",
             "stat": "Richer in haem iron than spinach",
-            "description": "Provides iron in its most bioavailable, food-based form — the form your body recognises and absorbs most efficiently, without the stomach upset of synthetic iron.",
-            "card_bg": "#ffffff1a",
-            "card_border": "#fffbd540"
+            "description": "Combating fatigue and supporting healthy, oxygenated blood.",
+            "card_bg": "#fffbd5",
+            "card_border": "#ffd4e2"
           }
         },
         "kidney": {
@@ -504,10 +504,10 @@
           "settings": {
             "emoji": "🫘",
             "name": "Beef Kidney",
-            "stat": "Richer in selenium than tuna or chicken",
-            "description": "A well-known dietary source of this essential trace mineral, which plays a key role in thyroid function and antioxidant defence.",
-            "card_bg": "#ffffff1a",
-            "card_border": "#fffbd540"
+            "stat": "Richer in selenium than tuna",
+            "description": "Supporting thyroid function and everyday hormonal balance.",
+            "card_bg": "#fffbd5",
+            "card_border": "#ffd4e2"
           }
         },
         "heart": {
@@ -515,10 +515,10 @@
           "settings": {
             "emoji": "❤️",
             "name": "Beef Heart",
-            "stat": "Richer in CoQ10 than most cuts of steak",
-            "description": "Also provides B vitamins that support cellular energy production — making it a powerful ally for women who need sustained stamina throughout the day.",
-            "card_bg": "#ffffff1a",
-            "card_border": "#fffbd540"
+            "stat": "Richer in CoQ10 than steak",
+            "description": "Supporting energy, endurance and reproductive health.",
+            "card_bg": "#fffbd5",
+            "card_border": "#ffd4e2"
           }
         },
         "uterus": {
@@ -527,9 +527,9 @@
             "emoji": "🌸",
             "name": "Beef Uterus",
             "stat": "Rich in connective-tissue proteins",
-            "description": "Naturally rich in connective-tissue proteins — similar to bone broth. Contains structural proteins and minerals valued in traditional diets for female reproductive health.",
-            "card_bg": "#ffffff1a",
-            "card_border": "#fffbd540"
+            "description": "Supporting hormonal balance and reproductive wellbeing.",
+            "card_bg": "#fffbd5",
+            "card_border": "#ffd4e2"
           }
         },
         "ovaries": {
@@ -538,9 +538,9 @@
             "emoji": "🌺",
             "name": "Beef Ovaries",
             "stat": "Provides phospholipids like egg yolks",
-            "description": "Supplies lipid-based compounds involved in nutrient transport and cellular structure — a uniquely female-focused ingredient found in very few supplements.",
-            "card_bg": "#ffffff1a",
-            "card_border": "#fffbd540"
+            "description": "Supporting cycle balance and cellular health.",
+            "card_bg": "#fffbd5",
+            "card_border": "#ffd4e2"
           }
         }
       },
@@ -559,12 +559,12 @@
         "accent_color": "#fffbd5",
         "card_bg": "#ffffff1a",
         "card_border": "#fffbd540",
-        "card_text_title": "#fffbd5",
-        "card_text_body": "#fffbd5",
-        "card_accent": "#fffbd5",
-        "card_accent_text": "#cc0019",
-        "label": "The Formula",
-        "heading": "<p>What's Inside <em>Exactly?</em></p>",
+        "card_text_title": "#cc0019",
+        "card_text_body": "#cc0019",
+        "card_accent": "#cc0019",
+        "card_accent_text": "#fffbd5",
+        "label": "",
+        "heading": "<p>What's Inside Exactly?</p>",
         "description": "Six carefully selected grass-fed beef organs, each chosen for their unique nutritional profile and specific relevance to female health."
       }
     },
@@ -618,6 +618,15 @@
             "hide_desktop": true
           }
         },
+        "text_FHFaiz": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "content": "<p>I knew there was no organ supplement on the market designed around what women actually need — our hormonal demands, our iron losses, our biology. That’s when I decided to create <strong>Nourish Her</strong>™. To make it easier to get the essential nutrients my body needed.</p><p>For the first time in a long while, it felt like my body was finally getting what it had been quietly asking for.</p>",
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        },
         "image_mKrDbh": {
           "type": "image",
           "settings": {
@@ -630,6 +639,7 @@
         },
         "signature_fGGGQ8": {
           "type": "signature",
+          "disabled": true,
           "settings": {
             "column": "left",
             "signature": "— Dr. [Founder Name], Founder of Nourish Her™",
@@ -639,6 +649,7 @@
         },
         "quote_FQb8Uw": {
           "type": "quote",
+          "disabled": true,
           "settings": {
             "column": "left",
             "quote": "This is a highlighted quote.",
@@ -653,6 +664,7 @@
         "text_czM7cz",
         "text_rhk7wA",
         "image_c3NjEY",
+        "text_FHFaiz",
         "image_mKrDbh",
         "signature_fGGGQ8",
         "quote_FQb8Uw"
@@ -715,7 +727,7 @@
         "comparison_row_TACVYU"
       ],
       "settings": {
-        "bg_color": "#ffffff",
+        "bg_color": "#fdf8f0",
         "heading_color": "#1a1a1a",
         "accent_color": "#cc0019",
         "th_text_color": "#fffbd5",
@@ -732,6 +744,79 @@
         "column_2_title": "Synthetic Supplements",
         "label": "See The Difference",
         "heading": "<p>How Beef Organs Compare to <em>Synthetic Supplements</em></p>"
+      }
+    },
+    "1776964491b8008986": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_0ad30a5_R7Rf4r": {
+          "type": "ai_gen_block_0ad30a5",
+          "settings": {
+            "button_text": "START YOUR JOURNEY",
+            "button_link": "",
+            "button_font_size": 18,
+            "button_font_weight": "600",
+            "button_padding_vertical": 10,
+            "button_padding_horizontal": 40,
+            "button_border_radius": 26,
+            "button_bg_color": "#cc0019",
+            "button_text_color": "#ffffff",
+            "button_hover_bg_color": "#333333",
+            "button_hover_text_color": "#ffffff",
+            "enable_hover_lift": true,
+            "desktop_width_percent": 100,
+            "show_icon": true,
+            "button_icon": "shopify://shop_images/Vanilla_BrandIcon_Digital_3313d435-1010-4d45-9c96-88fc9a301901.png",
+            "icon_position": "right",
+            "icon_size": 36,
+            "icon_spacing": 12,
+            "trust_alignment": "center",
+            "trust_margin_top": 20,
+            "trust_spacing": 32,
+            "trust_icon_spacing": 8,
+            "trust_icon_size": 24,
+            "trust_font_size": 14,
+            "trust_font_weight": "400",
+            "trust_text_color": "#000000",
+            "trust_icon_placeholder_color": "#3fc153",
+            "show_trust_1": true,
+            "trust_text_1": "30 Day Money Back Guarantee",
+            "show_trust_2": false,
+            "trust_text_2": "Free Shipping"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_0ad30a5_R7Rf4r"
+      ],
+      "name": "CTA button",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-6",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": true,
+        "overlay_color": "#fdf8f0",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     },
     "nh-provenance": {
@@ -1203,6 +1288,7 @@
     "nh-ingredients",
     "nh_founder_XD8UMx",
     "nh-comparison",
+    "1776964491b8008986",
     "nh-provenance",
     "nh-trust-signals",
     "nh-offer",
