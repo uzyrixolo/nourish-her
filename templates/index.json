@@ -139,6 +139,66 @@
         "cta_text": "Shop Now — from £34.99"
       }
     },
+    "nh-trust-signals": {
+      "type": "nh-trust-signals",
+      "blocks": {
+        "badge_1": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🛡️",
+            "label": "30-Day Money-Back Guarantee"
+          }
+        },
+        "badge_2": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🌿",
+            "label": "Non-GMO"
+          }
+        },
+        "badge_3": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🐄",
+            "label": "100% Grass-Fed"
+          }
+        },
+        "badge_4": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🌾",
+            "label": "Gluten-Free"
+          }
+        },
+        "badge_5": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🔬",
+            "label": "Lab Tested"
+          }
+        },
+        "badge_6": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🇳🇿",
+            "label": "New Zealand Sourced"
+          }
+        }
+      },
+      "block_order": [
+        "badge_1",
+        "badge_2",
+        "badge_3",
+        "badge_4",
+        "badge_5",
+        "badge_6"
+      ],
+      "custom_css": [],
+      "settings": {
+        "bg_color": "#cc0019",
+        "text_color": "#ffffff"
+      }
+    },
     "nh-benefits": {
       "type": "nh-benefits",
       "blocks": {
@@ -245,6 +305,7 @@
         "review_3",
         "review_4"
       ],
+      "disabled": true,
       "settings": {
         "bg_color": "#fffbd5",
         "heading_color": "#1a1a1a",
@@ -415,40 +476,40 @@
         "month_1": {
           "type": "timeline_item",
           "settings": {
-            "month": "Month1",
-            "title": "Steadier Daily Energy",
+            "month": "Month 1",
+            "title": "Steadier Daily Energy ⚡️",
             "description": "Many women notice steadier daily energy and less afternoon fatigue as bioavailable haem iron, B12, and B-vitamins begin supporting normal energy-yielding metabolism."
           }
         },
         "month_2": {
           "type": "timeline_item",
           "settings": {
-            "month": "Month<br>2",
-            "title": "Sharper Mental Clarity",
+            "month": "Month 2",
+            "title": "Sharper Mental Clarity   🧠",
             "description": "Improved mental clarity and resilience are often reported as iron, B12, and copper continue to support red blood cell formation and oxygen delivery to the brain."
           }
         },
         "month_3": {
           "type": "timeline_item",
           "settings": {
-            "month": "Month<br>3",
-            "title": "Skin & Hair Changes",
+            "month": "Month 3",
+            "title": "Skin & Hair Changes 💅",
             "description": "Early changes in skin and hair quality may become noticeable, linked to vitamin A, zinc, and copper supporting normal skin cell turnover and connective tissue health."
           }
         },
         "month_6": {
           "type": "timeline_item",
           "settings": {
-            "month": "Month<br>6",
-            "title": "Greater Vitality & Balance",
+            "month": "Month 6",
+            "title": "Greater Vitality & Balance 🌸",
             "description": "A greater sense of overall vitality and balance is common, as consistent intake of whole-food micronutrients helps replenish nutrient stores and support normal hormonal and metabolic function."
           }
         },
         "month_12": {
           "type": "timeline_item",
           "settings": {
-            "month": "Month12",
-            "title": "Long-Term Nourishment",
+            "month": "Month 12",
+            "title": "Long-Term Nourishment 😇",
             "description": "Many women describe feeling more robust and nourished long-term, with sustained energy and fewer fluctuations — reflecting the cumulative benefits of ongoing whole-food, ancestral nutrition."
           }
         }
@@ -761,9 +822,9 @@
             "button_border_radius": 26,
             "button_bg_color": "#cc0019",
             "button_text_color": "#ffffff",
-            "button_hover_bg_color": "#333333",
+            "button_hover_bg_color": "#cc0019",
             "button_hover_text_color": "#ffffff",
-            "enable_hover_lift": true,
+            "enable_hover_lift": false,
             "desktop_width_percent": 100,
             "show_icon": true,
             "button_icon": "shopify://shop_images/Vanilla_BrandIcon_Digital_3313d435-1010-4d45-9c96-88fc9a301901.png",
@@ -816,7 +877,7 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-end": 30
       }
     },
     "nh-provenance": {
@@ -884,45 +945,45 @@
         "description": "Every organ in Nourish Her™ is sourced from 100% grass-fed, pasture-raised cattle in New Zealand — one of the world's most pristine agricultural environments, free from hormones and antibiotics."
       }
     },
-    "nh-trust-signals": {
+    "nh_trust_signals_8fy4x9": {
       "type": "nh-trust-signals",
       "blocks": {
-        "badge_1": {
+        "trust_badge_XbKNpT": {
           "type": "trust_badge",
           "settings": {
             "icon": "🛡️",
             "label": "30-Day Money-Back Guarantee"
           }
         },
-        "badge_2": {
+        "trust_badge_6WRKJd": {
           "type": "trust_badge",
           "settings": {
             "icon": "🌿",
             "label": "Non-GMO"
           }
         },
-        "badge_3": {
+        "trust_badge_xENdFg": {
           "type": "trust_badge",
           "settings": {
             "icon": "🐄",
             "label": "100% Grass-Fed"
           }
         },
-        "badge_4": {
+        "trust_badge_TyC6Gq": {
           "type": "trust_badge",
           "settings": {
             "icon": "🌾",
             "label": "Gluten-Free"
           }
         },
-        "badge_5": {
+        "trust_badge_wEex67": {
           "type": "trust_badge",
           "settings": {
             "icon": "🔬",
             "label": "Lab Tested"
           }
         },
-        "badge_6": {
+        "trust_badge_ha6Cj8": {
           "type": "trust_badge",
           "settings": {
             "icon": "🇳🇿",
@@ -931,12 +992,12 @@
         }
       },
       "block_order": [
-        "badge_1",
-        "badge_2",
-        "badge_3",
-        "badge_4",
-        "badge_5",
-        "badge_6"
+        "trust_badge_XbKNpT",
+        "trust_badge_6WRKJd",
+        "trust_badge_xENdFg",
+        "trust_badge_TyC6Gq",
+        "trust_badge_wEex67",
+        "trust_badge_ha6Cj8"
       ],
       "custom_css": [],
       "settings": {
@@ -1280,6 +1341,7 @@
   },
   "order": [
     "nh-hero",
+    "nh-trust-signals",
     "nh-benefits",
     "nh-reviews",
     "nh-founder",
@@ -1290,7 +1352,7 @@
     "nh-comparison",
     "1776964491b8008986",
     "nh-provenance",
-    "nh-trust-signals",
+    "nh_trust_signals_8fy4x9",
     "nh-offer",
     "nh-lab-tested",
     "nh-faq",
