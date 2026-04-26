@@ -1,0 +1,413 @@
+{% comment %}
+  Nourish Her - Spotlight Section
+  Announcement bar + eyebrow + heading + feature pills + oval image +
+  dark CTA banner + reviews line + testimonial quote.
+{% endcomment %}
+
+{{ 'nourish-her.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  #nh-section-{{ section.id }} {
+    {% if section.settings.bg_color != blank %}background: {{ section.settings.bg_color }};{% endif %}
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  @media (max-width: 768px) {
+    #nh-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_mobile | default: section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile | default: section.settings.padding_bottom }}px;
+    }
+  }
+  #nh-section-{{ section.id }} .nh-spotlight-announce {
+    background: {{ section.settings.announce_bg }};
+    color: {{ section.settings.announce_text_color }};
+  }
+  #nh-section-{{ section.id }} .nh-spotlight-eyebrow {
+    color: {{ section.settings.accent_color }};
+  }
+  #nh-section-{{ section.id }} .nh-spotlight-heading {
+    color: {{ section.settings.heading_color }};
+  }
+  #nh-section-{{ section.id }} .nh-spotlight-heading em {
+    color: {{ section.settings.accent_color }};
+  }
+  #nh-section-{{ section.id }} .nh-spotlight-image-wrap {
+    background: linear-gradient(135deg, {{ section.settings.accent_color }}, {{ section.settings.frame_color }});
+  }
+  #nh-section-{{ section.id }} .nh-spotlight-cta {
+    background: {{ section.settings.cta_bg }};
+    color: {{ section.settings.cta_text }};
+  }
+  #nh-section-{{ section.id }} .nh-spotlight-quote-mark {
+    color: {{ section.settings.accent_color }};
+  }
+{% endstyle %}
+
+<section class="nh-spotlight" id="nh-section-{{ section.id }}">
+
+  {%- comment -%} ========== ANNOUNCEMENT ========== {%- endcomment -%}
+  {% if section.settings.announce_text != blank %}
+    <div class="nh-spotlight-announce">
+      {% if section.settings.announce_icon != blank %}
+        <span class="nh-spotlight-announce-icon">{{ section.settings.announce_icon }}</span>
+      {% endif %}
+      <span class="nh-spotlight-announce-text">{{ section.settings.announce_text }}</span>
+    </div>
+  {% endif %}
+
+  <div class="nh-spotlight-inner">
+
+    {%- comment -%} ========== EYEBROW ========== {%- endcomment -%}
+    {% if section.settings.eyebrow != blank %}
+      <p class="nh-spotlight-eyebrow">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+
+    {%- comment -%} ========== HEADING ========== {%- endcomment -%}
+    {% if section.settings.heading != blank %}
+      <h2 class="nh-spotlight-heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    {%- comment -%} ========== PILLS (blocks) ========== {%- endcomment -%}
+    {% assign pill_count = 0 %}
+    {% for block in section.blocks %}
+      {% if block.type == 'pill' %}{% assign pill_count = pill_count | plus: 1 %}{% endif %}
+    {% endfor %}
+    {% if pill_count > 0 %}
+      <div class="nh-spotlight-pills">
+        {% for block in section.blocks %}
+          {% if block.type == 'pill' %}
+            <span class="nh-spotlight-pill" {{ block.shopify_attributes }}>
+              <span class="nh-spotlight-pill-check" style="background: {{ block.settings.check_color | default: '#4ca96b' }};">✓</span>
+              <span class="nh-spotlight-pill-text">{{ block.settings.text }}</span>
+            </span>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {%- comment -%} ========== IMAGE ========== {%- endcomment -%}
+    {% if section.settings.image != blank %}
+      <div class="nh-spotlight-image-wrap">
+        <div class="nh-spotlight-image">
+          {{ section.settings.image | image_url: width: 1200 | image_tag: alt: section.settings.image_alt, loading: 'lazy', widths: '400,600,800,1000,1200', sizes: '(max-width: 600px) 90vw, 520px' }}
+        </div>
+      </div>
+    {% endif %}
+
+    {%- comment -%} ========== CTA BANNER ========== {%- endcomment -%}
+    {% if section.settings.cta_heading != blank %}
+      {% if section.settings.cta_link != blank %}
+        <a class="nh-spotlight-cta" href="{{ section.settings.cta_link }}">
+      {% else %}
+        <div class="nh-spotlight-cta">
+      {% endif %}
+          <div class="nh-spotlight-cta-text">
+            <div class="nh-spotlight-cta-heading">{{ section.settings.cta_heading }}</div>
+            {% if section.settings.cta_subtext != blank %}
+              <div class="nh-spotlight-cta-subtext">{{ section.settings.cta_subtext }}</div>
+            {% endif %}
+          </div>
+          {% if section.settings.cta_icon != blank %}
+            <div class="nh-spotlight-cta-icon">{{ section.settings.cta_icon }}</div>
+          {% endif %}
+      {% if section.settings.cta_link != blank %}
+        </a>
+      {% else %}
+        </div>
+      {% endif %}
+    {% endif %}
+
+    {%- comment -%} ========== REVIEWS ========== {%- endcomment -%}
+    {% if section.settings.show_reviews %}
+      <div class="nh-spotlight-reviews">
+        <span class="nh-spotlight-stars" aria-hidden="true">★★★★★</span>
+        {% if section.settings.rating != blank %}
+          <span class="nh-spotlight-rating">Rated {{ section.settings.rating }} / 5.0</span>
+        {% endif %}
+        {% if section.settings.reviews_count != blank %}
+          <span class="nh-spotlight-divider">|</span>
+          {% if section.settings.reviews_link != blank %}
+            <a class="nh-spotlight-reviews-link" href="{{ section.settings.reviews_link }}">{{ section.settings.reviews_count }}</a>
+          {% else %}
+            <span class="nh-spotlight-reviews-link">{{ section.settings.reviews_count }}</span>
+          {% endif %}
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {%- comment -%} ========== QUOTE ========== {%- endcomment -%}
+    {% if section.settings.quote_text != blank %}
+      <div class="nh-spotlight-quote">
+        <span class="nh-spotlight-quote-mark" aria-hidden="true">&ldquo;</span>
+        <p class="nh-spotlight-quote-text">{{ section.settings.quote_text }}</p>
+        {% if section.settings.quote_author != blank %}
+          <p class="nh-spotlight-quote-author">&mdash; {{ section.settings.quote_author }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NH - Spotlight",
+  "tag": "section",
+  "class": "nh-section-wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top Padding (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom Padding (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Top Padding (Mobile)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Bottom Padding (Mobile)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color_background",
+      "id": "bg_color",
+      "label": "Section Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color (eyebrow, italic, quote mark)",
+      "default": "#cc0019"
+    },
+    {
+      "type": "color",
+      "id": "frame_color",
+      "label": "Image Frame Gradient End",
+      "default": "#ffd4e2"
+    },
+    {
+      "type": "header",
+      "content": "Announcement Bar"
+    },
+    {
+      "type": "text",
+      "id": "announce_icon",
+      "label": "Icon (emoji)",
+      "default": "⚡"
+    },
+    {
+      "type": "text",
+      "id": "announce_text",
+      "label": "Text",
+      "default": "LIMITED TIME OFFER: GET 1 MONTH FREE"
+    },
+    {
+      "type": "color",
+      "id": "announce_bg",
+      "label": "Announcement Background",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "announce_text_color",
+      "label": "Announcement Text Color",
+      "default": "#fffbd5"
+    },
+    {
+      "type": "header",
+      "content": "Headline"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "HERE'S WHY"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading (wrap accent words in <em>)",
+      "default": "<p><em>Inositol</em> Is The Secret To Healthy Hormones & Consistent Energy</p>"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image Alt Text",
+      "default": "Product image"
+    },
+    {
+      "type": "header",
+      "content": "CTA Banner"
+    },
+    {
+      "type": "text",
+      "id": "cta_heading",
+      "label": "Heading",
+      "default": "RECLAIM YOUR BALANCE"
+    },
+    {
+      "type": "text",
+      "id": "cta_subtext",
+      "label": "Subtext",
+      "default": "60 Day Money Back Guarantee"
+    },
+    {
+      "type": "text",
+      "id": "cta_icon",
+      "label": "Icon (emoji / unicode symbol)",
+      "default": "∞"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Link"
+    },
+    {
+      "type": "color",
+      "id": "cta_bg",
+      "label": "CTA Background",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "cta_text",
+      "label": "CTA Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Reviews"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_reviews",
+      "label": "Show Reviews Line",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "rating",
+      "label": "Rating Number",
+      "default": "4.8"
+    },
+    {
+      "type": "text",
+      "id": "reviews_count",
+      "label": "Reviews Count Text",
+      "default": "2100+ Reviews"
+    },
+    {
+      "type": "url",
+      "id": "reviews_link",
+      "label": "Reviews Link"
+    },
+    {
+      "type": "header",
+      "content": "Quote"
+    },
+    {
+      "type": "textarea",
+      "id": "quote_text",
+      "label": "Quote Text",
+      "default": "I've taken women's vitamins for years and felt no big benefit. I'm now finally noticing steadier energy and more balance after just a few weeks on this."
+    },
+    {
+      "type": "text",
+      "id": "quote_author",
+      "label": "Author (optional)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pill",
+      "name": "Feature Pill",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Clinically Backed"
+        },
+        {
+          "type": "color",
+          "id": "check_color",
+          "label": "Check Badge Color",
+          "default": "#4ca96b"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NH - Spotlight",
+      "blocks": {
+        "pill_1": {
+          "type": "pill",
+          "settings": {
+            "text": "Clinically Backed"
+          }
+        },
+        "pill_2": {
+          "type": "pill",
+          "settings": {
+            "text": "All Day Energy"
+          }
+        }
+      },
+      "block_order": ["pill_1", "pill_2"]
+    }
+  ]
+}
+{% endschema %}
