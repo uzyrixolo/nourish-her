@@ -9,6 +9,67 @@
  */
 {
   "sections": {
+    "nh_spotlight_dkUMe9": {
+      "type": "nh-spotlight",
+      "blocks": {
+        "pill_CPLLr4": {
+          "type": "pill",
+          "settings": {
+            "text": "Clinically Backed",
+            "check_color": "#4ca96b"
+          }
+        },
+        "pill_4rp6Qj": {
+          "type": "pill",
+          "settings": {
+            "text": "Clinically Backed",
+            "check_color": "#4ca96b"
+          }
+        },
+        "pill_jqn4Jr": {
+          "type": "pill",
+          "settings": {
+            "text": "All Day Energy",
+            "check_color": "#4ca96b"
+          }
+        }
+      },
+      "block_order": [
+        "pill_CPLLr4",
+        "pill_4rp6Qj",
+        "pill_jqn4Jr"
+      ],
+      "name": "NH - Spotlight",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 40,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 40,
+        "bg_color": "#ffffff",
+        "heading_color": "#1a1a1a",
+        "accent_color": "#cc0019",
+        "frame_color": "#ffd4e2",
+        "announce_icon": "⚡",
+        "announce_text": "LIMITED TIME OFFER: GET 1 MONTH FREE",
+        "announce_bg": "#1a1a1a",
+        "announce_text_color": "#fffbd5",
+        "eyebrow": "HERE'S WHY",
+        "heading": "<p><em>Inositol</em> Is The Secret To Healthy Hormones & Consistent Energy</p>",
+        "image_alt": "Product image",
+        "cta_heading": "RECLAIM YOUR BALANCE",
+        "cta_subtext": "60 Day Money Back Guarantee",
+        "cta_icon": "∞",
+        "cta_link": "",
+        "cta_bg": "#1a1a1a",
+        "cta_text": "#ffffff",
+        "show_reviews": true,
+        "rating": "4.8",
+        "reviews_count": "2100+ Reviews",
+        "reviews_link": "",
+        "quote_text": "I've taken women's vitamins for years and felt no big benefit. I'm now finally noticing steadier energy and more balance after just a few weeks on this.",
+        "quote_author": ""
+      }
+    },
     "nh-hero": {
       "type": "nh-hero",
       "blocks": {
@@ -1719,6 +1780,7 @@
     }
   },
   "order": [
+    "nh_spotlight_dkUMe9",
     "nh-hero",
     "nh-trust-signals",
     "nh-benefits",
