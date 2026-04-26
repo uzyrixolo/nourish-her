@@ -12,24 +12,82 @@
     "nh_spotlight_dBADrR": {
       "type": "nh-spotlight",
       "blocks": {
-        "pill_33Vnjj": {
-          "type": "pill",
+        "announce": {
+          "type": "announcement",
           "settings": {
-            "text": "Clinically Backed",
+            "icon": "⚡",
+            "text": "LIMITED TIME OFFER: GET 1 MONTH FREE",
+            "bg_color": "#1a1a1a",
+            "text_color": "#fffbd5"
+          }
+        },
+        "eyebrow": {
+          "type": "eyebrow",
+          "settings": {
+            "column": "left",
+            "text": "HERE'S WHY"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "column": "left",
+            "heading": "<p><em>Inositol</em> Is The Secret To Healthy Hormones & Consistent Energy</p>"
+          }
+        },
+        "pills": {
+          "type": "pills",
+          "settings": {
+            "column": "left",
+            "pill_1": "Clinically Backed",
+            "pill_2": "All Day Energy",
             "check_color": "#4ca96b"
           }
         },
-        "pill_PYAdfD": {
-          "type": "pill",
+        "image": {
+          "type": "image",
           "settings": {
-            "text": "All Day Energy",
-            "check_color": "#4ca96b"
+            "column": "right",
+            "image": "shopify://shop_images/ChatGPT_Image_Apr_23_2026_12_58_24_PM.png",
+            "image_alt": "Product image"
+          }
+        },
+        "cta": {
+          "type": "cta",
+          "settings": {
+            "column": "left",
+            "heading": "RECLAIM YOUR BALANCE",
+            "subtext": "60 Day Money Back Guarantee",
+            "icon": "∞",
+            "bg_color": "#1a1a1a",
+            "text_color": "#ffffff"
+          }
+        },
+        "reviews": {
+          "type": "reviews",
+          "settings": {
+            "column": "left",
+            "rating": "4.8",
+            "reviews_count": "2100+ Reviews"
+          }
+        },
+        "quote": {
+          "type": "quote",
+          "settings": {
+            "column": "left",
+            "text": "I've taken women's vitamins for years and felt no big benefit. I'm now finally noticing steadier energy and more balance after just a few weeks on this."
           }
         }
       },
       "block_order": [
-        "pill_33Vnjj",
-        "pill_PYAdfD"
+        "announce",
+        "eyebrow",
+        "heading",
+        "pills",
+        "image",
+        "cta",
+        "reviews",
+        "quote"
       ],
       "name": "NH - Spotlight",
       "settings": {
@@ -39,28 +97,7 @@
         "padding_bottom_mobile": 40,
         "bg_color": "#ffffff",
         "heading_color": "#1a1a1a",
-        "accent_color": "#cc0019",
-        "frame_color": "#ffd4e2",
-        "announce_icon": "⚡",
-        "announce_text": "LIMITED TIME OFFER: GET 1 MONTH FREE",
-        "announce_bg": "#1a1a1a",
-        "announce_text_color": "#fffbd5",
-        "eyebrow": "HERE'S WHY",
-        "heading": "<p><em>Inositol</em> Is The Secret To Healthy Hormones & Consistent Energy</p>",
-        "image": "shopify://shop_images/ChatGPT_Image_Apr_23_2026_12_58_24_PM.png",
-        "image_alt": "Product image",
-        "cta_heading": "RECLAIM YOUR BALANCE",
-        "cta_subtext": "60 Day Money Back Guarantee",
-        "cta_icon": "∞",
-        "cta_link": "",
-        "cta_bg": "#1a1a1a",
-        "cta_text": "#ffffff",
-        "show_reviews": true,
-        "rating": "4.8",
-        "reviews_count": "2100+ Reviews",
-        "reviews_link": "",
-        "quote_text": "I've taken women's vitamins for years and felt no big benefit. I'm now finally noticing steadier energy and more balance after just a few weeks on this.",
-        "quote_author": ""
+        "accent_color": "#cc0019"
       }
     },
     "nh-hero": {
