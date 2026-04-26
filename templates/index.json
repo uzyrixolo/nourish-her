@@ -12,81 +12,125 @@
     "nh_spotlight_dkUMe9": {
       "type": "nh-spotlight",
       "blocks": {
-        "announce_1": {
+        "announcement_D6zXDA": {
           "type": "announcement",
           "settings": {
             "icon": "⚡",
             "text": "LIMITED TIME OFFER: GET 1 MONTH FREE",
             "bg_color": "#1a1a1a",
-            "text_color": "#fffbd5"
+            "text_color": "#fffbd5",
+            "hide_mobile": false,
+            "hide_desktop": false
           }
         },
-        "eyebrow_1": {
+        "eyebrow_XwLkbf": {
           "type": "eyebrow",
           "settings": {
             "column": "left",
-            "text": "HERE'S WHY"
+            "text": "HERE'S WHY",
+            "color": "",
+            "font_size": 13,
+            "font_size_mobile": 12,
+            "letter_spacing": 20,
+            "hide_mobile": false,
+            "hide_desktop": false
           }
         },
-        "heading_1": {
+        "heading_fwHeCU": {
           "type": "heading",
           "settings": {
             "column": "left",
-            "heading": "<p><em>Inositol</em> Is The Secret To Healthy Hormones & Consistent Energy</p>"
+            "heading": "<p><em>Inositol</em> Is The Secret To Healthy Hormones & Consistent Energy</p>",
+            "color": "",
+            "accent_color": "",
+            "font_size": 38,
+            "font_size_mobile": 28,
+            "hide_mobile": false,
+            "hide_desktop": false
           }
         },
-        "pills_1": {
+        "pills_6mYJir": {
           "type": "pills",
           "settings": {
             "column": "left",
+            "align": "flex-start",
             "pill_1": "Clinically Backed",
             "pill_2": "All Day Energy",
-            "check_color": "#4ca96b"
+            "pill_3": "",
+            "pill_4": "",
+            "pill_5": "",
+            "pill_6": "",
+            "pill_bg": "#ffffff",
+            "pill_text": "#1a1a1a",
+            "pill_border": "#e5e5e5",
+            "check_color": "#4ca96b",
+            "hide_mobile": false,
+            "hide_desktop": false
           }
         },
-        "image_1": {
+        "image_LfMtiP": {
           "type": "image",
           "settings": {
             "column": "right",
-            "image_alt": "Product image"
+            "image": "shopify://shop_images/ChatGPT_Image_Apr_23_2026_12_58_24_PM.png",
+            "image_alt": "Product image",
+            "max_width": 520,
+            "align": "center",
+            "hide_mobile": false,
+            "hide_desktop": false
           }
         },
-        "cta_1": {
+        "cta_jHwh7X": {
           "type": "cta",
           "settings": {
-            "column": "left",
+            "column": "right",
             "heading": "RECLAIM YOUR BALANCE",
             "subtext": "60 Day Money Back Guarantee",
             "icon": "∞",
+            "link": "",
             "bg_color": "#1a1a1a",
-            "text_color": "#ffffff"
+            "text_color": "#ffffff",
+            "hide_mobile": false,
+            "hide_desktop": false
           }
         },
-        "reviews_1": {
+        "reviews_bF4KQC": {
           "type": "reviews",
           "settings": {
-            "column": "left",
+            "column": "right",
+            "align": "center",
             "rating": "4.8",
-            "reviews_count": "2100+ Reviews"
+            "reviews_count": "2100+ Reviews",
+            "reviews_link": "",
+            "star_color": "#f5b826",
+            "hide_mobile": false,
+            "hide_desktop": false
           }
         },
-        "quote_1": {
+        "quote_RtKRXL": {
           "type": "quote",
           "settings": {
-            "column": "left",
-            "text": "I've taken women's vitamins for years and felt no big benefit. I'm now finally noticing steadier energy and more balance after just a few weeks on this."
+            "column": "right",
+            "text": "I've taken women's vitamins for years and felt no big benefit. I'm now finally noticing steadier energy and more balance after just a few weeks on this.",
+            "author": "",
+            "text_color": "#444444",
+            "quote_mark_color": "",
+            "bg_color": "#00000005",
+            "border_color": "#00000014",
+            "hide_mobile": false,
+            "hide_desktop": false
           }
         }
       },
       "block_order": [
-        "announce_1",
-        "eyebrow_1",
-        "heading_1",
-        "pills_1",
-        "image_1",
-        "cta_1",
-        "reviews_1",
-        "quote_1"
+        "announcement_D6zXDA",
+        "eyebrow_XwLkbf",
+        "heading_fwHeCU",
+        "pills_6mYJir",
+        "image_LfMtiP",
+        "cta_jHwh7X",
+        "reviews_bF4KQC",
+        "quote_RtKRXL"
       ],
       "name": "NH - Spotlight",
       "settings": {
