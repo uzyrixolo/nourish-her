@@ -1,9 +1,9 @@
 {% comment %}
   Nourish Her - Spotlight Section
   Fully block-based two-column layout.
-  Desktop: CSS Grid with dense auto-flow (left/right per block) — image right, content left by default.
-  Mobile: single column; blocks render in section.blocks order.
-  Announcement block always renders full-width at the very top.
+  Desktop: two independent flex columns (left / right) — each block picks its column.
+  Mobile: single column; blocks render in section.blocks drag order (CSS order).
+  Announcement is a regular block that lives in a column like every other block.
 {% endcomment %}
 
 {{ 'nourish-her.css' | asset_url | stylesheet_tag }}
@@ -23,139 +23,23 @@
 {% endstyle %}
 
 <section class="nh-spotlight" id="nh-section-{{ section.id }}">
-
-  {%- comment -%} ========== FULL-WIDTH ANNOUNCEMENT(S) ========== {%- endcomment -%}
-  {% for block in section.blocks %}
-    {% if block.type == 'announcement' %}
-      {% assign vis_class = '' %}
-      {% if block.settings.hide_mobile %}{% assign vis_class = vis_class | append: ' nh-hide-mobile' %}{% endif %}
-      {% if block.settings.hide_desktop %}{% assign vis_class = vis_class | append: ' nh-hide-desktop' %}{% endif %}
-      <div class="nh-spotlight-announce{{ vis_class }}"
-           style="background: {{ block.settings.bg_color }}; color: {{ block.settings.text_color }};"
-           {{ block.shopify_attributes }}>
-        {% if block.settings.icon != blank %}
-          <span class="nh-spotlight-announce-icon">{{ block.settings.icon }}</span>
-        {% endif %}
-        <span class="nh-spotlight-announce-text">{{ block.settings.text }}</span>
-      </div>
-    {% endif %}
-  {% endfor %}
-
-  {%- comment -%} ========== TWO-COLUMN GRID (all non-announcement blocks) ========== {%- endcomment -%}
   <div class="nh-spotlight-grid">
-    {% for block in section.blocks %}
-      {% if block.type == 'announcement' %}{% continue %}{% endif %}
-
-      {% assign col_class = block.settings.column | default: 'left' %}
-      {% assign vis_class = '' %}
-      {% if block.settings.hide_mobile %}{% assign vis_class = vis_class | append: ' nh-hide-mobile' %}{% endif %}
-      {% if block.settings.hide_desktop %}{% assign vis_class = vis_class | append: ' nh-hide-desktop' %}{% endif %}
-
-      <div class="nh-spotlight-block nh-spotlight-block--{{ col_class }} nh-spotlight-block--{{ block.type }}{{ vis_class }}" {{ block.shopify_attributes }}>
-
-        {% case block.type %}
-
-          {%- comment -%} ---------- EYEBROW ---------- {%- endcomment -%}
-          {% when 'eyebrow' %}
-            {% assign _color = block.settings.color | default: section.settings.accent_color %}
-            <p class="nh-spotlight-eyebrow"
-               style="color: {{ _color }}; font-size: {{ block.settings.font_size }}px; --nh-fs-m: {{ block.settings.font_size_mobile | default: block.settings.font_size }}px; letter-spacing: {{ block.settings.letter_spacing | times: 0.01 }}em;">
-              {{ block.settings.text }}
-            </p>
-
-          {%- comment -%} ---------- HEADING ---------- {%- endcomment -%}
-          {% when 'heading' %}
-            {% assign _color = block.settings.color | default: section.settings.heading_color %}
-            {% assign _accent = block.settings.accent_color | default: section.settings.accent_color %}
-            <h2 class="nh-spotlight-heading"
-                style="color: {{ _color }}; font-size: {{ block.settings.font_size }}px; --nh-fs-m: {{ block.settings.font_size_mobile | default: block.settings.font_size }}px; --nh-heading-accent: {{ _accent }};">
-              {{ block.settings.heading }}
-            </h2>
-
-          {%- comment -%} ---------- PILLS ---------- {%- endcomment -%}
-          {% when 'pills' %}
-            <div class="nh-spotlight-pills"
-                 style="justify-content: {{ block.settings.align | default: 'center' }};">
-              {% for i in (1..6) %}
-                {% capture key %}pill_{{ i }}{% endcapture %}
-                {% assign pill_text = block.settings[key] %}
-                {% if pill_text != blank %}
-                  <span class="nh-spotlight-pill"
-                        style="background: {{ block.settings.pill_bg }}; color: {{ block.settings.pill_text }}; border-color: {{ block.settings.pill_border }};">
-                    <span class="nh-spotlight-pill-check" style="background: {{ block.settings.check_color }};">✓</span>
-                    <span class="nh-spotlight-pill-text">{{ pill_text }}</span>
-                  </span>
-                {% endif %}
-              {% endfor %}
-            </div>
-
-          {%- comment -%} ---------- IMAGE ---------- {%- endcomment -%}
-          {% when 'image' %}
-            {% if block.settings.image != blank %}
-              <div class="nh-spotlight-image"
-                   style="max-width: {{ block.settings.max_width }}px; margin-left: {% if block.settings.align == 'left' %}0{% elsif block.settings.align == 'right' %}auto{% else %}auto{% endif %}; margin-right: {% if block.settings.align == 'right' %}0{% elsif block.settings.align == 'left' %}auto{% else %}auto{% endif %};">
-                {{ block.settings.image | image_url: width: 1400 | image_tag: alt: block.settings.image_alt, loading: 'lazy', widths: '400,600,800,1000,1200,1400', sizes: '(max-width: 768px) 90vw, 520px' }}
-              </div>
-            {% endif %}
-
-          {%- comment -%} ---------- CTA BANNER ---------- {%- endcomment -%}
-          {% when 'cta' %}
-            {% if block.settings.link != blank %}
-              <a class="nh-spotlight-cta" href="{{ block.settings.link }}"
-                 style="background: {{ block.settings.bg_color }}; color: {{ block.settings.text_color }};">
-            {% else %}
-              <div class="nh-spotlight-cta"
-                   style="background: {{ block.settings.bg_color }}; color: {{ block.settings.text_color }};">
-            {% endif %}
-              <div class="nh-spotlight-cta-text">
-                {% if block.settings.heading != blank %}
-                  <div class="nh-spotlight-cta-heading">{{ block.settings.heading }}</div>
-                {% endif %}
-                {% if block.settings.subtext != blank %}
-                  <div class="nh-spotlight-cta-subtext">{{ block.settings.subtext }}</div>
-                {% endif %}
-              </div>
-              {% if block.settings.icon != blank %}
-                <div class="nh-spotlight-cta-icon">{{ block.settings.icon }}</div>
-              {% endif %}
-            {% if block.settings.link != blank %}
-              </a>
-            {% else %}
-              </div>
-            {% endif %}
-
-          {%- comment -%} ---------- REVIEWS ---------- {%- endcomment -%}
-          {% when 'reviews' %}
-            <div class="nh-spotlight-reviews" style="justify-content: {{ block.settings.align | default: 'center' }};">
-              <span class="nh-spotlight-stars" aria-hidden="true" style="color: {{ block.settings.star_color | default: '#f5b826' }};">★★★★★</span>
-              {% if block.settings.rating != blank %}
-                <span class="nh-spotlight-rating">Rated {{ block.settings.rating }} / 5.0</span>
-              {% endif %}
-              {% if block.settings.reviews_count != blank %}
-                <span class="nh-spotlight-divider">|</span>
-                {% if block.settings.reviews_link != blank %}
-                  <a class="nh-spotlight-reviews-link" href="{{ block.settings.reviews_link }}">{{ block.settings.reviews_count }}</a>
-                {% else %}
-                  <span class="nh-spotlight-reviews-link">{{ block.settings.reviews_count }}</span>
-                {% endif %}
-              {% endif %}
-            </div>
-
-          {%- comment -%} ---------- QUOTE ---------- {%- endcomment -%}
-          {% when 'quote' %}
-            <div class="nh-spotlight-quote"
-                 style="background: {{ block.settings.bg_color }}; border-color: {{ block.settings.border_color }};">
-              <span class="nh-spotlight-quote-mark" aria-hidden="true"
-                    style="color: {{ block.settings.quote_mark_color | default: section.settings.accent_color }};">&ldquo;</span>
-              <p class="nh-spotlight-quote-text" style="color: {{ block.settings.text_color }};">{{ block.settings.text }}</p>
-              {% if block.settings.author != blank %}
-                <p class="nh-spotlight-quote-author">&mdash; {{ block.settings.author }}</p>
-              {% endif %}
-            </div>
-
-        {% endcase %}
-      </div>
-    {% endfor %}
+    <div class="nh-spotlight-col nh-spotlight-col--left">
+      {%- for block in section.blocks -%}
+        {%- assign _col = block.settings.column | default: 'left' -%}
+        {%- if _col != 'right' -%}
+          {%- render 'nh-spotlight-block', block: block, section_settings: section.settings, order: forloop.index0 -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    <div class="nh-spotlight-col nh-spotlight-col--right">
+      {%- for block in section.blocks -%}
+        {%- assign _col = block.settings.column | default: 'left' -%}
+        {%- if _col == 'right' -%}
+          {%- render 'nh-spotlight-block', block: block, section_settings: section.settings, order: forloop.index0 -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
   </div>
 </section>
 
@@ -239,29 +123,32 @@
       "limit": 2,
       "settings": [
         {
-          "type": "text",
-          "id": "icon",
-          "label": "Icon (emoji)",
-          "default": "⚡"
+          "type": "select",
+          "id": "column",
+          "label": "Column",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "left"
         },
         {
-          "type": "text",
-          "id": "text",
-          "label": "Text",
-          "default": "LIMITED TIME OFFER: GET 1 MONTH FREE"
+          "type": "select",
+          "id": "align",
+          "label": "Alignment",
+          "options": [
+            { "value": "flex-start", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "flex-end", "label": "Right" }
+          ],
+          "default": "center"
         },
-        {
-          "type": "color",
-          "id": "bg_color",
-          "label": "Background",
-          "default": "#1a1a1a"
-        },
-        {
-          "type": "color",
-          "id": "text_color",
-          "label": "Text Color",
-          "default": "#fffbd5"
-        },
+        { "type": "text", "id": "icon", "label": "Icon (emoji)", "default": "⚡" },
+        { "type": "text", "id": "text", "label": "Text", "default": "LIMITED TIME OFFER: GET 1 MONTH FREE" },
+        { "type": "color", "id": "bg_color", "label": "Background", "default": "#1a1a1a" },
+        { "type": "color", "id": "text_color", "label": "Text Color", "default": "#fffbd5" },
+        { "type": "range", "id": "font_size", "label": "Font Size (Desktop)", "min": 10, "max": 20, "step": 1, "unit": "px", "default": 12 },
+        { "type": "range", "id": "font_size_mobile", "label": "Font Size (Mobile)", "min": 9, "max": 18, "step": 1, "unit": "px", "default": 11 },
         { "type": "header", "content": "Visibility" },
         { "type": "checkbox", "id": "hide_mobile", "label": "Hide on Mobile", "default": false },
         { "type": "checkbox", "id": "hide_desktop", "label": "Hide on Desktop", "default": false }
