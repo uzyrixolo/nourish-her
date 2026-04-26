@@ -130,6 +130,10 @@
         "cta_FJMn8p"
       ],
       "settings": {
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 24,
         "bg_color": "#fffbd5",
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
@@ -242,6 +246,10 @@
         "benefit_4"
       ],
       "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
         "bg_color": "#fdf8f0",
         "heading_color": "#1a1a1a",
         "accent_color": "#fe3c93",
@@ -307,6 +315,10 @@
       ],
       "disabled": true,
       "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
         "bg_color": "#fffbd5",
         "heading_color": "#1a1a1a",
         "accent_color": "#fe3c93",
@@ -389,6 +401,10 @@
       ],
       "name": "NH - Problem Agitation",
       "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
         "bg_color": "#ffffff",
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
@@ -460,6 +476,10 @@
       ],
       "name": "NH - Solution reveal",
       "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
         "bg_color": "#FFFBD5",
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
@@ -522,6 +542,10 @@
         "month_12"
       ],
       "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
         "bg_color": "#fdf8f0",
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
@@ -687,6 +711,11 @@
         "ovaries"
       ],
       "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "image_size": 56,
         "bg_color": "#cc0019",
         "heading_color": "#fffbd5",
         "text_color": "#fffbd5",
@@ -877,6 +906,10 @@
         "quote_FQb8Uw"
       ],
       "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
         "bg_color": "#ffffff",
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
@@ -1007,6 +1040,10 @@
         "comparison_row_TACVYU"
       ],
       "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
         "bg_color": "#fdf8f0",
         "heading_color": "#1a1a1a",
         "accent_color": "#cc0019",
@@ -1151,6 +1188,10 @@
         "lab_tested"
       ],
       "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
         "bg_color": "#fffbd5",
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
@@ -1322,6 +1363,10 @@
         "include_6"
       ],
       "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
         "bg_color": "#fdf8f0",
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
@@ -1404,6 +1449,10 @@
         "download_CnzKM6"
       ],
       "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
         "bg_color": "#ffffff",
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
@@ -1483,6 +1532,10 @@
         "faq_8"
       ],
       "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
         "bg_color": "#fdf8f0",
         "heading_color": "#1a1a1a",
         "accent_color": "#cc0019",
@@ -1601,7 +1654,7 @@
             "heading_spacing": 30,
             "show_rating": true,
             "star_size": 20,
-            "star_color": "#FFD700",
+            "star_color": "#ffd700",
             "rating_text": "Chosen by 12,000+ mindful kitchens",
             "rating_text_size": 14,
             "rating_text_color": "#ffffff",
