@@ -59,7 +59,7 @@
           {% when 'eyebrow' %}
             {% assign _color = block.settings.color | default: section.settings.accent_color %}
             <p class="nh-spotlight-eyebrow"
-               style="color: {{ _color }}; font-size: {{ block.settings.font_size }}px; --nh-fs-m: {{ block.settings.font_size_mobile | default: block.settings.font_size }}px; letter-spacing: {{ block.settings.letter_spacing }}em;">
+               style="color: {{ _color }}; font-size: {{ block.settings.font_size }}px; --nh-fs-m: {{ block.settings.font_size_mobile | default: block.settings.font_size }}px; letter-spacing: {{ block.settings.letter_spacing | times: 0.01 }}em;">
               {{ block.settings.text }}
             </p>
 
@@ -285,7 +285,7 @@
         { "type": "color", "id": "color", "label": "Color (blank = section accent)" },
         { "type": "range", "id": "font_size", "label": "Font Size (Desktop)", "min": 10, "max": 24, "step": 1, "unit": "px", "default": 13 },
         { "type": "range", "id": "font_size_mobile", "label": "Font Size (Mobile)", "min": 8, "max": 20, "step": 1, "unit": "px", "default": 12 },
-        { "type": "range", "id": "letter_spacing", "label": "Letter Spacing", "min": 0, "max": 0.4, "step": 0.01, "unit": "em", "default": 0.18 },
+        { "type": "range", "id": "letter_spacing", "label": "Letter Spacing (×0.01em)", "min": 0, "max": 40, "step": 5, "unit": "", "default": 20 },
         { "type": "header", "content": "Visibility" },
         { "type": "checkbox", "id": "hide_mobile", "label": "Hide on Mobile", "default": false },
         { "type": "checkbox", "id": "hide_desktop", "label": "Hide on Desktop", "default": false }
