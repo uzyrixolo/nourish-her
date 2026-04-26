@@ -8,6 +8,14 @@
 {% style %}
   #nh-section-{{ section.id }} {
     {% if section.settings.bg_color != blank %}background: {{ section.settings.bg_color }};{% endif %}
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  @media (max-width: 768px) {
+    #nh-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_mobile | default: section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile | default: section.settings.padding_bottom }}px;
+    }
   }
   #nh-section-{{ section.id }} .nh-section-title {
     color: {{ section.settings.heading_color }};
@@ -118,6 +126,50 @@
   "tag": "section",
   "class": "nh-section-wrapper",
   "settings": [
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top Padding (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom Padding (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Top Padding (Mobile)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Bottom Padding (Mobile)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
     {
       "type": "header",
       "content": "Section Colors"
