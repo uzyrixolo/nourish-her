@@ -15,10 +15,14 @@
         "announcement_D6zXDA": {
           "type": "announcement",
           "settings": {
+            "column": "left",
+            "align": "center",
             "icon": "⚡",
             "text": "LIMITED TIME OFFER: GET 1 MONTH FREE",
             "bg_color": "#1a1a1a",
             "text_color": "#fffbd5",
+            "font_size": 12,
+            "font_size_mobile": 11,
             "hide_mobile": false,
             "hide_desktop": false
           }
@@ -97,7 +101,7 @@
         "reviews_bF4KQC": {
           "type": "reviews",
           "settings": {
-            "column": "right",
+            "column": "left",
             "align": "center",
             "rating": "4.8",
             "reviews_count": "2100+ Reviews",
@@ -110,7 +114,7 @@
         "quote_RtKRXL": {
           "type": "quote",
           "settings": {
-            "column": "right",
+            "column": "left",
             "text": "I've taken women's vitamins for years and felt no big benefit. I'm now finally noticing steadier energy and more balance after just a few weeks on this.",
             "author": "",
             "text_color": "#444444",
