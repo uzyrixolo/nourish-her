@@ -18,25 +18,33 @@
 </div>
 
 <script>
-  // Sticky bottom CTA visibility - tied to hero section
+  // Sticky bottom CTA visibility - hidden in hero; appears once user reaches the Spotlight (second) section and stays visible thereafter.
   (function() {
-    const nhStickyBottomCta = document.getElementById('nhStickyBottomCta');
-    
-    // Find hero section by class since ID is dynamic
-    const nhHeroSection = document.querySelector('.nh-hero');
-    
-    if (nhHeroSection && nhStickyBottomCta) {
-      const nhBottomObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) {
-            nhStickyBottomCta.classList.add('nh-visible');
-          } else {
-            nhStickyBottomCta.classList.remove('nh-visible');
-          }
-        });
-      }, { threshold: 0.1 });
-      
-      nhBottomObserver.observe(nhHeroSection);
+    const cta = document.getElementById('nhStickyBottomCta');
+    if (!cta) return;
+
+    // Trigger element: top of the Spotlight section (the 2nd section on the page).
+    // Fallback: first non-hero section if .nh-spotlight isn't present.
+    const trigger = document.querySelector('.nh-spotlight')
+                 || document.querySelector('main section:not(.nh-hero)')
+                 || document.querySelector('.nh-hero + *');
+    if (!trigger) return;
+
+    const SHOW_OFFSET = 0.9; // show when trigger's top enters top 90% of viewport
+
+    function check() {
+      const rect = trigger.getBoundingClientRect();
+      if (rect.top <= window.innerHeight * SHOW_OFFSET) {
+        cta.classList.add('nh-visible');
+      } else {
+        cta.classList.remove('nh-visible');
+      }
     }
+
+    window.addEventListener('scroll', check, { passive: true });
+    window.addEventListener('resize', check);
+    // Initial check (also after a tick so async-rendered sections are in place)
+    check();
+    setTimeout(check, 250);
   })();
 </script>

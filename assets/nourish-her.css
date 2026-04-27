@@ -674,7 +674,7 @@
 .nh-timeline::before {
   content: '';
   position: absolute;
-  left: 80px;
+  left: 96px;
   top: 0;
   bottom: 0;
   width: 3px;
@@ -687,7 +687,7 @@
 .nh-timeline::after {
   content: '';
   position: absolute;
-  left: 80px;
+  left: 96px;
   top: 0;
   width: 3px;
   height: var(--nh-tl-progress, 0px);
@@ -713,7 +713,7 @@
 }
 
 .nh-timeline-month {
-  width: 80px;
+  width: 96px;
   flex-shrink: 0;
   text-align: right;
   font-family: var(--font-h2--family, 'Playfair Display', serif);
@@ -722,13 +722,16 @@
   color: var(--nh-red);
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  padding-right: 20px;
+  padding-right: 32px;
   padding-top: 4px;
+  white-space: normal;
+  word-spacing: 0.1em;
+  line-height: 1.25;
 }
 
 .nh-timeline-dot {
   position: absolute;
-  left: 72px;
+  left: 88px;
   top: 32px;
   width: 18px;
   height: 18px;
@@ -1575,11 +1578,11 @@
   }
 
   .nh-timeline::before {
-    left: 44px;
+    left: 60px;
   }
 
   .nh-timeline::after {
-    left: 44px;
+    left: 60px;
   }
 
   .nh-timeline-item {
@@ -1598,21 +1601,22 @@
   }
 
   .nh-timeline-month {
-    width: 44px;
+    width: 60px;
     text-align: right;
     font-size: 0.7rem;
-    padding-right: 12px;
+    padding-right: 20px;
     padding-top: 4px;
     color: var(--nh-red);
     font-weight: 900;
     letter-spacing: 0.06em;
     flex-shrink: 0;
     line-height: 1.2;
+    word-spacing: 0.08em;
   }
 
   .nh-timeline-dot {
     display: block;
-    left: 36px;
+    left: 52px;
     top: 24px;
     width: 16px;
     height: 16px;
@@ -1866,6 +1870,20 @@ a.nh-spotlight-cta:hover {
   line-height: 1;
   flex-shrink: 0;
   opacity: 0.9;
+}
+
+.nh-spotlight-cta-icon--image {
+  opacity: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nh-spotlight-cta-icon--image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .nh-spotlight-reviews {

@@ -62,23 +62,30 @@
       {% endif %}
 
     {% when 'cta' %}
+      {%- assign _cta_radius = block.settings.border_radius | default: 6 -%}
+      {%- assign _cta_icon_size = block.settings.icon_size | default: 32 -%}
+      {%- capture _cta_inner -%}
+        <div class="nh-spotlight-cta-text">
+          {% if block.settings.heading != blank %}<div class="nh-spotlight-cta-heading">{{ block.settings.heading }}</div>{% endif %}
+          {% if block.settings.subtext != blank %}<div class="nh-spotlight-cta-subtext">{{ block.settings.subtext }}</div>{% endif %}
+        </div>
+        {% if block.settings.icon_image != blank %}
+          <div class="nh-spotlight-cta-icon nh-spotlight-cta-icon--image" style="width: {{ _cta_icon_size }}px; height: {{ _cta_icon_size }}px;">
+            {{ block.settings.icon_image | image_url: width: 160 | image_tag: alt: block.settings.heading, loading: 'lazy', widths: '40,80,120,160' }}
+          </div>
+        {% elsif block.settings.icon != blank %}
+          <div class="nh-spotlight-cta-icon" style="font-size: {{ _cta_icon_size | times: 0.9 }}px;">{{ block.settings.icon }}</div>
+        {% endif %}
+      {%- endcapture -%}
       {% if block.settings.link != blank %}
         <a class="nh-spotlight-cta" href="{{ block.settings.link }}"
-           style="background: {{ block.settings.bg_color }}; color: {{ block.settings.text_color }};">
-          <div class="nh-spotlight-cta-text">
-            {% if block.settings.heading != blank %}<div class="nh-spotlight-cta-heading">{{ block.settings.heading }}</div>{% endif %}
-            {% if block.settings.subtext != blank %}<div class="nh-spotlight-cta-subtext">{{ block.settings.subtext }}</div>{% endif %}
-          </div>
-          {% if block.settings.icon != blank %}<div class="nh-spotlight-cta-icon">{{ block.settings.icon }}</div>{% endif %}
+           style="background: {{ block.settings.bg_color }}; color: {{ block.settings.text_color }}; border-radius: {{ _cta_radius }}px;">
+          {{ _cta_inner }}
         </a>
       {% else %}
         <div class="nh-spotlight-cta"
-             style="background: {{ block.settings.bg_color }}; color: {{ block.settings.text_color }};">
-          <div class="nh-spotlight-cta-text">
-            {% if block.settings.heading != blank %}<div class="nh-spotlight-cta-heading">{{ block.settings.heading }}</div>{% endif %}
-            {% if block.settings.subtext != blank %}<div class="nh-spotlight-cta-subtext">{{ block.settings.subtext }}</div>{% endif %}
-          </div>
-          {% if block.settings.icon != blank %}<div class="nh-spotlight-cta-icon">{{ block.settings.icon }}</div>{% endif %}
+             style="background: {{ block.settings.bg_color }}; color: {{ block.settings.text_color }}; border-radius: {{ _cta_radius }}px;">
+          {{ _cta_inner }}
         </div>
       {% endif %}
 
