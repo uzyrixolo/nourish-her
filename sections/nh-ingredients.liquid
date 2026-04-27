@@ -11,14 +11,34 @@
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
   }
+  #nh-section-{{ section.id }} .nh-ingredient-card .nh-organ-emoji {
+    width: var(--nh-ing-img-size, {{ section.settings.image_size | default: 56 }}px);
+    height: var(--nh-ing-img-size, {{ section.settings.image_size | default: 56 }}px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
   #nh-section-{{ section.id }} .nh-ingredient-custom-img {
-    width: {{ section.settings.image_size | default: 56 }}px;
-    height: {{ section.settings.image_size | default: 56 }}px;
+    width: var(--nh-ing-img-size, {{ section.settings.image_size | default: 56 }}px);
+    height: var(--nh-ing-img-size, {{ section.settings.image_size | default: 56 }}px);
+    object-fit: contain;
+  }
+  #nh-section-{{ section.id }} .nh-ingredient-emoji-text {
+    font-size: calc(var(--nh-ing-img-size, {{ section.settings.image_size | default: 56 }}px) * 0.9);
+    line-height: 1;
   }
   @media (max-width: 768px) {
     #nh-section-{{ section.id }} {
       padding-top: {{ section.settings.padding_top_mobile | default: section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom_mobile | default: section.settings.padding_bottom }}px;
+    }
+    #nh-section-{{ section.id }} .nh-ingredient-card .nh-organ-emoji,
+    #nh-section-{{ section.id }} .nh-ingredient-custom-img {
+      width: var(--nh-ing-img-size-m, var(--nh-ing-img-size, {{ section.settings.image_size_mobile | default: section.settings.image_size | default: 48 }}px));
+      height: var(--nh-ing-img-size-m, var(--nh-ing-img-size, {{ section.settings.image_size_mobile | default: section.settings.image_size | default: 48 }}px));
+    }
+    #nh-section-{{ section.id }} .nh-ingredient-emoji-text {
+      font-size: calc(var(--nh-ing-img-size-m, var(--nh-ing-img-size, {{ section.settings.image_size_mobile | default: section.settings.image_size | default: 48 }}px)) * 0.9);
     }
   }
   #nh-section-{{ section.id }} .nh-section-title {
@@ -70,14 +90,22 @@
     {% if section.blocks.size > 0 %}
       <div class="nh-ingredients-grid">
         {% for block in section.blocks %}
-          <div class="nh-ingredient-card" {{ block.shopify_attributes }} style="{% if block.settings.card_bg != blank %}background: {{ block.settings.card_bg }};{% endif %}{% if block.settings.card_border != blank %}border-color: {{ block.settings.card_border }};{% endif %}">
+          {%- assign _block_img_size = block.settings.image_size -%}
+          {%- if _block_img_size == 0 or _block_img_size == blank -%}
+            {%- assign _block_img_size = section.settings.image_size | default: 56 -%}
+          {%- endif -%}
+          {%- assign _block_img_size_mobile = block.settings.image_size_mobile -%}
+          {%- if _block_img_size_mobile == 0 or _block_img_size_mobile == blank -%}
+            {%- assign _block_img_size_mobile = section.settings.image_size_mobile | default: _block_img_size -%}
+          {%- endif -%}
+          {%- assign _img_src_w = _block_img_size | times: 2 -%}
+          <div class="nh-ingredient-card" {{ block.shopify_attributes }} style="{% if block.settings.card_bg != blank %}background: {{ block.settings.card_bg }};{% endif %}{% if block.settings.card_border != blank %}border-color: {{ block.settings.card_border }};{% endif %} --nh-ing-img-size: {{ _block_img_size }}px; --nh-ing-img-size-m: {{ _block_img_size_mobile }}px;">
             <div class="nh-ingredient-name">
               <span class="nh-organ-emoji">
                 {% if block.settings.custom_image != blank %}
-                  {%- assign _img_w = section.settings.image_size | default: 56 | times: 2 -%}
-                  {{ block.settings.custom_image | image_url: width: _img_w | image_tag: alt: block.settings.name, loading: 'lazy', class: 'nh-ingredient-custom-img' }}
+                  {{ block.settings.custom_image | image_url: width: _img_src_w | image_tag: alt: block.settings.name, loading: 'lazy', class: 'nh-ingredient-custom-img' }}
                 {% else %}
-                  {{ block.settings.emoji }}
+                  <span class="nh-ingredient-emoji-text">{{ block.settings.emoji }}</span>
                 {% endif %}
               </span>
               {{ block.settings.name }}
@@ -141,19 +169,33 @@
       "unit": "px",
       "default": 60
     },
-    {
+     {
       "type": "header",
-      "content": "Ingredient Image"
+      "content": "Ingredient Image (Section Default)"
+    },
+    {
+      "type": "paragraph",
+      "content": "Default size for all ingredient images. Can be overridden per-block."
     },
     {
       "type": "range",
       "id": "image_size",
-      "label": "Custom Image Size",
+      "label": "Image Size (Desktop)",
       "min": 24,
-      "max": 120,
+      "max": 160,
       "step": 2,
       "unit": "px",
       "default": 56
+    },
+    {
+      "type": "range",
+      "id": "image_size_mobile",
+      "label": "Image Size (Mobile)",
+      "min": 20,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 48
     },
     {
       "type": "header",
@@ -247,7 +289,7 @@
     }
   ],
   "blocks": [
-    {
+     {
       "type": "ingredient",
       "name": "Ingredient",
       "settings": [
@@ -256,6 +298,32 @@
           "id": "custom_image",
           "label": "Custom Image (SVG/PNG)",
           "info": "Overrides the emoji if selected"
+        },
+        {
+          "type": "header",
+          "content": "Image Size (Overrides Section Default)"
+        },
+        {
+          "type": "range",
+          "id": "image_size",
+          "label": "Image Size (Desktop)",
+          "min": 0,
+          "max": 160,
+          "step": 2,
+          "unit": "px",
+          "default": 0,
+          "info": "0 = use section default"
+        },
+        {
+          "type": "range",
+          "id": "image_size_mobile",
+          "label": "Image Size (Mobile)",
+          "min": 0,
+          "max": 120,
+          "step": 2,
+          "unit": "px",
+          "default": 0,
+          "info": "0 = use section default"
         },
         {
           "type": "text",
