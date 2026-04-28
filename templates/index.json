@@ -19,7 +19,7 @@
             "align": "center",
             "icon": "⚡",
             "text": "LIMITED TIME OFFER: GET 1 MONTH FREE",
-            "bg_color": "#1a1a1a",
+            "bg_color": "#cc0019",
             "text_color": "#fffbd5",
             "font_size": 12,
             "font_size_mobile": 11,
@@ -44,7 +44,7 @@
           "type": "heading",
           "settings": {
             "column": "left",
-            "heading": "<p><em>Inositol</em> Is The Secret To Healthy Hormones & Consistent Energy</p>",
+            "heading": "<p><em>Beef Organs</em> are The Secret To Healthy Hormones & Consistent Energy</p>",
             "color": "",
             "accent_color": "",
             "font_size": 38,
@@ -58,15 +58,15 @@
           "settings": {
             "column": "left",
             "align": "flex-start",
-            "pill_1": "Clinically Backed",
-            "pill_2": "All Day Energy",
-            "pill_3": "",
+            "pill_1": "All Day Energy",
+            "pill_2": "Skin & Hair Health",
+            "pill_3": "Female Vitality",
             "pill_4": "",
             "pill_5": "",
             "pill_6": "",
             "pill_bg": "#ffffff",
             "pill_text": "#1a1a1a",
-            "pill_border": "#e5e5e5",
+            "pill_border": "#ffd4e2",
             "check_color": "#4ca96b",
             "hide_mobile": false,
             "hide_desktop": false
@@ -89,11 +89,14 @@
           "settings": {
             "column": "left",
             "heading": "RECLAIM YOUR BALANCE",
-            "subtext": "60 Day Money Back Guarantee",
+            "subtext": "30 Day Money Back Guarantee",
+            "icon_image": "shopify://shop_images/Vanilla_BrandIcon_Digital_3313d435-1010-4d45-9c96-88fc9a301901.png",
+            "icon_size": 40,
             "icon": "∞",
             "link": "",
-            "bg_color": "#1a1a1a",
+            "bg_color": "#cc0019",
             "text_color": "#ffffff",
+            "border_radius": 10,
             "hide_mobile": false,
             "hide_desktop": false
           }
@@ -116,11 +119,11 @@
           "settings": {
             "column": "left",
             "text": "I've taken women's vitamins for years and felt no big benefit. I'm now finally noticing steadier energy and more balance after just a few weeks on this.",
-            "author": "",
-            "text_color": "#444444",
-            "quote_mark_color": "",
-            "bg_color": "#00000005",
-            "border_color": "#00000014",
+            "author": "Lucy L",
+            "text_color": "#000000",
+            "quote_mark_color": "#cc0019",
+            "bg_color": "#ece9d6",
+            "border_color": "rgba(0,0,0,0)",
             "hide_mobile": false,
             "hide_desktop": false
           }
@@ -142,7 +145,7 @@
         "padding_bottom": 40,
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 40,
-        "bg_color": "#ffffff",
+        "bg_color": "#fffbd5",
         "heading_color": "#1a1a1a",
         "accent_color": "#cc0019"
       }
@@ -267,6 +270,7 @@
         "trust_badges_hb7teW",
         "cta_FJMn8p"
       ],
+      "disabled": true,
       "settings": {
         "padding_top": 60,
         "padding_bottom": 60,
@@ -541,8 +545,8 @@
       "settings": {
         "padding_top": 80,
         "padding_bottom": 80,
-        "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 12,
         "bg_color": "#ffffff",
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
@@ -616,8 +620,8 @@
       "settings": {
         "padding_top": 80,
         "padding_bottom": 80,
-        "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 0,
         "bg_color": "#FFFBD5",
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
@@ -682,8 +686,8 @@
       "settings": {
         "padding_top": 80,
         "padding_bottom": 80,
-        "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 32,
         "bg_color": "#fdf8f0",
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
@@ -776,6 +780,9 @@
         "liver": {
           "type": "ingredient",
           "settings": {
+            "custom_image": "shopify://shop_images/Liver.png",
+            "image_size": 0,
+            "image_size_mobile": 84,
             "emoji": "🫀",
             "name": "Beef Liver",
             "stat": "Richer in Vitamin A than carrots",
@@ -787,6 +794,9 @@
         "spleen": {
           "type": "ingredient",
           "settings": {
+            "custom_image": "shopify://shop_images/Spleen.png",
+            "image_size": 0,
+            "image_size_mobile": 84,
             "emoji": "🩸",
             "name": "Beef Spleen",
             "stat": "Richer in haem iron than spinach",
@@ -798,6 +808,9 @@
         "kidney": {
           "type": "ingredient",
           "settings": {
+            "custom_image": "shopify://shop_images/Kidney.png",
+            "image_size": 0,
+            "image_size_mobile": 84,
             "emoji": "🫘",
             "name": "Beef Kidney",
             "stat": "Richer in selenium than tuna",
@@ -809,6 +822,9 @@
         "heart": {
           "type": "ingredient",
           "settings": {
+            "custom_image": "shopify://shop_images/Heart.png",
+            "image_size": 0,
+            "image_size_mobile": 84,
             "emoji": "❤️",
             "name": "Beef Heart",
             "stat": "Richer in CoQ10 than steak",
@@ -820,6 +836,9 @@
         "uterus": {
           "type": "ingredient",
           "settings": {
+            "custom_image": "shopify://shop_images/Uterus.png",
+            "image_size": 0,
+            "image_size_mobile": 84,
             "emoji": "🌸",
             "name": "Beef Uterus",
             "stat": "Rich in connective-tissue proteins",
@@ -831,6 +850,9 @@
         "ovaries": {
           "type": "ingredient",
           "settings": {
+            "custom_image": "shopify://shop_images/Ovaries.png",
+            "image_size": 0,
+            "image_size_mobile": 84,
             "emoji": "🌺",
             "name": "Beef Ovaries",
             "stat": "Provides phospholipids like egg yolks",
@@ -851,9 +873,10 @@
       "settings": {
         "padding_top": 80,
         "padding_bottom": 80,
-        "padding_top_mobile": 60,
+        "padding_top_mobile": 36,
         "padding_bottom_mobile": 60,
         "image_size": 56,
+        "image_size_mobile": 48,
         "bg_color": "#cc0019",
         "heading_color": "#fffbd5",
         "text_color": "#fffbd5",
@@ -1047,7 +1070,7 @@
         "padding_top": 80,
         "padding_bottom": 80,
         "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
+        "padding_bottom_mobile": 0,
         "bg_color": "#ffffff",
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
@@ -1193,7 +1216,7 @@
         "tr_even_bg": "#fcfcfc",
         "product_image": "shopify://shop_images/Nourish_Her_product_image.png",
         "product_image_url": "",
-        "column_1_title": "Nourish Her™ Beef Organ Supplement",
+        "column_1_title": "Grass Fed Beef Organs",
         "comparison_image": "shopify://shop_images/generic-multivitamin.jpg",
         "comparison_image_url": "",
         "column_2_title": "Synthetic Supplements",
