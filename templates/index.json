@@ -1068,7 +1068,7 @@
       ],
       "settings": {
         "padding_top": 80,
-        "padding_bottom": 80,
+        "padding_bottom": 32,
         "padding_top_mobile": 60,
         "padding_bottom_mobile": 0,
         "bg_color": "#ffffff",
@@ -1151,7 +1151,7 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 0,
-        "padding-block-end": 30
+        "padding-block-end": 50
       }
     },
     "nh-comparison": {
@@ -1201,7 +1201,7 @@
         "comparison_row_TACVYU"
       ],
       "settings": {
-        "padding_top": 80,
+        "padding_top": 36,
         "padding_bottom": 80,
         "padding_top_mobile": 60,
         "padding_bottom_mobile": 60,
@@ -1349,9 +1349,9 @@
         "lab_tested"
       ],
       "settings": {
-        "padding_top": 80,
+        "padding_top": 36,
         "padding_bottom": 80,
-        "padding_top_mobile": 60,
+        "padding_top_mobile": 32,
         "padding_bottom_mobile": 60,
         "bg_color": "#fffbd5",
         "heading_color": "#1a1a1a",
@@ -1524,7 +1524,7 @@
         "include_6"
       ],
       "settings": {
-        "padding_top": 80,
+        "padding_top": 36,
         "padding_bottom": 80,
         "padding_top_mobile": 60,
         "padding_bottom_mobile": 60,
@@ -1610,9 +1610,9 @@
         "download_CnzKM6"
       ],
       "settings": {
-        "padding_top": 80,
+        "padding_top": 36,
         "padding_bottom": 80,
-        "padding_top_mobile": 60,
+        "padding_top_mobile": 32,
         "padding_bottom_mobile": 60,
         "bg_color": "#ffffff",
         "heading_color": "#1a1a1a",
@@ -1693,9 +1693,9 @@
         "faq_8"
       ],
       "settings": {
-        "padding_top": 80,
+        "padding_top": 36,
         "padding_bottom": 80,
-        "padding_top_mobile": 60,
+        "padding_top_mobile": 32,
         "padding_bottom_mobile": 60,
         "bg_color": "#fdf8f0",
         "heading_color": "#1a1a1a",
