@@ -1877,6 +1877,18 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
+    },
+    "nh_sticky_bar_Lpqirf": {
+      "type": "nh-sticky-bar",
+      "name": "NH - Sticky Bottom Bar",
+      "settings": {
+        "sticky_enabled": true,
+        "sticky_title": "Nourish Her™",
+        "sticky_subscription_price": "£34.99/mo",
+        "sticky_onetime_price": "£44.99",
+        "sticky_cta_text": "Shop Now",
+        "sticky_cta_link": ""
+      }
     }
   },
   "order": [
@@ -1901,6 +1913,7 @@
     "nh-lab-tested",
     "nh-faq",
     "nh-footer",
-    "1777046304e1a9285d"
+    "1777046304e1a9285d",
+    "nh_sticky_bar_Lpqirf"
   ]
 }
