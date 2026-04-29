@@ -110,6 +110,9 @@
             "reviews_count": "2100+ Reviews",
             "reviews_link": "",
             "star_color": "#f5b826",
+            "rating_color": "#555555",
+            "reviews_text_color": "#555555",
+            "divider_color": "#cccccc",
             "hide_mobile": false,
             "hide_desktop": false
           }
@@ -874,7 +877,7 @@
         "padding_top": 80,
         "padding_bottom": 80,
         "padding_top_mobile": 36,
-        "padding_bottom_mobile": 60,
+        "padding_bottom_mobile": 40,
         "image_size": 56,
         "image_size_mobile": 48,
         "bg_color": "#cc0019",
@@ -889,6 +892,9 @@
         "card_accent_text": "#fffbd5",
         "label": "",
         "heading": "<p>What's Inside Exactly?</p>",
+        "heading_image": "shopify://shop_images/Product_image-Transparent.png",
+        "heading_image_width": 320,
+        "heading_image_width_mobile": 240,
         "description": "Six carefully selected grass-fed beef organs, each chosen for their unique nutritional profile and specific relevance to female health."
       }
     },
@@ -1214,7 +1220,7 @@
         "td_text_color": "#444444",
         "tr_odd_bg": "#ffffff",
         "tr_even_bg": "#ffffff",
-        "product_image": "shopify://shop_images/Nourish_Her_product_image.png",
+        "product_image": "shopify://shop_images/Product_image-Transparent.png",
         "product_image_url": "",
         "column_1_title": "Grass Fed Beef Organs",
         "comparison_image": "shopify://shop_images/generic-multivitamin.jpg",
@@ -1527,7 +1533,7 @@
         "padding_top": 36,
         "padding_bottom": 80,
         "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
+        "padding_bottom_mobile": 40,
         "bg_color": "#fdf8f0",
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
@@ -1542,7 +1548,7 @@
         "featured_product": "100-grass-fed-beef-organs",
         "fallback_price": "£34.99",
         "guarantee_title": "30-Day Money-Back Guarantee",
-        "guarantee_text": "If you're not completely satisfied, we'll refund you in full — no questions asked."
+        "guarantee_text": "If you're not completely satisfied, we'll refund you in full."
       }
     },
     "nh-lab-tested": {
