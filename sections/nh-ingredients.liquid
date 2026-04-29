@@ -80,6 +80,16 @@
     {% if section.settings.heading != blank %}
       <h2 class="nh-section-title">{{ section.settings.heading }}</h2>
     {% endif %}
+
+    {% if section.settings.heading_image != blank %}
+      <div class="nh-ingredients-heading-image" style="--nh-ing-hd-img-w: {{ section.settings.heading_image_width | default: 320 }}px; --nh-ing-hd-img-w-m: {{ section.settings.heading_image_width_mobile | default: section.settings.heading_image_width | default: 240 }}px;">
+        {{ section.settings.heading_image | image_url: width: 1200 | image_tag:
+            alt: section.settings.heading_image.alt | default: 'Ingredients heading image',
+            loading: 'lazy',
+            class: 'nh-ingredients-heading-image-img'
+        }}
+      </div>
+    {% endif %}
     
     <div class="nh-divider"></div>
     
@@ -280,6 +290,32 @@
       "id": "heading",
       "label": "Heading",
       "default": "<p>What's Inside <em>Exactly?</em></p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "heading_image",
+      "label": "Heading Image",
+      "info": "Shown directly under the heading"
+    },
+    {
+      "type": "range",
+      "id": "heading_image_width",
+      "label": "Heading Image Width (Desktop)",
+      "min": 80,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "default": 320
+    },
+    {
+      "type": "range",
+      "id": "heading_image_width_mobile",
+      "label": "Heading Image Width (Mobile)",
+      "min": 60,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "default": 240
     },
     {
       "type": "textarea",

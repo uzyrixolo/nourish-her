@@ -92,13 +92,13 @@
     {% when 'reviews' %}
       <div class="nh-spotlight-reviews" style="justify-content: {{ block.settings.align | default: 'center' }};">
         <span class="nh-spotlight-stars" aria-hidden="true" style="color: {{ block.settings.star_color | default: '#f5b826' }};">★★★★★</span>
-        {% if block.settings.rating != blank %}<span class="nh-spotlight-rating">Rated {{ block.settings.rating }} / 5.0</span>{% endif %}
+        {% if block.settings.rating != blank %}<span class="nh-spotlight-rating" style="color: {{ block.settings.rating_color | default: '#555555' }};">Rated {{ block.settings.rating }} / 5.0</span>{% endif %}
         {% if block.settings.reviews_count != blank %}
-          <span class="nh-spotlight-divider">|</span>
+          <span class="nh-spotlight-divider" style="color: {{ block.settings.divider_color | default: '#cccccc' }};">|</span>
           {% if block.settings.reviews_link != blank %}
-            <a class="nh-spotlight-reviews-link" href="{{ block.settings.reviews_link }}">{{ block.settings.reviews_count }}</a>
+            <a class="nh-spotlight-reviews-link" href="{{ block.settings.reviews_link }}" style="color: {{ block.settings.reviews_text_color | default: '#555555' }};">{{ block.settings.reviews_count }}</a>
           {% else %}
-            <span class="nh-spotlight-reviews-link">{{ block.settings.reviews_count }}</span>
+            <span class="nh-spotlight-reviews-link" style="color: {{ block.settings.reviews_text_color | default: '#555555' }};">{{ block.settings.reviews_count }}</span>
           {% endif %}
         {% endif %}
       </div>

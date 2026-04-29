@@ -804,6 +804,24 @@
   color: rgba(255, 251, 213, 0.8);
 }
 
+.nh-ingredients-heading-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 12px 0 20px;
+}
+.nh-ingredients-heading-image-img {
+  width: var(--nh-ing-hd-img-w, 320px);
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+@media (max-width: 768px) {
+  .nh-ingredients-heading-image-img {
+    width: var(--nh-ing-hd-img-w-m, var(--nh-ing-hd-img-w, 240px));
+  }
+}
+
 .nh-ingredients-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -866,6 +884,22 @@
   margin-top: 12px;
 }
 
+/* Hero / Spotlight columns: kill last-child bottom margin on mobile so the section's
+   padding_bottom_mobile setting can actually reduce the visible space to 0. */
+@media (max-width: 768px) {
+  .nh-hero-left > *:last-child,
+  .nh-hero-right > *:last-child,
+  .nh-spotlight-col > *:last-child {
+    margin-bottom: 0 !important;
+  }
+  .nh-hero-block-pills,
+  .nh-hero-block-image,
+  .nh-hero-block-cta,
+  .nh-hero-block-trust {
+    margin-bottom: 0;
+  }
+}
+
 /* =============================================
    COMPARISON TABLE
 ============================================= */
@@ -880,6 +914,15 @@
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border: none;
+}
+.nh-comparison-table,
+.nh-comparison-table thead,
+.nh-comparison-table tbody,
+.nh-comparison-table tr,
+.nh-comparison-table th,
+.nh-comparison-table td {
+  border: none !important;
 }
 
 .nh-comparison-table thead tr th {
@@ -933,7 +976,7 @@
   font-size: 0.95rem;
   line-height: 1.65;
   vertical-align: top;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: none;
 }
 
 .nh-comparison-table tbody tr:last-child td {
@@ -1550,7 +1593,12 @@
 @media (max-width: 768px) {
   .nh-hero {
     min-height: auto;
-    padding: 40px 5% 60px;
+    /* Use individual padding props so section-level inline padding-bottom / padding-top
+       settings (0, small values, etc.) are NOT overridden by shorthand. */
+    padding-top: 40px;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 0;
   }
 
   .nh-hero-grid {
