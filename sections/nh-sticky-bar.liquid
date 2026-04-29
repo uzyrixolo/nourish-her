@@ -1,0 +1,78 @@
+{% comment %}
+  Nourish Her - Sticky Bottom Bar (Standalone Section)
+  Renders the sticky bottom CTA snippet. Add this section to any template
+  (e.g. the home page) to show the sticky bar. It will appear fixed at
+  the bottom of the viewport once the user scrolls past the Hero section.
+{% endcomment %}
+
+{% render 'nh-sticky-cta',
+  product_title: section.settings.sticky_title,
+  subscription_price: section.settings.sticky_subscription_price,
+  onetime_price: section.settings.sticky_onetime_price,
+  cta_text: section.settings.sticky_cta_text,
+  cta_link: section.settings.sticky_cta_link,
+  enabled: section.settings.sticky_enabled
+%}
+
+{% schema %}
+{
+  "name": "NH - Sticky Bottom Bar",
+  "tag": "section",
+  "class": "nh-sticky-bar-wrapper",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "This bar is fixed at the bottom of the screen. It stays hidden on the Hero section and appears once the user scrolls into the next section."
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky_enabled",
+      "label": "Show Sticky Bottom Bar",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "sticky_title",
+      "label": "Product Title",
+      "default": "Nourish Her™"
+    },
+    {
+      "type": "text",
+      "id": "sticky_subscription_price",
+      "label": "Subscription Price",
+      "default": "£34.99/mo"
+    },
+    {
+      "type": "text",
+      "id": "sticky_onetime_price",
+      "label": "One-time Price",
+      "default": "£44.99"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "sticky_cta_text",
+      "label": "Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "sticky_cta_link",
+      "label": "Button Link (optional)",
+      "info": "Leave blank to scroll to the Offer section on the page."
+    }
+  ],
+  "presets": [
+    {
+      "name": "NH - Sticky Bottom Bar"
+    }
+  ]
+}
+{% endschema %}
