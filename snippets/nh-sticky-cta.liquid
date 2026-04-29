@@ -22,7 +22,7 @@
   {% if cta_link != blank %}
     <a class="nh-sticky-bottom-btn" href="{{ cta_link }}">{{ cta_text | default: 'Shop Now' }}</a>
   {% else %}
-    <button class="nh-sticky-bottom-btn" type="button" onclick="var t=document.getElementById('nh-offer');if(t){t.scrollIntoView({behavior:'smooth'});}">
+    <button class="nh-sticky-bottom-btn" type="button" onclick="(function(){var t=document.querySelector('.nh-offer-section')||document.getElementById('nh-offer');if(t){t.scrollIntoView({behavior:'smooth',block:'start'});}})()">
       {{ cta_text | default: 'Shop Now' }}
     </button>
   {% endif %}
