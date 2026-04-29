@@ -1,20 +1,31 @@
 {% comment %}
   Nourish Her - Sticky Bottom CTA
-  Fixed bottom bar that appears after scrolling past hero
+  Fixed bottom bar that appears after scrolling past hero.
+  Settings are passed in from the parent section (see sections/nh-offer.liquid).
+    - product_title, subscription_price, onetime_price, cta_text, cta_link, enabled
 {% endcomment %}
+
+{%- assign _enabled = enabled -%}
+{%- if _enabled == blank -%}{%- assign _enabled = true -%}{%- endif -%}
+{%- if _enabled == false -%}{%- comment -%}Disabled via section settings{%- endcomment -%}
+{%- else -%}
 
 {{ 'nourish-her.css' | asset_url | stylesheet_tag }}
 
 <div class="nh-sticky-bottom-cta" id="nhStickyBottomCta">
   <div class="nh-sticky-bottom-info">
-    <div class="nh-sticky-bottom-name">{{ product.title | default: 'Nourish Her™' }}</div>
+    <div class="nh-sticky-bottom-name">{{ product_title | default: 'Nourish Her™' }}</div>
     <div class="nh-sticky-bottom-price">
       Subscribe from <strong>{{ subscription_price | default: '£34.99/mo' }}</strong> · One-time <strong>{{ onetime_price | default: '£44.99' }}</strong>
     </div>
   </div>
-  <button class="nh-sticky-bottom-btn" onclick="document.getElementById('nh-offer').scrollIntoView({behavior:'smooth'})">
-    {{ cta_text | default: 'Shop Now' }}
-  </button>
+  {% if cta_link != blank %}
+    <a class="nh-sticky-bottom-btn" href="{{ cta_link }}">{{ cta_text | default: 'Shop Now' }}</a>
+  {% else %}
+    <button class="nh-sticky-bottom-btn" type="button" onclick="var t=document.getElementById('nh-offer');if(t){t.scrollIntoView({behavior:'smooth'});}">
+      {{ cta_text | default: 'Shop Now' }}
+    </button>
+  {% endif %}
 </div>
 
 <script>
@@ -48,3 +59,5 @@
     setTimeout(check, 250);
   })();
 </script>
+
+{%- endif -%}

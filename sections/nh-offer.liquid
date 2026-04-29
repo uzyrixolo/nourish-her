@@ -159,7 +159,7 @@
   </div>
 </section>
 
-{% render 'nh-sticky-cta' %}
+{% render 'nh-sticky-cta', product_title: section.settings.sticky_title, subscription_price: section.settings.sticky_subscription_price, onetime_price: section.settings.sticky_onetime_price, cta_text: section.settings.sticky_cta_text, cta_link: section.settings.sticky_cta_link, enabled: section.settings.sticky_enabled %}
 
 <script>
   (function() {
@@ -207,6 +207,50 @@
   "tag": "section",
   "class": "nh-section-wrapper",
   "settings": [
+    {
+      "type": "header",
+      "content": "Sticky Bottom Bar"
+    },
+    {
+      "type": "paragraph",
+      "content": "Appears fixed at the bottom of the screen once the user scrolls past the Hero section."
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky_enabled",
+      "label": "Show Sticky Bottom Bar",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "sticky_title",
+      "label": "Product Title",
+      "default": "Nourish Her™"
+    },
+    {
+      "type": "text",
+      "id": "sticky_subscription_price",
+      "label": "Subscription Price",
+      "default": "£34.99/mo"
+    },
+    {
+      "type": "text",
+      "id": "sticky_onetime_price",
+      "label": "One-time Price",
+      "default": "£44.99"
+    },
+    {
+      "type": "text",
+      "id": "sticky_cta_text",
+      "label": "Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "sticky_cta_link",
+      "label": "Button Link (optional)",
+      "info": "Leave blank to scroll to the Offer section."
+    },
     {
       "type": "header",
       "content": "Section Spacing"
