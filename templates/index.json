@@ -780,6 +780,16 @@
     "nh-ingredients": {
       "type": "nh-ingredients",
       "blocks": {
+        "heading_image_LXcwgy": {
+          "type": "heading_image",
+          "settings": {
+            "image": "shopify://shop_images/Product_image_square.png",
+            "image_width": 230,
+            "image_width_mobile": 120,
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        },
         "liver": {
           "type": "ingredient",
           "settings": {
@@ -866,6 +876,7 @@
         }
       },
       "block_order": [
+        "heading_image_LXcwgy",
         "liver",
         "spleen",
         "kidney",
