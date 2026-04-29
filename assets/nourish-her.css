@@ -1988,7 +1988,7 @@ a.nh-spotlight-cta:hover {
 
 .nh-spotlight-quote-mark {
   position: absolute;
-  top: -22px;
+  top: -10px;
   left: 16px;
   display: inline-block;
   font-family: var(--font-h2--family, 'Playfair Display', serif);
