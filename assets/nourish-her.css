@@ -809,6 +809,7 @@
   display: flex;
   justify-content: center;
   margin: 12px 0 20px;
+  grid-column: 1 / -1;
 }
 .nh-ingredients-heading-image-img {
   width: var(--nh-ing-hd-img-w, 320px);

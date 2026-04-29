@@ -80,16 +80,6 @@
     {% if section.settings.heading != blank %}
       <h2 class="nh-section-title">{{ section.settings.heading }}</h2>
     {% endif %}
-
-    {% if section.settings.heading_image != blank %}
-      <div class="nh-ingredients-heading-image" style="--nh-ing-hd-img-w: {{ section.settings.heading_image_width | default: 320 }}px; --nh-ing-hd-img-w-m: {{ section.settings.heading_image_width_mobile | default: section.settings.heading_image_width | default: 240 }}px;">
-        {{ section.settings.heading_image | image_url: width: 1200 | image_tag:
-            alt: section.settings.heading_image.alt | default: 'Ingredients heading image',
-            loading: 'lazy',
-            class: 'nh-ingredients-heading-image-img'
-        }}
-      </div>
-    {% endif %}
     
     <div class="nh-divider"></div>
     
@@ -100,29 +90,51 @@
     {% if section.blocks.size > 0 %}
       <div class="nh-ingredients-grid">
         {% for block in section.blocks %}
-          {%- assign _block_img_size = block.settings.image_size -%}
-          {%- if _block_img_size == 0 or _block_img_size == blank -%}
-            {%- assign _block_img_size = section.settings.image_size | default: 56 -%}
-          {%- endif -%}
-          {%- assign _block_img_size_mobile = block.settings.image_size_mobile -%}
-          {%- if _block_img_size_mobile == 0 or _block_img_size_mobile == blank -%}
-            {%- assign _block_img_size_mobile = section.settings.image_size_mobile | default: _block_img_size -%}
-          {%- endif -%}
-          {%- assign _img_src_w = _block_img_size | times: 2 -%}
-          <div class="nh-ingredient-card" {{ block.shopify_attributes }} style="{% if block.settings.card_bg != blank %}background: {{ block.settings.card_bg }};{% endif %}{% if block.settings.card_border != blank %}border-color: {{ block.settings.card_border }};{% endif %} --nh-ing-img-size: {{ _block_img_size }}px; --nh-ing-img-size-m: {{ _block_img_size_mobile }}px;">
-            <div class="nh-ingredient-name">
-              <span class="nh-organ-emoji">
-                {% if block.settings.custom_image != blank %}
-                  {{ block.settings.custom_image | image_url: width: _img_src_w | image_tag: alt: block.settings.name, loading: 'lazy', class: 'nh-ingredient-custom-img' }}
-                {% else %}
-                  <span class="nh-ingredient-emoji-text">{{ block.settings.emoji }}</span>
-                {% endif %}
-              </span>
-              {{ block.settings.name }}
-            </div>
-            <div class="nh-ingredient-stat">{{ block.settings.stat }}</div>
-            <p>{{ block.settings.description }}</p>
-          </div>
+          {%- assign vis_class = '' -%}
+          {%- if block.settings.hide_mobile -%}{%- assign vis_class = vis_class | append: ' nh-hide-mobile' -%}{%- endif -%}
+          {%- if block.settings.hide_desktop -%}{%- assign vis_class = vis_class | append: ' nh-hide-desktop' -%}{%- endif -%}
+
+          {% case block.type %}
+
+            {% when 'heading_image' %}
+              {% if block.settings.image != blank %}
+                <div class="nh-ingredients-heading-image{{ vis_class }}"
+                     {{ block.shopify_attributes }}
+                     style="--nh-ing-hd-img-w: {{ block.settings.image_width | default: 320 }}px; --nh-ing-hd-img-w-m: {{ block.settings.image_width_mobile | default: block.settings.image_width | default: 240 }}px;">
+                  {{ block.settings.image | image_url: width: 1200 | image_tag:
+                      alt: block.settings.image.alt | default: 'Ingredients image',
+                      loading: 'lazy',
+                      class: 'nh-ingredients-heading-image-img'
+                  }}
+                </div>
+              {% endif %}
+
+            {% when 'ingredient' %}
+              {%- assign _block_img_size = block.settings.image_size -%}
+              {%- if _block_img_size == 0 or _block_img_size == blank -%}
+                {%- assign _block_img_size = section.settings.image_size | default: 56 -%}
+              {%- endif -%}
+              {%- assign _block_img_size_mobile = block.settings.image_size_mobile -%}
+              {%- if _block_img_size_mobile == 0 or _block_img_size_mobile == blank -%}
+                {%- assign _block_img_size_mobile = section.settings.image_size_mobile | default: _block_img_size -%}
+              {%- endif -%}
+              {%- assign _img_src_w = _block_img_size | times: 2 -%}
+              <div class="nh-ingredient-card{{ vis_class }}" {{ block.shopify_attributes }} style="{% if block.settings.card_bg != blank %}background: {{ block.settings.card_bg }};{% endif %}{% if block.settings.card_border != blank %}border-color: {{ block.settings.card_border }};{% endif %} --nh-ing-img-size: {{ _block_img_size }}px; --nh-ing-img-size-m: {{ _block_img_size_mobile }}px;">
+                <div class="nh-ingredient-name">
+                  <span class="nh-organ-emoji">
+                    {% if block.settings.custom_image != blank %}
+                      {{ block.settings.custom_image | image_url: width: _img_src_w | image_tag: alt: block.settings.name, loading: 'lazy', class: 'nh-ingredient-custom-img' }}
+                    {% else %}
+                      <span class="nh-ingredient-emoji-text">{{ block.settings.emoji }}</span>
+                    {% endif %}
+                  </span>
+                  {{ block.settings.name }}
+                </div>
+                <div class="nh-ingredient-stat">{{ block.settings.stat }}</div>
+                <p>{{ block.settings.description }}</p>
+              </div>
+
+          {% endcase %}
         {% endfor %}
       </div>
     {% endif %}
@@ -292,32 +304,6 @@
       "default": "<p>What's Inside <em>Exactly?</em></p>"
     },
     {
-      "type": "image_picker",
-      "id": "heading_image",
-      "label": "Heading Image",
-      "info": "Shown directly under the heading"
-    },
-    {
-      "type": "range",
-      "id": "heading_image_width",
-      "label": "Heading Image Width (Desktop)",
-      "min": 80,
-      "max": 800,
-      "step": 10,
-      "unit": "px",
-      "default": 320
-    },
-    {
-      "type": "range",
-      "id": "heading_image_width_mobile",
-      "label": "Heading Image Width (Mobile)",
-      "min": 60,
-      "max": 500,
-      "step": 10,
-      "unit": "px",
-      "default": 240
-    },
-    {
       "type": "textarea",
       "id": "description",
       "label": "Description",
@@ -325,6 +311,51 @@
     }
   ],
   "blocks": [
+    {
+      "type": "heading_image",
+      "name": "Heading Image",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "range",
+          "id": "image_width",
+          "label": "Image Width (Desktop)",
+          "min": 80,
+          "max": 800,
+          "step": 10,
+          "unit": "px",
+          "default": 320
+        },
+        {
+          "type": "range",
+          "id": "image_width_mobile",
+          "label": "Image Width (Mobile)",
+          "min": 60,
+          "max": 500,
+          "step": 10,
+          "unit": "px",
+          "default": 240
+        },
+        { "type": "header", "content": "Visibility" },
+        {
+          "type": "checkbox",
+          "id": "hide_mobile",
+          "label": "Hide on Mobile",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_desktop",
+          "label": "Hide on Desktop",
+          "default": false
+        }
+      ]
+    },
      {
       "type": "ingredient",
       "name": "Ingredient",
