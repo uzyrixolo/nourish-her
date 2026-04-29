@@ -1933,18 +1933,23 @@ a.nh-spotlight-cta:hover {
 .nh-spotlight-quote {
   position: relative;
   text-align: left;
-  padding: 18px 22px 20px;
+  padding: 10px 18px 12px;
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 10px;
 }
 
 .nh-spotlight-quote-mark {
-  display: block;
+  position: absolute;
+  top: -22px;
+  left: 16px;
+  display: inline-block;
+  padding: 0 8px;
+  background: inherit;
   font-family: var(--font-h2--family, 'Playfair Display', serif);
-  font-size: 2.8rem;
+  font-size: 3rem;
   font-weight: 900;
-  line-height: 0.8;
-  margin-bottom: 4px;
+  line-height: 1;
+  pointer-events: none;
 }
 
 .nh-spotlight-quote-text {

@@ -104,10 +104,11 @@
       </div>
 
     {% when 'quote' %}
+      {%- assign _quote_bg = block.settings.bg_color | default: '#ffffff' -%}
       <div class="nh-spotlight-quote"
-           style="background: {{ block.settings.bg_color }}; border-color: {{ block.settings.border_color }};">
+           style="background: {{ _quote_bg }}; border-color: {{ block.settings.border_color }};">
         <span class="nh-spotlight-quote-mark" aria-hidden="true"
-              style="color: {{ block.settings.quote_mark_color | default: section_settings.accent_color }};">&ldquo;</span>
+              style="color: {{ block.settings.quote_mark_color | default: section_settings.accent_color }}; background: {{ _quote_bg }};">&ldquo;</span>
         <p class="nh-spotlight-quote-text" style="color: {{ block.settings.text_color }};">{{ block.settings.text }}</p>
         {% if block.settings.author != blank %}<p class="nh-spotlight-quote-author">&mdash; {{ block.settings.author }}</p>{% endif %}
       </div>
