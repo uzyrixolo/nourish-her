@@ -1229,46 +1229,190 @@
   margin-bottom: 28px;
 }
 
-/* ------- Kaching / third-party subscription widget container -------
-   When a merchant drops an app block (e.g. Kaching Subscriptions) into
-   the offer section, this wrapper forces the widget to inherit the
-   theme's typography and palette so it visually matches the custom
-   pricing cards above. */
+/* ------- Kaching Subscriptions widget inside NH Offer Section -------
+   Maps Kaching's default markup onto the same visual language as
+   .nh-pricing-card so the widget is indistinguishable from the
+   theme-native pricing blocks. */
 .nh-offer-app-block {
   margin-bottom: 20px;
   font-family: inherit;
   color: inherit;
 }
+.nh-offer-app-block,
 .nh-offer-app-block * {
-  font-family: inherit !important;
+  font-family: inherit;
   box-sizing: border-box;
 }
-.nh-offer-app-block label,
-.nh-offer-app-block .label,
-.nh-offer-app-block span,
-.nh-offer-app-block p {
-  color: inherit;
+
+/* Outer cards stack, matching .nh-pricing-options gap */
+.kaching-subscriptions__cards-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 28px;
 }
-/* Style the widget's option rows to resemble .nh-pricing-card */
-.nh-offer-app-block [class*="option"],
-.nh-offer-app-block [class*="Option"],
-.nh-offer-app-block [class*="plan"],
-.nh-offer-app-block [class*="Plan"] {
+
+/* Each plan card = .nh-pricing-card replica */
+.kaching-subscriptions__card-wrapper {
+  border: 2px solid var(--nh-light-pink, #fddde4);
   border-radius: 16px;
-}
-/* Any buttons inside the widget inherit the primary CTA look */
-.nh-offer-app-block button:not([type="submit"]) {
-  border-radius: 12px;
-  font-weight: 600;
+  padding: 20px 24px;
+  background: var(--nh-white, #ffffff);
+  color: var(--nh-dark, #1a1a1a);
   cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
 }
-/* Hide the widget's own Add-to-Cart button if Kaching renders one,
-   since the Offer section already has its own submit button.
-   If the widget MUST own the submit, remove this rule. */
-.nh-offer-app-block button[type="submit"],
-.nh-offer-app-block [class*="add-to-cart"],
-.nh-offer-app-block [class*="AddToCart"] {
-  display: none !important;
+.kaching-subscriptions__card-wrapper:hover {
+  border-color: var(--nh-red, #cc0019);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+.kaching-subscriptions__card-wrapper.selected {
+  border-color: var(--nh-red, #cc0019);
+  background: rgba(204, 0, 25, 0.04);
+}
+
+/* Main row: radio + title on left, price on right */
+.kaching-subscriptions__card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+}
+.kaching-subscriptions__card-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Radio indicator */
+.kaching-subscriptions__card-radio-wrapper {
+  display: flex;
+  align-items: center;
+}
+.kaching-subscriptions__card-radio {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #cfcfcf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: #fff;
+  transition: border-color 0.2s ease;
+}
+.kaching-subscriptions__card-radio.selected,
+.kaching-subscriptions__card-wrapper.selected .kaching-subscriptions__card-radio {
+  border-color: var(--nh-red, #cc0019);
+}
+.kaching-subscriptions__card-radio-button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: transparent;
+  transition: background 0.2s ease;
+}
+.kaching-subscriptions__card-radio.selected .kaching-subscriptions__card-radio-button,
+.kaching-subscriptions__card-wrapper.selected .kaching-subscriptions__card-radio-button {
+  background: var(--nh-red, #cc0019);
+}
+
+/* Title + discount label */
+.kaching-subscriptions__card-title-and-label-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+.kaching-subscriptions__card-title {
+  font-family: var(--font-h2--family, 'Playfair Display', serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: inherit;
+  line-height: 1.3;
+}
+/* "22% off" chip — reuse the .nh-pricing-badge look */
+.kaching-subscriptions__selling-plan-label {
+  display: inline-block;
+  background: var(--nh-red, #cc0019);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 50px;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+/* Price on the right of the header row */
+.kaching-subscriptions__card-price-wrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.kaching-subscriptions__card-price {
+  font-family: var(--font-h2--family, 'Playfair Display', serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--nh-dark, #1a1a1a);
+}
+
+/* Expanded selling-plan row (shown under the selected Subscribe card) */
+.kaching-subscriptions__selling-plans-wrapper {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+.kaching-subscriptions__selling-plan {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.kaching-subscriptions__selling-plan-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+.kaching-subscriptions__selling-plan-title-and-label-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.kaching-subscriptions__selling-plan-title {
+  font-size: 0.9rem;
+  color: var(--nh-mid, #555555);
+  font-weight: 500;
+}
+.kaching-subscriptions__selling-plan-price {
+  font-family: var(--font-h2--family, 'Playfair Display', serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--nh-red, #cc0019);
+}
+
+/* Utility used by Kaching for vertical centering — keep it harmless */
+.kaching-subscriptions__flex-col-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .kaching-subscriptions__card-wrapper { padding: 16px 18px; }
+  .kaching-subscriptions__card-title { font-size: 1rem; }
+  .kaching-subscriptions__card-price,
+  .kaching-subscriptions__selling-plan-price { font-size: 1.05rem; }
 }
 
 .nh-pricing-card {
