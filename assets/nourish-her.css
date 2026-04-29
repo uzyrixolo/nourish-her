@@ -961,12 +961,12 @@
 }
 
 .nh-comparison-th-img.nh-nourish-img img {
-  background: rgba(255, 255, 255, 0.15);
+  background: transparent;
   border-radius: 0;
 }
 
 .nh-comparison-th-img.nh-multi-img img {
-  background: #e8e8e8;
+  background: transparent;
   border-radius: 0;
   filter: grayscale(30%);
 }
