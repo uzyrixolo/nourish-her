@@ -1,0 +1,84 @@
+{% comment %}
+  Nourish Her - Global CTA Scroll Behavior
+  Intercepts clicks on any NH CTA button/link so they smooth-scroll to the
+  Offer section on the current page, instead of following their link.
+
+  Excluded (not hijacked):
+    - Form submit buttons (type="submit") e.g. Add to Cart
+    - CTAs that already live inside the Offer section
+{% endcomment %}
+
+<script>
+  (function() {
+    if (window.__nhCtaScrollInit) return;
+    window.__nhCtaScrollInit = true;
+
+    var CTA_SELECTOR = [
+      '.nh-btn-primary',
+      '.nh-spotlight-cta',
+      '.nh-sticky-bottom-btn',
+      'a[href="#nh-offer"]',
+      'a[href$="#nh-offer"]',
+      '[data-nh-scroll="offer"]'
+    ].join(',');
+
+    function offerEl() {
+      return document.querySelector('.nh-offer-section') || document.getElementById('nh-offer');
+    }
+
+    function handleClick(e) {
+      var el = e.target && e.target.closest ? e.target.closest(CTA_SELECTOR) : null;
+      if (!el) return;
+      // Leave submit buttons (Add to Cart) alone.
+      if (el.tagName === 'BUTTON' && (el.getAttribute('type') || '').toLowerCase() === 'submit') return;
+      // Leave CTAs inside the Offer section alone.
+      if (el.closest('.nh-offer-section') || el.closest('#nh-offer')) return;
+
+      var target = offerEl();
+      if (!target) return;
+
+      e.preventDefault();
+      e.stopPropagation();
+      if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
+
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return false;
+    }
+
+    // Register in both capture and bubble to beat any theme-level handlers.
+    document.addEventListener('click', handleClick, true);
+    document.addEventListener('click', handleClick, false);
+
+    // Also neutralise CTA anchors so native navigation never fires even if JS was skipped.
+    function neutraliseAnchors(root) {
+      (root || document).querySelectorAll(CTA_SELECTOR).forEach(function(el) {
+        if (el.tagName !== 'A') return;
+        if (el.closest('.nh-offer-section') || el.closest('#nh-offer')) return;
+        // Preserve original href in data-attr (for analytics/debug) and replace with a no-op hash.
+        if (!el.hasAttribute('data-nh-original-href')) {
+          el.setAttribute('data-nh-original-href', el.getAttribute('href') || '');
+        }
+        el.setAttribute('href', 'javascript:void(0)');
+        el.setAttribute('role', 'button');
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() { neutraliseAnchors(); });
+    } else {
+      neutraliseAnchors();
+    }
+
+    // Re-run when Shopify section rendering adds new nodes (theme editor / dynamic sections).
+    if (typeof MutationObserver !== 'undefined') {
+      var mo = new MutationObserver(function(muts) {
+        muts.forEach(function(m) {
+          m.addedNodes && m.addedNodes.forEach(function(n) {
+            if (n.nodeType === 1) neutraliseAnchors(n);
+          });
+        });
+      });
+      mo.observe(document.documentElement, { childList: true, subtree: true });
+    }
+  })();
+</script>

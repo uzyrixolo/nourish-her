@@ -29,75 +29,40 @@
 </div>
 
 <script>
-  // Sticky bottom CTA + global CTA scroll-to-offer behavior.
+  // Sticky bottom CTA visibility.
+  // Hidden on Hero AND Spotlight. Appears only from the 3rd section onwards and stays visible.
+  // CTA click-scroll behavior is handled globally by snippets/nh-cta-scroll.liquid.
   (function() {
-    const offerEl = function() {
-      return document.querySelector('.nh-offer-section') || document.getElementById('nh-offer');
-    };
-
-    // ---------- 1. Sticky bar visibility ----------
-    // Hidden on Hero AND Spotlight. Appears only from the 3rd section onwards and stays visible.
     const cta = document.getElementById('nhStickyBottomCta');
-    if (cta) {
-      // Pick the trigger = first section that is NOT hero AND NOT spotlight.
-      // Prefer Shopify's section wrappers so we're order-independent.
-      function findTrigger() {
-        const sections = Array.from(document.querySelectorAll('[id^="shopify-section-"]'));
-        for (const s of sections) {
-          if (s.querySelector('.nh-hero')) continue;
-          if (s.querySelector('.nh-spotlight')) continue;
-          // Skip the sticky bar section itself
-          if (s.querySelector('.nh-sticky-bottom-cta')) continue;
-          return s;
-        }
-        // Fallback: any element immediately after .nh-spotlight / .nh-hero
-        return document.querySelector('.nh-spotlight ~ *') || document.querySelector('.nh-hero ~ *');
-      }
-      let trigger = findTrigger();
+    if (!cta) return;
 
-      const SHOW_OFFSET = 0.9; // show when trigger's top enters top 90% of viewport
-      function check() {
-        if (!trigger) { trigger = findTrigger(); if (!trigger) return; }
-        const rect = trigger.getBoundingClientRect();
-        if (rect.top <= window.innerHeight * SHOW_OFFSET) {
-          cta.classList.add('nh-visible');
-        } else {
-          cta.classList.remove('nh-visible');
-        }
+    function findTrigger() {
+      const sections = Array.from(document.querySelectorAll('[id^="shopify-section-"]'));
+      for (const s of sections) {
+        if (s.querySelector('.nh-hero')) continue;
+        if (s.querySelector('.nh-spotlight')) continue;
+        if (s.querySelector('.nh-sticky-bottom-cta')) continue;
+        return s;
       }
-      window.addEventListener('scroll', check, { passive: true });
-      window.addEventListener('resize', check);
-      check();
-      setTimeout(check, 250);
-      setTimeout(check, 1000);
+      return document.querySelector('.nh-spotlight ~ *') || document.querySelector('.nh-hero ~ *');
     }
+    let trigger = findTrigger();
 
-    // ---------- 2. Global CTA -> scroll to Offer section ----------
-    // Intercepts clicks on any NH CTA button/link so they smooth-scroll to the Offer section
-    // instead of following their original link. Excludes: form submit buttons (e.g. Add to Cart)
-    // and CTAs that are already inside the Offer section.
-    const CTA_SELECTOR = [
-      '.nh-btn-primary',
-      '.nh-spotlight-cta',
-      '.nh-sticky-bottom-btn',
-      'a[href="#nh-offer"]',
-      'a[href$="#nh-offer"]',
-      '[data-nh-scroll="offer"]'
-    ].join(',');
-
-    document.addEventListener('click', function(e) {
-      const el = e.target.closest(CTA_SELECTOR);
-      if (!el) return;
-      // Don't hijack form submission (Add to Cart)
-      if (el.tagName === 'BUTTON' && el.getAttribute('type') === 'submit') return;
-      // Don't hijack CTAs that live inside the Offer section itself
-      const inOffer = el.closest('.nh-offer-section') || el.closest('#nh-offer');
-      if (inOffer) return;
-      const target = offerEl();
-      if (!target) return;
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, true);
+    const SHOW_OFFSET = 0.9;
+    function check() {
+      if (!trigger) { trigger = findTrigger(); if (!trigger) return; }
+      const rect = trigger.getBoundingClientRect();
+      if (rect.top <= window.innerHeight * SHOW_OFFSET) {
+        cta.classList.add('nh-visible');
+      } else {
+        cta.classList.remove('nh-visible');
+      }
+    }
+    window.addEventListener('scroll', check, { passive: true });
+    window.addEventListener('resize', check);
+    check();
+    setTimeout(check, 250);
+    setTimeout(check, 1000);
   })();
 </script>
 
