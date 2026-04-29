@@ -1229,6 +1229,48 @@
   margin-bottom: 28px;
 }
 
+/* ------- Kaching / third-party subscription widget container -------
+   When a merchant drops an app block (e.g. Kaching Subscriptions) into
+   the offer section, this wrapper forces the widget to inherit the
+   theme's typography and palette so it visually matches the custom
+   pricing cards above. */
+.nh-offer-app-block {
+  margin-bottom: 20px;
+  font-family: inherit;
+  color: inherit;
+}
+.nh-offer-app-block * {
+  font-family: inherit !important;
+  box-sizing: border-box;
+}
+.nh-offer-app-block label,
+.nh-offer-app-block .label,
+.nh-offer-app-block span,
+.nh-offer-app-block p {
+  color: inherit;
+}
+/* Style the widget's option rows to resemble .nh-pricing-card */
+.nh-offer-app-block [class*="option"],
+.nh-offer-app-block [class*="Option"],
+.nh-offer-app-block [class*="plan"],
+.nh-offer-app-block [class*="Plan"] {
+  border-radius: 16px;
+}
+/* Any buttons inside the widget inherit the primary CTA look */
+.nh-offer-app-block button:not([type="submit"]) {
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+/* Hide the widget's own Add-to-Cart button if Kaching renders one,
+   since the Offer section already has its own submit button.
+   If the widget MUST own the submit, remove this rule. */
+.nh-offer-app-block button[type="submit"],
+.nh-offer-app-block [class*="add-to-cart"],
+.nh-offer-app-block [class*="AddToCart"] {
+  display: none !important;
+}
+
 .nh-pricing-card {
   border: 2px solid var(--nh-light-pink);
   border-radius: 16px;

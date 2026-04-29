@@ -110,22 +110,27 @@
             {% form 'product', product, id: 'nhOfferForm', class: 'nh-offer-form' %}
               <input type="hidden" name="id" id="nhOfferVariantId" value="{{ product.selected_or_first_available_variant.id }}">
               {% for block in section.blocks %}
-                {% if block.type == 'pricing_option' %}
-                  <div class="nh-pricing-card{% if block.settings.selected %} nh-selected{% endif %}" 
-                       onclick="nhSelectPlan('{{ block.settings.plan_id | escape }}', '{{ block.settings.price | escape }}')"
-                       style="margin-bottom: 20px;" {{ block.shopify_attributes }}>
-                    <div class="nh-pricing-card-header">
-                      <div class="nh-pricing-card-label">
-                        {{ block.settings.label }}
-                        {% if block.settings.badge != blank %}
-                          <span class="nh-pricing-badge">{{ block.settings.badge }}</span>
-                        {% endif %}
+                {% case block.type %}
+                  {% when 'pricing_option' %}
+                    <div class="nh-pricing-card{% if block.settings.selected %} nh-selected{% endif %}" 
+                         onclick="nhSelectPlan('{{ block.settings.plan_id | escape }}', '{{ block.settings.price | escape }}')"
+                         style="margin-bottom: 20px;" {{ block.shopify_attributes }}>
+                      <div class="nh-pricing-card-header">
+                        <div class="nh-pricing-card-label">
+                          {{ block.settings.label }}
+                          {% if block.settings.badge != blank %}
+                            <span class="nh-pricing-badge">{{ block.settings.badge }}</span>
+                          {% endif %}
+                        </div>
+                        <div class="nh-pricing-card-price">{{ block.settings.price_display }}</div>
                       </div>
-                      <div class="nh-pricing-card-price">{{ block.settings.price_display }}</div>
+                      <div class="nh-pricing-card-sub">{{ block.settings.subtext }}</div>
                     </div>
-                    <div class="nh-pricing-card-sub">{{ block.settings.subtext }}</div>
-                  </div>
-                {% endif %}
+                  {% when '@app' %}
+                    <div class="nh-offer-app-block" {{ block.shopify_attributes }}>
+                      {% render block %}
+                    </div>
+                {% endcase %}
               {% endfor %}
               
               <button type="submit" class="nh-btn-primary nh-offer-cta" id="nhOfferCta">
@@ -435,6 +440,9 @@
           "default": "90 capsules (30-day supply)"
         }
       ]
+    },
+    {
+      "type": "@app"
     }
   ],
   "presets": [
