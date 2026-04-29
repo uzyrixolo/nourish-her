@@ -30,7 +30,10 @@
 
 <script>
   // Sticky bottom CTA visibility.
-  // Hidden on Hero AND Spotlight. Appears only from the 3rd section onwards and stays visible.
+  // Remains hidden until the user has scrolled PAST the Spotlight section.
+  // The trigger is the first Shopify section that appears AFTER Spotlight
+  // (and is not Hero, Spotlight, or the sticky itself). This avoids matching
+  // header/announcement sections that sit above Hero in the DOM.
   // CTA click-scroll behavior is handled globally by snippets/nh-cta-scroll.liquid.
   (function() {
     const cta = document.getElementById('nhStickyBottomCta');
@@ -38,19 +41,35 @@
 
     function findTrigger() {
       const sections = Array.from(document.querySelectorAll('[id^="shopify-section-"]'));
-      for (const s of sections) {
+      // Find the last section containing Spotlight (the marker).
+      // If Spotlight does not exist, fall back to Hero as the marker.
+      let markerIdx = -1;
+      for (let i = sections.length - 1; i >= 0; i--) {
+        if (sections[i].querySelector('.nh-spotlight')) { markerIdx = i; break; }
+      }
+      if (markerIdx < 0) {
+        for (let i = sections.length - 1; i >= 0; i--) {
+          if (sections[i].querySelector('.nh-hero')) { markerIdx = i; break; }
+        }
+      }
+      // Walk forward from marker, return the first qualifying section.
+      for (let i = markerIdx + 1; i < sections.length; i++) {
+        const s = sections[i];
+        if (s.querySelector('.nh-sticky-bottom-cta')) continue;
         if (s.querySelector('.nh-hero')) continue;
         if (s.querySelector('.nh-spotlight')) continue;
-        if (s.querySelector('.nh-sticky-bottom-cta')) continue;
         return s;
       }
-      return document.querySelector('.nh-spotlight ~ *') || document.querySelector('.nh-hero ~ *');
+      return null;
     }
     let trigger = findTrigger();
 
     const SHOW_OFFSET = 0.9;
     function check() {
-      if (!trigger) { trigger = findTrigger(); if (!trigger) return; }
+      if (!trigger) {
+        trigger = findTrigger();
+        if (!trigger) { cta.classList.remove('nh-visible'); return; }
+      }
       const rect = trigger.getBoundingClientRect();
       if (rect.top <= window.innerHeight * SHOW_OFFSET) {
         cta.classList.add('nh-visible');

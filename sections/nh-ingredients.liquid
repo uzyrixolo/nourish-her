@@ -98,14 +98,17 @@
 
             {% when 'heading_image' %}
               {% if block.settings.image != blank %}
-                <div class="nh-ingredients-heading-image{{ vis_class }}"
-                     {{ block.shopify_attributes }}
-                     style="--nh-ing-hd-img-w: {{ block.settings.image_width | default: 320 }}px; --nh-ing-hd-img-w-m: {{ block.settings.image_width_mobile | default: block.settings.image_width | default: 240 }}px;">
-                  {{ block.settings.image | image_url: width: 1200 | image_tag:
-                      alt: block.settings.image.alt | default: 'Ingredients image',
-                      loading: 'lazy',
-                      class: 'nh-ingredients-heading-image-img'
-                  }}
+                {%- assign _hd_img_d = block.settings.image_width | default: 320 -%}
+                {%- assign _hd_img_m = block.settings.image_width_mobile | default: _hd_img_d -%}
+                <div class="nh-ingredients-heading-image{{ vis_class }}" {{ block.shopify_attributes }}>
+                  <div class="nh-ingredients-heading-image-inner"
+                       style="width: {{ _hd_img_d }}px; --hd-w-m: {{ _hd_img_m }}px;">
+                    {{ block.settings.image | image_url: width: 1200 | image_tag:
+                        alt: block.settings.image.alt | default: 'Ingredients image',
+                        loading: 'lazy',
+                        class: 'nh-ingredients-heading-image-img'
+                    }}
+                  </div>
                 </div>
               {% endif %}
 
