@@ -1469,7 +1469,6 @@
         },
         "pricing_sub": {
           "type": "pricing_option",
-          "disabled": true,
           "settings": {
             "plan_id": "subscription",
             "label": "Subscribe & Save",
@@ -1483,7 +1482,6 @@
         },
         "pricing_once": {
           "type": "pricing_option",
-          "disabled": true,
           "settings": {
             "plan_id": "onetime",
             "label": "One-Time Purchase",
