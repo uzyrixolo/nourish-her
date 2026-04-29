@@ -892,9 +892,6 @@
         "card_accent_text": "#fffbd5",
         "label": "",
         "heading": "<p>What's Inside Exactly?</p>",
-        "heading_image": "shopify://shop_images/Product_image-Transparent.png",
-        "heading_image_width": 320,
-        "heading_image_width_mobile": 240,
         "description": "Six carefully selected grass-fed beef organs, each chosen for their unique nutritional profile and specific relevance to female health."
       }
     },
@@ -1453,8 +1450,15 @@
             "image_url": ""
           }
         },
+        "kaching_subscriptions_app_block_tWNFHn": {
+          "type": "shopify://apps/kaching-subscriptions/blocks/app-block/1fa39fd7-f6a3-4bbc-9383-7d91d27b44f5",
+          "settings": {
+            "product": "{{section.settings.featured_product}}"
+          }
+        },
         "pricing_sub": {
           "type": "pricing_option",
+          "disabled": true,
           "settings": {
             "plan_id": "subscription",
             "label": "Subscribe & Save",
@@ -1468,6 +1472,7 @@
         },
         "pricing_once": {
           "type": "pricing_option",
+          "disabled": true,
           "settings": {
             "plan_id": "onetime",
             "label": "One-Time Purchase",
@@ -1520,6 +1525,7 @@
         "image_1",
         "image_2",
         "image_3",
+        "kaching_subscriptions_app_block_tWNFHn",
         "pricing_sub",
         "pricing_once",
         "include_1",
@@ -1909,6 +1915,7 @@
       "block_order": [
         "kaching_subscriptions_app_block_MccTgq"
       ],
+      "disabled": true,
       "settings": {
         "content_direction": "column",
         "vertical_on_mobile": true,
