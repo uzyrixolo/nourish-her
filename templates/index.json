@@ -739,7 +739,7 @@
             "trust_icon_placeholder_color": "#3fc153",
             "show_trust_1": true,
             "trust_text_1": "30 Day Money Back Guarantee",
-            "show_trust_2": false,
+            "show_trust_2": true,
             "trust_text_2": "Free Shipping"
           },
           "blocks": {}
@@ -941,7 +941,7 @@
             "trust_icon_placeholder_color": "#3fc153",
             "show_trust_1": true,
             "trust_text_1": "30 Day Money Back Guarantee",
-            "show_trust_2": false,
+            "show_trust_2": true,
             "trust_text_2": "Free Shipping"
           },
           "blocks": {}
@@ -1130,7 +1130,7 @@
             "trust_icon_placeholder_color": "#3fc153",
             "show_trust_1": true,
             "trust_text_1": "30 Day Money Back Guarantee",
-            "show_trust_2": false,
+            "show_trust_2": true,
             "trust_text_2": "Free Shipping"
           },
           "blocks": {}
@@ -1273,7 +1273,7 @@
             "trust_icon_placeholder_color": "#3fc153",
             "show_trust_1": true,
             "trust_text_1": "30 Day Money Back Guarantee",
-            "show_trust_2": false,
+            "show_trust_2": true,
             "trust_text_2": "Free Shipping"
           },
           "blocks": {}
