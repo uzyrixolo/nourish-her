@@ -1905,13 +1905,13 @@
       "name": "NH - Sticky Bottom Bar",
       "settings": {
         "sticky_enabled": true,
-        "sticky_image": "shopify://shop_images/Vanilla_BrandIcon_Digital_3313d435-1010-4d45-9c96-88fc9a301901.png",
-        "sticky_image_size": 52,
         "sticky_title": "Nourish Her™",
         "sticky_subscription_price": "£34.99/mo",
         "sticky_onetime_price": "£44.99",
         "sticky_cta_text": "Shop Now",
-        "sticky_cta_link": ""
+        "sticky_cta_link": "",
+        "sticky_cta_icon": "shopify://shop_images/Vanilla_BrandIcon_Digital_3313d435-1010-4d45-9c96-88fc9a301901.png",
+        "sticky_cta_icon_size": 30
       }
     },
     "1777461382ca99aa0e": {
