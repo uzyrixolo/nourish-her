@@ -557,7 +557,7 @@
         "quote_bg": "#fffbd5",
         "quote_text": "#1a1a1a",
         "label": "",
-        "heading": "<p><strong>Constantly Tired, Foggy and Watching More Hair Fall Out Every Single Day?</strong></p>"
+        "heading": "<p><strong>Constantly </strong><em><strong>Tired</strong></em><strong>, </strong><em><strong>Foggy</strong></em><strong> and Watching </strong><em><strong>More Hair Fall Out</strong></em><strong> Every Single Day?</strong></p>"
       }
     },
     "nh_founder_r7PE9g": {
@@ -632,7 +632,7 @@
         "quote_bg": "#fffbd5",
         "quote_text": "#1a1a1a",
         "label": "",
-        "heading": "<p><strong>Why beef organs are a </strong>VITAL<strong> part of any female diet</strong></p>"
+        "heading": "<p><strong>Why beef organs are a </strong><em>VITAL</em><strong> part of any female diet</strong></p>"
       }
     },
     "nh-timeline": {
@@ -787,7 +787,7 @@
             "image_width": 300,
             "image_width_mobile": 210,
             "hide_mobile": false,
-            "hide_desktop": false
+            "hide_desktop": true
           }
         },
         "liver": {
