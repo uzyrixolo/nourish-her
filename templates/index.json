@@ -783,9 +783,9 @@
         "heading_image_LXcwgy": {
           "type": "heading_image",
           "settings": {
-            "image": "shopify://shop_images/Product_image_square.png",
+            "image": "shopify://shop_images/Product_image-Transparent.png",
             "image_width": 300,
-            "image_width_mobile": 120,
+            "image_width_mobile": 210,
             "hide_mobile": false,
             "hide_desktop": false
           }
@@ -1174,36 +1174,36 @@
         "row_1": {
           "type": "comparison_row",
           "settings": {
-            "product_point": "Nutrients in their natural, easy-to-absorb form.",
-            "comparison_point": "Stripped-down nutrients that are harder to utilize."
+            "product_point": "Whole-food nutrients from real grass-fed organs",
+            "comparison_point": "Synthetic isolated nutrients"
           }
         },
         "row_2": {
           "type": "comparison_row",
           "settings": {
-            "product_point": "Aligned with human biology and vitality.",
-            "comparison_point": "Often cause upset stomach from harsh, synthetic forms."
+            "product_point": "Bioavailable forms your body recognises",
+            "comparison_point": "In forms your body struggles to absorb"
           }
         },
         "row_3": {
           "type": "comparison_row",
           "settings": {
-            "product_point": "Replenishes multiple systems at once.",
-            "comparison_point": "Focuses on single issues, leading to pill fatigue."
+            "product_point": "Food-based nutrition that’s easier to tolerate",
+            "comparison_point": "Can feel harsh on digestion (bloating, constipation, nausea)"
           }
         },
         "row_4": {
           "type": "comparison_row",
           "settings": {
-            "product_point": "Zero Fillers or Binders",
-            "comparison_point": "Often contain chemical glues and stabilizers."
+            "product_point": "Female-formulated for women’s energy, vitality and nourishment",
+            "comparison_point": "Generic formulas made for everyone"
           }
         },
         "comparison_row_TACVYU": {
           "type": "comparison_row",
           "settings": {
-            "product_point": "Vitamins and minerals that work together.",
-            "comparison_point": "Isolated minerals that compete for absorption."
+            "product_point": "Built as a foundational daily support for women",
+            "comparison_point": "Leaves you guessing what to take next"
           }
         }
       },
@@ -1221,8 +1221,8 @@
         "padding_bottom_mobile": 60,
         "bg_color": "#fdf8f0",
         "heading_color": "#1a1a1a",
-        "accent_color": "#cc0019",
-        "th_text_color": "#fffbd5",
+        "accent_color": "#ffd4e2",
+        "th_text_color": "#cc0019",
         "th_secondary_bg": "#f1f1f1",
         "th_secondary_text": "#444444",
         "td_text_color": "#444444",
