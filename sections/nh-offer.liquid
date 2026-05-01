@@ -71,33 +71,57 @@
     
     <div class="nh-offer-grid">
       <div class="nh-offer-image">
+        {%- assign _gallery_product = all_products[section.settings.featured_product] -%}
+        {%- assign _use_product_imgs = section.settings.use_product_images -%}
+        {%- if _use_product_imgs == nil -%}{%- assign _use_product_imgs = true -%}{%- endif -%}
+        {%- assign _product_has_images = false -%}
+        {%- if _gallery_product != blank and _gallery_product.images.size > 0 -%}
+          {%- assign _product_has_images = true -%}
+        {%- endif -%}
+
         <div class="nh-offer-gallery" id="nhOfferGallery-{{ section.id }}">
           <div class="nh-offer-gallery-track" id="nhOfferGalleryTrack-{{ section.id }}">
-            {% for block in section.blocks %}
-              {% if block.type == 'gallery_image' %}
-                <div class="nh-offer-gallery-slide" {{ block.shopify_attributes }}>
-                  {% if block.settings.image != blank %}
-                    {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.image.alt, loading: 'lazy', width: block.settings.image.width, height: block.settings.image.height }}
-                  {% elsif block.settings.image_url != blank %}
-                    <img src="{{ block.settings.image_url }}" alt="Product image {{ forloop.index }}" width="600" height="600" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;" />
-                  {% else %}
-                    {{ 'product-' | append: forloop.index | placeholder_svg_tag: 'nh-gallery-slide' }}
-                  {% endif %}
+            {% if _use_product_imgs and _product_has_images %}
+              {%- comment -%} Pull real product images from the attached product {%- endcomment -%}
+              {% for image in _gallery_product.images %}
+                <div class="nh-offer-gallery-slide">
+                  {{ image | image_url: width: 800 | image_tag: alt: image.alt | default: _gallery_product.title, loading: 'lazy', width: image.width, height: image.height }}
                 </div>
-              {% endif %}
-            {% endfor %}
+              {% endfor %}
+            {% else %}
+              {%- comment -%} Fallback: render merchant-curated gallery_image blocks {%- endcomment -%}
+              {% for block in section.blocks %}
+                {% if block.type == 'gallery_image' %}
+                  <div class="nh-offer-gallery-slide" {{ block.shopify_attributes }}>
+                    {% if block.settings.image != blank %}
+                      {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.image.alt, loading: 'lazy', width: block.settings.image.width, height: block.settings.image.height }}
+                    {% elsif block.settings.image_url != blank %}
+                      <img src="{{ block.settings.image_url }}" alt="Product image {{ forloop.index }}" width="600" height="600" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;" />
+                    {% else %}
+                      {{ 'product-' | append: forloop.index | placeholder_svg_tag: 'nh-gallery-slide' }}
+                    {% endif %}
+                  </div>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
           </div>
           <button class="nh-offer-gallery-arrow nh-prev" onclick="nhGalleryPrev_{{ section.id | replace: '-', '_' }}()" aria-label="Previous">&#8249;</button>
           <button class="nh-offer-gallery-arrow nh-next" onclick="nhGalleryNext_{{ section.id | replace: '-', '_' }}()" aria-label="Next">&#8250;</button>
         </div>
         <div class="nh-offer-gallery-dots" id="nhOfferGalleryDots-{{ section.id }}">
-          {% assign gallery_count = 0 %}
-          {% for block in section.blocks %}
-            {% if block.type == 'gallery_image' %}
-              <button class="nh-offer-gallery-dot{% if forloop.first %} active{% endif %}" onclick="nhGalleryGoTo_{{ section.id | replace: '-', '_' }}({{ gallery_count }})"></button>
-              {% assign gallery_count = gallery_count | plus: 1 %}
-            {% endif %}
-          {% endfor %}
+          {% if _use_product_imgs and _product_has_images %}
+            {% for image in _gallery_product.images %}
+              <button class="nh-offer-gallery-dot{% if forloop.first %} active{% endif %}" onclick="nhGalleryGoTo_{{ section.id | replace: '-', '_' }}({{ forloop.index0 }})"></button>
+            {% endfor %}
+          {% else %}
+            {% assign gallery_count = 0 %}
+            {% for block in section.blocks %}
+              {% if block.type == 'gallery_image' %}
+                <button class="nh-offer-gallery-dot{% if forloop.first %} active{% endif %}" onclick="nhGalleryGoTo_{{ section.id | replace: '-', '_' }}({{ gallery_count }})"></button>
+                {% assign gallery_count = gallery_count | plus: 1 %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
         </div>
       </div>
       
@@ -339,6 +363,13 @@
       "type": "product",
       "id": "featured_product",
       "label": "Featured Product"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_product_images",
+      "label": "Use Product Images in Gallery",
+      "info": "When enabled, the gallery pulls real images from the attached product. Gallery Image blocks are used as a fallback.",
+      "default": true
     },
     {
       "type": "text",
