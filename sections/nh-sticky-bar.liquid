@@ -7,13 +7,15 @@
 
 {% render 'nh-sticky-cta',
   product_title: section.settings.sticky_title,
-  subscription_price: section.settings.sticky_subscription_price,
-  onetime_price: section.settings.sticky_onetime_price,
   cta_text: section.settings.sticky_cta_text,
   cta_link: section.settings.sticky_cta_link,
   enabled: section.settings.sticky_enabled,
   cta_icon: section.settings.sticky_cta_icon,
-  cta_icon_size: section.settings.sticky_cta_icon_size
+  cta_icon_size: section.settings.sticky_cta_icon_size,
+  trust_1_text: section.settings.sticky_trust_1_text,
+  trust_1_icon: section.settings.sticky_trust_1_icon,
+  trust_2_text: section.settings.sticky_trust_2_text,
+  trust_2_icon: section.settings.sticky_trust_2_icon
 %}
 
 {% schema %}
@@ -43,16 +45,32 @@
       "default": "Nourish Her™"
     },
     {
-      "type": "text",
-      "id": "sticky_subscription_price",
-      "label": "Subscription Price",
-      "default": "£34.99/mo"
+      "type": "header",
+      "content": "Trust Signals"
+    },
+    {
+      "type": "image_picker",
+      "id": "sticky_trust_1_icon",
+      "label": "Trust Signal 1 Icon",
+      "info": "Optional. Falls back to a shield SVG when blank."
     },
     {
       "type": "text",
-      "id": "sticky_onetime_price",
-      "label": "One-time Price",
-      "default": "£44.99"
+      "id": "sticky_trust_1_text",
+      "label": "Trust Signal 1 Text",
+      "default": "30 Day Money Back Guarantee"
+    },
+    {
+      "type": "image_picker",
+      "id": "sticky_trust_2_icon",
+      "label": "Trust Signal 2 Icon",
+      "info": "Optional. Falls back to a truck SVG when blank."
+    },
+    {
+      "type": "text",
+      "id": "sticky_trust_2_text",
+      "label": "Trust Signal 2 Text",
+      "default": "Free Shipping"
     },
     {
       "type": "header",

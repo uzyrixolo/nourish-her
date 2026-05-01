@@ -15,8 +15,33 @@
 <div class="nh-sticky-bottom-cta" id="nhStickyBottomCta">
   <div class="nh-sticky-bottom-info">
     <div class="nh-sticky-bottom-name">{{ product_title | default: 'Nourish Her™' }}</div>
-    <div class="nh-sticky-bottom-price">
-      Subscribe from <strong>{{ subscription_price | default: '£34.99/mo' }}</strong> · One-time <strong>{{ onetime_price | default: '£44.99' }}</strong>
+    <div class="nh-sticky-bottom-trust">
+      {%- assign _t1 = trust_1_text | default: '30 Day Money Back Guarantee' -%}
+      {%- assign _t2 = trust_2_text | default: 'Free Shipping' -%}
+      {% if _t1 != blank %}
+        <span class="nh-sticky-bottom-trust-item">
+          <span class="nh-sticky-bottom-trust-icon" aria-hidden="true">
+            {% if trust_1_icon != blank %}
+              {{ trust_1_icon | image_url: width: 60 | image_tag: alt: '', loading: 'lazy', class: 'nh-sticky-bottom-trust-icon-img' }}
+            {% else %}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+            {% endif %}
+          </span>
+          <span class="nh-sticky-bottom-trust-text">{{ _t1 }}</span>
+        </span>
+      {% endif %}
+      {% if _t2 != blank %}
+        <span class="nh-sticky-bottom-trust-item">
+          <span class="nh-sticky-bottom-trust-icon" aria-hidden="true">
+            {% if trust_2_icon != blank %}
+              {{ trust_2_icon | image_url: width: 60 | image_tag: alt: '', loading: 'lazy', class: 'nh-sticky-bottom-trust-icon-img' }}
+            {% else %}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+            {% endif %}
+          </span>
+          <span class="nh-sticky-bottom-trust-text">{{ _t2 }}</span>
+        </span>
+      {% endif %}
     </div>
   </div>
   {%- assign _cta_icon_size = cta_icon_size | default: 20 -%}
