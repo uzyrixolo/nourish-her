@@ -702,14 +702,14 @@
   align-items: flex-start;
   padding: 28px 0;
   position: relative;
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  /* Cards stay fully visible. Only the timeline line animates on scroll. */
+  opacity: 1;
+  transform: none;
 }
 
 .nh-timeline-item.nh-in-view {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 .nh-timeline-month {
@@ -1799,7 +1799,7 @@
 .nh-spotlight-grid {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 0% 0;
+  padding: 40px 5% 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 56px;
