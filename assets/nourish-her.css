@@ -909,10 +909,15 @@
   background: #fff;
 }
 
+/* Tighten the gap between the heading/divider and the table */
+.nh-comparison-section .nh-divider {
+  margin: 16px 0 16px;
+}
+
 .nh-comparison-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 48px;
+  margin-top: 8px;
   border-radius: 20px;
   overflow: hidden;
   /* box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08); */
