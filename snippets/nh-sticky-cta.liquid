@@ -13,6 +13,17 @@
 {{ 'nourish-her.css' | asset_url | stylesheet_tag }}
 
 <div class="nh-sticky-bottom-cta" id="nhStickyBottomCta">
+  {% if image != blank %}
+    {%- assign _img_size = image_size | default: 52 -%}
+    <div class="nh-sticky-bottom-thumb" style="width: {{ _img_size }}px; height: {{ _img_size }}px;">
+      {{ image | image_url: width: 200 | image_tag:
+          alt: image.alt | default: product_title,
+          loading: 'lazy',
+          class: 'nh-sticky-bottom-thumb-img',
+          widths: '120,200,300'
+      }}
+    </div>
+  {% endif %}
   <div class="nh-sticky-bottom-info">
     <div class="nh-sticky-bottom-name">{{ product_title | default: 'Nourish Her™' }}</div>
     <div class="nh-sticky-bottom-price">

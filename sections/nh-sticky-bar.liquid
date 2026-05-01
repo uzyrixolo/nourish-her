@@ -11,7 +11,9 @@
   onetime_price: section.settings.sticky_onetime_price,
   cta_text: section.settings.sticky_cta_text,
   cta_link: section.settings.sticky_cta_link,
-  enabled: section.settings.sticky_enabled
+  enabled: section.settings.sticky_enabled,
+  image: section.settings.sticky_image,
+  image_size: section.settings.sticky_image_size
 %}
 
 {% schema %}
@@ -33,6 +35,22 @@
     {
       "type": "header",
       "content": "Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "sticky_image",
+      "label": "Product Thumbnail",
+      "info": "Shown on the left of the bar. Leave blank to hide."
+    },
+    {
+      "type": "range",
+      "id": "sticky_image_size",
+      "label": "Thumbnail Size",
+      "min": 32,
+      "max": 96,
+      "step": 2,
+      "unit": "px",
+      "default": 52
     },
     {
       "type": "text",
