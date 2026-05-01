@@ -1599,7 +1599,6 @@
   height: 100%;
   object-fit: contain;
   display: block;
-  filter: brightness(0) invert(1); /* render icon in white to match button text */
 }
 
 .nh-sticky-bottom-btn-label {
