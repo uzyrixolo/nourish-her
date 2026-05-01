@@ -740,8 +740,7 @@
   border: 3px solid #fff;
   box-shadow: 0 0 0 3px var(--nh-red);
   flex-shrink: 0;
-  transform: scale(0);
-  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: scale(1);
 }
 
 .nh-timeline-item.nh-in-view .nh-timeline-dot {
@@ -755,14 +754,13 @@
   flex: 1;
   border: 1.5px solid var(--nh-light-pink);
   margin-left: 20px;
-  opacity: 0;
-  transform: translateX(20px);
-  transition: opacity 0.5s ease 0.15s, transform 0.5s ease 0.15s;
+  opacity: 1;
+  transform: none;
 }
 
 .nh-timeline-item.nh-in-view .nh-timeline-content {
   opacity: 1;
-  transform: translateX(0);
+  transform: none;
 }
 
 .nh-timeline-content h3 {
@@ -1653,14 +1651,13 @@
     gap: 16px;
     padding: 20px 0;
     align-items: flex-start;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    opacity: 1;
+    transform: none;
   }
 
   .nh-timeline-item.nh-in-view {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 
   .nh-timeline-month {
@@ -1690,14 +1687,13 @@
   .nh-timeline-content {
     margin-left: 12px;
     padding: 18px 20px;
-    opacity: 0;
-    transform: translateX(16px);
-    transition: opacity 0.5s ease 0.15s, transform 0.5s ease 0.15s;
+    opacity: 1;
+    transform: none;
   }
 
   .nh-timeline-item.nh-in-view .nh-timeline-content {
     opacity: 1;
-    transform: translateX(0);
+    transform: none;
   }
 
   .nh-comparison-table {
