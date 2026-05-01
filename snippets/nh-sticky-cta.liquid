@@ -13,28 +13,30 @@
 {{ 'nourish-her.css' | asset_url | stylesheet_tag }}
 
 <div class="nh-sticky-bottom-cta" id="nhStickyBottomCta">
-  {% if image != blank %}
-    {%- assign _img_size = image_size | default: 52 -%}
-    <div class="nh-sticky-bottom-thumb" style="width: {{ _img_size }}px; height: {{ _img_size }}px;">
-      {{ image | image_url: width: 200 | image_tag:
-          alt: image.alt | default: product_title,
-          loading: 'lazy',
-          class: 'nh-sticky-bottom-thumb-img',
-          widths: '120,200,300'
-      }}
-    </div>
-  {% endif %}
   <div class="nh-sticky-bottom-info">
     <div class="nh-sticky-bottom-name">{{ product_title | default: 'Nourish Her™' }}</div>
     <div class="nh-sticky-bottom-price">
       Subscribe from <strong>{{ subscription_price | default: '£34.99/mo' }}</strong> · One-time <strong>{{ onetime_price | default: '£44.99' }}</strong>
     </div>
   </div>
+  {%- assign _cta_icon_size = cta_icon_size | default: 20 -%}
+  {%- capture _cta_inner -%}
+    {% if cta_icon != blank %}
+      <span class="nh-sticky-bottom-btn-icon" style="width: {{ _cta_icon_size }}px; height: {{ _cta_icon_size }}px;" aria-hidden="true">
+        {{ cta_icon | image_url: width: 80 | image_tag:
+            alt: '',
+            loading: 'lazy',
+            class: 'nh-sticky-bottom-btn-icon-img'
+        }}
+      </span>
+    {% endif %}
+    <span class="nh-sticky-bottom-btn-label">{{ cta_text | default: 'Shop Now' }}</span>
+  {%- endcapture -%}
   {% if cta_link != blank %}
-    <a class="nh-sticky-bottom-btn" href="{{ cta_link }}">{{ cta_text | default: 'Shop Now' }}</a>
+    <a class="nh-sticky-bottom-btn" href="{{ cta_link }}">{{ _cta_inner }}</a>
   {% else %}
     <button class="nh-sticky-bottom-btn" type="button" onclick="(function(){var t=document.querySelector('.nh-offer-section')||document.getElementById('nh-offer');if(t){t.scrollIntoView({behavior:'smooth',block:'start'});}})()">
-      {{ cta_text | default: 'Shop Now' }}
+      {{ _cta_inner }}
     </button>
   {% endif %}
 </div>

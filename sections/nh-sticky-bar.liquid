@@ -12,8 +12,8 @@
   cta_text: section.settings.sticky_cta_text,
   cta_link: section.settings.sticky_cta_link,
   enabled: section.settings.sticky_enabled,
-  image: section.settings.sticky_image,
-  image_size: section.settings.sticky_image_size
+  cta_icon: section.settings.sticky_cta_icon,
+  cta_icon_size: section.settings.sticky_cta_icon_size
 %}
 
 {% schema %}
@@ -35,22 +35,6 @@
     {
       "type": "header",
       "content": "Content"
-    },
-    {
-      "type": "image_picker",
-      "id": "sticky_image",
-      "label": "Product Thumbnail",
-      "info": "Shown on the left of the bar. Leave blank to hide."
-    },
-    {
-      "type": "range",
-      "id": "sticky_image_size",
-      "label": "Thumbnail Size",
-      "min": 32,
-      "max": 96,
-      "step": 2,
-      "unit": "px",
-      "default": 52
     },
     {
       "type": "text",
@@ -85,6 +69,22 @@
       "id": "sticky_cta_link",
       "label": "Button Link (optional)",
       "info": "Leave blank to scroll to the Offer section on the page."
+    },
+    {
+      "type": "image_picker",
+      "id": "sticky_cta_icon",
+      "label": "Button Icon",
+      "info": "Optional icon shown inside the button, next to the text."
+    },
+    {
+      "type": "range",
+      "id": "sticky_cta_icon_size",
+      "label": "Button Icon Size",
+      "min": 14,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 20
     }
   ],
   "presets": [
