@@ -88,7 +88,7 @@
           "type": "cta",
           "settings": {
             "column": "left",
-            "heading": "START NOURISHING TODAY",
+            "heading": "RECLAIM YOUR BALANCE",
             "subtext": "30 Day Money Back Guarantee",
             "icon_image": "shopify://shop_images/Vanilla_BrandIcon_Digital_3313d435-1010-4d45-9c96-88fc9a301901.png",
             "icon_size": 40,
@@ -1469,6 +1469,7 @@
         },
         "pricing_sub": {
           "type": "pricing_option",
+          "disabled": true,
           "settings": {
             "plan_id": "subscription",
             "label": "Subscribe & Save",
@@ -1482,6 +1483,7 @@
         },
         "pricing_once": {
           "type": "pricing_option",
+          "disabled": true,
           "settings": {
             "plan_id": "onetime",
             "label": "One-Time Purchase",
@@ -1905,10 +1907,10 @@
       "name": "NH - Sticky Bottom Bar",
       "settings": {
         "sticky_enabled": true,
-        "sticky_title": "",
+        "sticky_title": "Nourish Her™",
         "sticky_trust_1_text": "30 Day Money Back Guarantee",
-        "sticky_trust_2_text": "Free Shipping*",
-        "sticky_cta_text": "START NOURISHING",
+        "sticky_trust_2_text": "Free Shipping",
+        "sticky_cta_text": "Shop Now",
         "sticky_cta_link": "",
         "sticky_cta_icon": "shopify://shop_images/Vanilla_BrandIcon_Digital_3313d435-1010-4d45-9c96-88fc9a301901.png",
         "sticky_cta_icon_size": 30
