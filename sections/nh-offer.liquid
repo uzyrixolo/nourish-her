@@ -229,6 +229,73 @@
       }, {passive:true});
     }
   })();
+
+  // ---------------------------------------------------------------
+  // Kaching Subscriptions widget — subtitle patcher
+  // Replaces the selling-plan subtitle text inside the widget:
+  //   - One-time purchase card: inject a subtitle (Kaching omits by default)
+  //   - Subscribe & save card: overwrite the default "Delivery: every ..." line
+  // Uses a MutationObserver so it survives Kaching's re-renders.
+  // ---------------------------------------------------------------
+  (function() {
+    var ONETIME_SUBTITLE = {{ section.settings.kaching_onetime_subtitle | default: '' | json }};
+    var SUB_SUBTITLE    = {{ section.settings.kaching_subscription_subtitle | default: '' | json }};
+    if (!ONETIME_SUBTITLE && !SUB_SUBTITLE) return;
+
+    var root = document.getElementById('nh-offer') || document;
+
+    function buildSubtitleNode(text) {
+      var info = document.createElement('div');
+      info.className = 'kaching-subscriptions__selling-plan-info nh-kaching-injected';
+      info.setAttribute('role', 'button');
+      info.setAttribute('tabindex', '0');
+      info.innerHTML =
+        '<div class="kaching-subscriptions__selling-plan-title-and-label-wrapper">' +
+          '<div class="kaching-subscriptions__selling-plan-title-wrapper">' +
+            '<span class="kaching-subscriptions__selling-plan-title" data-testid="selling-plan-display"></span>' +
+          '</div>' +
+        '</div>';
+      info.querySelector('.kaching-subscriptions__selling-plan-title').textContent = text;
+      return info;
+    }
+
+    function patch() {
+      var wrappers = root.querySelectorAll('.kaching-subscriptions__card-wrapper');
+      wrappers.forEach(function(card) {
+        var isOneTime = card.classList.contains('one-time-purchase');
+
+        if (isOneTime) {
+          if (!ONETIME_SUBTITLE) return;
+          // Inject subtitle once per card. If already present, just sync text.
+          var existing = card.querySelector(':scope > .nh-kaching-injected .kaching-subscriptions__selling-plan-title');
+          if (existing) {
+            if (existing.textContent !== ONETIME_SUBTITLE) existing.textContent = ONETIME_SUBTITLE;
+          } else {
+            card.appendChild(buildSubtitleNode(ONETIME_SUBTITLE));
+          }
+        } else {
+          if (!SUB_SUBTITLE) return;
+          // Overwrite the Kaching-rendered selling-plan title text.
+          var title = card.querySelector('.kaching-subscriptions__selling-plan-title[data-testid="selling-plan-display"]');
+          if (title && title.textContent !== SUB_SUBTITLE) {
+            title.textContent = SUB_SUBTITLE;
+          }
+        }
+      });
+    }
+
+    // Initial attempt + retries for late-loading widget.
+    patch();
+    var tries = 0;
+    var retry = setInterval(function() {
+      patch();
+      if (++tries > 20) clearInterval(retry);
+    }, 250);
+
+    // Long-term resilience: re-patch on any DOM change inside the offer section.
+    var mo = new MutationObserver(function() { patch(); });
+    mo.observe(root, { childList: true, subtree: true, characterData: true });
+  })();
 </script>
 
 {% schema %}
@@ -388,6 +455,26 @@
       "id": "guarantee_text",
       "label": "Guarantee Text",
       "default": "If you're not completely satisfied, we'll refund you in full — no questions asked."
+    },
+    {
+      "type": "header",
+      "content": "Kaching Widget Labels"
+    },
+    {
+      "type": "paragraph",
+      "content": "These override the subtitle text inside the Kaching Subscriptions widget cards. Leave blank to keep Kaching's default."
+    },
+    {
+      "type": "text",
+      "id": "kaching_onetime_subtitle",
+      "label": "One-Time Purchase Subtitle",
+      "default": "90 capsules · 30-day supply"
+    },
+    {
+      "type": "text",
+      "id": "kaching_subscription_subtitle",
+      "label": "Subscription Subtitle",
+      "default": "Save £10 per month · Cancel anytime · Free delivery"
     }
   ],
   "blocks": [
