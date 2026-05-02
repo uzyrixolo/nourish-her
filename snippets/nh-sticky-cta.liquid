@@ -102,12 +102,31 @@
     }
     let trigger = findTrigger();
 
+    // The Offer section is where the real purchase form lives; hide the sticky
+    // CTA while it's on screen, then bring it back once the user has scrolled past.
+    function findOffer() {
+      return document.querySelector('.nh-offer-section');
+    }
+    let offerEl = findOffer();
+
     const SHOW_OFFSET = 0.9;
     function check() {
       if (!trigger) {
         trigger = findTrigger();
         if (!trigger) { cta.classList.remove('nh-visible'); return; }
       }
+      if (!offerEl) offerEl = findOffer();
+
+      // If the Offer section is currently in the viewport, keep the CTA hidden.
+      if (offerEl) {
+        const oRect = offerEl.getBoundingClientRect();
+        const inView = oRect.bottom > 0 && oRect.top < window.innerHeight;
+        if (inView) {
+          cta.classList.remove('nh-visible');
+          return;
+        }
+      }
+
       const rect = trigger.getBoundingClientRect();
       if (rect.top <= window.innerHeight * SHOW_OFFSET) {
         cta.classList.add('nh-visible');
