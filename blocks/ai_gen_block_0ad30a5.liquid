@@ -121,7 +121,7 @@
     }
 
     .ai-trust-signals-{{ ai_gen_id }} {
-      flex-direction: column;
+      {% comment %} flex-direction: column; {% endcomment %}
       align-items: {{ block.settings.trust_alignment }};
       gap: {{ block.settings.trust_spacing | times: 0.75 }}px;
     }
