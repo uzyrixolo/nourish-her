@@ -1566,7 +1566,9 @@
         "use_product_images": true,
         "fallback_price": "£34.99",
         "guarantee_title": "30-Day Money-Back Guarantee",
-        "guarantee_text": "If you're not completely satisfied, we'll refund you in full."
+        "guarantee_text": "If you're not completely satisfied, we'll refund you in full.",
+        "kaching_onetime_subtitle": "90 capsules · 30-day supply",
+        "kaching_subscription_subtitle": "Save £10 per month · Cancel anytime · Free delivery"
       }
     },
     "nh-lab-tested": {
