@@ -617,7 +617,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
-  align-items: start;
+  align-items: center;
 }
 
 .nh-founder-row-col {
@@ -625,6 +625,7 @@
   flex-direction: column;
   gap: 20px;
   min-width: 0;
+  justify-content: center;
 }
 
 .nh-founder-text p {
