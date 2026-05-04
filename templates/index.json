@@ -482,6 +482,7 @@
           "type": "image",
           "settings": {
             "column": "left",
+            "row": 1,
             "image": "shopify://shop_images/Gemini_Generated_Image_dy9pnmdy9pnmdy9p_1.png",
             "image_url": "",
             "hide_mobile": false,
@@ -566,6 +567,7 @@
           "disabled": true,
           "settings": {
             "column": "right",
+            "row": 1,
             "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
             "image_url": "",
             "hide_mobile": true,
@@ -607,6 +609,7 @@
           "type": "image",
           "settings": {
             "column": "left",
+            "row": 1,
             "image": "shopify://shop_images/hf_20260423_112937_28f43832-83f5-4eec-b927-a46f280a101a.png",
             "image_url": "",
             "hide_mobile": false,
@@ -617,6 +620,7 @@
           "type": "text",
           "settings": {
             "column": "left",
+            "row": 1,
             "content": "<p>For centuries, women were nourished by whole foods that delivered everything the body needed in exactly the form it recognised. Organ meats weren't a trend, <strong>they were simply the most nutrient-dense food on the planet</strong> — rich in haem iron, B12, CoQ10 and selenium, with all the natural cofactors that make absorption actually work.</p><p>Nourish Her brings that nourishment back — without asking you to eat raw liver.</p>",
             "hide_mobile": false,
             "hide_desktop": false
@@ -626,6 +630,7 @@
           "type": "image",
           "settings": {
             "column": "left",
+            "row": 1,
             "image": "shopify://shop_images/ChatGPT_Image_Apr_23_2026_12_58_24_PM.png",
             "image_url": "",
             "hide_mobile": false,
@@ -636,6 +641,7 @@
           "type": "text",
           "settings": {
             "column": "left",
+            "row": 1,
             "content": "<p>Six whole-food grass-fed beef organs in one daily capsule, formulated specifically for women.</p><p>This isn't another supplement to add to the pile.<strong> It's the foundation everything else has been missing.</strong></p>",
             "hide_mobile": false,
             "hide_desktop": false
@@ -645,6 +651,7 @@
           "type": "image",
           "settings": {
             "column": "right",
+            "row": 1,
             "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
             "image_url": "",
             "hide_mobile": true,
@@ -780,7 +787,7 @@
             "show_trust_1": true,
             "trust_text_1": "30 Day Money Back Guarantee",
             "show_trust_2": true,
-            "trust_text_2": "Free Shipping"
+            "trust_text_2": "Free Shipping*"
           },
           "blocks": {}
         }
@@ -1026,6 +1033,7 @@
           "type": "text",
           "settings": {
             "column": "left",
+            "row": 1,
             "content": "<p>Hi, my names Sabbah.</p>",
             "hide_mobile": false,
             "hide_desktop": false
@@ -1035,6 +1043,7 @@
           "type": "image",
           "settings": {
             "column": "left",
+            "row": 1,
             "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
             "image_url": "",
             "hide_mobile": false,
@@ -1045,6 +1054,7 @@
           "type": "text",
           "settings": {
             "column": "left",
+            "row": 1,
             "content": "<p>As a doctor working long, demanding shifts, I lived in a constant state of exhaustion. My energy was low, my focus was slipping, and no matter how much I slept, I never felt restored. Iron tablets upset my stomach, and multivitamins felt synthetic and disconnected from real nourishment. </p><p>That’s when I began a deep dive into <strong>wholefood nutrition</strong>.</p>",
             "hide_mobile": false,
             "hide_desktop": false
@@ -1054,6 +1064,7 @@
           "type": "text",
           "settings": {
             "column": "left",
+            "row": 1,
             "content": "<p>For generations, women were nourished with whole, nutrient-dense foods that supported energy, resilience, and vitality at the root. Organs like liver and spleen weren’t trends — they were foundational nutrition. The problem was, I couldn’t bring myself to eat liver or organ meats consistently!</p>",
             "hide_mobile": false,
             "hide_desktop": false
@@ -1063,6 +1074,7 @@
           "type": "image",
           "settings": {
             "column": "left",
+            "row": 1,
             "image": "shopify://shop_images/Holding_raw_liver.png",
             "image_url": "",
             "hide_mobile": false,
@@ -1073,6 +1085,7 @@
           "type": "text",
           "settings": {
             "column": "left",
+            "row": 1,
             "content": "<p>I knew there was no organ supplement on the market designed around what women actually need — our hormonal demands, our iron losses, our biology. That’s when I decided to create <strong>Nourish Her</strong>™. To make it easier to get the essential nutrients my body needed.</p><p>For the first time in a long while, it felt like my body was finally getting what it had been asking for.</p>",
             "hide_mobile": false,
             "hide_desktop": false
@@ -1082,6 +1095,7 @@
           "type": "image",
           "settings": {
             "column": "right",
+            "row": 1,
             "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
             "image_url": "",
             "hide_mobile": true,
@@ -1093,6 +1107,7 @@
           "disabled": true,
           "settings": {
             "column": "left",
+            "row": 1,
             "signature": "— Dr. [Founder Name], Founder of Nourish Her™",
             "hide_mobile": false,
             "hide_desktop": false
@@ -1103,6 +1118,7 @@
           "disabled": true,
           "settings": {
             "column": "left",
+            "row": 1,
             "quote": "This is a highlighted quote.",
             "hide_mobile": false,
             "hide_desktop": false
@@ -1171,7 +1187,7 @@
             "show_trust_1": true,
             "trust_text_1": "30 Day Money Back Guarantee",
             "show_trust_2": true,
-            "trust_text_2": "Free Shipping"
+            "trust_text_2": "Free Shipping*"
           },
           "blocks": {}
         }
@@ -1314,7 +1330,7 @@
             "show_trust_1": true,
             "trust_text_1": "30 Day Money Back Guarantee",
             "show_trust_2": true,
-            "trust_text_2": "Free Shipping"
+            "trust_text_2": "Free Shipping*"
           },
           "blocks": {}
         }
@@ -1951,7 +1967,7 @@
         "sticky_enabled": true,
         "sticky_title": "Nourish Her™",
         "sticky_trust_1_text": "30 Day Money Back Guarantee",
-        "sticky_trust_2_text": "Free Shipping",
+        "sticky_trust_2_text": "Free Shipping*",
         "sticky_cta_text": "start nourishing",
         "sticky_cta_link": "",
         "sticky_cta_icon": "shopify://shop_images/Vanilla_BrandIcon_Digital_3313d435-1010-4d45-9c96-88fc9a301901.png",
