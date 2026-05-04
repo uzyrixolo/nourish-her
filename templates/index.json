@@ -88,7 +88,7 @@
           "type": "cta",
           "settings": {
             "column": "left",
-            "heading": "RECLAIM YOUR BALANCE",
+            "heading": "try risk free",
             "subtext": "30 Day Money Back Guarantee",
             "icon_image": "shopify://shop_images/Vanilla_BrandIcon_Digital_3313d435-1010-4d45-9c96-88fc9a301901.png",
             "icon_size": 40,
@@ -121,7 +121,7 @@
           "type": "quote",
           "settings": {
             "column": "left",
-            "text": "I've taken women's vitamins for years and felt no big benefit. I'm now finally noticing steadier energy and more balance after just a few weeks on this.",
+            "text": "I was sceptical about organ supplements but the science behind this is undeniable. Three months in and my hair is thicker, my hormones feel balanced, and I've ditched my old multivitamin for good.",
             "author": "Lucy L",
             "text_color": "#000000",
             "quote_mark_color": "#cc0019",
@@ -1912,7 +1912,7 @@
         "sticky_title": "Nourish Her™",
         "sticky_trust_1_text": "30 Day Money Back Guarantee",
         "sticky_trust_2_text": "Free Shipping",
-        "sticky_cta_text": "Shop Now",
+        "sticky_cta_text": "start nourishing",
         "sticky_cta_link": "",
         "sticky_cta_icon": "shopify://shop_images/Vanilla_BrandIcon_Digital_3313d435-1010-4d45-9c96-88fc9a301901.png",
         "sticky_cta_icon_size": 30
