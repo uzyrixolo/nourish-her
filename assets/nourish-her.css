@@ -962,7 +962,7 @@
   font-family: var(--font-h2--family, 'Playfair Display', serif);
   font-size: 1.1rem;
   font-weight: 700;
-  text-align: left;
+  text-align: center;
   vertical-align: bottom;
 }
 
