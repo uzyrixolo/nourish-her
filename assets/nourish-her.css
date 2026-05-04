@@ -1765,6 +1765,11 @@
     gap: 36px;
   }
 
+  /* Kill the between-rows gap on mobile so rows stack flush */
+  .nh-founder-stack {
+    gap: 0;
+  }
+
   .nh-timeline::before {
     left: 60px;
   }
