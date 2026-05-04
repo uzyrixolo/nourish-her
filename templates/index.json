@@ -1073,7 +1073,7 @@
             "content": "<p>For generations, women were nourished with whole, nutrient-dense foods that supported energy, resilience, and vitality at the root. Organs like liver and spleen weren’t trends — they were foundational nutrition. The problem was, I couldn’t bring myself to eat liver or organ meats consistently!</p>",
             "font_size_desktop": 0,
             "font_size_mobile": 0,
-            "hide_mobile": false,
+            "hide_mobile": true,
             "hide_desktop": false
           }
         },
@@ -1110,6 +1110,18 @@
             "font_size_mobile": 0,
             "hide_mobile": false,
             "hide_desktop": false
+          }
+        },
+        "text_KRM7PJ": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "row": 2,
+            "content": "<p>For generations, women were nourished with whole, nutrient-dense foods that supported energy, resilience, and vitality at the root. Organs like liver and spleen weren’t trends — they were foundational nutrition. The problem was, I couldn’t bring myself to eat liver or organ meats consistently!</p>",
+            "font_size_desktop": 0,
+            "font_size_mobile": 0,
+            "hide_mobile": false,
+            "hide_desktop": true
           }
         },
         "image_c3NjEY": {
@@ -1174,6 +1186,7 @@
         "image_Tddj4r",
         "text_czM7cz",
         "text_FHFaiz",
+        "text_KRM7PJ",
         "image_c3NjEY",
         "image_mKrDbh",
         "image_DHkRHk",
