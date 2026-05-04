@@ -506,7 +506,7 @@
             "column": "left",
             "row": 1,
             "content": "<p>You've tried the <strong>multivitamins. The iron tablets and greens powders.</strong> You're doing everything you're supposed to do. So why does your <strong>body still feel like</strong> <strong>it's running on empty</strong>?</p>",
-            "font_size_desktop": 23,
+            "font_size_desktop": 25,
             "font_size_mobile": 0,
             "hide_mobile": false,
             "hide_desktop": false
@@ -518,7 +518,7 @@
             "column": "left",
             "row": 1,
             "content": "<p>Because modern supplements  deliver nutrients<strong> </strong>in forms your<strong> body barely</strong> <strong>absorbs</strong>. Synthetic iron sits in your gut causing problems without raising your levels. Isolated vitamins without their natural cofactors pass straight through. You can be taking multiple supplements every day and still be depleted.</p>",
-            "font_size_desktop": 0,
+            "font_size_desktop": 25,
             "font_size_mobile": 0,
             "hide_mobile": false,
             "hide_desktop": false
@@ -564,7 +564,7 @@
             "column": "right",
             "row": 2,
             "content": "<p><strong>Your body isn't failing you. It's just been asking for something it hasn't been getting.</strong></p><p>That's exactly what Nourish Her was made for.</p>",
-            "font_size_desktop": 0,
+            "font_size_desktop": 20,
             "font_size_mobile": 0,
             "hide_mobile": true,
             "hide_desktop": false
@@ -630,7 +630,7 @@
             "column": "left",
             "row": 1,
             "content": "<p>For centuries, women were nourished by whole foods that delivered everything the body needed in exactly the form it recognised. Organ meats weren't a trend, <strong>they were simply the most nutrient-dense food on the planet</strong> — rich in haem iron, B12, CoQ10 and selenium, with all the natural cofactors that make absorption actually work.</p><p>Nourish Her brings that nourishment back — without asking you to eat raw liver.</p>",
-            "font_size_desktop": 0,
+            "font_size_desktop": 20,
             "font_size_mobile": 0,
             "hide_mobile": false,
             "hide_desktop": false
@@ -650,10 +650,10 @@
         "text_ept6xX": {
           "type": "text",
           "settings": {
-            "column": "left",
-            "row": 1,
+            "column": "right",
+            "row": 2,
             "content": "<p>Six whole-food grass-fed beef organs in one daily capsule, formulated specifically for women.</p><p>This isn't another supplement to add to the pile.<strong> It's the foundation everything else has been missing.</strong></p>",
-            "font_size_desktop": 0,
+            "font_size_desktop": 20,
             "font_size_mobile": 0,
             "hide_mobile": false,
             "hide_desktop": false
@@ -664,7 +664,18 @@
           "settings": {
             "column": "right",
             "row": 1,
-            "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
+            "image": "shopify://shop_images/hf_20260423_112937_28f43832-83f5-4eec-b927-a46f280a101a.png",
+            "image_url": "",
+            "hide_mobile": true,
+            "hide_desktop": false
+          }
+        },
+        "image_r7TAfa": {
+          "type": "image",
+          "settings": {
+            "column": "left",
+            "row": 2,
+            "image": "shopify://shop_images/ChatGPT_Image_Apr_23_2026_12_58_24_PM.png",
             "image_url": "",
             "hide_mobile": true,
             "hide_desktop": false
@@ -676,7 +687,8 @@
         "text_x9EVfU",
         "image_LAtVbD",
         "text_ept6xX",
-        "image_rJtiVr"
+        "image_rJtiVr",
+        "image_r7TAfa"
       ],
       "name": "NH - Solution reveal",
       "settings": {
