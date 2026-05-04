@@ -603,6 +603,23 @@
   margin-top: 48px;
 }
 
+/* Desktop: align paired rows across the two columns.
+   Left col (Problem Agitation) has text+text+image; right col has image+text.
+   Stretch columns to equal height and push the last block of each to the
+   bottom so the left image & right text sit on the same bottom baseline. */
+@media (min-width: 769px) {
+  .nh-founder-grid {
+    align-items: stretch;
+  }
+  .nh-founder-column {
+    display: flex;
+    flex-direction: column;
+  }
+  .nh-founder-column > *:last-child {
+    margin-top: auto;
+  }
+}
+
 .nh-founder-text p {
   font-size: 1.05rem;
   color: var(--nh-mid);
