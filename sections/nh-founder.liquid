@@ -76,9 +76,14 @@
                   {% assign vis_class = '' %}
                   {% if block.settings.hide_mobile %}{% assign vis_class = vis_class | append: ' nh-hide-mobile' %}{% endif %}
                   {% if block.settings.hide_desktop %}{% assign vis_class = vis_class | append: ' nh-hide-desktop' %}{% endif %}
+                  {%- assign _fs_d = block.settings.font_size_desktop | default: 0 | plus: 0 -%}
+                  {%- assign _fs_m = block.settings.font_size_mobile | default: 0 | plus: 0 -%}
+                  {%- assign _text_style = '' -%}
+                  {%- if _fs_d > 0 -%}{%- assign _text_style = _text_style | append: '--nh-fs-d:' | append: _fs_d | append: 'px;' -%}{%- endif -%}
+                  {%- if _fs_m > 0 -%}{%- assign _text_style = _text_style | append: '--nh-fs-m:' | append: _fs_m | append: 'px;' -%}{%- endif -%}
                   {% case block.type %}
                     {% when 'text' %}
-                      <div class="nh-founder-block-text{{ vis_class }}" {{ block.shopify_attributes }}>
+                      <div class="nh-founder-block-text{{ vis_class }}" {{ block.shopify_attributes }}{% if _text_style != blank %} style="{{ _text_style }}"{% endif %}>
                         {{ block.settings.content }}
                       </div>
                     {% when 'quote' %}
@@ -111,9 +116,14 @@
                   {% assign vis_class = '' %}
                   {% if block.settings.hide_mobile %}{% assign vis_class = vis_class | append: ' nh-hide-mobile' %}{% endif %}
                   {% if block.settings.hide_desktop %}{% assign vis_class = vis_class | append: ' nh-hide-desktop' %}{% endif %}
+                  {%- assign _fs_d = block.settings.font_size_desktop | default: 0 | plus: 0 -%}
+                  {%- assign _fs_m = block.settings.font_size_mobile | default: 0 | plus: 0 -%}
+                  {%- assign _text_style = '' -%}
+                  {%- if _fs_d > 0 -%}{%- assign _text_style = _text_style | append: '--nh-fs-d:' | append: _fs_d | append: 'px;' -%}{%- endif -%}
+                  {%- if _fs_m > 0 -%}{%- assign _text_style = _text_style | append: '--nh-fs-m:' | append: _fs_m | append: 'px;' -%}{%- endif -%}
                   {% case block.type %}
                     {% when 'text' %}
-                      <div class="nh-founder-block-text{{ vis_class }}" {{ block.shopify_attributes }}>
+                      <div class="nh-founder-block-text{{ vis_class }}" {{ block.shopify_attributes }}{% if _text_style != blank %} style="{{ _text_style }}"{% endif %}>
                         {{ block.settings.content }}
                       </div>
                     {% when 'quote' %}
@@ -285,6 +295,30 @@
           "id": "content",
           "label": "Text",
           "default": "<p>Add paragraph text here.</p>"
+        },
+        {
+          "type": "header",
+          "content": "Font Size (px) — 0 = use theme default"
+        },
+        {
+          "type": "range",
+          "id": "font_size_desktop",
+          "label": "Desktop font size",
+          "min": 0,
+          "max": 40,
+          "step": 1,
+          "unit": "px",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "font_size_mobile",
+          "label": "Mobile font size",
+          "min": 0,
+          "max": 32,
+          "step": 1,
+          "unit": "px",
+          "default": 0
         },
         {
           "type": "header",
