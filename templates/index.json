@@ -650,8 +650,8 @@
         "text_ept6xX": {
           "type": "text",
           "settings": {
-            "column": "left",
-            "row": 1,
+            "column": "right",
+            "row": 2,
             "content": "<p>Six whole-food grass-fed beef organs in one daily capsule, formulated specifically for women.</p><p>This isn't another supplement to add to the pile.<strong> It's the foundation everything else has been missing.</strong></p>",
             "font_size_desktop": 18,
             "font_size_mobile": 14,
@@ -664,7 +664,18 @@
           "settings": {
             "column": "right",
             "row": 1,
-            "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
+            "image": "shopify://shop_images/hf_20260423_112937_28f43832-83f5-4eec-b927-a46f280a101a.png",
+            "image_url": "",
+            "hide_mobile": true,
+            "hide_desktop": false
+          }
+        },
+        "image_MnTLVB": {
+          "type": "image",
+          "settings": {
+            "column": "left",
+            "row": 2,
+            "image": "shopify://shop_images/ChatGPT_Image_Apr_23_2026_12_58_24_PM.png",
             "image_url": "",
             "hide_mobile": true,
             "hide_desktop": false
@@ -676,7 +687,8 @@
         "text_x9EVfU",
         "image_LAtVbD",
         "text_ept6xX",
-        "image_rJtiVr"
+        "image_rJtiVr",
+        "image_MnTLVB"
       ],
       "name": "NH - Solution reveal",
       "settings": {
