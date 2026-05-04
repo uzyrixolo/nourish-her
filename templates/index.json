@@ -639,8 +639,8 @@
         "text_ept6xX": {
           "type": "text",
           "settings": {
-            "column": "right",
-            "row": 2,
+            "column": "left",
+            "row": 1,
             "content": "<p>Six whole-food grass-fed beef organs in one daily capsule, formulated specifically for women.</p><p>This isn't another supplement to add to the pile.<strong> It's the foundation everything else has been missing.</strong></p>",
             "font_size_desktop": 18,
             "font_size_mobile": 14,
@@ -670,6 +670,18 @@
             "hide_desktop": false
           }
         },
+        "text_cxxfjM": {
+          "type": "text",
+          "settings": {
+            "column": "right",
+            "row": 2,
+            "content": "<p>Six whole-food grass-fed beef organs in one daily capsule, formulated specifically for women.</p><p>This isn't another supplement to add to the pile.<strong> It's the foundation everything else has been missing.</strong></p>",
+            "font_size_desktop": 18,
+            "font_size_mobile": 14,
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        },
         "image_MnTLVB": {
           "type": "image",
           "settings": {
@@ -688,6 +700,7 @@
         "text_ept6xX",
         "image_LAtVbD",
         "image_rJtiVr",
+        "text_cxxfjM",
         "image_MnTLVB"
       ],
       "name": "NH - Solution reveal",
