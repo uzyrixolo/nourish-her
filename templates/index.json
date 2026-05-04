@@ -1059,6 +1059,18 @@
             "column": "left",
             "row": 1,
             "content": "<p>Hi, my names Sabbah.</p>",
+            "font_size_desktop": 20,
+            "font_size_mobile": 0,
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        },
+        "text_rhk7wA": {
+          "type": "text",
+          "settings": {
+            "column": "right",
+            "row": 2,
+            "content": "<p>For generations, women were nourished with whole, nutrient-dense foods that supported energy, resilience, and vitality at the root. Organs like liver and spleen weren’t trends — they were foundational nutrition. The problem was, I couldn’t bring myself to eat liver or organ meats consistently!</p>",
             "font_size_desktop": 0,
             "font_size_mobile": 0,
             "hide_mobile": false,
@@ -1082,18 +1094,18 @@
             "column": "left",
             "row": 1,
             "content": "<p>As a doctor working long, demanding shifts, I lived in a constant state of exhaustion. My energy was low, my focus was slipping, and no matter how much I slept, I never felt restored. Iron tablets upset my stomach, and multivitamins felt synthetic and disconnected from real nourishment. </p><p>That’s when I began a deep dive into <strong>wholefood nutrition</strong>.</p>",
-            "font_size_desktop": 0,
+            "font_size_desktop": 20,
             "font_size_mobile": 0,
             "hide_mobile": false,
             "hide_desktop": false
           }
         },
-        "text_rhk7wA": {
+        "text_FHFaiz": {
           "type": "text",
           "settings": {
-            "column": "left",
-            "row": 1,
-            "content": "<p>For generations, women were nourished with whole, nutrient-dense foods that supported energy, resilience, and vitality at the root. Organs like liver and spleen weren’t trends — they were foundational nutrition. The problem was, I couldn’t bring myself to eat liver or organ meats consistently!</p>",
+            "column": "right",
+            "row": 2,
+            "content": "<p>I knew there was no organ supplement on the market designed around what women actually need — our hormonal demands, our iron losses, our biology. That’s when I decided to create <strong>Nourish Her</strong>™. To make it easier to get the essential nutrients my body needed.</p><p>For the first time in a long while, it felt like my body was finally getting what it had been asking for.</p>",
             "font_size_desktop": 0,
             "font_size_mobile": 0,
             "hide_mobile": false,
@@ -1111,23 +1123,22 @@
             "hide_desktop": true
           }
         },
-        "text_FHFaiz": {
-          "type": "text",
-          "settings": {
-            "column": "left",
-            "row": 1,
-            "content": "<p>I knew there was no organ supplement on the market designed around what women actually need — our hormonal demands, our iron losses, our biology. That’s when I decided to create <strong>Nourish Her</strong>™. To make it easier to get the essential nutrients my body needed.</p><p>For the first time in a long while, it felt like my body was finally getting what it had been asking for.</p>",
-            "font_size_desktop": 0,
-            "font_size_mobile": 0,
-            "hide_mobile": false,
-            "hide_desktop": false
-          }
-        },
         "image_mKrDbh": {
           "type": "image",
           "settings": {
             "column": "right",
             "row": 1,
+            "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
+            "image_url": "",
+            "hide_mobile": true,
+            "hide_desktop": false
+          }
+        },
+        "image_DHkRHk": {
+          "type": "image",
+          "settings": {
+            "column": "left",
+            "row": 2,
             "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
             "image_url": "",
             "hide_mobile": true,
@@ -1159,12 +1170,13 @@
       },
       "block_order": [
         "text_bwAecx",
+        "text_rhk7wA",
         "image_Tddj4r",
         "text_czM7cz",
-        "text_rhk7wA",
-        "image_c3NjEY",
         "text_FHFaiz",
+        "image_c3NjEY",
         "image_mKrDbh",
+        "image_DHkRHk",
         "signature_fGGGQ8",
         "quote_FQb8Uw"
       ],
@@ -1252,7 +1264,7 @@
         "overlay_color": "#ffffff",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 0,
+        "padding-block-start": 16,
         "padding-block-end": 50
       }
     },
@@ -1309,8 +1321,8 @@
         "padding_bottom_mobile": 60,
         "bg_color": "#fdf8f0",
         "heading_color": "#1a1a1a",
-        "accent_color": "#ffd4e2",
-        "th_text_color": "#cc0019",
+        "accent_color": "#cc0019",
+        "th_text_color": "#ffffff",
         "th_secondary_bg": "#f1f1f1",
         "th_secondary_text": "#444444",
         "td_text_color": "#444444",
