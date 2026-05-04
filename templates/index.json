@@ -492,6 +492,7 @@
           "type": "image",
           "settings": {
             "column": "right",
+            "row": 1,
             "image": "shopify://shop_images/Gemini_Generated_Image_dy9pnmdy9pnmdy9p_1.png",
             "image_url": "",
             "hide_mobile": true,
@@ -502,6 +503,7 @@
           "type": "text",
           "settings": {
             "column": "left",
+            "row": 1,
             "content": "<p>You've tried the <strong>multivitamins. The iron tablets and greens powders.</strong> You're doing everything you're supposed to do. So why does your <strong>body still feel like</strong> <strong>it's running on empty</strong>?</p>",
             "hide_mobile": false,
             "hide_desktop": false
@@ -511,6 +513,7 @@
           "type": "text",
           "settings": {
             "column": "left",
+            "row": 1,
             "content": "<p>Because modern supplements  deliver nutrients<strong> </strong>in forms your<strong> body barely</strong> <strong>absorbs</strong>. Synthetic iron sits in your gut causing problems without raising your levels. Isolated vitamins without their natural cofactors pass straight through. You can be taking multiple supplements every day and still be depleted.</p>",
             "hide_mobile": false,
             "hide_desktop": false
@@ -520,6 +523,7 @@
           "type": "image",
           "settings": {
             "column": "left",
+            "row": 1,
             "image": "shopify://shop_images/Gemini_Generated_Image_yqujqqyqujqqyquj_1.png",
             "image_url": "",
             "hide_mobile": false,
@@ -530,6 +534,7 @@
           "type": "image",
           "settings": {
             "column": "left",
+            "row": 2,
             "image": "shopify://shop_images/Gemini_Generated_Image_yqujqqyqujqqyquj_1.png",
             "image_url": "",
             "hide_mobile": true,
@@ -540,6 +545,7 @@
           "type": "text",
           "settings": {
             "column": "left",
+            "row": 2,
             "content": "<p><strong>Your body isn't failing you. It's just been asking for something it hasn't been getting.</strong></p><p>That's exactly what Nourish Her was made for.</p>",
             "hide_mobile": false,
             "hide_desktop": true
@@ -549,6 +555,7 @@
           "type": "text",
           "settings": {
             "column": "right",
+            "row": 2,
             "content": "<p><strong>Your body isn't failing you. It's just been asking for something it hasn't been getting.</strong></p><p>That's exactly what Nourish Her was made for.</p>",
             "hide_mobile": true,
             "hide_desktop": false

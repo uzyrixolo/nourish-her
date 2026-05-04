@@ -52,74 +52,95 @@
     
     <div class="nh-divider"></div>
     
-    <div class="nh-founder-grid">
-      <div class="nh-founder-column nh-founder-text">
-        {% for block in section.blocks %}
-          {% if block.settings.column == 'left' %}
-            {% assign vis_class = '' %}
-            {% if block.settings.hide_mobile %}{% assign vis_class = vis_class | append: ' nh-hide-mobile' %}{% endif %}
-            {% if block.settings.hide_desktop %}{% assign vis_class = vis_class | append: ' nh-hide-desktop' %}{% endif %}
-            {% case block.type %}
-              {% when 'text' %}
-                <div class="nh-founder-block-text{{ vis_class }}" {{ block.shopify_attributes }}>
-                  {{ block.settings.content }}
-                </div>
-              {% when 'quote' %}
-                <div class="nh-founder-quote{{ vis_class }}" {{ block.shopify_attributes }}>
-                  {{ block.settings.quote }}
-                </div>
-              {% when 'signature' %}
-                <div class="nh-founder-sig{{ vis_class }}" {{ block.shopify_attributes }}>
-                  {{ block.settings.signature }}
-                </div>
-              {% when 'image' %}
-                <div class="nh-founder-block-image{{ vis_class }}" {{ block.shopify_attributes }} style="margin-bottom: 20px;">
-                  {% if block.settings.image != blank %}
-                    {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.image.alt, loading: 'lazy', width: block.settings.image.width, height: block.settings.image.height }}
-                  {% elsif block.settings.image_url != blank %}
-                    <img src="{{ block.settings.image_url }}" alt="Founder story inline image" width="600" height="600" style="border-radius: 20px; width: 100%; object-fit: cover; box-shadow: 0 8px 32px rgba(0,0,0,0.1);" />
-                  {% else %}
-                    {{ 'lifestyle-2' | placeholder_svg_tag: 'nh-founder-placeholder' }}
-                  {% endif %}
-                </div>
-            {% endcase %}
-          {% endif %}
-        {% endfor %}
-      </div>
-      
-      <div class="nh-founder-column nh-founder-images">
-        {% for block in section.blocks %}
-          {% if block.settings.column == 'right' %}
-            {% assign vis_class = '' %}
-            {% if block.settings.hide_mobile %}{% assign vis_class = vis_class | append: ' nh-hide-mobile' %}{% endif %}
-            {% if block.settings.hide_desktop %}{% assign vis_class = vis_class | append: ' nh-hide-desktop' %}{% endif %}
-            {% case block.type %}
-              {% when 'text' %}
-                <div class="nh-founder-block-text{{ vis_class }}" {{ block.shopify_attributes }}>
-                  {{ block.settings.content }}
-                </div>
-              {% when 'quote' %}
-                <div class="nh-founder-quote{{ vis_class }}" {{ block.shopify_attributes }}>
-                  {{ block.settings.quote }}
-                </div>
-              {% when 'signature' %}
-                <div class="nh-founder-sig{{ vis_class }}" {{ block.shopify_attributes }}>
-                  {{ block.settings.signature }}
-                </div>
-              {% when 'image' %}
-                <div class="nh-founder-block-image{{ vis_class }}" {{ block.shopify_attributes }} style="margin-bottom: 20px;">
-                  {% if block.settings.image != blank %}
-                    {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.image.alt, loading: 'lazy', width: block.settings.image.width, height: block.settings.image.height }}
-                  {% elsif block.settings.image_url != blank %}
-                    <img src="{{ block.settings.image_url }}" alt="Founder story inline image" width="600" height="600" style="border-radius: 20px; width: 100%; object-fit: cover; box-shadow: 0 8px 32px rgba(0,0,0,0.1);" />
-                  {% else %}
-                    {{ 'lifestyle-1' | placeholder_svg_tag: 'nh-founder-placeholder' }}
-                  {% endif %}
-                </div>
-            {% endcase %}
-          {% endif %}
-        {% endfor %}
-      </div>
+    <div class="nh-founder-stack">
+      {%- comment -%}
+        Render blocks grouped by their "row" setting. Each row is its own
+        2-column container, so left + right children are paired visually.
+        Supports up to 10 rows. Blocks without an explicit row default to 1.
+      {%- endcomment -%}
+      {%- for row_num in (1..10) -%}
+        {%- assign _row_has_content = false -%}
+        {%- for block in section.blocks -%}
+          {%- assign _r = block.settings.row | default: 1 | plus: 0 -%}
+          {%- if _r == row_num -%}
+            {%- assign _row_has_content = true -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if _row_has_content -%}
+          <div class="nh-founder-row" data-row="{{ row_num }}">
+            <div class="nh-founder-row-col nh-founder-row-left">
+              {% for block in section.blocks %}
+                {%- assign _r = block.settings.row | default: 1 | plus: 0 -%}
+                {% if _r == row_num and block.settings.column == 'left' %}
+                  {% assign vis_class = '' %}
+                  {% if block.settings.hide_mobile %}{% assign vis_class = vis_class | append: ' nh-hide-mobile' %}{% endif %}
+                  {% if block.settings.hide_desktop %}{% assign vis_class = vis_class | append: ' nh-hide-desktop' %}{% endif %}
+                  {% case block.type %}
+                    {% when 'text' %}
+                      <div class="nh-founder-block-text{{ vis_class }}" {{ block.shopify_attributes }}>
+                        {{ block.settings.content }}
+                      </div>
+                    {% when 'quote' %}
+                      <div class="nh-founder-quote{{ vis_class }}" {{ block.shopify_attributes }}>
+                        {{ block.settings.quote }}
+                      </div>
+                    {% when 'signature' %}
+                      <div class="nh-founder-sig{{ vis_class }}" {{ block.shopify_attributes }}>
+                        {{ block.settings.signature }}
+                      </div>
+                    {% when 'image' %}
+                      <div class="nh-founder-block-image{{ vis_class }}" {{ block.shopify_attributes }}>
+                        {% if block.settings.image != blank %}
+                          {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.image.alt, loading: 'lazy', width: block.settings.image.width, height: block.settings.image.height }}
+                        {% elsif block.settings.image_url != blank %}
+                          <img src="{{ block.settings.image_url }}" alt="Founder story inline image" width="600" height="600" style="border-radius: 20px; width: 100%; object-fit: cover; box-shadow: 0 8px 32px rgba(0,0,0,0.1);" />
+                        {% else %}
+                          {{ 'lifestyle-2' | placeholder_svg_tag: 'nh-founder-placeholder' }}
+                        {% endif %}
+                      </div>
+                  {% endcase %}
+                {% endif %}
+              {% endfor %}
+            </div>
+
+            <div class="nh-founder-row-col nh-founder-row-right">
+              {% for block in section.blocks %}
+                {%- assign _r = block.settings.row | default: 1 | plus: 0 -%}
+                {% if _r == row_num and block.settings.column == 'right' %}
+                  {% assign vis_class = '' %}
+                  {% if block.settings.hide_mobile %}{% assign vis_class = vis_class | append: ' nh-hide-mobile' %}{% endif %}
+                  {% if block.settings.hide_desktop %}{% assign vis_class = vis_class | append: ' nh-hide-desktop' %}{% endif %}
+                  {% case block.type %}
+                    {% when 'text' %}
+                      <div class="nh-founder-block-text{{ vis_class }}" {{ block.shopify_attributes }}>
+                        {{ block.settings.content }}
+                      </div>
+                    {% when 'quote' %}
+                      <div class="nh-founder-quote{{ vis_class }}" {{ block.shopify_attributes }}>
+                        {{ block.settings.quote }}
+                      </div>
+                    {% when 'signature' %}
+                      <div class="nh-founder-sig{{ vis_class }}" {{ block.shopify_attributes }}>
+                        {{ block.settings.signature }}
+                      </div>
+                    {% when 'image' %}
+                      <div class="nh-founder-block-image{{ vis_class }}" {{ block.shopify_attributes }}>
+                        {% if block.settings.image != blank %}
+                          {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.image.alt, loading: 'lazy', width: block.settings.image.width, height: block.settings.image.height }}
+                        {% elsif block.settings.image_url != blank %}
+                          <img src="{{ block.settings.image_url }}" alt="Founder story inline image" width="600" height="600" style="border-radius: 20px; width: 100%; object-fit: cover; box-shadow: 0 8px 32px rgba(0,0,0,0.1);" />
+                        {% else %}
+                          {{ 'lifestyle-1' | placeholder_svg_tag: 'nh-founder-placeholder' }}
+                        {% endif %}
+                      </div>
+                  {% endcase %}
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
     </div>
   </div>
 </section>
@@ -251,6 +272,15 @@
           "default": "left"
         },
         {
+          "type": "range",
+          "id": "row",
+          "label": "Row (pairs left & right blocks with same row)",
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "default": 1
+        },
+        {
           "type": "richtext",
           "id": "content",
           "label": "Text",
@@ -287,6 +317,15 @@
             { "value": "right", "label": "Right Column" }
           ],
           "default": "right"
+        },
+        {
+          "type": "range",
+          "id": "row",
+          "label": "Row (pairs left & right blocks with same row)",
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "default": 1
         },
         {
           "type": "image_picker",
@@ -331,6 +370,15 @@
           "default": "left"
         },
         {
+          "type": "range",
+          "id": "row",
+          "label": "Row (pairs left & right blocks with same row)",
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "default": 1
+        },
+        {
           "type": "textarea",
           "id": "quote",
           "label": "Quote",
@@ -367,6 +415,15 @@
             { "value": "right", "label": "Right Column" }
           ],
           "default": "left"
+        },
+        {
+          "type": "range",
+          "id": "row",
+          "label": "Row (pairs left & right blocks with same row)",
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "default": 1
         },
         {
           "type": "text",
