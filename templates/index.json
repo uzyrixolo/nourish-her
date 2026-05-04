@@ -645,7 +645,7 @@
             "font_size_desktop": 18,
             "font_size_mobile": 14,
             "hide_mobile": false,
-            "hide_desktop": false
+            "hide_desktop": true
           }
         },
         "image_LAtVbD": {
