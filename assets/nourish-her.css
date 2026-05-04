@@ -1758,16 +1758,24 @@
   }
 
   .nh-founder-grid,
-  .nh-founder-row,
   .nh-offer-grid,
   .nh-lab-grid {
     grid-template-columns: 1fr;
     gap: 36px;
   }
 
-  /* Kill the between-rows gap on mobile so rows stack flush */
+  /* Mobile: flatten the row/column structure so every visible block
+     flows into one linear stack with ONE consistent gap. Prevents the
+     36px grid-gap from being reserved for empty (all hide_mobile) cols
+     and keeps rhythm uniform across row boundaries. */
   .nh-founder-stack {
-    gap: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .nh-founder-row,
+  .nh-founder-row-col {
+    display: contents;
   }
 
   .nh-timeline::before {
