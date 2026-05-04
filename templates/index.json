@@ -488,6 +488,16 @@
             "hide_desktop": true
           }
         },
+        "image_aAMqDe": {
+          "type": "image",
+          "settings": {
+            "column": "right",
+            "image": "shopify://shop_images/Gemini_Generated_Image_dy9pnmdy9pnmdy9p_1.png",
+            "image_url": "",
+            "hide_mobile": true,
+            "hide_desktop": false
+          }
+        },
         "text_9qiKdg": {
           "type": "text",
           "settings": {
@@ -516,17 +526,37 @@
             "hide_desktop": true
           }
         },
+        "image_CMeAUB": {
+          "type": "image",
+          "settings": {
+            "column": "left",
+            "image": "shopify://shop_images/Gemini_Generated_Image_yqujqqyqujqqyquj_1.png",
+            "image_url": "",
+            "hide_mobile": true,
+            "hide_desktop": false
+          }
+        },
         "text_FMcjU4": {
           "type": "text",
           "settings": {
             "column": "left",
             "content": "<p><strong>Your body isn't failing you. It's just been asking for something it hasn't been getting.</strong></p><p>That's exactly what Nourish Her was made for.</p>",
             "hide_mobile": false,
+            "hide_desktop": true
+          }
+        },
+        "text_Y3FQAi": {
+          "type": "text",
+          "settings": {
+            "column": "right",
+            "content": "<p><strong>Your body isn't failing you. It's just been asking for something it hasn't been getting.</strong></p><p>That's exactly what Nourish Her was made for.</p>",
+            "hide_mobile": true,
             "hide_desktop": false
           }
         },
         "image_CCyiAY": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "column": "right",
             "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
@@ -538,10 +568,13 @@
       },
       "block_order": [
         "image_ytYJUB",
+        "image_aAMqDe",
         "text_9qiKdg",
         "text_WxidcN",
         "image_bbKeXW",
+        "image_CMeAUB",
         "text_FMcjU4",
+        "text_Y3FQAi",
         "image_CCyiAY"
       ],
       "name": "NH - Problem Agitation",
