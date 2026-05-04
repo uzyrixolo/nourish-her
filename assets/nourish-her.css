@@ -629,11 +629,14 @@
 }
 
 /* Per-block font-size override for Text Content blocks.
-   Inline style sets --nh-fs-d (desktop) and/or --nh-fs-m (mobile);
-   when not set, text inherits the surrounding typography. */
-.nh-founder-block-text[style*="--nh-fs-d"],
-.nh-founder-block-text[style*="--nh-fs-d"] p {
-  font-size: var(--nh-fs-d);
+   Inline style sets --nh-fs-d (desktop) and/or --nh-fs-m (mobile).
+   Desktop rule is scoped to >=769px so it never leaks onto mobile;
+   when mobile value is left at 0, mobile keeps the theme default. */
+@media (min-width: 769px) {
+  .nh-founder-block-text[style*="--nh-fs-d"],
+  .nh-founder-block-text[style*="--nh-fs-d"] p {
+    font-size: var(--nh-fs-d);
+  }
 }
 @media (max-width: 768px) {
   .nh-founder-block-text[style*="--nh-fs-m"],
