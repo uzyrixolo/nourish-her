@@ -637,11 +637,23 @@
   .nh-founder-block-text[style*="--nh-fs-d"] p {
     font-size: var(--nh-fs-d);
   }
+  .nh-founder-block-text[style*="--nh-pt-d"] {
+    padding-top: var(--nh-pt-d);
+  }
+  .nh-founder-block-text[style*="--nh-pb-d"] {
+    padding-bottom: var(--nh-pb-d);
+  }
 }
 @media (max-width: 768px) {
   .nh-founder-block-text[style*="--nh-fs-m"],
   .nh-founder-block-text[style*="--nh-fs-m"] p {
     font-size: var(--nh-fs-m);
+  }
+  .nh-founder-block-text[style*="--nh-pt-m"] {
+    padding-top: var(--nh-pt-m);
+  }
+  .nh-founder-block-text[style*="--nh-pb-m"] {
+    padding-bottom: var(--nh-pb-m);
   }
 }
 

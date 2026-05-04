@@ -78,9 +78,17 @@
                   {% if block.settings.hide_desktop %}{% assign vis_class = vis_class | append: ' nh-hide-desktop' %}{% endif %}
                   {%- assign _fs_d = block.settings.font_size_desktop | default: 0 | plus: 0 -%}
                   {%- assign _fs_m = block.settings.font_size_mobile | default: 0 | plus: 0 -%}
+                  {%- assign _pt_d = block.settings.padding_top_desktop | default: 0 | plus: 0 -%}
+                  {%- assign _pb_d = block.settings.padding_bottom_desktop | default: 0 | plus: 0 -%}
+                  {%- assign _pt_m = block.settings.padding_top_mobile | default: 0 | plus: 0 -%}
+                  {%- assign _pb_m = block.settings.padding_bottom_mobile | default: 0 | plus: 0 -%}
                   {%- assign _text_style = '' -%}
                   {%- if _fs_d > 0 -%}{%- assign _text_style = _text_style | append: '--nh-fs-d:' | append: _fs_d | append: 'px;' -%}{%- endif -%}
                   {%- if _fs_m > 0 -%}{%- assign _text_style = _text_style | append: '--nh-fs-m:' | append: _fs_m | append: 'px;' -%}{%- endif -%}
+                  {%- if _pt_d > 0 -%}{%- assign _text_style = _text_style | append: '--nh-pt-d:' | append: _pt_d | append: 'px;' -%}{%- endif -%}
+                  {%- if _pb_d > 0 -%}{%- assign _text_style = _text_style | append: '--nh-pb-d:' | append: _pb_d | append: 'px;' -%}{%- endif -%}
+                  {%- if _pt_m > 0 -%}{%- assign _text_style = _text_style | append: '--nh-pt-m:' | append: _pt_m | append: 'px;' -%}{%- endif -%}
+                  {%- if _pb_m > 0 -%}{%- assign _text_style = _text_style | append: '--nh-pb-m:' | append: _pb_m | append: 'px;' -%}{%- endif -%}
                   {% case block.type %}
                     {% when 'text' %}
                       <div class="nh-founder-block-text{{ vis_class }}" {{ block.shopify_attributes }}{% if _text_style != blank %} style="{{ _text_style }}"{% endif %}>
@@ -118,9 +126,17 @@
                   {% if block.settings.hide_desktop %}{% assign vis_class = vis_class | append: ' nh-hide-desktop' %}{% endif %}
                   {%- assign _fs_d = block.settings.font_size_desktop | default: 0 | plus: 0 -%}
                   {%- assign _fs_m = block.settings.font_size_mobile | default: 0 | plus: 0 -%}
+                  {%- assign _pt_d = block.settings.padding_top_desktop | default: 0 | plus: 0 -%}
+                  {%- assign _pb_d = block.settings.padding_bottom_desktop | default: 0 | plus: 0 -%}
+                  {%- assign _pt_m = block.settings.padding_top_mobile | default: 0 | plus: 0 -%}
+                  {%- assign _pb_m = block.settings.padding_bottom_mobile | default: 0 | plus: 0 -%}
                   {%- assign _text_style = '' -%}
                   {%- if _fs_d > 0 -%}{%- assign _text_style = _text_style | append: '--nh-fs-d:' | append: _fs_d | append: 'px;' -%}{%- endif -%}
                   {%- if _fs_m > 0 -%}{%- assign _text_style = _text_style | append: '--nh-fs-m:' | append: _fs_m | append: 'px;' -%}{%- endif -%}
+                  {%- if _pt_d > 0 -%}{%- assign _text_style = _text_style | append: '--nh-pt-d:' | append: _pt_d | append: 'px;' -%}{%- endif -%}
+                  {%- if _pb_d > 0 -%}{%- assign _text_style = _text_style | append: '--nh-pb-d:' | append: _pb_d | append: 'px;' -%}{%- endif -%}
+                  {%- if _pt_m > 0 -%}{%- assign _text_style = _text_style | append: '--nh-pt-m:' | append: _pt_m | append: 'px;' -%}{%- endif -%}
+                  {%- if _pb_m > 0 -%}{%- assign _text_style = _text_style | append: '--nh-pb-m:' | append: _pb_m | append: 'px;' -%}{%- endif -%}
                   {% case block.type %}
                     {% when 'text' %}
                       <div class="nh-founder-block-text{{ vis_class }}" {{ block.shopify_attributes }}{% if _text_style != blank %} style="{{ _text_style }}"{% endif %}>
@@ -316,6 +332,50 @@
           "label": "Mobile font size",
           "min": 0,
           "max": 32,
+          "step": 1,
+          "unit": "px",
+          "default": 0
+        },
+        {
+          "type": "header",
+          "content": "Padding (px) — 0 = none"
+        },
+        {
+          "type": "range",
+          "id": "padding_top_desktop",
+          "label": "Desktop padding top",
+          "min": 0,
+          "max": 120,
+          "step": 1,
+          "unit": "px",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom_desktop",
+          "label": "Desktop padding bottom",
+          "min": 0,
+          "max": 120,
+          "step": 1,
+          "unit": "px",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "padding_top_mobile",
+          "label": "Mobile padding top",
+          "min": 0,
+          "max": 80,
+          "step": 1,
+          "unit": "px",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom_mobile",
+          "label": "Mobile padding bottom",
+          "min": 0,
+          "max": 80,
           "step": 1,
           "unit": "px",
           "default": 0
