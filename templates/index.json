@@ -506,6 +506,8 @@
             "column": "left",
             "row": 1,
             "content": "<p>You've tried the <strong>multivitamins. The iron tablets and greens powders.</strong> You're doing everything you're supposed to do. So why does your <strong>body still feel like</strong> <strong>it's running on empty</strong>?</p>",
+            "font_size_desktop": 23,
+            "font_size_mobile": 0,
             "hide_mobile": false,
             "hide_desktop": false
           }
@@ -516,6 +518,8 @@
             "column": "left",
             "row": 1,
             "content": "<p>Because modern supplements  deliver nutrients<strong> </strong>in forms your<strong> body barely</strong> <strong>absorbs</strong>. Synthetic iron sits in your gut causing problems without raising your levels. Isolated vitamins without their natural cofactors pass straight through. You can be taking multiple supplements every day and still be depleted.</p>",
+            "font_size_desktop": 0,
+            "font_size_mobile": 0,
             "hide_mobile": false,
             "hide_desktop": false
           }
@@ -548,6 +552,8 @@
             "column": "left",
             "row": 2,
             "content": "<p><strong>Your body isn't failing you. It's just been asking for something it hasn't been getting.</strong></p><p>That's exactly what Nourish Her was made for.</p>",
+            "font_size_desktop": 0,
+            "font_size_mobile": 0,
             "hide_mobile": false,
             "hide_desktop": true
           }
@@ -558,6 +564,8 @@
             "column": "right",
             "row": 2,
             "content": "<p><strong>Your body isn't failing you. It's just been asking for something it hasn't been getting.</strong></p><p>That's exactly what Nourish Her was made for.</p>",
+            "font_size_desktop": 0,
+            "font_size_mobile": 0,
             "hide_mobile": true,
             "hide_desktop": false
           }
@@ -622,6 +630,8 @@
             "column": "left",
             "row": 1,
             "content": "<p>For centuries, women were nourished by whole foods that delivered everything the body needed in exactly the form it recognised. Organ meats weren't a trend, <strong>they were simply the most nutrient-dense food on the planet</strong> — rich in haem iron, B12, CoQ10 and selenium, with all the natural cofactors that make absorption actually work.</p><p>Nourish Her brings that nourishment back — without asking you to eat raw liver.</p>",
+            "font_size_desktop": 0,
+            "font_size_mobile": 0,
             "hide_mobile": false,
             "hide_desktop": false
           }
@@ -643,6 +653,8 @@
             "column": "left",
             "row": 1,
             "content": "<p>Six whole-food grass-fed beef organs in one daily capsule, formulated specifically for women.</p><p>This isn't another supplement to add to the pile.<strong> It's the foundation everything else has been missing.</strong></p>",
+            "font_size_desktop": 0,
+            "font_size_mobile": 0,
             "hide_mobile": false,
             "hide_desktop": false
           }
@@ -1035,6 +1047,8 @@
             "column": "left",
             "row": 1,
             "content": "<p>Hi, my names Sabbah.</p>",
+            "font_size_desktop": 0,
+            "font_size_mobile": 0,
             "hide_mobile": false,
             "hide_desktop": false
           }
@@ -1056,6 +1070,8 @@
             "column": "left",
             "row": 1,
             "content": "<p>As a doctor working long, demanding shifts, I lived in a constant state of exhaustion. My energy was low, my focus was slipping, and no matter how much I slept, I never felt restored. Iron tablets upset my stomach, and multivitamins felt synthetic and disconnected from real nourishment. </p><p>That’s when I began a deep dive into <strong>wholefood nutrition</strong>.</p>",
+            "font_size_desktop": 0,
+            "font_size_mobile": 0,
             "hide_mobile": false,
             "hide_desktop": false
           }
@@ -1066,6 +1082,8 @@
             "column": "left",
             "row": 1,
             "content": "<p>For generations, women were nourished with whole, nutrient-dense foods that supported energy, resilience, and vitality at the root. Organs like liver and spleen weren’t trends — they were foundational nutrition. The problem was, I couldn’t bring myself to eat liver or organ meats consistently!</p>",
+            "font_size_desktop": 0,
+            "font_size_mobile": 0,
             "hide_mobile": false,
             "hide_desktop": false
           }
@@ -1087,6 +1105,8 @@
             "column": "left",
             "row": 1,
             "content": "<p>I knew there was no organ supplement on the market designed around what women actually need — our hormonal demands, our iron losses, our biology. That’s when I decided to create <strong>Nourish Her</strong>™. To make it easier to get the essential nutrients my body needed.</p><p>For the first time in a long while, it felt like my body was finally getting what it had been asking for.</p>",
+            "font_size_desktop": 0,
+            "font_size_mobile": 0,
             "hide_mobile": false,
             "hide_desktop": false
           }
