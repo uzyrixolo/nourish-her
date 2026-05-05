@@ -1,80 +1,396 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "wrapper": "page",
-  "layout": "nourish-her",
   "sections": {
-    "nh-announcement-bar": {
-      "type": "nh-announcement-bar",
-      "settings": {
-      }
-    },
     "nh-hero": {
       "type": "nh-hero",
       "settings": {
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 60,
+        "bg_color": "linear-gradient(135deg, #fffbd5 0%, #fff 100%)",
+        "heading_color": "#1a1a1a",
+        "text_color": "#444444",
+        "accent_color": "#cc0019",
+        "image_label": "6 Whole-Food Beef Organs in Every Serving",
+        "reverse_mobile": false,
+        "cta_text": "Shop Now — from £34.99"
+      }
+    },
+    "nh_spotlight_MN9Ric": {
+      "type": "nh-spotlight",
+      "blocks": {
+        "announcement_ee8fKK": {
+          "type": "announcement",
+          "settings": {
+            "column": "left",
+            "align": "center",
+            "icon": "⚡",
+            "text": "LIMITED TIME OFFER: GET 1 MONTH FREE",
+            "bg_color": "#cc0019",
+            "text_color": "#fffbd5",
+            "font_size": 12,
+            "font_size_mobile": 11,
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        },
+        "eyebrow_gxnP87": {
+          "type": "eyebrow",
+          "settings": {
+            "column": "left",
+            "text": "HERE'S WHY",
+            "color": "",
+            "font_size": 13,
+            "font_size_mobile": 12,
+            "letter_spacing": 20,
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        },
+        "heading_YibpVf": {
+          "type": "heading",
+          "settings": {
+            "column": "left",
+            "heading": "<p><em>Beef Organs</em> are The Secret To Healthy Hormones & Consistent Energy</p>",
+            "color": "",
+            "accent_color": "",
+            "font_size": 38,
+            "font_size_mobile": 28,
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        },
+        "pills_qHhmVC": {
+          "type": "pills",
+          "settings": {
+            "column": "left",
+            "align": "flex-start",
+            "pill_1": "All Day Energy",
+            "pill_2": "Skin & Hair Health",
+            "pill_3": "Female Vitality",
+            "pill_4": "",
+            "pill_5": "",
+            "pill_6": "",
+            "pill_bg": "#ffffff",
+            "pill_text": "#1a1a1a",
+            "pill_border": "#ffd4e2",
+            "check_color": "#4ca96b",
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        },
+        "image_YJ3mXV": {
+          "type": "image",
+          "settings": {
+            "column": "right",
+            "image": "shopify://shop_images/Image_2026-04-28_at_15.52.31.png",
+            "image_alt": "Product image",
+            "max_width": 520,
+            "align": "center",
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        },
+        "cta_RBeUtt": {
+          "type": "cta",
+          "settings": {
+            "column": "left",
+            "heading": "try risk free",
+            "subtext": "30 Day Money Back Guarantee",
+            "icon_image": "shopify://shop_images/Vanilla_BrandIcon_Digital_3313d435-1010-4d45-9c96-88fc9a301901.png",
+            "icon_size": 40,
+            "icon": "∞",
+            "link": "",
+            "bg_color": "#cc0019",
+            "text_color": "#ffffff",
+            "border_radius": 10,
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        },
+        "reviews_aD38nL": {
+          "type": "reviews",
+          "settings": {
+            "column": "left",
+            "align": "center",
+            "rating": "4.8",
+            "reviews_count": "2100+ Reviews",
+            "reviews_link": "",
+            "star_color": "#f5b826",
+            "rating_color": "#555555",
+            "reviews_text_color": "#555555",
+            "divider_color": "#cccccc",
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        },
+        "quote_Wa3MBM": {
+          "type": "quote",
+          "settings": {
+            "column": "left",
+            "text": "I was sceptical about organ supplements but the science behind this is undeniable. Three months in and my hair is thicker, my hormones feel balanced, and I've ditched my old multivitamin for good.",
+            "author": "Lucy L",
+            "text_color": "#000000",
+            "quote_mark_color": "#cc0019",
+            "bg_color": "#ece9d6",
+            "border_color": "rgba(0,0,0,0)",
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        }
+      },
+      "block_order": [
+        "announcement_ee8fKK",
+        "eyebrow_gxnP87",
+        "heading_YibpVf",
+        "pills_qHhmVC",
+        "image_YJ3mXV",
+        "cta_RBeUtt",
+        "reviews_aD38nL",
+        "quote_Wa3MBM"
+      ],
+      "name": "NH - Spotlight",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 40,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 40,
+        "bg_color": "#fffbd5",
+        "heading_color": "#1a1a1a",
+        "accent_color": "#cc0019"
       }
     },
     "nh-benefits": {
       "type": "nh-benefits",
       "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "bg_color": "#fdf8f0",
+        "heading_color": "#1a1a1a",
+        "accent_color": "#fe3c93",
+        "card_bg": "#ffffff",
+        "card_border": "#ffd4e2",
+        "card_text_title": "#1a1a1a",
+        "card_text_body": "#444444",
+        "card_icon_bg": "#fdf8f0",
+        "label": "What You'll Feel",
+        "heading": "<p>Four Pillars of <em>Female Vitality</em></p>"
       }
     },
     "nh-reviews": {
       "type": "nh-reviews",
       "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "bg_color": "#fffbd5",
+        "heading_color": "#1a1a1a",
+        "accent_color": "#fe3c93",
+        "card_bg": "#ffffff",
+        "card_border": "#ffd4e2",
+        "card_text": "#1a1a1a",
+        "star_color": "#ff591b",
+        "label": "Real Women, Real Results",
+        "heading": "<p>What Our Community <em>Is Saying</em></p>"
       }
     },
     "nh-founder": {
       "type": "nh-founder",
       "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "bg_color": "transparent",
+        "heading_color": "#1a1a1a",
+        "text_color": "#444444",
+        "accent_color": "#cc0019",
+        "quote_bg": "#fffbd5",
+        "quote_text": "#1a1a1a",
+        "label": "Our Story",
+        "heading": "<p>A Doctor's Journey Back to <em>Real Nourishment</em></p>"
       }
     },
     "nh-timeline": {
       "type": "nh-timeline",
       "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "bg_color": "#fdf8f0",
+        "heading_color": "#1a1a1a",
+        "text_color": "#444444",
+        "accent_color": "#cc0019",
+        "card_bg": "#ffffff",
+        "card_border": "#ffd4e2",
+        "card_text_title": "#1a1a1a",
+        "card_text_body": "#444444",
+        "label": "Your Journey",
+        "heading": "<p>What to Expect When Taking <em>Nourish Her™</em></p>",
+        "disclaimer": "Results may vary. Individual outcomes depend on diet, lifestyle, and starting nutrient status."
       }
     },
     "nh-ingredients": {
       "type": "nh-ingredients",
       "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "image_size": 56,
+        "image_size_mobile": 48,
+        "bg_color": "#cc0019",
+        "heading_color": "#fffbd5",
+        "text_color": "#fffbd5",
+        "accent_color": "#fffbd5",
+        "card_bg": "#ffffff1a",
+        "card_border": "#fffbd540",
+        "card_text_title": "#fffbd5",
+        "card_text_body": "#fffbd5",
+        "card_accent": "#fffbd5",
+        "card_accent_text": "#cc0019",
+        "label": "The Formula",
+        "heading": "<p>What's Inside <em>Exactly?</em></p>",
+        "description": "Six carefully selected grass-fed beef organs, each chosen for their unique nutritional profile and specific relevance to female health."
       }
     },
     "nh-comparison": {
       "type": "nh-comparison",
       "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "bg_color": "transparent",
+        "heading_color": "#1a1a1a",
+        "accent_color": "#cc0019",
+        "th_text_color": "#fffbd5",
+        "th_secondary_bg": "#f1f1f1",
+        "th_secondary_text": "#444444",
+        "td_text_color": "#444444",
+        "tr_odd_bg": "#ffffff",
+        "tr_even_bg": "#fcfcfc",
+        "product_image_url": "",
+        "column_1_title": "Nourish Her™ Beef Organ Supplement",
+        "comparison_image_url": "",
+        "column_2_title": "Traditional Multivitamin",
+        "label": "See The Difference",
+        "heading": "<p>How Nourish Her™ Compares to a <em>Traditional Multivitamin</em></p>"
       }
     },
     "nh-provenance": {
       "type": "nh-provenance",
       "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "bg_color": "transparent",
+        "heading_color": "#1a1a1a",
+        "text_color": "#444444",
+        "accent_color": "#cc0019",
+        "card_bg": "#ffffff",
+        "card_border": "#ffd4e2",
+        "card_text_title": "#1a1a1a",
+        "card_text_body": "#444444",
+        "label": "Our Standards",
+        "heading": "<p>Sourced with <em>Integrity</em></p>",
+        "description": "Every organ in Nourish Her™ is sourced from 100% grass-fed, pasture-raised cattle in New Zealand — one of the world's most pristine agricultural environments, free from hormones and antibiotics."
       }
     },
     "nh-trust-signals": {
       "type": "nh-trust-signals",
       "settings": {
+        "bg_color": "transparent",
+        "text_color": "#444444"
       }
     },
     "nh-offer": {
       "type": "nh-offer",
       "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "bg_color": "transparent",
+        "heading_color": "#1a1a1a",
+        "text_color": "#444444",
+        "accent_color": "#cc0019",
+        "card_bg": "#ffffff",
+        "card_border": "#eeeeee",
+        "card_text": "#1a1a1a",
+        "label": "Get Started Today",
+        "heading": "<p>Choose Your <em>Nourishment Plan</em></p>",
+        "product_title": "Nourish Her™",
+        "product_tagline": "100% Grass-Fed Beef Organs — Whole-Food Nutrition for Women",
+        "featured_product": "",
+        "use_product_images": true,
+        "fallback_price": "£34.99",
+        "guarantee_title": "30-Day Money-Back Guarantee",
+        "guarantee_text": "If you're not completely satisfied, we'll refund you in full — no questions asked.",
+        "kaching_onetime_subtitle": "90 capsules · 30-day supply",
+        "kaching_subscription_subtitle": "Save £10 per month · Cancel anytime · Free delivery"
       }
     },
     "nh-lab-tested": {
       "type": "nh-lab-tested",
       "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "bg_color": "transparent",
+        "heading_color": "#1a1a1a",
+        "text_color": "#444444",
+        "accent_color": "#cc0019",
+        "label": "Transparency & Trust",
+        "heading": "<p>Third-Party <em>Lab Tested</em></p>"
       }
     },
     "nh-faq": {
       "type": "nh-faq",
       "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "bg_color": "transparent",
+        "heading_color": "#1a1a1a",
+        "accent_color": "#cc0019",
+        "item_bg": "rgba(0,0,0,0)",
+        "item_border": "#eeeeee",
+        "question_color": "#1a1a1a",
+        "answer_color": "#444444",
+        "label": "Got Questions?",
+        "heading": "<p>Frequently Asked <em>Questions</em></p>"
       }
     },
     "nh-footer": {
       "type": "nh-footer",
       "settings": {
+        "bg_color": "#1a1a1a",
+        "text_color": "#ffffff",
+        "logo_url": "",
+        "company_name": "Nourish Her™",
+        "disclaimer": "*These statements have not been evaluated by the Food Standards Agency. This product is not intended to diagnose, treat, cure, or prevent any disease. Results may vary. Always consult your healthcare provider before starting any new supplement, especially if you are pregnant, breastfeeding, or taking medication."
       }
     }
   },
   "order": [
-    "nh-announcement-bar",
+    "nh_spotlight_MN9Ric",
     "nh-hero",
     "nh-benefits",
     "nh-reviews",
