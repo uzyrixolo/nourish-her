@@ -794,7 +794,7 @@
         "ai_gen_block_0ad30a5_cjhYAC": {
           "type": "ai_gen_block_0ad30a5",
           "settings": {
-            "button_text": "START YOUR JOURNEY",
+            "button_text": "START YOUR TRANSFORMATION",
             "button_link": "",
             "button_font_size": 18,
             "button_font_weight": "600",
@@ -996,7 +996,7 @@
         "ai_gen_block_0ad30a5_R7Rf4r": {
           "type": "ai_gen_block_0ad30a5",
           "settings": {
-            "button_text": "START YOUR JOURNEY",
+            "button_text": "START YOUR TRANSFORMATION",
             "button_link": "",
             "button_font_size": 18,
             "button_font_weight": "600",
@@ -1026,7 +1026,7 @@
             "show_trust_1": true,
             "trust_text_1": "30 Day Money Back Guarantee",
             "show_trust_2": true,
-            "trust_text_2": "Free Shipping"
+            "trust_text_2": "Free Shipping*"
           },
           "blocks": {}
         }
@@ -1227,7 +1227,7 @@
         "ai_gen_block_0ad30a5_8VGegC": {
           "type": "ai_gen_block_0ad30a5",
           "settings": {
-            "button_text": "START YOUR JOURNEY",
+            "button_text": "START YOUR TRANSFORMATION",
             "button_link": "",
             "button_font_size": 18,
             "button_font_weight": "600",
