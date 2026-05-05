@@ -1016,7 +1016,7 @@
             "icon_spacing": 12,
             "trust_alignment": "center",
             "trust_margin_top": 20,
-            "trust_spacing": 32,
+            "trust_spacing": 12,
             "trust_icon_spacing": 8,
             "trust_icon_size": 24,
             "trust_font_size": 14,
