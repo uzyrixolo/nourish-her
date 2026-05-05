@@ -9,22 +9,6 @@
  */
 {
   "sections": {
-    "nh-hero": {
-      "type": "nh-hero",
-      "settings": {
-        "padding_top": 60,
-        "padding_bottom": 60,
-        "padding_top_mobile": 40,
-        "padding_bottom_mobile": 60,
-        "bg_color": "linear-gradient(135deg, #fffbd5 0%, #fff 100%)",
-        "heading_color": "#1a1a1a",
-        "text_color": "#444444",
-        "accent_color": "#cc0019",
-        "image_label": "6 Whole-Food Beef Organs in Every Serving",
-        "reverse_mobile": false,
-        "cta_text": "Shop Now — from £34.99"
-      }
-    },
     "nh_spotlight_MN9Ric": {
       "type": "nh-spotlight",
       "blocks": {
@@ -167,6 +151,66 @@
         "bg_color": "#fffbd5",
         "heading_color": "#1a1a1a",
         "accent_color": "#cc0019"
+      }
+    },
+    "nh_trust_signals_q87CiL": {
+      "type": "nh-trust-signals",
+      "blocks": {
+        "trust_badge_9fCcJG": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🛡️",
+            "label": "30-Day Money-Back Guarantee"
+          }
+        },
+        "trust_badge_48KDNE": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🌿",
+            "label": "Non-GMO"
+          }
+        },
+        "trust_badge_yyiQQw": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🐄",
+            "label": "100% Grass-Fed"
+          }
+        },
+        "trust_badge_eqfT6B": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🌾",
+            "label": "Gluten-Free"
+          }
+        },
+        "trust_badge_RJUpDB": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🔬",
+            "label": "Lab Tested"
+          }
+        },
+        "trust_badge_eRL4t8": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🇳🇿",
+            "label": "New Zealand Sourced"
+          }
+        }
+      },
+      "block_order": [
+        "trust_badge_9fCcJG",
+        "trust_badge_48KDNE",
+        "trust_badge_yyiQQw",
+        "trust_badge_eqfT6B",
+        "trust_badge_RJUpDB",
+        "trust_badge_eRL4t8"
+      ],
+      "custom_css": [],
+      "settings": {
+        "bg_color": "#cc0019",
+        "text_color": "#ffffff"
       }
     },
     "nh-benefits": {
@@ -391,7 +435,7 @@
   },
   "order": [
     "nh_spotlight_MN9Ric",
-    "nh-hero",
+    "nh_trust_signals_q87CiL",
     "nh-benefits",
     "nh-reviews",
     "nh-founder",
