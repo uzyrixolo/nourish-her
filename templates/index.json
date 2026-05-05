@@ -390,6 +390,7 @@
         "benefit_3",
         "benefit_4"
       ],
+      "disabled": true,
       "settings": {
         "padding_top": 80,
         "padding_bottom": 80,
@@ -478,6 +479,18 @@
     "nh-founder": {
       "type": "nh-founder",
       "blocks": {
+        "text_9qiKdg": {
+          "type": "text",
+          "settings": {
+            "column": "right",
+            "row": 1,
+            "content": "<p>You've tried the <strong>multivitamins. The iron tablets and greens powders.</strong> You're doing everything you're supposed to do. So why does your <strong>body still feel like</strong> <strong>it's running on empty</strong>? </p>",
+            "font_size_desktop": 18,
+            "font_size_mobile": 14,
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        },
         "image_ytYJUB": {
           "type": "image",
           "settings": {
@@ -492,7 +505,7 @@
         "image_aAMqDe": {
           "type": "image",
           "settings": {
-            "column": "right",
+            "column": "left",
             "row": 1,
             "image": "shopify://shop_images/Tired_Shower_drain.png",
             "image_url": "",
@@ -500,27 +513,38 @@
             "hide_desktop": false
           }
         },
-        "text_9qiKdg": {
+        "image_cUBcjk": {
+          "type": "image",
+          "settings": {
+            "column": "right",
+            "row": 2,
+            "image": "shopify://shop_images/Gemini_Generated_Image_yqujqqyqujqqyquj_1.png",
+            "image_url": "",
+            "hide_mobile": true,
+            "hide_desktop": false
+          }
+        },
+        "text_MU6i9x": {
           "type": "text",
           "settings": {
             "column": "left",
-            "row": 1,
-            "content": "<p>You've tried the <strong>multivitamins. The iron tablets and greens powders.</strong> You're doing everything you're supposed to do. So why does your <strong>body still feel like</strong> <strong>it's running on empty</strong>?</p>",
+            "row": 2,
+            "content": "<p>Because the supplement industry has spent decades perfecting products that look good on a label but <strong>do very little in your body.</strong></p>",
             "font_size_desktop": 18,
             "font_size_mobile": 14,
             "hide_mobile": false,
-            "hide_desktop": false
+            "hide_desktop": true
           }
         },
         "text_WxidcN": {
           "type": "text",
           "settings": {
             "column": "left",
-            "row": 1,
-            "content": "<p>Because modern supplements  deliver nutrients<strong> </strong>in forms your<strong> body barely</strong> <strong>absorbs</strong>. Synthetic iron sits in your gut causing problems without raising your levels. Isolated vitamins without their natural cofactors pass straight through. You can be taking multiple supplements every day and still be depleted.</p>",
+            "row": 2,
+            "content": "<p><strong>Because the supplement industry has spent decades perfecting products that look good on a label but do very little in your body.</strong></p><p>Synthetic vitamins are cheap to manufacture — pennies per bottle — but they're isolated from the cofactors and compounds that make them actually work. Your body doesn't recognise them as food. Most of what you're taking passes straight through.</p>",
             "font_size_desktop": 18,
             "font_size_mobile": 14,
-            "hide_mobile": false,
+            "hide_mobile": true,
             "hide_desktop": false
           }
         },
@@ -528,7 +552,7 @@
           "type": "image",
           "settings": {
             "column": "left",
-            "row": 1,
+            "row": 2,
             "image": "shopify://shop_images/Gemini_Generated_Image_yqujqqyqujqqyquj_1.png",
             "image_url": "",
             "hide_mobile": false,
@@ -539,8 +563,8 @@
           "type": "image",
           "settings": {
             "column": "left",
-            "row": 2,
-            "image": "shopify://shop_images/Gemini_Generated_Image_yqujqqyqujqqyquj_1.png",
+            "row": 3,
+            "image": "shopify://shop_images/Haem_vs_non_Haem_chart.png",
             "image_url": "",
             "hide_mobile": true,
             "hide_desktop": false
@@ -551,7 +575,30 @@
           "settings": {
             "column": "left",
             "row": 2,
-            "content": "<p><strong>Your body isn't failing you. It's just been asking for something it hasn't been getting.</strong></p><p>That's exactly what Nourish Her was made for.</p>",
+            "content": "<p>Synthetic vitamins are cheap to manufacture — pennies per bottle — but they're isolated from the cofactors and compounds that make them actually work. Your body doesn't recognise them as food. Most of what you're taking passes straight through.</p><p><strong>And the industry knows this.</strong></p>",
+            "font_size_desktop": 0,
+            "font_size_mobile": 0,
+            "hide_mobile": false,
+            "hide_desktop": true
+          }
+        },
+        "image_wxDThD": {
+          "type": "image",
+          "settings": {
+            "column": "left",
+            "row": 2,
+            "image": "shopify://shop_images/Haem_vs_non_Haem_chart.png",
+            "image_url": "",
+            "hide_mobile": false,
+            "hide_desktop": true
+          }
+        },
+        "text_hWXFkx": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "row": 2,
+            "content": "<p>Studies from the 1980s onwards have shown that whole-food nutrients consistently outperform synthetic supplements. Folate from foods like liver is absorbed better than synthetic folic acid. Haem iron from organ meats can be absorbed up to 8x more than synthetic iron used in most supplements.</p><p>But there's no profit in telling you that the supplement you're taking delivers a fraction of what the label promises.</p><p><strong>So they keep selling. And when it doesn't work, they sell you another one.</strong></p>",
             "font_size_desktop": 0,
             "font_size_mobile": 0,
             "hide_mobile": false,
@@ -562,8 +609,20 @@
           "type": "text",
           "settings": {
             "column": "right",
-            "row": 2,
-            "content": "<p><strong>Your body isn't failing you. It's just been asking for something it hasn't been getting.</strong></p><p>That's exactly what Nourish Her was made for.</p>",
+            "row": 3,
+            "content": "<p><strong>And the industry knows this.</strong></p><p>Studies from the 1980s onwards have shown that whole-food nutrients consistently outperform synthetic supplements. Folate from foods like liver is absorbed better than synthetic folic acid. Haem iron from organ meats can be absorbed up to 8x more than synthetic iron used in most supplements.</p>",
+            "font_size_desktop": 18,
+            "font_size_mobile": 14,
+            "hide_mobile": true,
+            "hide_desktop": false
+          }
+        },
+        "text_rCPe6K": {
+          "type": "text",
+          "settings": {
+            "column": "right",
+            "row": 3,
+            "content": "<p>But there's no profit in telling you that the supplement you're taking delivers a fraction of what the label promises.</p><p><strong>So they keep selling. And when it doesn't work, they sell you another one.</strong></p>",
             "font_size_desktop": 18,
             "font_size_mobile": 14,
             "hide_mobile": true,
@@ -584,14 +643,19 @@
         }
       },
       "block_order": [
+        "text_9qiKdg",
         "image_ytYJUB",
         "image_aAMqDe",
-        "text_9qiKdg",
+        "image_cUBcjk",
+        "text_MU6i9x",
         "text_WxidcN",
         "image_bbKeXW",
         "image_CMeAUB",
         "text_FMcjU4",
+        "image_wxDThD",
+        "text_hWXFkx",
         "text_Y3FQAi",
+        "text_rCPe6K",
         "image_CCyiAY"
       ],
       "name": "NH - Problem Agitation",
@@ -607,7 +671,7 @@
         "quote_bg": "#fffbd5",
         "quote_text": "#1a1a1a",
         "label": "",
-        "heading": "<p><strong>Constantly </strong><em><strong>Tired</strong></em><strong>, </strong><em><strong>Foggy</strong></em><strong> and Watching </strong><em><strong>More Hair Fall Out</strong></em><strong> Every Single Day?</strong></p>"
+        "heading": "<p><em>STOP </em>Accepting<em> </em>Chronic Exhaustion, Brain Fog, and Hair Loss As \"Just Part of Life\"</p>"
       }
     },
     "nh_founder_r7PE9g": {
