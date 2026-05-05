@@ -1084,11 +1084,64 @@
         "description": "Every organ in Nourish Her™ is sourced from 100% grass-fed, pasture-raised cattle in New Zealand — one of the world's most pristine agricultural environments, free from hormones and antibiotics."
       }
     },
-    "nh-trust-signals": {
+    "nh_trust_signals_bP6LwM": {
       "type": "nh-trust-signals",
+      "blocks": {
+        "trust_badge_QgF8bn": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🛡️",
+            "label": "30-Day Money-Back Guarantee"
+          }
+        },
+        "trust_badge_hEeP3Y": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🌿",
+            "label": "Non-GMO"
+          }
+        },
+        "trust_badge_rTEfFN": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🐄",
+            "label": "100% Grass-Fed"
+          }
+        },
+        "trust_badge_33pDAM": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🌾",
+            "label": "Gluten-Free"
+          }
+        },
+        "trust_badge_ztBqzi": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🔬",
+            "label": "Lab Tested"
+          }
+        },
+        "trust_badge_TDbmF3": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🇳🇿",
+            "label": "New Zealand Sourced"
+          }
+        }
+      },
+      "block_order": [
+        "trust_badge_QgF8bn",
+        "trust_badge_hEeP3Y",
+        "trust_badge_rTEfFN",
+        "trust_badge_33pDAM",
+        "trust_badge_ztBqzi",
+        "trust_badge_TDbmF3"
+      ],
+      "custom_css": [],
       "settings": {
-        "bg_color": "transparent",
-        "text_color": "#444444"
+        "bg_color": "#cc0019",
+        "text_color": "#ffffff"
       }
     },
     "nh_offer_nHNT97": {
@@ -1408,7 +1461,7 @@
     "nh_comparison_VPKFHB",
     "nh_founder_rt9aXm",
     "nh_provenance_e7r7kh",
-    "nh-trust-signals",
+    "nh_trust_signals_bP6LwM",
     "nh_offer_nHNT97",
     "nh_lab_tested_xJArmP",
     "nh_faq_rd7mPQ",
