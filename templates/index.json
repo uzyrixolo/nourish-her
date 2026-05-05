@@ -983,7 +983,7 @@
         "ai_gen_block_0ad30a5_R7Rf4r": {
           "type": "ai_gen_block_0ad30a5",
           "settings": {
-            "button_text": "START YOUR TRANSFORMATION",
+            "button_text": "START NOURISHING",
             "button_link": "",
             "button_font_size": 18,
             "button_font_weight": "600",
@@ -1093,7 +1093,7 @@
           "settings": {
             "column": "left",
             "row": 1,
-            "content": "<p>As a doctor working long, demanding shifts, I lived in a constant state of exhaustion. My energy was low, my focus was slipping, and no matter how much I slept, I never felt restored. Iron tablets upset my stomach, and multivitamins felt synthetic and disconnected from real nourishment. </p><p>That’s when I began a deep dive into <strong>wholefood nutrition</strong>.</p>",
+            "content": "<p>As a doctor working long, demanding shifts, I lived in a constant state of exhaustion. My energy was low, my focus was slipping, and no matter how much I slept, I never felt restored. Iron tablets upset my stomach, and multivitamins felt synthetic and disconnected from real nourishment. </p><p>That’s when I began a deep dive into <strong>wholefood nutrition </strong>and discovered the work of <strong>Dr. Weston A. Price.</strong></p>",
             "font_size_desktop": 20,
             "font_size_mobile": 0,
             "hide_mobile": false,
@@ -1105,7 +1105,7 @@
           "settings": {
             "column": "right",
             "row": 2,
-            "content": "<p>I knew there was no organ supplement on the market designed around what women actually need — our hormonal demands, our iron losses, our biology. That’s when I decided to create <strong>Nourish Her</strong>™. To make it easier to get the essential nutrients my body needed.</p><p>For the first time in a long while, it felt like my body was finally getting what it had been asking for.</p>",
+            "content": "<p>I knew there was no organ supplement on the market designed around what women actually need — our hormonal demands, our iron losses, our biology. That’s when I decided to create <strong>Nourish Her</strong>™ <strong>Beef Organs</strong>. To make it easier to get the essential nutrients my body needed.</p><p>For the first time in a long while, it felt like my body was finally getting what it had been asking for.</p>",
             "font_size_desktop": 0,
             "font_size_mobile": 0,
             "hide_mobile": false,
@@ -1117,7 +1117,7 @@
           "settings": {
             "column": "left",
             "row": 1,
-            "content": "<p>For generations, women were nourished with whole, nutrient-dense foods that supported energy, resilience, and vitality at the root. Organs like liver and spleen weren’t trends — they were foundational nutrition. The problem was, I couldn’t bring myself to eat liver or organ meats consistently!</p>",
+            "content": "<p>In the 1930s, Dr. Price traveled the world studying isolated traditional cultures. What he found was universal: <strong>every culture prioritised organ meats as \"sacred foods\"</strong> — reserved specifically for nursing mothers, growing children, and couples preparing to conceive.</p><p>When he analyzed these diets, he discovered they contained <strong>10 times the fat-soluble vitamins</strong> compared to modern Western diets. The primary sources? Liver, fish eggs, shellfish, and <strong>organ meats</strong>.</p><p>For generations, women were nourished this way. Organs like liver and spleen weren't trends — they were foundational nutrition that supported energy, resilience, and vitality at the root.</p><p>The problem was, I couldn't stomach eating liver or organ meats!</p>",
             "font_size_desktop": 0,
             "font_size_mobile": 0,
             "hide_mobile": false,
@@ -1214,7 +1214,7 @@
         "ai_gen_block_0ad30a5_8VGegC": {
           "type": "ai_gen_block_0ad30a5",
           "settings": {
-            "button_text": "START YOUR TRANSFORMATION",
+            "button_text": "TRY RISK FREE",
             "button_link": "",
             "button_font_size": 18,
             "button_font_weight": "600",
@@ -2025,7 +2025,7 @@
         "sticky_title": "Nourish Her™",
         "sticky_trust_1_text": "30 Day Money Back Guarantee",
         "sticky_trust_2_text": "Free Shipping*",
-        "sticky_cta_text": "start nourishing",
+        "sticky_cta_text": "SHOP NOW",
         "sticky_cta_link": "",
         "sticky_cta_icon": "shopify://shop_images/Vanilla_BrandIcon_Digital_3313d435-1010-4d45-9c96-88fc9a301901.png",
         "sticky_cta_icon_size": 30
