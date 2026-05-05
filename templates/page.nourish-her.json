@@ -1069,14 +1069,76 @@
         "kaching_subscription_subtitle": "Save £10 per month · Cancel anytime · Free delivery"
       }
     },
-    "nh-lab-tested": {
+    "nh_lab_tested_xJArmP": {
       "type": "nh-lab-tested",
+      "blocks": {
+        "image_wajct3": {
+          "type": "image",
+          "settings": {
+            "column": "left",
+            "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
+            "image_url": "",
+            "hide_mobile": false,
+            "hide_desktop": true
+          }
+        },
+        "text_LPNnKK": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "content": "<p>Add paragraph text here.</p>",
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        },
+        "badges_6cEpMX": {
+          "type": "badges",
+          "settings": {
+            "column": "left",
+            "badge_1": "Non-GMO",
+            "badge_2": "Gluten-Free",
+            "badge_3": "No Fillers",
+            "badge_4": "No Binders",
+            "badge_5": "Freeze-Dried",
+            "badge_6": "Heavy Metal Tested",
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        },
+        "image_M8Agdc": {
+          "type": "image",
+          "settings": {
+            "column": "right",
+            "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
+            "image_url": "",
+            "hide_mobile": true,
+            "hide_desktop": false
+          }
+        },
+        "download_Ye9fkx": {
+          "type": "download",
+          "settings": {
+            "column": "left",
+            "text": "DOWNLOAD THE LAB TEST RESULTS",
+            "link": "#",
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        }
+      },
+      "block_order": [
+        "image_wajct3",
+        "text_LPNnKK",
+        "badges_6cEpMX",
+        "image_M8Agdc",
+        "download_Ye9fkx"
+      ],
       "settings": {
-        "padding_top": 80,
+        "padding_top": 36,
         "padding_bottom": 80,
-        "padding_top_mobile": 60,
+        "padding_top_mobile": 32,
         "padding_bottom_mobile": 60,
-        "bg_color": "transparent",
+        "bg_color": "#ffffff",
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
         "accent_color": "#cc0019",
@@ -1084,14 +1146,82 @@
         "heading": "<p>Third-Party <em>Lab Tested</em></p>"
       }
     },
-    "nh-faq": {
+    "nh_faq_rd7mPQ": {
       "type": "nh-faq",
+      "blocks": {
+        "faq_item_ANr7Pa": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What exactly is in Nourish Her™?",
+            "answer": "Nourish Her™ contains six 100% grass-fed beef organs: liver, spleen, kidney, heart, uterus, and ovaries. Each organ is sourced from pasture-raised cattle in New Zealand, gently freeze-dried to preserve nutrients, and encapsulated with no fillers, binders, or synthetic additives."
+          }
+        },
+        "faq_item_rfaMhB": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How many capsules do I take per day?",
+            "answer": "We recommend taking 3 capsules per day with food. Each pouch contains 90 capsules — a full 30-day supply at the recommended serving size."
+          }
+        },
+        "faq_item_Ma6iaQ": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will I taste or smell the organs?",
+            "answer": "No. The organs are gently freeze-dried and encapsulated, which neutralises any taste or odour. This is one of the key reasons we created Nourish Her™ — to make organ nutrition accessible without having to eat raw or cooked organs."
+          }
+        },
+        "faq_item_mmdgEE": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is Nourish Her™ suitable for pregnant or breastfeeding women?",
+            "answer": "Beef liver is very high in vitamin A (retinol). While this is a benefit for most women, high doses of preformed vitamin A are not recommended during pregnancy. We advise pregnant or breastfeeding women to consult their healthcare provider before taking Nourish Her™."
+          }
+        },
+        "faq_item_DQpBtX": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long before I notice results?",
+            "answer": "Most women report noticing steadier energy levels within the first 2–4 weeks. More significant changes — such as improved skin, hair, and hormonal balance — are typically observed after 2–3 months of consistent daily use. Results vary depending on your individual nutrient status and lifestyle."
+          }
+        },
+        "faq_item_wDcjjx": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I cancel my subscription at any time?",
+            "answer": "Yes, absolutely. You can cancel, pause, or modify your subscription at any time through your account portal — no fees, no awkward phone calls. We want you to stay because you love the product, not because you're locked in."
+          }
+        },
+        "faq_item_eWAgYp": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your returns policy?",
+            "answer": "We offer a 30-day money-back guarantee. If you're not satisfied for any reason within 30 days of purchase, simply contact us and we'll issue a full refund."
+          }
+        },
+        "faq_item_Rmx3FV": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is Nourish Her™ gluten-free and non-GMO?",
+            "answer": "Yes. Nourish Her™ is 100% gluten-free, non-GMO, and free from artificial additives, fillers, and binders. It is a pure, whole-food supplement with nothing unnecessary added."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_ANr7Pa",
+        "faq_item_rfaMhB",
+        "faq_item_Ma6iaQ",
+        "faq_item_mmdgEE",
+        "faq_item_DQpBtX",
+        "faq_item_wDcjjx",
+        "faq_item_eWAgYp",
+        "faq_item_Rmx3FV"
+      ],
       "settings": {
-        "padding_top": 80,
+        "padding_top": 36,
         "padding_bottom": 80,
-        "padding_top_mobile": 60,
+        "padding_top_mobile": 32,
         "padding_bottom_mobile": 60,
-        "bg_color": "transparent",
+        "bg_color": "#fdf8f0",
         "heading_color": "#1a1a1a",
         "accent_color": "#cc0019",
         "item_bg": "rgba(0,0,0,0)",
@@ -1127,8 +1257,8 @@
     "nh-provenance",
     "nh-trust-signals",
     "nh-offer",
-    "nh-lab-tested",
-    "nh-faq",
+    "nh_lab_tested_xJArmP",
+    "nh_faq_rd7mPQ",
     "nh-footer"
   ]
 }
