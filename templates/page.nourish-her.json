@@ -1042,14 +1042,118 @@
         "text_color": "#444444"
       }
     },
-    "nh-offer": {
+    "nh_offer_nHNT97": {
       "type": "nh-offer",
+      "blocks": {
+        "gallery_image_Dzjy3e": {
+          "type": "gallery_image",
+          "settings": {
+            "image_url": ""
+          }
+        },
+        "gallery_image_UpYLeP": {
+          "type": "gallery_image",
+          "settings": {
+            "image_url": ""
+          }
+        },
+        "gallery_image_8nnTP4": {
+          "type": "gallery_image",
+          "settings": {
+            "image_url": ""
+          }
+        },
+        "kaching_subscriptions_app_block_CKYFKC": {
+          "type": "shopify://apps/kaching-subscriptions/blocks/app-block/1fa39fd7-f6a3-4bbc-9383-7d91d27b44f5",
+          "settings": {
+            "product": "{{section.settings.featured_product}}"
+          }
+        },
+        "pricing_option_HhRfYV": {
+          "type": "pricing_option",
+          "disabled": true,
+          "settings": {
+            "plan_id": "subscription",
+            "label": "Subscribe & Save",
+            "price_display": "£34.99/mo",
+            "price": "£34.99",
+            "subscription": true,
+            "subtext": "Save £10 per month · Cancel anytime · Free delivery",
+            "badge": "Best Value",
+            "selected": true
+          }
+        },
+        "pricing_option_bYafT7": {
+          "type": "pricing_option",
+          "disabled": true,
+          "settings": {
+            "plan_id": "onetime",
+            "label": "One-Time Purchase",
+            "price_display": "£44.99",
+            "price": "£44.99",
+            "subscription": false,
+            "subtext": "90 capsules · 30-day supply",
+            "badge": "",
+            "selected": false
+          }
+        },
+        "include_item_HTgV6w": {
+          "type": "include_item",
+          "settings": {
+            "text": "90 capsules (30-day supply)"
+          }
+        },
+        "include_item_U9pdWk": {
+          "type": "include_item",
+          "settings": {
+            "text": "6 whole-food beef organs per serving"
+          }
+        },
+        "include_item_TrML4w": {
+          "type": "include_item",
+          "settings": {
+            "text": "100% grass-fed & pasture-raised"
+          }
+        },
+        "include_item_bdXdhb": {
+          "type": "include_item",
+          "settings": {
+            "text": "Third-party lab tested for purity"
+          }
+        },
+        "include_item_iE7Tyc": {
+          "type": "include_item",
+          "settings": {
+            "text": "Free UK delivery on subscription"
+          }
+        },
+        "include_item_8FDbUJ": {
+          "type": "include_item",
+          "settings": {
+            "text": "Halal certified beef"
+          }
+        }
+      },
+      "block_order": [
+        "gallery_image_Dzjy3e",
+        "gallery_image_UpYLeP",
+        "gallery_image_8nnTP4",
+        "kaching_subscriptions_app_block_CKYFKC",
+        "pricing_option_HhRfYV",
+        "pricing_option_bYafT7",
+        "include_item_HTgV6w",
+        "include_item_U9pdWk",
+        "include_item_TrML4w",
+        "include_item_bdXdhb",
+        "include_item_iE7Tyc",
+        "include_item_8FDbUJ"
+      ],
       "settings": {
-        "padding_top": 80,
+        "padding_top": 36,
         "padding_bottom": 80,
         "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
-        "bg_color": "transparent",
+        "padding_bottom_mobile": 40,
+        "bg_color": "#fdf8f0",
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
         "accent_color": "#cc0019",
@@ -1060,11 +1164,11 @@
         "heading": "<p>Choose Your <em>Nourishment Plan</em></p>",
         "product_title": "Nourish Her™",
         "product_tagline": "100% Grass-Fed Beef Organs — Whole-Food Nutrition for Women",
-        "featured_product": "",
+        "featured_product": "100-grass-fed-beef-organs",
         "use_product_images": true,
         "fallback_price": "£34.99",
         "guarantee_title": "30-Day Money-Back Guarantee",
-        "guarantee_text": "If you're not completely satisfied, we'll refund you in full — no questions asked.",
+        "guarantee_text": "If you're not completely satisfied, we'll refund you in full.",
         "kaching_onetime_subtitle": "90 capsules · 30-day supply",
         "kaching_subscription_subtitle": "Save £10 per month · Cancel anytime · Free delivery"
       }
@@ -1256,7 +1360,7 @@
     "nh_founder_rt9aXm",
     "nh-provenance",
     "nh-trust-signals",
-    "nh-offer",
+    "nh_offer_nHNT97",
     "nh_lab_tested_xJArmP",
     "nh_faq_rd7mPQ",
     "nh-footer"
