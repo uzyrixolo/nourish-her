@@ -516,30 +516,62 @@
         "heading": "<p><strong>Why beef organs are a </strong><em>VITAL</em><strong> part of any female diet</strong></p>"
       }
     },
-    "nh-founder": {
-      "type": "nh-founder",
-      "settings": {
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
-        "bg_color": "transparent",
-        "heading_color": "#1a1a1a",
-        "text_color": "#444444",
-        "accent_color": "#cc0019",
-        "quote_bg": "#fffbd5",
-        "quote_text": "#1a1a1a",
-        "label": "Our Story",
-        "heading": "<p>A Doctor's Journey Back to <em>Real Nourishment</em></p>"
-      }
-    },
-    "nh-timeline": {
+    "nh_timeline_YKk7Qz": {
       "type": "nh-timeline",
+      "blocks": {
+        "timeline_item_PKWJrx": {
+          "type": "timeline_item",
+          "settings": {
+            "month": "Month 1",
+            "title": "Steadier Daily Energy ⚡️",
+            "description": "Many women notice steadier daily energy and less afternoon fatigue as bioavailable haem iron, B12, and B-vitamins begin supporting normal energy-yielding metabolism."
+          }
+        },
+        "timeline_item_ktqXeH": {
+          "type": "timeline_item",
+          "settings": {
+            "month": "Month 2",
+            "title": "Sharper Mental Clarity   🧠",
+            "description": "Improved mental clarity and resilience are often reported as iron, B12, and copper continue to support red blood cell formation and oxygen delivery to the brain."
+          }
+        },
+        "timeline_item_ejngxR": {
+          "type": "timeline_item",
+          "settings": {
+            "month": "Month 3",
+            "title": "Skin & Hair Changes 💅",
+            "description": "Early changes in skin and hair quality may become noticeable, linked to vitamin A, zinc, and copper supporting normal skin cell turnover and connective tissue health."
+          }
+        },
+        "timeline_item_arqFqy": {
+          "type": "timeline_item",
+          "settings": {
+            "month": "Month 6",
+            "title": "Greater Vitality & Balance 🌸",
+            "description": "A greater sense of overall vitality and balance is common, as consistent intake of whole-food micronutrients helps replenish nutrient stores and support normal hormonal and metabolic function."
+          }
+        },
+        "timeline_item_pgyFTK": {
+          "type": "timeline_item",
+          "settings": {
+            "month": "Month 12",
+            "title": "Long-Term Nourishment 😇",
+            "description": "Many women describe feeling more robust and nourished long-term, with sustained energy and fewer fluctuations — reflecting the cumulative benefits of ongoing whole-food, ancestral nutrition."
+          }
+        }
+      },
+      "block_order": [
+        "timeline_item_PKWJrx",
+        "timeline_item_ktqXeH",
+        "timeline_item_ejngxR",
+        "timeline_item_arqFqy",
+        "timeline_item_pgyFTK"
+      ],
       "settings": {
         "padding_top": 80,
         "padding_bottom": 80,
-        "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 32,
         "bg_color": "#fdf8f0",
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
@@ -705,8 +737,7 @@
     "nh_benefits_TaERVj",
     "nh_founder_bnAhhp",
     "nh_founder_LD4kz6",
-    "nh-founder",
-    "nh-timeline",
+    "nh_timeline_YKk7Qz",
     "nh-ingredients",
     "nh-comparison",
     "nh-provenance",
