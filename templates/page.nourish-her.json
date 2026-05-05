@@ -272,23 +272,139 @@
         "heading": "<p>Four Pillars of <em>Female Vitality</em></p>"
       }
     },
-    "nh-benefits": {
-      "type": "nh-benefits",
+    "nh_founder_bnAhhp": {
+      "type": "nh-founder",
+      "blocks": {
+        "image_PMbLRN": {
+          "type": "image",
+          "settings": {
+            "column": "left",
+            "row": 1,
+            "image": "shopify://shop_images/Gemini_Generated_Image_dy9pnmdy9pnmdy9p_1.png",
+            "image_url": "",
+            "hide_mobile": false,
+            "hide_desktop": true
+          }
+        },
+        "image_nTYtbK": {
+          "type": "image",
+          "settings": {
+            "column": "right",
+            "row": 1,
+            "image": "shopify://shop_images/Tired_Shower_drain.png",
+            "image_url": "",
+            "hide_mobile": true,
+            "hide_desktop": false
+          }
+        },
+        "text_LQtYzN": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "row": 1,
+            "content": "<p>You've tried the <strong>multivitamins. The iron tablets and greens powders.</strong> You're doing everything you're supposed to do. So why does your <strong>body still feel like</strong> <strong>it's running on empty</strong>?</p>",
+            "font_size_desktop": 18,
+            "font_size_mobile": 14,
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        },
+        "text_6DLjri": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "row": 1,
+            "content": "<p>Because modern supplements  deliver nutrients<strong> </strong>in forms your<strong> body barely</strong> <strong>absorbs</strong>. Synthetic iron sits in your gut causing problems without raising your levels. Isolated vitamins without their natural cofactors pass straight through. You can be taking multiple supplements every day and still be depleted.</p>",
+            "font_size_desktop": 18,
+            "font_size_mobile": 14,
+            "hide_mobile": false,
+            "hide_desktop": false
+          }
+        },
+        "image_NprVG7": {
+          "type": "image",
+          "settings": {
+            "column": "left",
+            "row": 1,
+            "image": "shopify://shop_images/Gemini_Generated_Image_yqujqqyqujqqyquj_1.png",
+            "image_url": "",
+            "hide_mobile": false,
+            "hide_desktop": true
+          }
+        },
+        "image_TYAMdR": {
+          "type": "image",
+          "settings": {
+            "column": "left",
+            "row": 2,
+            "image": "shopify://shop_images/Gemini_Generated_Image_yqujqqyqujqqyquj_1.png",
+            "image_url": "",
+            "hide_mobile": true,
+            "hide_desktop": false
+          }
+        },
+        "text_DAmUDF": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "row": 2,
+            "content": "<p><strong>Your body isn't failing you. It's just been asking for something it hasn't been getting.</strong></p><p>That's exactly what Nourish Her was made for.</p>",
+            "font_size_desktop": 0,
+            "font_size_mobile": 0,
+            "hide_mobile": false,
+            "hide_desktop": true
+          }
+        },
+        "text_YyzBqi": {
+          "type": "text",
+          "settings": {
+            "column": "right",
+            "row": 2,
+            "content": "<p><strong>Your body isn't failing you. It's just been asking for something it hasn't been getting.</strong></p><p>That's exactly what Nourish Her was made for.</p>",
+            "font_size_desktop": 18,
+            "font_size_mobile": 14,
+            "hide_mobile": true,
+            "hide_desktop": false
+          }
+        },
+        "image_jmcWLK": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "column": "right",
+            "row": 1,
+            "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
+            "image_url": "",
+            "hide_mobile": true,
+            "hide_desktop": false
+          }
+        }
+      },
+      "block_order": [
+        "image_PMbLRN",
+        "image_nTYtbK",
+        "text_LQtYzN",
+        "text_6DLjri",
+        "image_NprVG7",
+        "image_TYAMdR",
+        "text_DAmUDF",
+        "text_YyzBqi",
+        "image_jmcWLK"
+      ],
+      "name": "NH - Problem Agitation",
       "settings": {
         "padding_top": 80,
         "padding_bottom": 80,
-        "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
-        "bg_color": "#fdf8f0",
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 40,
+        "bg_color": "#ffffff",
         "heading_color": "#1a1a1a",
-        "accent_color": "#fe3c93",
-        "card_bg": "#ffffff",
-        "card_border": "#ffd4e2",
-        "card_text_title": "#1a1a1a",
-        "card_text_body": "#444444",
-        "card_icon_bg": "#fdf8f0",
-        "label": "What You'll Feel",
-        "heading": "<p>Four Pillars of <em>Female Vitality</em></p>"
+        "text_color": "#444444",
+        "accent_color": "#cc0019",
+        "quote_bg": "#fffbd5",
+        "quote_text": "#1a1a1a",
+        "label": "",
+        "heading": "<p><strong>Constantly </strong><em><strong>Tired</strong></em><strong>, </strong><em><strong>Foggy</strong></em><strong> and Watching </strong><em><strong>More Hair Fall Out</strong></em><strong> Every Single Day?</strong></p>"
       }
     },
     "nh-reviews": {
@@ -496,7 +612,7 @@
     "nh_spotlight_MN9Ric",
     "nh_trust_signals_q87CiL",
     "nh_benefits_TaERVj",
-    "nh-benefits",
+    "nh_founder_bnAhhp",
     "nh-reviews",
     "nh-founder",
     "nh-timeline",
