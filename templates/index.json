@@ -483,7 +483,7 @@
           "settings": {
             "column": "left",
             "row": 1,
-            "image": "shopify://shop_images/Gemini_Generated_Image_dy9pnmdy9pnmdy9p_1.png",
+            "image": "shopify://shop_images/Tired_Shower_drain.png",
             "image_url": "",
             "hide_mobile": false,
             "hide_desktop": true
@@ -636,18 +636,6 @@
             "hide_desktop": false
           }
         },
-        "text_ept6xX": {
-          "type": "text",
-          "settings": {
-            "column": "left",
-            "row": 1,
-            "content": "<p>Six whole-food grass-fed beef organs in one daily capsule, formulated specifically for women.</p><p>This isn't another supplement to add to the pile.<strong> It's the foundation everything else has been missing.</strong></p>",
-            "font_size_desktop": 18,
-            "font_size_mobile": 14,
-            "hide_mobile": false,
-            "hide_desktop": true
-          }
-        },
         "image_LAtVbD": {
           "type": "image",
           "settings": {
@@ -697,7 +685,6 @@
       "block_order": [
         "image_wEjK8q",
         "text_x9EVfU",
-        "text_ept6xX",
         "image_LAtVbD",
         "image_rJtiVr",
         "text_cxxfjM",
@@ -784,7 +771,7 @@
         "card_text_title": "#1a1a1a",
         "card_text_body": "#444444",
         "label": "Your Journey",
-        "heading": "<p>What to Expect When Taking <em>Nourish Her™</em></p>",
+        "heading": "<p>What to Expect When Taking <em>Nourish Her™ Beef Organs</em></p>",
         "disclaimer": "Results may vary. Individual outcomes depend on diet, lifestyle, and starting nutrient status."
       }
     },
@@ -1357,7 +1344,7 @@
         "product_image": "shopify://shop_images/Product_image-Transparent.png",
         "product_image_url": "",
         "column_1_title": "Grass Fed Beef Organs",
-        "comparison_image": "shopify://shop_images/generic-multivitamin.jpg",
+        "comparison_image": "shopify://shop_images/white-plastic-bottle-mockup-for-supplements-png.webp",
         "comparison_image_url": "",
         "column_2_title": "Synthetic Supplements",
         "label": "",
@@ -1693,7 +1680,7 @@
         "fallback_price": "£34.99",
         "guarantee_title": "30-Day Money-Back Guarantee",
         "guarantee_text": "If you're not completely satisfied, we'll refund you in full.",
-        "kaching_onetime_subtitle": "90 capsules · 30-day supply",
+        "kaching_onetime_subtitle": "Shipping not included",
         "kaching_subscription_subtitle": "Save £10 per month · Cancel anytime · Free delivery"
       }
     },
