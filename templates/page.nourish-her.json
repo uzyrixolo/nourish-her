@@ -213,6 +213,65 @@
         "text_color": "#ffffff"
       }
     },
+    "nh_benefits_TaERVj": {
+      "type": "nh-benefits",
+      "blocks": {
+        "benefit_9nPBY6": {
+          "type": "benefit",
+          "settings": {
+            "icon": "⚡",
+            "title": "Sustained Energy",
+            "description": "Bioavailable haem iron, B12, and B-vitamins support normal energy-yielding metabolism — no crashes, no stimulants."
+          }
+        },
+        "benefit_7kwt79": {
+          "type": "benefit",
+          "settings": {
+            "icon": "🌸",
+            "title": "Hormone Support",
+            "description": "Whole-food micronutrients help replenish nutrient stores and support normal hormonal and metabolic function over time."
+          }
+        },
+        "benefit_LzVCQN": {
+          "type": "benefit",
+          "settings": {
+            "icon": "✨",
+            "title": "Skin & Hair Health",
+            "description": "Vitamin A, zinc, and copper support normal skin cell turnover, connective tissue health, and hair vitality."
+          }
+        },
+        "benefit_kmFntF": {
+          "type": "benefit",
+          "settings": {
+            "icon": "🧠",
+            "title": "Mental Clarity",
+            "description": "Iron, B12, and copper support red blood cell formation and oxygen delivery — helping to lift the fog and sharpen focus."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_9nPBY6",
+        "benefit_7kwt79",
+        "benefit_LzVCQN",
+        "benefit_kmFntF"
+      ],
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "bg_color": "#fdf8f0",
+        "heading_color": "#1a1a1a",
+        "accent_color": "#fe3c93",
+        "card_bg": "#ffffff",
+        "card_border": "#ffd4e2",
+        "card_text_title": "#1a1a1a",
+        "card_text_body": "#444444",
+        "card_icon_bg": "#fdf8f0",
+        "label": "What You'll Feel",
+        "heading": "<p>Four Pillars of <em>Female Vitality</em></p>"
+      }
+    },
     "nh-benefits": {
       "type": "nh-benefits",
       "settings": {
@@ -436,6 +495,7 @@
   "order": [
     "nh_spotlight_MN9Ric",
     "nh_trust_signals_q87CiL",
+    "nh_benefits_TaERVj",
     "nh-benefits",
     "nh-reviews",
     "nh-founder",
