@@ -1015,14 +1015,63 @@
         "heading": "<p>A Doctor's Journey Back to <em>Real Nourishment</em></p>"
       }
     },
-    "nh-provenance": {
+    "nh_provenance_e7r7kh": {
       "type": "nh-provenance",
+      "blocks": {
+        "provenance_item_rrTCkV": {
+          "type": "provenance_item",
+          "settings": {
+            "icon": "🇳🇿",
+            "title": "New Zealand Sourced",
+            "description": "Cattle raised on the lush, clean pastures of New Zealand — renowned globally for the highest standards in grass-fed farming."
+          }
+        },
+        "provenance_item_yKfXGt": {
+          "type": "provenance_item",
+          "settings": {
+            "icon": "🌿",
+            "title": "100% Grass-Fed",
+            "description": "Our cattle graze freely on natural pasture year-round, producing organs with superior nutrient density compared to grain-fed alternatives."
+          }
+        },
+        "provenance_item_PeD4Np": {
+          "type": "provenance_item",
+          "settings": {
+            "icon": "🚫",
+            "title": "No Hormones or Antibiotics",
+            "description": "Raised without the use of synthetic hormones or routine antibiotics — clean nutrition, exactly as nature intended."
+          }
+        },
+        "provenance_item_zBE8rz": {
+          "type": "provenance_item",
+          "settings": {
+            "icon": "❄️",
+            "title": "Freeze-Dried",
+            "description": "Gently freeze-dried at low temperatures to preserve the full spectrum of naturally occurring nutrients without heat damage."
+          }
+        },
+        "provenance_item_HYCD86": {
+          "type": "provenance_item",
+          "settings": {
+            "icon": "🔬",
+            "title": "Third-Party Lab Tested",
+            "description": "Every batch is independently tested for purity, potency, and safety — so you know exactly what you're putting in your body."
+          }
+        }
+      },
+      "block_order": [
+        "provenance_item_rrTCkV",
+        "provenance_item_yKfXGt",
+        "provenance_item_PeD4Np",
+        "provenance_item_zBE8rz",
+        "provenance_item_HYCD86"
+      ],
       "settings": {
-        "padding_top": 80,
+        "padding_top": 36,
         "padding_bottom": 80,
-        "padding_top_mobile": 60,
+        "padding_top_mobile": 32,
         "padding_bottom_mobile": 60,
-        "bg_color": "transparent",
+        "bg_color": "#fffbd5",
         "heading_color": "#1a1a1a",
         "text_color": "#444444",
         "accent_color": "#cc0019",
@@ -1358,7 +1407,7 @@
     "blocks_FCB6gX",
     "nh_comparison_VPKFHB",
     "nh_founder_rt9aXm",
-    "nh-provenance",
+    "nh_provenance_e7r7kh",
     "nh-trust-signals",
     "nh_offer_nHNT97",
     "nh_lab_tested_xJArmP",
