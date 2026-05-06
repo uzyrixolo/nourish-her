@@ -91,7 +91,7 @@
               {% when 'image' %}
                 <div class="nh-lab-block-image{{ vis_class }}" {{ block.shopify_attributes }}>
                   {% if block.settings.image != blank %}
-                    {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.image.alt, loading: 'lazy' }}
+                    {{ block.settings.image | image_url: width: 1200 | image_tag: alt: block.settings.image.alt, loading: 'lazy', widths: '400, 600, 800, 1000, 1200' }}
                   {% elsif block.settings.image_url != blank %}
                     <img src="{{ block.settings.image_url }}" alt="Lab tested image" width="600" height="400" style="width: 100%; height: auto; border-radius: 20px; object-fit: cover;" />
                   {% endif %}
@@ -143,7 +143,7 @@
               {% when 'image' %}
                 <div class="nh-lab-block-image{{ vis_class }}" {{ block.shopify_attributes }}>
                   {% if block.settings.image != blank %}
-                    {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.image.alt, loading: 'lazy' }}
+                    {{ block.settings.image | image_url: width: 1200 | image_tag: alt: block.settings.image.alt, loading: 'lazy', widths: '400, 600, 800, 1000, 1200' }}
                   {% elsif block.settings.image_url != blank %}
                     <img src="{{ block.settings.image_url }}" alt="Lab tested image" width="600" height="400" style="width: 100%; height: auto; border-radius: 20px; object-fit: cover;" />
                   {% endif %}

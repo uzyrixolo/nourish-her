@@ -60,7 +60,7 @@
             <th>
               <div class="nh-comparison-th-img nh-nourish-img">
                 {% if section.settings.product_image != blank %}
-                  {{ section.settings.product_image | image_url: width: 400 | image_tag: alt: section.settings.product_image.alt, loading: 'lazy', width: section.settings.product_image.width, height: section.settings.product_image.height }}
+                  {{ section.settings.product_image | image_url: width: 800 | image_tag: alt: section.settings.product_image.alt, loading: 'lazy', width: section.settings.product_image.width, height: section.settings.product_image.height, widths: '400, 600, 800' }}
                 {% elsif section.settings.product_image_url != blank %}
                   <img src="{{ section.settings.product_image_url }}" alt="Nourish Her Beef Organ Supplement" width="400" height="400" style="width: 100%; height: auto; border-radius: 12px;" />
                 {% else %}
@@ -72,7 +72,7 @@
             <th>
               <div class="nh-comparison-th-img nh-multi-img">
                 {% if section.settings.comparison_image != blank %}
-                  {{ section.settings.comparison_image | image_url: width: 400 | image_tag: alt: section.settings.comparison_image.alt, loading: 'lazy', width: section.settings.comparison_image.width, height: section.settings.comparison_image.height }}
+                  {{ section.settings.comparison_image | image_url: width: 800 | image_tag: alt: section.settings.comparison_image.alt, loading: 'lazy', width: section.settings.comparison_image.width, height: section.settings.comparison_image.height, widths: '400, 600, 800' }}
                 {% elsif section.settings.comparison_image_url != blank %}
                   <img src="{{ section.settings.comparison_image_url }}" alt="Traditional Multivitamin" width="400" height="400" style="width: 100%; height: auto; border-radius: 12px;" />
                 {% else %}

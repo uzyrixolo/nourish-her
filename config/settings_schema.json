@@ -1727,6 +1727,13 @@
         "visible_if": "{{ settings.cart_type == 'drawer' }}"
       },
       {
+        "type": "checkbox",
+        "id": "direct_checkout",
+        "label": "Skip cart and go directly to checkout",
+        "info": "When enabled, clicking 'Add to cart' will add the item and immediately redirect to checkout",
+        "default": false
+      },
+      {
         "type": "header",
         "content": "t:content.cart_features"
       },

@@ -85,7 +85,7 @@
               {%- comment -%} Pull real product images from the attached product {%- endcomment -%}
               {% for image in _gallery_product.images %}
                 <div class="nh-offer-gallery-slide">
-                  {{ image | image_url: width: 800 | image_tag: alt: image.alt | default: _gallery_product.title, loading: 'lazy', width: image.width, height: image.height }}
+                  {{ image | image_url: width: 1600 | image_tag: alt: image.alt | default: _gallery_product.title, loading: 'lazy', width: image.width, height: image.height, widths: '400, 600, 800, 1000, 1200, 1400, 1600' }}
                 </div>
               {% endfor %}
             {% else %}
@@ -94,7 +94,7 @@
                 {% if block.type == 'gallery_image' %}
                   <div class="nh-offer-gallery-slide" {{ block.shopify_attributes }}>
                     {% if block.settings.image != blank %}
-                      {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.image.alt, loading: 'lazy', width: block.settings.image.width, height: block.settings.image.height }}
+                      {{ block.settings.image | image_url: width: 1200 | image_tag: alt: block.settings.image.alt, loading: 'lazy', width: block.settings.image.width, height: block.settings.image.height, widths: '400, 600, 800, 1000, 1200' }}
                     {% elsif block.settings.image_url != blank %}
                       <img src="{{ block.settings.image_url }}" alt="Product image {{ forloop.index }}" width="600" height="600" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;" />
                     {% else %}
@@ -138,7 +138,10 @@
                 {% case block.type %}
                   {% when 'pricing_option' %}
                     <div class="nh-pricing-card{% if block.settings.selected %} nh-selected{% endif %}" 
-                         onclick="nhSelectPlan('{{ block.settings.plan_id | escape }}', '{{ block.settings.price | escape }}')"
+                         data-plan-id="{{ block.settings.plan_id | escape }}"
+                         data-price="{{ block.settings.price | escape }}"
+                         data-price-display="{{ block.settings.price_display | escape }}"
+                         onclick="nhSelectPlan_{{ section.id | replace: '-', '_' }}(this)"
                          style="margin-bottom: 20px;" {{ block.shopify_attributes }}>
                       <div class="nh-pricing-card-header">
                         <div class="nh-pricing-card-label">
@@ -159,7 +162,7 @@
               {% endfor %}
               
               <button type="submit" class="nh-btn-primary nh-offer-cta" id="nhOfferCta">
-                Add to Cart — {{ product.price | money }}
+                Add to Cart — {{ product.selected_or_first_available_variant.price | money }}
               </button>
             {% endform %}
           {% else %}
@@ -192,6 +195,105 @@
 {% comment %} Sticky Bottom Bar is now a standalone section: sections/nh-sticky-bar.liquid {% endcomment %}
 
 <script>
+  // Dynamic pricing selection for NH Offer Section
+  // Works with Kaching subscriptions app widget
+  (function() {
+    const sectionId = "{{ section.id | replace: '-', '_' }}";
+    
+    window["nhSelectPlan_" + sectionId] = function(cardElement) {
+      // Remove selected class from all pricing cards
+      const allCards = document.querySelectorAll('#nh-offer-{{ section.id }} .nh-pricing-card');
+      allCards.forEach(card => card.classList.remove('nh-selected'));
+      
+      // Add selected class to clicked card
+      cardElement.classList.add('nh-selected');
+      
+      // Get price from data attribute
+      const priceDisplay = cardElement.getAttribute('data-price-display');
+      
+      // Update the Add to Cart button text
+      const ctaButton = document.getElementById('nhOfferCta');
+      if (ctaButton && priceDisplay) {
+        ctaButton.textContent = 'Add to Cart — ' + priceDisplay;
+      }
+      
+      // Sync with Kaching widget: click the corresponding radio button
+      const planId = cardElement.getAttribute('data-plan-id');
+      if (planId && planId !== 'onetime') {
+        // Wait a moment for Kaching to render, then find and click the radio
+        setTimeout(function() {
+          const kachingRadio = document.querySelector(`input[name="selling_plan"][value="${planId}"]`);
+          if (kachingRadio) {
+            kachingRadio.click();
+          }
+        }, 100);
+      } else if (planId === 'onetime') {
+        // For one-time, select the one-time option in Kaching
+        setTimeout(function() {
+          const oneTimeCard = document.querySelector('.kaching-subscriptions__card-wrapper.one-time-purchase');
+          if (oneTimeCard) {
+            const radio = oneTimeCard.querySelector('input[type="radio"]');
+            if (radio) radio.click();
+          }
+        }, 100);
+      }
+    };
+    
+    // Listen to Kaching widget changes and sync our pricing cards
+    function syncPricingFromKaching() {
+      // Check which Kaching plan is selected
+      const selectedRadio = document.querySelector('input[name="selling_plan"]:checked');
+      if (!selectedRadio) return;
+      
+      const selectedPlanId = selectedRadio.value;
+      const allCards = document.querySelectorAll('#nh-offer-{{ section.id }} .nh-pricing-card');
+      
+      allCards.forEach(function(card) {
+        const cardPlanId = card.getAttribute('data-plan-id');
+        if (cardPlanId === selectedPlanId) {
+          card.classList.add('nh-selected');
+          const priceDisplay = card.getAttribute('data-price-display');
+          const ctaButton = document.getElementById('nhOfferCta');
+          if (ctaButton && priceDisplay) {
+            ctaButton.textContent = 'Add to Cart — ' + priceDisplay;
+          }
+        } else {
+          card.classList.remove('nh-selected');
+        }
+      });
+    }
+    
+    // Use MutationObserver to detect Kaching widget changes
+    var observer = new MutationObserver(function(mutations) {
+      syncPricingFromKaching();
+    });
+    
+    // Start observing after DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+      // Set initial button text based on selected card
+      const selectedCard = document.querySelector('#nh-offer-{{ section.id }} .nh-pricing-card.nh-selected');
+      if (selectedCard) {
+        const priceDisplay = selectedCard.getAttribute('data-price-display');
+        const ctaButton = document.getElementById('nhOfferCta');
+        if (ctaButton && priceDisplay) {
+          ctaButton.textContent = 'Add to Cart — ' + priceDisplay;
+        }
+      }
+      
+      // Observe the app block for Kaching changes
+      var appBlock = document.querySelector('.nh-offer-app-block');
+      if (appBlock) {
+        observer.observe(appBlock, { childList: true, subtree: true, attributes: true });
+      }
+      
+      // Also observe the form for any changes
+      var form = document.getElementById('nhOfferForm');
+      if (form) {
+        observer.observe(form, { childList: true, subtree: true, attributes: true });
+      }
+    });
+  })();
+
   (function() {
     // Offer image gallery - scoped
     let nhGalleryIndex = 0;

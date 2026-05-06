@@ -84,7 +84,7 @@
             {% when 'image' %}
               <div class="nh-hero-block-image{{ vis_class }}" {{ block.shopify_attributes }}>
                 {% if block.settings.image != blank %}
-                  {{ block.settings.image | image_url: width: 800 | image_tag: alt: block.settings.image.alt, loading: 'lazy' }}
+                  {{ block.settings.image | image_url: width: 1600 | image_tag: alt: block.settings.image.alt, loading: 'lazy', widths: '400, 600, 800, 1000, 1200, 1400, 1600' }}
                 {% elsif block.settings.image_url != blank %}
                   <img src="{{ block.settings.image_url }}" alt="Hero image" width="800" height="600" loading="lazy" />
                 {% endif %}
@@ -180,7 +180,7 @@
             {% when 'image' %}
               <div class="nh-hero-block-image{{ vis_class }}" {{ block.shopify_attributes }}>
                 {% if block.settings.image != blank %}
-                  {{ block.settings.image | image_url: width: 800 | image_tag: alt: block.settings.image.alt, loading: 'eager' }}
+                  {{ block.settings.image | image_url: width: 1600 | image_tag: alt: block.settings.image.alt, loading: 'eager', widths: '400, 600, 800, 1000, 1200, 1400, 1600' }}
                 {% elsif block.settings.image_url != blank %}
                   <img src="{{ block.settings.image_url }}" alt="Hero image" width="800" height="800" loading="eager" />
                 {% endif %}
@@ -233,7 +233,7 @@
       {% unless has_right_image %}
         {% if section.settings.hero_image != blank %}
           <div class="nh-hero-image-wrap">
-            {{ section.settings.hero_image | image_url: width: 800 | image_tag: alt: section.settings.hero_image.alt, loading: 'eager' }}
+            {{ section.settings.hero_image | image_url: width: 1600 | image_tag: alt: section.settings.hero_image.alt, loading: 'eager', widths: '400, 600, 800, 1000, 1200, 1400, 1600' }}
             {% if section.settings.image_label != blank %}
               <div class="nh-hero-organ-label">{{ section.settings.image_label }}</div>
             {% endif %}

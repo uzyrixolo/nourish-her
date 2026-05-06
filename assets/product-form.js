@@ -476,6 +476,11 @@ class ProductFormComponent extends Component {
               sections: response.sections,
             })
           );
+
+          // Redirect to checkout if direct checkout is enabled
+          if (Theme.routes?.checkout_url && Theme.settings?.direct_checkout) {
+            window.location.href = Theme.routes.checkout_url;
+          }
         }
       })
       .catch((error) => {
@@ -581,6 +586,11 @@ class ProductFormComponent extends Component {
             sections: response.sections,
           })
         );
+
+        // Redirect to checkout if direct checkout is enabled
+        if (Theme.routes?.checkout_url && Theme.settings?.direct_checkout) {
+          window.location.href = Theme.routes.checkout_url;
+        }
       })
       .catch((error) => {
         console.error(error);
