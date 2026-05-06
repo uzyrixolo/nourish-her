@@ -14,6 +14,7 @@
       "blocks": {
         "announcement_D6zXDA": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "column": "left",
             "align": "center",
@@ -44,7 +45,7 @@
           "type": "heading",
           "settings": {
             "column": "left",
-            "heading": "<p><em>Beef Organs</em> are The Secret To Healthy Hormones & Consistent Energy</p>",
+            "heading": "<p><em>Beef Organs</em> are The Secret To Balanced Hormones & Conistent Energy</p>",
             "color": "",
             "accent_color": "",
             "font_size": 38,
@@ -693,7 +694,7 @@
           "settings": {
             "column": "left",
             "row": 1,
-            "content": "<p>For centuries, women were nourished by whole foods that delivered everything the body needed in exactly the form it recognised. Organ meats weren't a trend, <strong>they were simply the most nutrient-dense food on the planet</strong> — rich in haem iron, B12, CoQ10 and selenium, with all the natural cofactors that make absorption actually work.</p><p>Nourish Her brings that nourishment back — without asking you to eat raw liver.</p>",
+            "content": "<p>For centuries, women were nourished by whole foods that delivered everything the body needed in exactly the form it recognised. Organ meats weren't a trend, <strong>they were simply the most nutrient-dense food on the planet</strong> — rich in haem iron, B12, Vitamin A and selenium, with all the natural cofactors that make absorption actually work.</p><p>Nourish Her brings that nourishment back — without asking you to eat raw liver.</p>",
             "font_size_desktop": 18,
             "font_size_mobile": 18,
             "hide_mobile": false,
