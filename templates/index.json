@@ -486,7 +486,7 @@
             "row": 1,
             "content": "<p>You've tried the <strong>multivitamins. The iron tablets and greens powders.</strong> You're doing everything you're supposed to do. So why does your <strong>body still feel like</strong> <strong>it's running on empty</strong>? </p>",
             "font_size_desktop": 18,
-            "font_size_mobile": 14,
+            "font_size_mobile": 18,
             "hide_mobile": false,
             "hide_desktop": false
           }
@@ -531,7 +531,7 @@
             "row": 2,
             "content": "<p>Because the supplement industry has spent decades perfecting products that look good on a label but <strong>do very little in your body.</strong></p>",
             "font_size_desktop": 18,
-            "font_size_mobile": 14,
+            "font_size_mobile": 18,
             "hide_mobile": false,
             "hide_desktop": true
           }
@@ -577,7 +577,7 @@
             "row": 2,
             "content": "<p>Synthetic vitamins are cheap to manufacture — pennies per bottle — but they're isolated from the cofactors and compounds that make them actually work. Your body doesn't recognise them as food. Most of what you're taking passes straight through.</p><p><strong>And the industry knows this.</strong></p>",
             "font_size_desktop": 0,
-            "font_size_mobile": 0,
+            "font_size_mobile": 18,
             "hide_mobile": false,
             "hide_desktop": true
           }
@@ -600,7 +600,7 @@
             "row": 2,
             "content": "<p>Studies from the 1980s onwards have shown that whole-food nutrients consistently outperform synthetic supplements. Folate from foods like liver is absorbed better than synthetic folic acid. Haem iron from organ meats can be absorbed up to 8x more than synthetic iron used in most supplements.</p><p>But there's no profit in telling you that the supplement you're taking delivers a fraction of what the label promises.</p><p><strong>So they keep selling. And when it doesn't work, they sell you another one.</strong></p>",
             "font_size_desktop": 0,
-            "font_size_mobile": 0,
+            "font_size_mobile": 18,
             "hide_mobile": false,
             "hide_desktop": true
           }
@@ -695,7 +695,7 @@
             "row": 1,
             "content": "<p>For centuries, women were nourished by whole foods that delivered everything the body needed in exactly the form it recognised. Organ meats weren't a trend, <strong>they were simply the most nutrient-dense food on the planet</strong> — rich in haem iron, B12, CoQ10 and selenium, with all the natural cofactors that make absorption actually work.</p><p>Nourish Her brings that nourishment back — without asking you to eat raw liver.</p>",
             "font_size_desktop": 18,
-            "font_size_mobile": 14,
+            "font_size_mobile": 18,
             "hide_mobile": false,
             "hide_desktop": false
           }
@@ -729,7 +729,7 @@
             "row": 2,
             "content": "<p>Six whole-food grass-fed beef organs in one daily capsule, formulated specifically for women.</p><p>This isn't another supplement to add to the pile.<strong> It's the foundation everything else has been missing.</strong></p>",
             "font_size_desktop": 18,
-            "font_size_mobile": 14,
+            "font_size_mobile": 18,
             "hide_mobile": false,
             "hide_desktop": false
           }
@@ -1124,7 +1124,7 @@
             "row": 1,
             "content": "<p>Hi, my names Sabbah.</p>",
             "font_size_desktop": 20,
-            "font_size_mobile": 0,
+            "font_size_mobile": 18,
             "hide_mobile": false,
             "hide_desktop": false
           }
@@ -1159,7 +1159,7 @@
             "row": 1,
             "content": "<p>As a doctor working long, demanding shifts, I lived in a constant state of exhaustion. My energy was low, my focus was slipping, and no matter how much I slept, I never felt restored. Iron tablets upset my stomach, and multivitamins felt synthetic and disconnected from real nourishment. </p><p>That’s when I began a deep dive into <strong>wholefood nutrition </strong>and discovered the work of <strong>Dr. Weston A. Price.</strong></p>",
             "font_size_desktop": 20,
-            "font_size_mobile": 0,
+            "font_size_mobile": 18,
             "hide_mobile": false,
             "hide_desktop": false
           }
@@ -1171,7 +1171,7 @@
             "row": 2,
             "content": "<p>I knew there was no organ supplement on the market designed around what women actually need — our hormonal demands, our iron losses, our biology. That’s when I decided to create <strong>Nourish Her</strong>™ <strong>Beef Organs</strong>. To make it easier to get the essential nutrients my body needed.</p><p>For the first time in a long while, it felt like my body was finally getting what it had been asking for.</p>",
             "font_size_desktop": 0,
-            "font_size_mobile": 0,
+            "font_size_mobile": 18,
             "hide_mobile": false,
             "hide_desktop": false
           }
@@ -1183,7 +1183,7 @@
             "row": 1,
             "content": "<p>In the 1930s, Dr. Price traveled the world studying isolated traditional cultures. What he found was universal: <strong>every culture prioritised organ meats as \"sacred foods\"</strong> — reserved specifically for nursing mothers, growing children, and couples preparing to conceive.</p><p>When he analyzed these diets, he discovered they contained <strong>10 times the fat-soluble vitamins</strong> compared to modern Western diets. The primary sources? Liver, fish eggs, shellfish, and <strong>organ meats</strong>.</p><p>For generations, women were nourished this way. Organs like liver and spleen weren't trends — they were foundational nutrition that supported energy, resilience, and vitality at the root.</p><p>The problem was, I couldn't stomach eating liver or organ meats!</p>",
             "font_size_desktop": 0,
-            "font_size_mobile": 0,
+            "font_size_mobile": 18,
             "hide_mobile": false,
             "hide_desktop": true
           }
