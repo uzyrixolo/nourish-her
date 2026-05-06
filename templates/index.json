@@ -564,7 +564,7 @@
           "settings": {
             "column": "left",
             "row": 3,
-            "image": "shopify://shop_images/Haem_vs_non_Haem_chart.png",
+            "image": "shopify://shop_images/Haem_vs_non_Haem_chart_1.png",
             "image_url": "",
             "hide_mobile": true,
             "hide_desktop": false
@@ -587,7 +587,7 @@
           "settings": {
             "column": "left",
             "row": 2,
-            "image": "shopify://shop_images/Haem_vs_non_Haem_chart.png",
+            "image": "shopify://shop_images/Haem_vs_non_Haem_chart_1.png",
             "image_url": "",
             "hide_mobile": false,
             "hide_desktop": true
