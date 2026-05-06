@@ -485,7 +485,7 @@
           "settings": {
             "column": "right",
             "row": 1,
-            "content": "<p>You've tried the <strong>multivitamins. The iron tablets and greens powders.</strong> You're doing everything you're supposed to do. So why does your <strong>body still feel like</strong> <strong>it's running on empty</strong>? </p>",
+            "content": "<p>You've tried the <strong>multivitamins. The iron tablets and greens powders.</strong> You're doing everything you're supposed to do. So why does your <strong>body still feel like</strong> <strong>it's running on empty</strong>? </p><p>Because the supplement industry has spent decades perfecting products that look good on a label <strong>but do very little in your body.</strong></p>",
             "font_size_desktop": 18,
             "font_size_mobile": 18,
             "hide_mobile": false,
@@ -542,7 +542,7 @@
           "settings": {
             "column": "left",
             "row": 2,
-            "content": "<p><strong>Because the supplement industry has spent decades perfecting products that look good on a label but do very little in your body.</strong></p><p>Synthetic vitamins are cheap to manufacture — pennies per bottle — but they're isolated from the cofactors and compounds that make them actually work. Your body doesn't recognise them as food. Most of what you're taking passes straight through.</p>",
+            "content": "<p><strong>And the industry knows this.</strong></p><p>Synthetic vitamins are cheap to manufacture — pennies per bottle — but they're isolated from the cofactors and compounds that make them actually work. Your body doesn't recognise them as food. <strong>Most of what you're taking passes straight through.</strong></p>",
             "font_size_desktop": 18,
             "font_size_mobile": 14,
             "hide_mobile": true,
@@ -611,7 +611,7 @@
           "settings": {
             "column": "right",
             "row": 3,
-            "content": "<p><strong>And the industry knows this.</strong></p><p>Studies from the 1980s onwards have shown that whole-food nutrients consistently outperform synthetic supplements. Folate from foods like liver is absorbed better than synthetic folic acid. Haem iron from organ meats can be absorbed up to 8x more than synthetic iron used in most supplements.</p>",
+            "content": "<p>Studies from the 1980s onwards have shown that whole-food nutrients consistently outperform synthetic supplements. Folate from foods like liver is absorbed better than synthetic folic acid. Haem iron from organ meats can be absorbed up to 8x more than synthetic iron used in most supplements.</p>",
             "font_size_desktop": 18,
             "font_size_mobile": 14,
             "hide_mobile": true,
@@ -698,6 +698,18 @@
             "font_size_desktop": 18,
             "font_size_mobile": 18,
             "hide_mobile": false,
+            "hide_desktop": true
+          }
+        },
+        "text_dB8VW7": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "row": 1,
+            "content": "<p>For centuries, women were nourished by whole foods that delivered everything the body needed in exactly the form it recognised. Organ meats weren't a trend, <strong>they were simply the most nutrient-dense food on the planet</strong> — rich in haem iron, B12, Vitamin A and selenium, with all the natural cofactors that make absorption actually work.</p>",
+            "font_size_desktop": 18,
+            "font_size_mobile": 18,
+            "hide_mobile": true,
             "hide_desktop": false
           }
         },
@@ -732,6 +744,18 @@
             "font_size_desktop": 18,
             "font_size_mobile": 18,
             "hide_mobile": false,
+            "hide_desktop": true
+          }
+        },
+        "text_hM64nA": {
+          "type": "text",
+          "settings": {
+            "column": "right",
+            "row": 2,
+            "content": "<p>Nourish Her brings that nourishment back — without asking you to eat raw liver.</p><p><strong>Six whole-food grass-fed beef organs in one daily capsule</strong>, formulated specifically for women.</p><p>This isn't another supplement to add to the pile.<strong> It's the foundation everything else has been missing.</strong></p>",
+            "font_size_desktop": 18,
+            "font_size_mobile": 18,
+            "hide_mobile": true,
             "hide_desktop": false
           }
         },
@@ -750,9 +774,11 @@
       "block_order": [
         "image_wEjK8q",
         "text_x9EVfU",
+        "text_dB8VW7",
         "image_LAtVbD",
         "image_rJtiVr",
         "text_cxxfjM",
+        "text_hM64nA",
         "image_MnTLVB"
       ],
       "name": "NH - Solution reveal",
