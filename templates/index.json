@@ -1698,6 +1698,7 @@
         },
         "include_5": {
           "type": "include_item",
+          "disabled": true,
           "settings": {
             "text": "Free UK delivery on subscription"
           }
@@ -1743,7 +1744,7 @@
         "use_product_images": true,
         "fallback_price": "£34.99",
         "guarantee_title": "30-Day Money-Back Guarantee",
-        "guarantee_text": "If you're not completely satisfied, we'll refund you in full.",
+        "guarantee_text": "We recommend taking it for 90 days for best results — but if after your first pouch you don’t feel it’s right for you, we’ll refund you.",
         "kaching_onetime_subtitle": "Shipping not included",
         "kaching_subscription_subtitle": "Save £10 per month · Cancel anytime · Free delivery"
       }
