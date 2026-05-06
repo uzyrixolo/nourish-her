@@ -518,7 +518,7 @@
           "settings": {
             "column": "right",
             "row": 2,
-            "image": "shopify://shop_images/Gemini_Generated_Image_yqujqqyqujqqyquj_1.png",
+            "image": "shopify://shop_images/Supplement_drawer.png",
             "image_url": "",
             "hide_mobile": true,
             "hide_desktop": false
@@ -553,7 +553,7 @@
           "settings": {
             "column": "left",
             "row": 2,
-            "image": "shopify://shop_images/Gemini_Generated_Image_yqujqqyqujqqyquj_1.png",
+            "image": "shopify://shop_images/Supplement_drawer.png",
             "image_url": "",
             "hide_mobile": false,
             "hide_desktop": true
@@ -682,7 +682,7 @@
           "settings": {
             "column": "left",
             "row": 1,
-            "image": "shopify://shop_images/hf_20260423_112937_28f43832-83f5-4eec-b927-a46f280a101a.png",
+            "image": "shopify://shop_images/ancestral_organ_meats_image.webp",
             "image_url": "",
             "hide_mobile": false,
             "hide_desktop": true
@@ -705,7 +705,7 @@
           "settings": {
             "column": "left",
             "row": 1,
-            "image": "shopify://shop_images/ChatGPT_Image_Apr_23_2026_12_58_24_PM.png",
+            "image": "shopify://shop_images/Holding_beef_organ_capsule_1.png",
             "image_url": "",
             "hide_mobile": false,
             "hide_desktop": true
@@ -716,7 +716,7 @@
           "settings": {
             "column": "right",
             "row": 1,
-            "image": "shopify://shop_images/hf_20260423_112937_28f43832-83f5-4eec-b927-a46f280a101a.png",
+            "image": "shopify://shop_images/ancestral_organ_meats_image.webp",
             "image_url": "",
             "hide_mobile": true,
             "hide_desktop": false
@@ -739,7 +739,7 @@
           "settings": {
             "column": "left",
             "row": 2,
-            "image": "shopify://shop_images/ChatGPT_Image_Apr_23_2026_12_58_24_PM.png",
+            "image": "shopify://shop_images/Holding_beef_organ_capsule_1.png",
             "image_url": "",
             "hide_mobile": true,
             "hide_desktop": false
@@ -1134,8 +1134,20 @@
           "settings": {
             "column": "right",
             "row": 2,
-            "content": "<p>For generations, women were nourished with whole, nutrient-dense foods that supported energy, resilience, and vitality at the root. Organs like liver and spleen weren’t trends — they were foundational nutrition. The problem was, I couldn’t bring myself to eat liver or organ meats consistently!</p>",
-            "font_size_desktop": 0,
+            "content": "<p>In the 1930s, Dr. Price traveled the world studying isolated traditional cultures. What he found was universal: <strong>every culture prioritised organ meats as \"sacred foods\"</strong> — reserved specifically for nursing mothers, growing children, and couples preparing to conceive.</p><p>When he analyzed these diets, he discovered they contained <strong>10 times the fat-soluble vitamins</strong> compared to modern Western diets. The primary sources? Liver, fish eggs, shellfish, and <strong>organ meats</strong>.</p>",
+            "font_size_desktop": 20,
+            "font_size_mobile": 0,
+            "hide_mobile": true,
+            "hide_desktop": false
+          }
+        },
+        "text_3jHiTB": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "row": 3,
+            "content": "<p>For generations, women were nourished this way. Organs like liver and spleen weren't trends — they were foundational nutrition that supported energy, resilience, and vitality at the root.</p><p>The problem was, <strong>I couldn't stomach eating liver or organ meats!</strong></p>",
+            "font_size_desktop": 20,
             "font_size_mobile": 0,
             "hide_mobile": true,
             "hide_desktop": false
@@ -1164,6 +1176,17 @@
             "hide_desktop": false
           }
         },
+        "image_CqVXYT": {
+          "type": "image",
+          "settings": {
+            "column": "left",
+            "row": 1,
+            "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
+            "image_url": "",
+            "hide_mobile": false,
+            "hide_desktop": true
+          }
+        },
         "text_FHFaiz": {
           "type": "text",
           "settings": {
@@ -1173,6 +1196,18 @@
             "font_size_desktop": 0,
             "font_size_mobile": 18,
             "hide_mobile": false,
+            "hide_desktop": true
+          }
+        },
+        "text_anpnAk": {
+          "type": "text",
+          "settings": {
+            "column": "right",
+            "row": 4,
+            "content": "<p>I knew there was no organ supplement on the market designed around what women actually need — our hormonal demands, our iron losses, our biology. That’s when I decided to create <strong>Nourish Her</strong>™ <strong>Beef Organs</strong>. To make it easier to get the essential nutrients my body needed.</p><p>For the first time in a long while, it felt like my body was finally getting what it had been asking for.</p>",
+            "font_size_desktop": 20,
+            "font_size_mobile": 18,
+            "hide_mobile": true,
             "hide_desktop": false
           }
         },
@@ -1181,7 +1216,30 @@
           "settings": {
             "column": "left",
             "row": 1,
-            "content": "<p>In the 1930s, Dr. Price traveled the world studying isolated traditional cultures. What he found was universal: <strong>every culture prioritised organ meats as \"sacred foods\"</strong> — reserved specifically for nursing mothers, growing children, and couples preparing to conceive.</p><p>When he analyzed these diets, he discovered they contained <strong>10 times the fat-soluble vitamins</strong> compared to modern Western diets. The primary sources? Liver, fish eggs, shellfish, and <strong>organ meats</strong>.</p><p>For generations, women were nourished this way. Organs like liver and spleen weren't trends — they were foundational nutrition that supported energy, resilience, and vitality at the root.</p><p>The problem was, I couldn't stomach eating liver or organ meats!</p>",
+            "content": "<p>In the 1930s, Dr. Price traveled the world studying isolated traditional cultures. What he found was universal: <strong>every culture prioritised organ meats as \"sacred foods\"</strong> — reserved specifically for nursing mothers, growing children, and couples preparing to conceive.</p><p>When he analyzed these diets, he discovered they contained <strong>10 times the fat-soluble vitamins</strong> compared to modern Western diets. The primary sources? Liver, fish eggs, shellfish, and <strong>organ meats</strong>.</p>",
+            "font_size_desktop": 0,
+            "font_size_mobile": 18,
+            "hide_mobile": false,
+            "hide_desktop": true
+          }
+        },
+        "image_BYGUhQ": {
+          "type": "image",
+          "settings": {
+            "column": "left",
+            "row": 1,
+            "image": "shopify://shop_images/Holding_raw_liver_1.png",
+            "image_url": "",
+            "hide_mobile": false,
+            "hide_desktop": true
+          }
+        },
+        "text_HR8etN": {
+          "type": "text",
+          "settings": {
+            "column": "left",
+            "row": 1,
+            "content": "<p>For generations, women were nourished this way. Organs like liver and spleen weren't trends — they were foundational nutrition that supported energy, resilience, and vitality at the root.</p><p>The problem was, I couldn't stomach eating liver or organ meats!</p>",
             "font_size_desktop": 0,
             "font_size_mobile": 18,
             "hide_mobile": false,
@@ -1193,7 +1251,7 @@
           "settings": {
             "column": "left",
             "row": 1,
-            "image": "shopify://shop_images/Holding_raw_liver.png",
+            "image": "shopify://shop_images/Scattered_capsules_1.png",
             "image_url": "",
             "hide_mobile": false,
             "hide_desktop": true
@@ -1215,7 +1273,29 @@
           "settings": {
             "column": "left",
             "row": 2,
-            "image": "shopify://shop_images/Holding_raw_liver.png",
+            "image": "shopify://shop_images/Holding_raw_liver_1.png",
+            "image_url": "",
+            "hide_mobile": true,
+            "hide_desktop": false
+          }
+        },
+        "image_3mFnth": {
+          "type": "image",
+          "settings": {
+            "column": "right",
+            "row": 3,
+            "image": "shopify://shop_images/Holding_raw_liver_1.png",
+            "image_url": "",
+            "hide_mobile": true,
+            "hide_desktop": false
+          }
+        },
+        "image_ijRiCJ": {
+          "type": "image",
+          "settings": {
+            "column": "left",
+            "row": 4,
+            "image": "shopify://shop_images/Scattered_capsules_1.png",
             "image_url": "",
             "hide_mobile": true,
             "hide_desktop": false
@@ -1247,13 +1327,20 @@
       "block_order": [
         "text_bwAecx",
         "text_rhk7wA",
+        "text_3jHiTB",
         "image_Tddj4r",
         "text_czM7cz",
+        "image_CqVXYT",
         "text_FHFaiz",
+        "text_anpnAk",
         "text_KRM7PJ",
+        "image_BYGUhQ",
+        "text_HR8etN",
         "image_c3NjEY",
         "image_mKrDbh",
         "image_DHkRHk",
+        "image_3mFnth",
+        "image_ijRiCJ",
         "signature_fGGGQ8",
         "quote_FQb8Uw"
       ],
