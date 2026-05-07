@@ -286,7 +286,14 @@
     // ---- Form intercept: AJAX add-to-cart + direct checkout ----
     // Bound in CAPTURE phase with stopImmediatePropagation so it runs BEFORE
     // any Kaching or theme handler and owns the post-add navigation.
+    // Read direct_checkout directly from Liquid settings so it's guaranteed present.
+    var DIRECT_CHECKOUT = {{ settings.direct_checkout | default: false | json }};
+    var CART_ADD_URL = '{{ routes.cart_add_url }}';
+    var CART_URL = '{{ routes.cart_url }}';
+    var CHECKOUT_URL = '/checkout';
+
     function performAddToCart(form) {
+      console.log('[NH Offer] performAddToCart fired. direct_checkout =', DIRECT_CHECKOUT);
       var cta = getCta();
       var originalCtaText = cta ? cta.textContent : '';
       if (cta) {
@@ -305,7 +312,7 @@
         formData.delete('selling_plan');
       }
 
-      fetch('{{ routes.cart_add_url }}', {
+      fetch(CART_ADD_URL, {
         method: 'POST',
         headers: { 'Accept': 'application/javascript', 'X-Requested-With': 'XMLHttpRequest' },
         body: formData
@@ -314,18 +321,19 @@
         return res.json().then(function(data) { return { ok: res.ok, data: data }; });
       })
       .then(function(payload) {
+        console.log('[NH Offer] Add-to-cart response ok=', payload.ok, payload.data);
         if (!payload.ok) {
           var msg = (payload.data && (payload.data.description || payload.data.message)) || 'Unable to add to cart.';
           if (cta) { cta.disabled = false; cta.textContent = originalCtaText || 'Add to Cart'; }
           alert(msg);
           return;
         }
-        var directCheckout = !!(window.Theme && window.Theme.settings && window.Theme.settings.direct_checkout);
-        var checkoutUrl = (window.Theme && window.Theme.routes && window.Theme.routes.checkout_url) || '/checkout';
-        var cartUrl = (window.Theme && window.Theme.routes && window.Theme.routes.cart_url) || '/cart';
-        window.location.href = directCheckout ? checkoutUrl : cartUrl;
+        var target = DIRECT_CHECKOUT ? CHECKOUT_URL : CART_URL;
+        console.log('[NH Offer] Redirecting to:', target);
+        window.location.href = target;
       })
-      .catch(function() {
+      .catch(function(err) {
+        console.error('[NH Offer] Add-to-cart failed:', err);
         if (cta) { cta.disabled = false; cta.textContent = originalCtaText || 'Add to Cart'; }
         alert('Network error. Please try again.');
       });
