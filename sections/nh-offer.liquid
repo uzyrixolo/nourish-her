@@ -195,103 +195,194 @@
 {% comment %} Sticky Bottom Bar is now a standalone section: sections/nh-sticky-bar.liquid {% endcomment %}
 
 <script>
-  // Dynamic pricing selection for NH Offer Section
-  // Works with Kaching subscriptions app widget
+  // NH Offer Section: dynamic CTA price + direct-to-checkout
+  // Works with the Kaching Subscriptions app widget DOM
   (function() {
-    const sectionId = "{{ section.id | replace: '-', '_' }}";
-    
-    window["nhSelectPlan_" + sectionId] = function(cardElement) {
-      // Remove selected class from all pricing cards
-      const allCards = document.querySelectorAll('#nh-offer-{{ section.id }} .nh-pricing-card');
-      allCards.forEach(card => card.classList.remove('nh-selected'));
-      
-      // Add selected class to clicked card
-      cardElement.classList.add('nh-selected');
-      
-      // Get price from data attribute
-      const priceDisplay = cardElement.getAttribute('data-price-display');
-      
-      // Update the Add to Cart button text
-      const ctaButton = document.getElementById('nhOfferCta');
-      if (ctaButton && priceDisplay) {
-        ctaButton.textContent = 'Add to Cart — ' + priceDisplay;
+    var sectionId = "{{ section.id | replace: '-', '_' }}";
+    var sectionRootSelector = '#nh-section-{{ section.id }}';
+
+    function getSectionRoot() { return document.querySelector(sectionRootSelector); }
+
+    function getCta() {
+      var root = getSectionRoot();
+      return root ? root.querySelector('#nhOfferCta') : null;
+    }
+
+    // ---- Kaching widget readers (based on real DOM: kaching-subscriptions__card-wrapper.selected) ----
+    function getSelectedKachingCard() {
+      var root = getSectionRoot();
+      if (!root) return null;
+      return root.querySelector('.kaching-subscriptions__card-wrapper.selected');
+    }
+
+    function getPriceFromKachingCard(card) {
+      if (!card) return null;
+      // Subscription plan price
+      var sub = card.querySelector('.kaching-subscriptions__selling-plan-price');
+      if (sub && sub.textContent.trim()) return sub.textContent.trim();
+      // One-time purchase price
+      var ot = card.querySelector('.kaching-subscriptions__card-price');
+      if (ot && ot.textContent.trim()) return ot.textContent.trim();
+      return null;
+    }
+
+    function isOneTimeSelected() {
+      var card = getSelectedKachingCard();
+      return !!(card && card.classList.contains('one-time-purchase'));
+    }
+
+    // ---- Legacy custom pricing cards (if merchant still uses them) ----
+    function getCustomCards() {
+      var root = getSectionRoot();
+      if (!root) return [];
+      return root.querySelectorAll('.nh-pricing-card');
+    }
+    function getSelectedCustomCard() {
+      var cards = getCustomCards();
+      for (var i = 0; i < cards.length; i++) {
+        if (cards[i].classList.contains('nh-selected')) return cards[i];
       }
-      
-      // Sync with Kaching widget: click the corresponding radio button
-      const planId = cardElement.getAttribute('data-plan-id');
-      if (planId && planId !== 'onetime') {
-        // Wait a moment for Kaching to render, then find and click the radio
-        setTimeout(function() {
-          const kachingRadio = document.querySelector(`input[name="selling_plan"][value="${planId}"]`);
-          if (kachingRadio) {
-            kachingRadio.click();
-          }
-        }, 100);
-      } else if (planId === 'onetime') {
-        // For one-time, select the one-time option in Kaching
-        setTimeout(function() {
-          const oneTimeCard = document.querySelector('.kaching-subscriptions__card-wrapper.one-time-purchase');
-          if (oneTimeCard) {
-            const radio = oneTimeCard.querySelector('input[type="radio"]');
-            if (radio) radio.click();
-          }
-        }, 100);
-      }
-    };
-    
-    // Listen to Kaching widget changes and sync our pricing cards
-    function syncPricingFromKaching() {
-      // Check which Kaching plan is selected
-      const selectedRadio = document.querySelector('input[name="selling_plan"]:checked');
-      if (!selectedRadio) return;
-      
-      const selectedPlanId = selectedRadio.value;
-      const allCards = document.querySelectorAll('#nh-offer-{{ section.id }} .nh-pricing-card');
-      
-      allCards.forEach(function(card) {
-        const cardPlanId = card.getAttribute('data-plan-id');
-        if (cardPlanId === selectedPlanId) {
-          card.classList.add('nh-selected');
-          const priceDisplay = card.getAttribute('data-price-display');
-          const ctaButton = document.getElementById('nhOfferCta');
-          if (ctaButton && priceDisplay) {
-            ctaButton.textContent = 'Add to Cart — ' + priceDisplay;
-          }
-        } else {
-          card.classList.remove('nh-selected');
+      return null;
+    }
+
+    // ---- CTA updater: Kaching first, fallback to custom cards ----
+    function updateCta() {
+      var cta = getCta();
+      if (!cta) return;
+
+      // 1. Prefer Kaching selection
+      var kachingCard = getSelectedKachingCard();
+      if (kachingCard) {
+        var price = getPriceFromKachingCard(kachingCard);
+        if (price) {
+          cta.textContent = 'Add to Cart — ' + price;
+          return;
         }
+      }
+
+      // 2. Fallback to custom pricing cards
+      var customCard = getSelectedCustomCard();
+      if (customCard) {
+        var cd = customCard.getAttribute('data-price-display');
+        if (cd) cta.textContent = 'Add to Cart — ' + cd;
+      }
+    }
+
+    // Called by onclick on custom pricing cards (if any)
+    window["nhSelectPlan_" + sectionId] = function(cardElement) {
+      var cards = getCustomCards();
+      for (var i = 0; i < cards.length; i++) cards[i].classList.remove('nh-selected');
+      cardElement.classList.add('nh-selected');
+      updateCta();
+    };
+
+    // ---- Form intercept: AJAX add-to-cart + direct checkout ----
+    // Bound in CAPTURE phase with stopImmediatePropagation so it runs BEFORE
+    // any Kaching or theme handler and owns the post-add navigation.
+    function performAddToCart(form) {
+      var cta = getCta();
+      var originalCtaText = cta ? cta.textContent : '';
+      if (cta) {
+        cta.disabled = true;
+        cta.textContent = 'Adding…';
+      }
+
+      // FormData snapshot taken AFTER Kaching (if any) has injected
+      // its hidden selling_plan input.
+      var formData = new FormData(form);
+
+      var sellingPlanInput = form.querySelector('input[name="selling_plan"]');
+      if (sellingPlanInput && sellingPlanInput.value) {
+        formData.set('selling_plan', sellingPlanInput.value);
+      } else if (isOneTimeSelected()) {
+        formData.delete('selling_plan');
+      }
+
+      fetch('{{ routes.cart_add_url }}', {
+        method: 'POST',
+        headers: { 'Accept': 'application/javascript', 'X-Requested-With': 'XMLHttpRequest' },
+        body: formData
+      })
+      .then(function(res) {
+        return res.json().then(function(data) { return { ok: res.ok, data: data }; });
+      })
+      .then(function(payload) {
+        if (!payload.ok) {
+          var msg = (payload.data && (payload.data.description || payload.data.message)) || 'Unable to add to cart.';
+          if (cta) { cta.disabled = false; cta.textContent = originalCtaText || 'Add to Cart'; }
+          alert(msg);
+          return;
+        }
+        var directCheckout = !!(window.Theme && window.Theme.settings && window.Theme.settings.direct_checkout);
+        var checkoutUrl = (window.Theme && window.Theme.routes && window.Theme.routes.checkout_url) || '/checkout';
+        var cartUrl = (window.Theme && window.Theme.routes && window.Theme.routes.cart_url) || '/cart';
+        window.location.href = directCheckout ? checkoutUrl : cartUrl;
+      })
+      .catch(function() {
+        if (cta) { cta.disabled = false; cta.textContent = originalCtaText || 'Add to Cart'; }
+        alert('Network error. Please try again.');
       });
     }
-    
-    // Use MutationObserver to detect Kaching widget changes
-    var observer = new MutationObserver(function(mutations) {
-      syncPricingFromKaching();
-    });
-    
-    // Start observing after DOM is ready
-    document.addEventListener('DOMContentLoaded', function() {
-      // Set initial button text based on selected card
-      const selectedCard = document.querySelector('#nh-offer-{{ section.id }} .nh-pricing-card.nh-selected');
-      if (selectedCard) {
-        const priceDisplay = selectedCard.getAttribute('data-price-display');
-        const ctaButton = document.getElementById('nhOfferCta');
-        if (ctaButton && priceDisplay) {
-          ctaButton.textContent = 'Add to Cart — ' + priceDisplay;
-        }
+
+    function interceptForm() {
+      var root = getSectionRoot();
+      if (!root) return;
+      var form = root.querySelector('#nhOfferForm');
+      if (!form || form.dataset.nhBound === '1') return;
+      form.dataset.nhBound = '1';
+
+      // Primary: form submit in capture phase
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        performAddToCart(form);
+      }, true);
+
+      // Safety net: CTA button click in capture phase.
+      // Handles the case where another script (e.g. Kaching) preventDefaults
+      // the click and prevents the form from ever dispatching its submit event.
+      var cta = form.querySelector('#nhOfferCta');
+      if (cta) {
+        cta.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          performAddToCart(form);
+        }, true);
       }
-      
-      // Observe the app block for Kaching changes
-      var appBlock = document.querySelector('.nh-offer-app-block');
-      if (appBlock) {
-        observer.observe(appBlock, { childList: true, subtree: true, attributes: true });
+    }
+
+    // ---- Observe Kaching card selection changes ----
+    var observer = new MutationObserver(function() { updateCta(); });
+
+    function init() {
+      updateCta();
+      interceptForm();
+      var root = getSectionRoot();
+      if (root) {
+        observer.observe(root, {
+          childList: true,
+          subtree: true,
+          attributes: true,
+          attributeFilter: ['class', 'checked']
+        });
       }
-      
-      // Also observe the form for any changes
-      var form = document.getElementById('nhOfferForm');
-      if (form) {
-        observer.observe(form, { childList: true, subtree: true, attributes: true });
+      // Also listen for clicks inside the Kaching widget (their cards are role="button" divs)
+      if (root) {
+        root.addEventListener('click', function(e) {
+          if (e.target.closest('.kaching-subscriptions__card-wrapper')) {
+            // Defer to let Kaching update .selected class first
+            setTimeout(updateCta, 50);
+            setTimeout(updateCta, 250);
+          }
+        });
       }
-    });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
   })();
 
   (function() {
