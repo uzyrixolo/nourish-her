@@ -85,7 +85,7 @@
               {%- comment -%} Pull real product images from the attached product {%- endcomment -%}
               {% for image in _gallery_product.images %}
                 <div class="nh-offer-gallery-slide">
-                  {{ image | image_url: width: 1600 | image_tag: alt: image.alt | default: _gallery_product.title, loading: 'lazy', width: image.width, height: image.height, widths: '400, 600, 800, 1000, 1200, 1400, 1600' }}
+                  {{ image | image_url: width: 2400 | image_tag: alt: image.alt | default: _gallery_product.title, loading: 'lazy', width: image.width, height: image.height, widths: '400, 600, 800, 1000, 1200, 1600, 2000, 2400', sizes: '(min-width: 992px) 50vw, 100vw' }}
                 </div>
               {% endfor %}
             {% else %}
@@ -94,7 +94,7 @@
                 {% if block.type == 'gallery_image' %}
                   <div class="nh-offer-gallery-slide" {{ block.shopify_attributes }}>
                     {% if block.settings.image != blank %}
-                      {{ block.settings.image | image_url: width: 1200 | image_tag: alt: block.settings.image.alt, loading: 'lazy', width: block.settings.image.width, height: block.settings.image.height, widths: '400, 600, 800, 1000, 1200' }}
+                      {{ block.settings.image | image_url: width: 2000 | image_tag: alt: block.settings.image.alt, loading: 'lazy', width: block.settings.image.width, height: block.settings.image.height, widths: '400, 600, 800, 1000, 1200, 1600, 2000', sizes: '(min-width: 992px) 50vw, 100vw' }}
                     {% elsif block.settings.image_url != blank %}
                       <img src="{{ block.settings.image_url }}" alt="Product image {{ forloop.index }}" width="600" height="600" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;" />
                     {% else %}
