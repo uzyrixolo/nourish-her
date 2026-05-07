@@ -250,21 +250,28 @@
       var cta = getCta();
       if (!cta) return;
 
+      var newText = null;
+
       // 1. Prefer Kaching selection
       var kachingCard = getSelectedKachingCard();
       if (kachingCard) {
         var price = getPriceFromKachingCard(kachingCard);
-        if (price) {
-          cta.textContent = 'Add to Cart — ' + price;
-          return;
-        }
+        if (price) newText = 'Add to Cart — ' + price;
       }
 
       // 2. Fallback to custom pricing cards
-      var customCard = getSelectedCustomCard();
-      if (customCard) {
-        var cd = customCard.getAttribute('data-price-display');
-        if (cd) cta.textContent = 'Add to Cart — ' + cd;
+      if (!newText) {
+        var customCard = getSelectedCustomCard();
+        if (customCard) {
+          var cd = customCard.getAttribute('data-price-display');
+          if (cd) newText = 'Add to Cart — ' + cd;
+        }
+      }
+
+      // Guard: only write if text actually changes.
+      // Prevents feedback loops with any MutationObserver watching this subtree.
+      if (newText && cta.textContent !== newText) {
+        cta.textContent = newText;
       }
     }
 
@@ -352,21 +359,38 @@
     }
 
     // ---- Observe Kaching card selection changes ----
+    // Scoped to the Kaching app-block ONLY (never the whole section) to avoid
+    // a feedback loop where updating the CTA text would fire this observer.
     var observer = new MutationObserver(function() { updateCta(); });
+
+    function startObservingKaching() {
+      var root = getSectionRoot();
+      if (!root) return false;
+      var kachingRoot = root.querySelector('.nh-offer-app-block, .kaching-subscriptions__cards-wrapper');
+      if (!kachingRoot) return false;
+      observer.observe(kachingRoot, {
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['class']
+      });
+      return true;
+    }
 
     function init() {
       updateCta();
       interceptForm();
-      var root = getSectionRoot();
-      if (root) {
-        observer.observe(root, {
-          childList: true,
-          subtree: true,
-          attributes: true,
-          attributeFilter: ['class', 'checked']
-        });
+
+      // Try to attach the observer now; if Kaching hasn't rendered yet, retry briefly.
+      if (!startObservingKaching()) {
+        var tries = 0;
+        var retry = setInterval(function() {
+          tries++;
+          if (startObservingKaching() || tries > 20) clearInterval(retry);
+        }, 250);
       }
+
       // Also listen for clicks inside the Kaching widget (their cards are role="button" divs)
+      var root = getSectionRoot();
       if (root) {
         root.addEventListener('click', function(e) {
           if (e.target.closest('.kaching-subscriptions__card-wrapper')) {
