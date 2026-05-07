@@ -105,23 +105,25 @@
               {% endfor %}
             {% endif %}
           </div>
-          <button class="nh-offer-gallery-arrow nh-prev" onclick="nhGalleryPrev_{{ section.id | replace: '-', '_' }}()" aria-label="Previous">&#8249;</button>
-          <button class="nh-offer-gallery-arrow nh-next" onclick="nhGalleryNext_{{ section.id | replace: '-', '_' }}()" aria-label="Next">&#8250;</button>
         </div>
-        <div class="nh-offer-gallery-dots" id="nhOfferGalleryDots-{{ section.id }}">
-          {% if _use_product_imgs and _product_has_images %}
-            {% for image in _gallery_product.images %}
-              <button class="nh-offer-gallery-dot{% if forloop.first %} active{% endif %}" onclick="nhGalleryGoTo_{{ section.id | replace: '-', '_' }}({{ forloop.index0 }})"></button>
-            {% endfor %}
-          {% else %}
-            {% assign gallery_count = 0 %}
-            {% for block in section.blocks %}
-              {% if block.type == 'gallery_image' %}
-                <button class="nh-offer-gallery-dot{% if forloop.first %} active{% endif %}" onclick="nhGalleryGoTo_{{ section.id | replace: '-', '_' }}({{ gallery_count }})"></button>
-                {% assign gallery_count = gallery_count | plus: 1 %}
-              {% endif %}
-            {% endfor %}
-          {% endif %}
+        <div class="nh-offer-gallery-nav">
+          <button class="nh-offer-gallery-arrow nh-prev" onclick="nhGalleryPrev_{{ section.id | replace: '-', '_' }}()" aria-label="Previous">&#8249;</button>
+          <div class="nh-offer-gallery-dots" id="nhOfferGalleryDots-{{ section.id }}">
+            {% if _use_product_imgs and _product_has_images %}
+              {% for image in _gallery_product.images %}
+                <button class="nh-offer-gallery-dot{% if forloop.first %} active{% endif %}" onclick="nhGalleryGoTo_{{ section.id | replace: '-', '_' }}({{ forloop.index0 }})"></button>
+              {% endfor %}
+            {% else %}
+              {% assign gallery_count = 0 %}
+              {% for block in section.blocks %}
+                {% if block.type == 'gallery_image' %}
+                  <button class="nh-offer-gallery-dot{% if forloop.first %} active{% endif %}" onclick="nhGalleryGoTo_{{ section.id | replace: '-', '_' }}({{ gallery_count }})"></button>
+                  {% assign gallery_count = gallery_count | plus: 1 %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          </div>
+          <button class="nh-offer-gallery-arrow nh-next" onclick="nhGalleryNext_{{ section.id | replace: '-', '_' }}()" aria-label="Next">&#8250;</button>
         </div>
       </div>
       
