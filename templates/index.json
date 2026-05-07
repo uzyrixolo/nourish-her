@@ -409,74 +409,6 @@
         "heading": "<p>Four Pillars of <em>Female Vitality</em></p>"
       }
     },
-    "nh-reviews": {
-      "type": "nh-reviews",
-      "blocks": {
-        "review_1": {
-          "type": "review",
-          "settings": {
-            "stars": "★★★★★",
-            "review": "I've tried so many supplements and nothing has come close. Within the first few weeks I noticed my energy was steadier — no more 3pm crash. My skin has genuinely never looked better.",
-            "name": "Sarah M.",
-            "tag": "Verified Customer",
-            "verified": true,
-            "reviewer_image": "shopify://shop_images/Nourishherhilllifestyle.webp"
-          }
-        },
-        "review_2": {
-          "type": "review",
-          "settings": {
-            "stars": "★★★★★",
-            "review": "As a nurse working 12-hour shifts, I was constantly running on empty. After two months on Nourish Her, I genuinely feel like myself again. My iron levels improved and my focus is back.",
-            "name": "Emma L.",
-            "tag": "Verified Customer",
-            "verified": true
-          }
-        },
-        "review_3": {
-          "type": "review",
-          "settings": {
-            "stars": "★★★★★",
-            "review": "I was sceptical about organ supplements but the science behind this is undeniable. Three months in and my hair is thicker, my hormones feel balanced, and I've ditched my old multivitamin for good.",
-            "name": "Rachel T.",
-            "tag": "Verified Customer",
-            "verified": true
-          }
-        },
-        "review_4": {
-          "type": "review",
-          "settings": {
-            "stars": "★★★★★",
-            "review": "Finally a supplement that was made with women in mind. The fact that it includes uterus and ovaries is something no other brand does. I feel more balanced and less fatigued during my cycle.",
-            "name": "Amara K.",
-            "tag": "Verified Customer",
-            "verified": true
-          }
-        }
-      },
-      "block_order": [
-        "review_1",
-        "review_2",
-        "review_3",
-        "review_4"
-      ],
-      "disabled": true,
-      "settings": {
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
-        "bg_color": "#fffbd5",
-        "heading_color": "#1a1a1a",
-        "accent_color": "#fe3c93",
-        "card_bg": "#ffffff",
-        "card_border": "#ffd4e2",
-        "card_text": "#1a1a1a",
-        "star_color": "#ff591b",
-        "label": "Real Women, Real Results",
-        "heading": "<p>What Our Community <em>Is Saying</em></p>"
-      }
-    },
     "nh-founder": {
       "type": "nh-founder",
       "blocks": {
@@ -1529,6 +1461,74 @@
         "heading": "<p>How Beef Organs Compare to <em>Synthetic Supplements</em></p>"
       }
     },
+    "nh-reviews": {
+      "type": "nh-reviews",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "stars": "★★★★★",
+            "review": "I've tried so many supplements and nothing has come close. Within the first few weeks I noticed my energy was steadier — no more 3pm crash. My skin has genuinely never looked better.",
+            "name": "Sarah M.",
+            "tag": "Verified Customer",
+            "verified": true,
+            "reviewer_image": "shopify://shop_images/Brunette_Selfie_1.png"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "stars": "★★★★★",
+            "review": "As a nurse working 12-hour shifts, I was constantly running on empty. After two months on Nourish Her, I genuinely feel like myself again. My iron levels improved and my focus is back.",
+            "name": "Emma L.",
+            "tag": "Verified Customer",
+            "verified": true,
+            "reviewer_image": "shopify://shop_images/Nurse_selfie_in_bedroom.png"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "stars": "★★★★★",
+            "review": "I was sceptical about organ supplements but the science behind this is undeniable. Three months in and my hair is thicker, my hormones feel balanced, and I've ditched my old multivitamin for good.",
+            "name": "Rachel T.",
+            "tag": "Verified Customer",
+            "verified": true
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "stars": "★★★★★",
+            "review": "Finally a supplement that was made with women in mind. The fact that it includes uterus and ovaries is something no other brand does. I feel more balanced and less fatigued during my cycle.",
+            "name": "Amara K.",
+            "tag": "Verified Customer",
+            "verified": true
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3",
+        "review_4"
+      ],
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "bg_color": "#fffbd5",
+        "heading_color": "#1a1a1a",
+        "accent_color": "#fe3c93",
+        "card_bg": "#ffffff",
+        "card_border": "#ffd4e2",
+        "card_text": "#1a1a1a",
+        "star_color": "#ff591b",
+        "label": "Real Women, Real Results",
+        "heading": "<p>What Our Community <em>Is Saying</em></p>"
+      }
+    },
     "blocks_LRQrtd": {
       "type": "_blocks",
       "blocks": {
@@ -2258,7 +2258,6 @@
     "nh-hero",
     "nh-trust-signals",
     "nh-benefits",
-    "nh-reviews",
     "nh-founder",
     "nh_founder_r7PE9g",
     "nh-timeline",
@@ -2272,6 +2271,7 @@
     "nh-provenance",
     "nh_trust_signals_8fy4x9",
     "nh-offer",
+    "nh-reviews",
     "nh-lab-tested",
     "nh-faq",
     "nh-footer",
