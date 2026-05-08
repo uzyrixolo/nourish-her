@@ -877,7 +877,7 @@
         "heading_image_LXcwgy": {
           "type": "heading_image",
           "settings": {
-            "image": "shopify://shop_images/Product_image-Transparent.png",
+            "image": "shopify://shop_images/product_image_rotated.png",
             "image_width": 300,
             "image_width_mobile": 210,
             "hide_mobile": false,
