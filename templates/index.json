@@ -440,7 +440,7 @@
           "settings": {
             "column": "left",
             "row": 1,
-            "image": "shopify://shop_images/Tired_Shower_drain.png",
+            "image": "shopify://shop_images/Tired_Shower_drain.webp",
             "image_url": "",
             "hide_mobile": true,
             "hide_desktop": false
