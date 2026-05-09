@@ -435,6 +435,17 @@
             "hide_desktop": true
           }
         },
+        "image_tBBgzw": {
+          "type": "image",
+          "settings": {
+            "column": "right",
+            "row": 1,
+            "image": "shopify://shop_images/Tired_Shower_drain.webp",
+            "image_url": "",
+            "hide_mobile": true,
+            "hide_desktop": false
+          }
+        },
         "image_aAMqDe": {
           "type": "image",
           "settings": {
@@ -578,6 +589,7 @@
       "block_order": [
         "text_9qiKdg",
         "image_ytYJUB",
+        "image_tBBgzw",
         "image_aAMqDe",
         "image_cUBcjk",
         "text_MU6i9x",
