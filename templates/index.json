@@ -435,17 +435,6 @@
             "hide_desktop": true
           }
         },
-        "image_3cLHUK": {
-          "type": "image",
-          "settings": {
-            "column": "right",
-            "row": 1,
-            "image": "shopify://shop_images/Tired_Shower_drain.webp",
-            "image_url": "",
-            "hide_mobile": false,
-            "hide_desktop": false
-          }
-        },
         "image_aAMqDe": {
           "type": "image",
           "settings": {
@@ -454,6 +443,17 @@
             "image": "shopify://shop_images/Tired_Shower_drain.webp",
             "image_url": "",
             "hide_mobile": true,
+            "hide_desktop": false
+          }
+        },
+        "image_BFpbpd": {
+          "type": "image",
+          "settings": {
+            "column": "right",
+            "row": 1,
+            "image": "shopify://shop_images/Tired_Shower_drain.webp",
+            "image_url": "",
+            "hide_mobile": false,
             "hide_desktop": false
           }
         },
@@ -589,8 +589,8 @@
       "block_order": [
         "text_9qiKdg",
         "image_ytYJUB",
-        "image_3cLHUK",
         "image_aAMqDe",
+        "image_BFpbpd",
         "image_cUBcjk",
         "text_MU6i9x",
         "text_WxidcN",
