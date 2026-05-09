@@ -105,7 +105,7 @@
                     {% when 'image' %}
                       <div class="nh-founder-block-image{{ vis_class }}" {{ block.shopify_attributes }}>
                         {% if block.settings.image != blank %}
-                          {{ block.settings.image | image_url: width: 2400 | image_tag: alt: block.settings.image.alt, loading: 'lazy' }}
+                          <img src="{{ block.settings.image | image_url: width: 2400 }}" alt="{{ block.settings.image.alt | default: 'Founder story image' | escape }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" loading="lazy" style="max-width: 100%; height: auto;" />
                         {% elsif block.settings.image_url != blank %}
                           <img src="{{ block.settings.image_url }}" alt="Founder story inline image" width="600" height="600" style="border-radius: 20px; width: 100%; object-fit: cover; box-shadow: 0 8px 32px rgba(0,0,0,0.1);" />
                         {% else %}
@@ -153,7 +153,7 @@
                     {% when 'image' %}
                       <div class="nh-founder-block-image{{ vis_class }}" {{ block.shopify_attributes }}>
                         {% if block.settings.image != blank %}
-                          {{ block.settings.image | image_url: width: 2400 | image_tag: alt: block.settings.image.alt, loading: 'lazy' }}
+                          <img src="{{ block.settings.image | image_url: width: 2400 }}" alt="{{ block.settings.image.alt | default: 'Founder story image' | escape }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" loading="lazy" style="max-width: 100%; height: auto;" />
                         {% elsif block.settings.image_url != blank %}
                           <img src="{{ block.settings.image_url }}" alt="Founder story inline image" width="600" height="600" style="border-radius: 20px; width: 100%; object-fit: cover; box-shadow: 0 8px 32px rgba(0,0,0,0.1);" />
                         {% else %}

@@ -85,7 +85,7 @@
               {%- comment -%} Pull real product images from the attached product {%- endcomment -%}
               {% for image in _gallery_product.images %}
                 <div class="nh-offer-gallery-slide">
-                  {{ image | image_url: width: 2400 | image_tag: alt: image.alt | default: _gallery_product.title, loading: 'lazy' }}
+                  <img src="{{ image | image_url: width: 2400 }}" alt="{{ image.alt | default: _gallery_product.title | escape }}" width="{{ image.width }}" height="{{ image.height }}" loading="lazy" style="max-width: 100%; height: auto;" />
                 </div>
               {% endfor %}
             {% else %}
@@ -94,7 +94,7 @@
                 {% if block.type == 'gallery_image' %}
                   <div class="nh-offer-gallery-slide" {{ block.shopify_attributes }}>
                     {% if block.settings.image != blank %}
-                      {{ block.settings.image | image_url: width: 2400 | image_tag: alt: block.settings.image.alt, loading: 'lazy' }}
+                      <img src="{{ block.settings.image | image_url: width: 2400 }}" alt="{{ block.settings.image.alt | default: 'Product image' | escape }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" loading="lazy" style="max-width: 100%; height: auto;" />
                     {% elsif block.settings.image_url != blank %}
                       <img src="{{ block.settings.image_url }}" alt="Product image {{ forloop.index }}" width="600" height="600" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;" />
                     {% else %}
