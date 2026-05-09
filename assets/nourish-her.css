@@ -1399,6 +1399,19 @@
   color: var(--nh-dark);
 }
 
+/* Underlined link style for '30 Day Money Back Guarantee' across NH sections */
+.nh-money-back-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+.nh-money-back-link:hover {
+  color: var(--nh-red, #fe3c93);
+  text-decoration-color: currentColor;
+}
+
 /* =============================================
    LAB TESTED SECTION
 ============================================= */

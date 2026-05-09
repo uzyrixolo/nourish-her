@@ -181,7 +181,14 @@
             </div>
           {% endif %}
         </div>
-        <span class="ai-trust-signal-text-{{ ai_gen_id }}">{{ block.settings.trust_text_1 }}</span>
+        <span class="ai-trust-signal-text-{{ ai_gen_id }}">
+          {%- assign _t1_low = block.settings.trust_text_1 | downcase -%}
+          {% if _t1_low contains 'money back' or _t1_low contains 'money-back' %}
+            <a href="/pages/money-back-guarantee" class="nh-money-back-link">{{ block.settings.trust_text_1 }}</a>
+          {% else %}
+            {{ block.settings.trust_text_1 }}
+          {% endif %}
+        </span>
       </div>
     {% endif %}
 
@@ -201,7 +208,14 @@
             </div>
           {% endif %}
         </div>
-        <span class="ai-trust-signal-text-{{ ai_gen_id }}">{{ block.settings.trust_text_2 }}</span>
+        <span class="ai-trust-signal-text-{{ ai_gen_id }}">
+          {%- assign _t2_low = block.settings.trust_text_2 | downcase -%}
+          {% if _t2_low contains 'money back' or _t2_low contains 'money-back' %}
+            <a href="/pages/money-back-guarantee" class="nh-money-back-link">{{ block.settings.trust_text_2 }}</a>
+          {% else %}
+            {{ block.settings.trust_text_2 }}
+          {% endif %}
+        </span>
       </div>
     {% endif %}
   </div>

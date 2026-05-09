@@ -34,7 +34,14 @@
             {{ block.settings.icon }}
           {% endif %}
         </div>
-        <div class="nh-trust-badge-label">{{ block.settings.label }}</div>
+        <div class="nh-trust-badge-label">
+                  {%- assign _lbl_low = block.settings.label | downcase -%}
+                  {% if _lbl_low contains 'money back' or _lbl_low contains 'money-back' %}
+                    <a href="/pages/money-back-guarantee" class="nh-money-back-link">{{ block.settings.label }}</a>
+                  {% else %}
+                    {{ block.settings.label }}
+                  {% endif %}
+                </div>
       </div>
     {% endfor %}
     {% comment %} Duplicate for mobile carousel {% endcomment %}
@@ -47,7 +54,14 @@
             {{ block.settings.icon }}
           {% endif %}
         </div>
-        <div class="nh-trust-badge-label">{{ block.settings.label }}</div>
+        <div class="nh-trust-badge-label">
+                  {%- assign _lbl_low = block.settings.label | downcase -%}
+                  {% if _lbl_low contains 'money back' or _lbl_low contains 'money-back' %}
+                    <a href="/pages/money-back-guarantee" class="nh-money-back-link">{{ block.settings.label }}</a>
+                  {% else %}
+                    {{ block.settings.label }}
+                  {% endif %}
+                </div>
       </div>
     {% endfor %}
   </div>

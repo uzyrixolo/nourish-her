@@ -112,13 +112,23 @@
                 {% if block.settings.badge_1 != blank %}
                   <div class="nh-trust-item">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    {{ block.settings.badge_1 }}
+                    {%- assign _b1_low = block.settings.badge_1 | downcase -%}
+                    {% if _b1_low contains 'money back' or _b1_low contains 'money-back' %}
+                      <a href="/pages/money-back-guarantee" class="nh-money-back-link">{{ block.settings.badge_1 }}</a>
+                    {% else %}
+                      {{ block.settings.badge_1 }}
+                    {% endif %}
                   </div>
                 {% endif %}
                 {% if block.settings.badge_2 != blank %}
                   <div class="nh-trust-item">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    {{ block.settings.badge_2 }}
+                    {%- assign _b2_low = block.settings.badge_2 | downcase -%}
+                    {% if _b2_low contains 'money back' or _b2_low contains 'money-back' %}
+                      <a href="/pages/money-back-guarantee" class="nh-money-back-link">{{ block.settings.badge_2 }}</a>
+                    {% else %}
+                      {{ block.settings.badge_2 }}
+                    {% endif %}
                   </div>
                 {% endif %}
               </div>
@@ -208,13 +218,23 @@
                 {% if block.settings.badge_1 != blank %}
                   <div class="nh-trust-item">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    {{ block.settings.badge_1 }}
+                    {%- assign _b1_low = block.settings.badge_1 | downcase -%}
+                    {% if _b1_low contains 'money back' or _b1_low contains 'money-back' %}
+                      <a href="/pages/money-back-guarantee" class="nh-money-back-link">{{ block.settings.badge_1 }}</a>
+                    {% else %}
+                      {{ block.settings.badge_1 }}
+                    {% endif %}
                   </div>
                 {% endif %}
                 {% if block.settings.badge_2 != blank %}
                   <div class="nh-trust-item">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8"/><path d="M5 8.5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    {{ block.settings.badge_2 }}
+                    {%- assign _b2_low = block.settings.badge_2 | downcase -%}
+                    {% if _b2_low contains 'money back' or _b2_low contains 'money-back' %}
+                      <a href="/pages/money-back-guarantee" class="nh-money-back-link">{{ block.settings.badge_2 }}</a>
+                    {% else %}
+                      {{ block.settings.badge_2 }}
+                    {% endif %}
                   </div>
                 {% endif %}
               </div>
