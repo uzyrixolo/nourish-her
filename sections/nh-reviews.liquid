@@ -129,20 +129,31 @@
     if (!wrap) return;
 
     var mq = window.matchMedia('(max-width: 768px)');
-    var SPEED = 0.5; /* px per frame ~ 30px/sec @60fps */
+    var PX_PER_SEC = 40;        /* matches desktop CSS animation speed */
+    var lastTs = 0;
+    var accum = 0;              /* accumulates fractional px (scrollLeft is integer on most browsers) */
 
     /* Auto-scroll runs continuously on mobile.
-       Manual drag/swipe by the user is ADDITIVE: setting scrollLeft += SPEED
-       each frame plays nicely with native touch scroll momentum on iOS/Android. */
-    function tick() {
+       Manual drag/swipe by the user is ADDITIVE: native touch scroll still works,
+       and our increments resume on top of wherever they left the scroll position. */
+    function tick(ts) {
       if (mq.matches) {
-        wrap.scrollLeft += SPEED;
+        var dt = lastTs ? (ts - lastTs) / 1000 : 0; /* seconds since last frame */
+        accum += PX_PER_SEC * dt;
+        if (accum >= 1) {
+          var whole = Math.floor(accum);
+          wrap.scrollLeft += whole;
+          accum -= whole;
+        }
         /* Content is duplicated; wrap seamlessly at 50% */
         var half = track.scrollWidth / 2;
         if (half > 0 && wrap.scrollLeft >= half) {
           wrap.scrollLeft -= half;
         }
+      } else {
+        accum = 0;
       }
+      lastTs = ts;
       requestAnimationFrame(tick);
     }
     requestAnimationFrame(tick);
