@@ -505,10 +505,6 @@
   width: max-content;
 }
 
-.nh-reviews-track:hover {
-  animation-play-state: paused;
-}
-
 @keyframes nh-scrollReviews {
   0% {
     transform: translateX(0);
@@ -1805,7 +1801,7 @@
   }
 
   .nh-timeline::after {
-    left: 60px;
+    left: 59px;
   }
 
   .nh-timeline-item {
