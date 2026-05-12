@@ -515,6 +515,29 @@
   }
 }
 
+/* Mobile: full-bleed section (no side padding), native horizontal touch scroll,
+   disable CSS animation (JS handles auto-scroll + pauses during user interaction) */
+@media (max-width: 768px) {
+  .nh-reviews-section {
+    padding-inline: 0;
+  }
+  .nh-reviews-track-wrap {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    scroll-behavior: auto;
+    overscroll-behavior-x: contain;
+  }
+  .nh-reviews-track-wrap::-webkit-scrollbar {
+    display: none;
+  }
+  .nh-reviews-track {
+    animation: none;
+    padding-inline: 5%;
+  }
+}
+
 .nh-review-card {
   background: #fff;
   border-radius: 20px;
