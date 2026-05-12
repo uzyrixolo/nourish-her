@@ -1418,15 +1418,19 @@
   color: var(--nh-dark);
 }
 
-/* Underlined link style for '30 Day Money Back Guarantee' across NH sections */
-.nh-money-back-link {
+/* Underlined link style for '30 Day Money Back Guarantee' across NH sections.
+   Scoped under .nh-section-wrapper so specificity beats the generic
+   `.nh-section-wrapper a { text-decoration: none; }` reset at the top of this file. */
+.nh-section-wrapper a.nh-money-back-link,
+a.nh-money-back-link {
   color: inherit;
   text-decoration: underline;
   text-underline-offset: 2px;
   text-decoration-thickness: 1px;
   transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
-.nh-money-back-link:hover {
+.nh-section-wrapper a.nh-money-back-link:hover,
+a.nh-money-back-link:hover {
   color: var(--nh-red, #fe3c93);
   text-decoration-color: currentColor;
 }
