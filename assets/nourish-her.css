@@ -515,6 +515,14 @@
   }
 }
 
+/* Desktop (mouse-hover capable devices only): pause auto-scroll on hover.
+   `(hover: hover)` excludes touchscreens where :hover sticks after tap. */
+@media (hover: hover) and (pointer: fine) {
+  .nh-reviews-track:hover {
+    animation-play-state: paused;
+  }
+}
+
 /* Mobile: full-bleed section (no side padding), native horizontal touch scroll,
    disable CSS animation (JS handles auto-scroll + pauses during user interaction) */
 @media (max-width: 768px) {
