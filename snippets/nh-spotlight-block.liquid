@@ -67,7 +67,16 @@
       {%- capture _cta_inner -%}
         <div class="nh-spotlight-cta-text">
           {% if block.settings.heading != blank %}<div class="nh-spotlight-cta-heading">{{ block.settings.heading }}</div>{% endif %}
-          {% if block.settings.subtext != blank %}<div class="nh-spotlight-cta-subtext">{{ block.settings.subtext }}</div>{% endif %}
+          {% if block.settings.subtext != blank %}
+            {%- assign _sub_low = block.settings.subtext | downcase -%}
+            <div class="nh-spotlight-cta-subtext">
+              {% if _sub_low contains 'money back' or _sub_low contains 'money-back' %}
+                <a href="/pages/money-back-guarantee" class="nh-money-back-link">{{ block.settings.subtext }}</a>
+              {% else %}
+                {{ block.settings.subtext }}
+              {% endif %}
+            </div>
+          {% endif %}
         </div>
         {% if block.settings.icon_image != blank %}
           <div class="nh-spotlight-cta-icon nh-spotlight-cta-icon--image" style="width: {{ _cta_icon_size }}px; height: {{ _cta_icon_size }}px;">
