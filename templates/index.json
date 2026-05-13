@@ -610,7 +610,7 @@
       "settings": {
         "padding_top": 80,
         "padding_bottom": 80,
-        "padding_top_mobile": 24,
+        "padding_top_mobile": 28,
         "padding_bottom_mobile": 40,
         "bg_color": "#ffffff",
         "heading_color": "#1a1a1a",
@@ -748,7 +748,7 @@
       "settings": {
         "padding_top": 80,
         "padding_bottom": 80,
-        "padding_top_mobile": 24,
+        "padding_top_mobile": 28,
         "padding_bottom_mobile": 40,
         "bg_color": "#FFFBD5",
         "heading_color": "#1a1a1a",
@@ -1012,7 +1012,7 @@
       "settings": {
         "padding_top": 80,
         "padding_bottom": 80,
-        "padding_top_mobile": 36,
+        "padding_top_mobile": 28,
         "padding_bottom_mobile": 40,
         "image_size": 56,
         "image_size_mobile": 48,
@@ -1160,7 +1160,7 @@
           "settings": {
             "column": "left",
             "row": 1,
-            "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
+            "image": "shopify://shop_images/Sabbah_Nourish.jpg",
             "image_url": "",
             "hide_mobile": false,
             "hide_desktop": true
@@ -1284,7 +1284,7 @@
           "settings": {
             "column": "right",
             "row": 1,
-            "image": "shopify://shop_images/CRV-new-zealand-grazing_feature-image.jpg",
+            "image": "shopify://shop_images/Sabbah_Nourish.jpg",
             "image_url": "",
             "hide_mobile": true,
             "hide_desktop": false
@@ -1369,7 +1369,7 @@
       "settings": {
         "padding_top": 80,
         "padding_bottom": 32,
-        "padding_top_mobile": 60,
+        "padding_top_mobile": 28,
         "padding_bottom_mobile": 0,
         "bg_color": "#fdf8f0",
         "heading_color": "#1a1a1a",
@@ -1503,7 +1503,7 @@
       "settings": {
         "padding_top": 36,
         "padding_bottom": 80,
-        "padding_top_mobile": 60,
+        "padding_top_mobile": 28,
         "padding_bottom_mobile": 60,
         "bg_color": "#ffd4e2",
         "heading_color": "#1a1a1a",
