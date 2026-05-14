@@ -165,14 +165,15 @@
         accum += PX_PER_SEC * dt;
         if (accum >= 1) {
           var whole = Math.floor(accum);
-          wrap.scrollLeft += whole;
           accum -= whole;
+          /* Single read → mutate → single write per frame.
+             Round wrap point to integer; sub-pixel half is what produces 0.5px judder. */
+          var sl = wrap.scrollLeft + whole;
+          var half = Math.round(track.scrollWidth / 2);
+          if (half > 0 && sl >= half) sl -= half;
+          wrap.scrollLeft = sl;
+          lastJsScrollAt = performance.now();
         }
-        var half = track.scrollWidth / 2;
-        if (half > 0 && wrap.scrollLeft >= half) {
-          wrap.scrollLeft -= half;
-        }
-        lastJsScrollAt = performance.now();
       } else {
         accum = 0;
       }
