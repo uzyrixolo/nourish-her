@@ -71,7 +71,7 @@
             {%- assign _sub_low = block.settings.subtext | downcase -%}
             <div class="nh-spotlight-cta-subtext">
               {% if _sub_low contains 'money back' or _sub_low contains 'money-back' %}
-                <a href="/pages/money-back-guarantee" class="nh-money-back-link">{{ block.settings.subtext }}</a>
+                <a href="javascript:void(0);" class="nh-money-back-link">{{ block.settings.subtext }}</a>
               {% else %}
                 {{ block.settings.subtext }}
               {% endif %}
