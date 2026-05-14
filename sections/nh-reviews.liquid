@@ -130,7 +130,7 @@
 
     var mq = window.matchMedia('(max-width: 768px)');
     var PX_PER_SEC = 40;             /* matches desktop CSS animation speed */
-    var IDLE_AFTER_INPUT_MS = 1500;  /* keep paused this long after last user-initiated scroll */
+    var IDLE_AFTER_INPUT_MS = 500;   /* short idle after release/momentum so resume feels quick */
     var lastTs = 0;
     var accum = 0;                   /* accumulates fractional px (scrollLeft is integer) */
     var isTouching = false;

@@ -536,10 +536,9 @@
     scrollbar-width: none;
     scroll-behavior: auto;
     overscroll-behavior-x: contain;
-    /* Promote to its own compositor layer so JS scrollLeft updates
-       don't repaint the whole section — kills the per-frame flicker. */
+    /* Light hint only — don't force a GPU layer here, it can cause
+       sub-pixel shimmer on iOS when child cards also have their own layer. */
     will-change: scroll-position;
-    transform: translateZ(0);
   }
   .nh-reviews-track-wrap::-webkit-scrollbar {
     display: none;
@@ -549,12 +548,6 @@
     /* IMPORTANT: no padding-inline here. The seamless wrap math assumes
        scrollWidth / 2 == one content copy width. Any padding on the track
        offsets that and produces a visible jump on every loop. */
-  }
-  /* Cards isolated from outside paint to keep frames cheap. */
-  .nh-reviews-track .nh-review-card {
-    contain: layout paint;
-    transform: translateZ(0);
-    backface-visibility: hidden;
   }
 }
 
