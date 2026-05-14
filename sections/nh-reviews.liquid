@@ -132,13 +132,25 @@
     var PX_PER_SEC = 40;        /* matches desktop CSS animation speed */
     var lastTs = 0;
     var accum = 0;              /* accumulates fractional px (scrollLeft is integer on most browsers) */
+    var isTouching = false;     /* finger / pointer currently held down on the carousel */
 
-    /* Auto-scroll runs continuously on mobile.
-       Manual drag/swipe by the user is ADDITIVE: native touch scroll still works,
-       and our increments resume on top of wherever they left the scroll position. */
+    /* Pause auto-scroll only while actively held. Resume immediately on release
+       so the user can press-and-hold a card to read it without the strip tugging away,
+       but a quick swipe still rides on top of the auto-scroll. */
+    function onDown() { isTouching = true; }
+    function onUp()   { isTouching = false; lastTs = 0; }
+    wrap.addEventListener('touchstart',  onDown, { passive: true });
+    wrap.addEventListener('touchend',    onUp,   { passive: true });
+    wrap.addEventListener('touchcancel', onUp,   { passive: true });
+    wrap.addEventListener('pointerdown',  onDown, { passive: true });
+    wrap.addEventListener('pointerup',    onUp,   { passive: true });
+    wrap.addEventListener('pointercancel', onUp,  { passive: true });
+
     function tick(ts) {
-      if (mq.matches) {
-        var dt = lastTs ? (ts - lastTs) / 1000 : 0; /* seconds since last frame */
+      if (mq.matches && !isTouching) {
+        var dt = lastTs ? (ts - lastTs) / 1000 : 0;
+        /* Clamp dt to avoid huge jumps when tab was backgrounded or after release */
+        if (dt > 0.1) dt = 0.1;
         accum += PX_PER_SEC * dt;
         if (accum >= 1) {
           var whole = Math.floor(accum);
