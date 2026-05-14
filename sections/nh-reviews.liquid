@@ -130,52 +130,96 @@
 
     var mq = window.matchMedia('(max-width: 768px)');
     var PX_PER_SEC = 40;             /* matches desktop CSS animation speed */
-    var IDLE_AFTER_INPUT_MS = 500;   /* short idle after release/momentum so resume feels quick */
+    var IDLE_AFTER_INPUT_MS = 500;   /* short idle after release so resume feels quick */
+
+    /* Mobile motion model: we own the X position fully via translate3d.
+       virtualX is a float, so we get sub-pixel-smooth GPU motion every frame. */
+    var virtualX = 0;
     var lastTs = 0;
-    var accum = 0;                   /* accumulates fractional px (scrollLeft is integer) */
     var isTouching = false;
-    var lastUserInput = 0;           /* perf timestamp of last user-driven scroll/touch */
-    var lastJsScrollAt = 0;          /* perf timestamp of our most recent scrollLeft mutation */
+    var lastUserInput = 0;
 
-    /* Pause auto-scroll while finger is down AND for a brief idle window after release
-       so native momentum scroll (and reverse swipes) don't fight the JS increments. */
-    function onDown() { isTouching = true;  lastUserInput = performance.now(); }
-    function onUp()   { isTouching = false; lastUserInput = performance.now(); lastTs = 0; }
-    wrap.addEventListener('touchstart',   onDown, { passive: true });
-    wrap.addEventListener('touchend',     onUp,   { passive: true });
-    wrap.addEventListener('touchcancel',  onUp,   { passive: true });
-    wrap.addEventListener('pointerdown',  onDown, { passive: true });
-    wrap.addEventListener('pointerup',    onUp,   { passive: true });
-    wrap.addEventListener('pointercancel', onUp,  { passive: true });
+    /* Swipe state */
+    var startTouchX = 0;
+    var startTouchY = 0;
+    var startVirtualX = 0;
+    var direction = null;            /* 'h' | 'v' | null until detected */
 
-    /* Any scroll event that didn't come from our own scrollLeft mutation
-       (i.e. native touch + momentum) refreshes the idle window. */
-    wrap.addEventListener('scroll', function () {
-      if (performance.now() - lastJsScrollAt < 60) return; /* ours, ignore */
+    function cycleWidth() {
+      /* Track contains [originals][duplicates]; one cycle is half the total width. */
+      return track.scrollWidth / 2;
+    }
+
+    function applyTransform() {
+      track.style.transform = 'translate3d(' + (-virtualX).toFixed(2) + 'px, 0, 0)';
+    }
+
+    function wrapVirtual() {
+      var c = cycleWidth();
+      if (c <= 0) return;
+      if (virtualX >= c) virtualX -= c;
+      else if (virtualX < 0) virtualX += c;
+    }
+
+    function onTouchStart(e) {
+      if (!mq.matches) return;
+      var t = e.touches[0];
+      startTouchX = t.clientX;
+      startTouchY = t.clientY;
+      startVirtualX = virtualX;
+      direction = null;
+      isTouching = true;
       lastUserInput = performance.now();
-    }, { passive: true });
+    }
+
+    function onTouchMove(e) {
+      if (!mq.matches || !isTouching) return;
+      var t = e.touches[0];
+      var dx = t.clientX - startTouchX;
+      var dy = t.clientY - startTouchY;
+      if (direction === null) {
+        var ax = Math.abs(dx), ay = Math.abs(dy);
+        if (ax < 6 && ay < 6) return;     /* below detection threshold */
+        direction = ax > ay ? 'h' : 'v';
+      }
+      if (direction === 'h') {
+        virtualX = startVirtualX - dx;
+        wrapVirtual();
+        applyTransform();
+        lastUserInput = performance.now();
+      }
+      /* If 'v', do nothing — touch-action: pan-y lets the page scroll vertically. */
+    }
+
+    function onTouchEnd() {
+      if (!mq.matches) return;
+      isTouching = false;
+      direction = null;
+      lastUserInput = performance.now();
+      lastTs = 0;
+    }
+
+    wrap.addEventListener('touchstart',  onTouchStart, { passive: true });
+    wrap.addEventListener('touchmove',   onTouchMove,  { passive: true });
+    wrap.addEventListener('touchend',    onTouchEnd,   { passive: true });
+    wrap.addEventListener('touchcancel', onTouchEnd,   { passive: true });
+    /* Pointer events for stylus / desktop dev tools mobile emulation */
+    wrap.addEventListener('pointerdown', function () { lastUserInput = performance.now(); }, { passive: true });
 
     function tick(ts) {
-      var paused = !mq.matches
-                || isTouching
-                || (lastUserInput && (performance.now() - lastUserInput < IDLE_AFTER_INPUT_MS));
-      if (!paused) {
-        var dt = lastTs ? (ts - lastTs) / 1000 : 0;
-        if (dt > 0.1) dt = 0.1;
-        accum += PX_PER_SEC * dt;
-        if (accum >= 1) {
-          var whole = Math.floor(accum);
-          accum -= whole;
-          /* Single read → mutate → single write per frame.
-             Round wrap point to integer; sub-pixel half is what produces 0.5px judder. */
-          var sl = wrap.scrollLeft + whole;
-          var half = Math.round(track.scrollWidth / 2);
-          if (half > 0 && sl >= half) sl -= half;
-          wrap.scrollLeft = sl;
-          lastJsScrollAt = performance.now();
+      if (mq.matches) {
+        var paused = isTouching
+                  || (lastUserInput && (performance.now() - lastUserInput < IDLE_AFTER_INPUT_MS));
+        if (!paused) {
+          var dt = lastTs ? (ts - lastTs) / 1000 : 0;
+          if (dt > 0.1) dt = 0.1;
+          virtualX += PX_PER_SEC * dt;
+          wrapVirtual();
+          applyTransform();
         }
       } else {
-        accum = 0;
+        /* Desktop: hand control back to the CSS keyframe animation by clearing inline transform. */
+        if (track.style.transform) track.style.transform = '';
       }
       lastTs = ts;
       requestAnimationFrame(tick);

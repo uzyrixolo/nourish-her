@@ -530,23 +530,19 @@
     padding-inline: 0;
   }
   .nh-reviews-track-wrap {
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    scroll-behavior: auto;
-    overscroll-behavior-x: contain;
-    /* Light hint only — don't force a GPU layer here, it can cause
-       sub-pixel shimmer on iOS when child cards also have their own layer. */
-    will-change: scroll-position;
-  }
-  .nh-reviews-track-wrap::-webkit-scrollbar {
-    display: none;
+    /* Mobile: JS drives motion via GPU transform on the track.
+       Native scroll is OFF here — scrollLeft mutations on iOS produce a per-frame
+       sub-pixel shake we cannot eliminate. touch-action: pan-y lets the page
+       scroll vertically while horizontal swipes are handled by JS. */
+    overflow: hidden;
+    touch-action: pan-y;
   }
   .nh-reviews-track {
     animation: none;
+    will-change: transform;
+    backface-visibility: hidden;
     /* IMPORTANT: no padding-inline here. The seamless wrap math assumes
-       scrollWidth / 2 == one content copy width. Any padding on the track
+       one content cycle == scrollWidth / 2. Any padding on the track
        offsets that and produces a visible jump on every loop. */
   }
 }
