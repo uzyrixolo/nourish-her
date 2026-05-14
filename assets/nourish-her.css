@@ -1443,6 +1443,13 @@ a.nh-money-back-link:hover {
   text-decoration-color: currentColor;
 }
 
+/* Sticky add-to-cart bar: keep the link active but remove the underline
+   (the trust strip is dense and the underline competes visually). */
+.nh-sticky-bottom-cta a.nh-money-back-link,
+.nh-sticky-bottom-cta a.nh-money-back-link:hover {
+  text-decoration: none;
+}
+
 /* =============================================
    LAB TESTED SECTION
 ============================================= */
