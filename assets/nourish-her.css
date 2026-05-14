@@ -1944,6 +1944,12 @@ a.nh-money-back-link:hover {
     padding: 60px 0%;
   }
 
+  /* Inline padding moved to inner wrapper so sections that opt for full-bleed
+     (e.g. .nh-reviews-section) can stay edge-to-edge while their headings remain inset. */
+  .nh-section-inner {
+    padding-inline: 5%;
+  }
+
   .nh-sticky-bottom-cta {
     flex-direction: column;
   }

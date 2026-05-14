@@ -129,27 +129,38 @@
     if (!wrap) return;
 
     var mq = window.matchMedia('(max-width: 768px)');
-    var PX_PER_SEC = 40;        /* matches desktop CSS animation speed */
+    var PX_PER_SEC = 40;             /* matches desktop CSS animation speed */
+    var IDLE_AFTER_INPUT_MS = 1500;  /* keep paused this long after last user-initiated scroll */
     var lastTs = 0;
-    var accum = 0;              /* accumulates fractional px (scrollLeft is integer on most browsers) */
-    var isTouching = false;     /* finger / pointer currently held down on the carousel */
+    var accum = 0;                   /* accumulates fractional px (scrollLeft is integer) */
+    var isTouching = false;
+    var lastUserInput = 0;           /* perf timestamp of last user-driven scroll/touch */
+    var lastJsScrollAt = 0;          /* perf timestamp of our most recent scrollLeft mutation */
 
-    /* Pause auto-scroll only while actively held. Resume immediately on release
-       so the user can press-and-hold a card to read it without the strip tugging away,
-       but a quick swipe still rides on top of the auto-scroll. */
-    function onDown() { isTouching = true; }
-    function onUp()   { isTouching = false; lastTs = 0; }
-    wrap.addEventListener('touchstart',  onDown, { passive: true });
-    wrap.addEventListener('touchend',    onUp,   { passive: true });
-    wrap.addEventListener('touchcancel', onUp,   { passive: true });
+    /* Pause auto-scroll while finger is down AND for a brief idle window after release
+       so native momentum scroll (and reverse swipes) don't fight the JS increments. */
+    function onDown() { isTouching = true;  lastUserInput = performance.now(); }
+    function onUp()   { isTouching = false; lastUserInput = performance.now(); lastTs = 0; }
+    wrap.addEventListener('touchstart',   onDown, { passive: true });
+    wrap.addEventListener('touchend',     onUp,   { passive: true });
+    wrap.addEventListener('touchcancel',  onUp,   { passive: true });
     wrap.addEventListener('pointerdown',  onDown, { passive: true });
     wrap.addEventListener('pointerup',    onUp,   { passive: true });
     wrap.addEventListener('pointercancel', onUp,  { passive: true });
 
+    /* Any scroll event that didn't come from our own scrollLeft mutation
+       (i.e. native touch + momentum) refreshes the idle window. */
+    wrap.addEventListener('scroll', function () {
+      if (performance.now() - lastJsScrollAt < 60) return; /* ours, ignore */
+      lastUserInput = performance.now();
+    }, { passive: true });
+
     function tick(ts) {
-      if (mq.matches && !isTouching) {
+      var paused = !mq.matches
+                || isTouching
+                || (lastUserInput && (performance.now() - lastUserInput < IDLE_AFTER_INPUT_MS));
+      if (!paused) {
         var dt = lastTs ? (ts - lastTs) / 1000 : 0;
-        /* Clamp dt to avoid huge jumps when tab was backgrounded or after release */
         if (dt > 0.1) dt = 0.1;
         accum += PX_PER_SEC * dt;
         if (accum >= 1) {
@@ -157,11 +168,11 @@
           wrap.scrollLeft += whole;
           accum -= whole;
         }
-        /* Content is duplicated; wrap seamlessly at 50% */
         var half = track.scrollWidth / 2;
         if (half > 0 && wrap.scrollLeft >= half) {
           wrap.scrollLeft -= half;
         }
+        lastJsScrollAt = performance.now();
       } else {
         accum = 0;
       }
